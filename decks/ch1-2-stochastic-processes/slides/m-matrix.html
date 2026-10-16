@@ -1,0 +1,66 @@
+<section id="m-matrix" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 马尔可夫链</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">转移概率、状态转移图和转移矩阵</h2>
+</div>
+<svg aria-label="两状态马尔可夫链：好 G 与坏 B 之间的转移" viewBox="0 0 900 560" width="900" height="560" style="position:absolute;left:168px;top:264px">
+<circle cx="200" cy="300" r="80" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/>
+<circle cx="700" cy="300" r="80" fill="#FDEBDD" stroke="#C2410C" stroke-width="5"/>
+<path d="M263.0,250.7Q450,110 614.6,233.9" fill="none" stroke="#14253D" stroke-width="5"/><polygon points="637.0,250.7 605.2,243.1 620.8,222.3" fill="#14253D"/>
+<path d="M637.0,349.3Q450,490 285.4,366.1" fill="none" stroke="#14253D" stroke-width="5"/><polygon points="263.0,349.3 294.8,356.9 279.2,377.7" fill="#14253D"/>
+<path d="M134.5,254.1C10,150 10,450 113.0,363.9" fill="none" stroke="#14253D" stroke-width="5"/><polygon points="134.5,345.9 119.8,375.1 103.1,355.2" fill="#14253D"/>
+<path d="M765.5,254.1C890,150 890,450 787.0,363.9" fill="none" stroke="#14253D" stroke-width="5"/><polygon points="765.5,345.9 796.9,355.2 780.2,375.1" fill="#14253D"/>
+</svg>
+<p style="position:absolute;left:328px;top:524px;width:80px;height:80px;font-size:48px;font-weight:700;line-height:80px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">G</p>
+<p style="position:absolute;left:828px;top:524px;width:80px;height:80px;font-size:48px;font-weight:700;line-height:80px;text-align:center;color:#9A3412;font-family:'Times New Roman', Georgia, serif">B</p>
+<p style="position:absolute;left:578px;top:396px;width:80px;font-size:32px;font-weight:700;text-align:center;color:#14253D;background:#FBF9F3">0.1</p>
+<p style="position:absolute;left:578px;top:690px;width:80px;font-size:32px;font-weight:700;text-align:center;color:#14253D;background:#FBF9F3">0.4</p>
+<p style="position:absolute;left:130px;top:550px;width:70px;font-size:32px;font-weight:700;text-align:right;color:#14253D">0.9</p>
+<p style="position:absolute;left:1040px;top:550px;width:70px;font-size:32px;font-weight:700;color:#14253D">0.6</p>
+<p style="position:absolute;left:228px;top:668px;width:280px;font-size:28px;color:#1E40AF">G：信道好</p>
+<p style="position:absolute;left:728px;top:668px;width:280px;font-size:28px;color:#9A3412">B：信道坏</p>
+<div style="position:absolute;left:1180px;top:270px;width:612px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">一步转移概率</p>
+<div style="display:flex;align-items:flex-end;gap:4px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>P</i></p><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>ij</i></p></div>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>P</i>{</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i>+1</p></div>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>j</i> |</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i></p></div>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>i</i>}</p>
+</div>
+<p style="font-size:28px;color:#D5DCE6">从状态 <i>i</i> 一步走到状态 <i>j</i> 的概率。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">转移矩阵 <i>P</i>（行 = 现在，列 = 下一步）</p>
+<div style="display:flex;align-items:center;gap:18px">
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>P</i> =</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;padding:0 22px 0 56px"><p style="width:130px;font-size:28px;font-weight:700;color:#1E40AF;text-align:center">下一步 G</p><p style="width:130px;font-size:28px;font-weight:700;color:#9A3412;text-align:center">下一步 B</p></div>
+<div style="display:flex;align-items:flex-start;gap:6px">
+<div style="display:flex;flex-direction:column;gap:4px;width:50px;padding-top:8px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF;line-height:57px;text-align:right">G</p>
+<p style="font-size:28px;font-weight:700;color:#9A3412;line-height:57px;text-align:right">B</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:5px solid #14253D;border-right:5px solid #14253D;border-radius:10px;padding:8px 22px">
+<div style="display:flex"><p style="width:130px;font-size:44px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.9</p><p style="width:130px;font-size:44px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.1</p></div>
+<div style="display:flex"><p style="width:130px;font-size:44px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.4</p><p style="width:130px;font-size:44px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.6</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 26px">
+<p style="font-size:28px;color:#14253D">每行之和 = 1：0.9 + 0.1，0.4 + 0.6。</p>
+</div>
+</div>
+<aside>【1.8 分钟】
+用一个具体的两状态信道来讲：G（好）、B（坏）。
+转移概率 P_ij = P{X_{n+1}=j | X_n=i}：现在在状态 i，下一步到状态 j 的概率。
+本例的数字：好信道有 90% 的概率保持好，10% 变坏（P_GG=0.9，P_GB=0.1）；坏信道有 40% 的概率恢复，60% 继续坏（P_BG=0.4，P_BB=0.6）。
+左边是“状态转移图”：圆圈是状态，箭头是转移，箭头上的数字是概率；指向自己的箭头是“保持不变”。右边是“转移矩阵”P：第 i 行第 j 列就是 P_ij。
+关键性质：每一行的概率之和等于 1（从任何一个状态出发，下一步一定会去某个状态）。0.9 + 0.1 = 1，0.4 + 0.6 = 1。
+一个小测验：如果有人告诉你 P = [[0.5, 0.6],[0.3, 0.7]]，哪里不对？（第一行之和是 1.1，不合法。）
+[图与矩阵的对应：转移图右边 B→G 的 0.4 就是矩阵第 2 行第 1 列。]</aside>
+</section>

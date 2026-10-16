@@ -1,0 +1,81 @@
+<section id="p-who" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · Poisson 过程</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">合并之后：下一个到达来自谁？</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">赛跑模型</p>
+<p style="font-size:32px;color:#14253D">用户 1 的下次到达时间 <i>T</i>₁ ~ Exp(<i>λ</i>₁)；其余用户合起来 <i>X</i> ~ Exp(<i>λ</i>₂ + <i>λ</i>₃)。谁先到，谁就是“下一个”。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:20px;padding:22px 28px">
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>P</i>{<i>T</i>₁ &lt; <i>X</i>} =</p>
+<div style="display:flex;flex-direction:column;align-items:center">
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">∞</p>
+<p style="font-size:60px;line-height:1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">∫</p>
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">0</p>
+</div>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>λ</i>₁<i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">−<i>λ</i>₁<i>z</i></p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;padding-left:10px">· <i>P</i>{<i>X</i> &gt; <i>z</i>} d<i>z</i></p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">=</p>
+<div style="display:flex;flex-direction:column;align-items:center">
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">∞</p>
+<p style="font-size:60px;line-height:1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">∫</p>
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">0</p>
+</div>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>λ</i>₁<i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">−(<i>λ</i>₁+<i>λ</i>₂+<i>λ</i>₃)<i>z</i></p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;padding-left:10px">d<i>z</i></p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">=</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 10px 4px"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4975A"><i>λ</i>₁</p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4975A;padding:4px 10px 0"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4975A"><i>λ</i>₁ + <i>λ</i>₂ + <i>λ</i>₃</p></div>
+</div>
+</div>
+</div>
+<p style="font-size:32px;font-weight:700;background:#FDEBDD;color:#9A3412;border:2px solid #C2410C;border-radius:16px;padding:14px 24px">下一个到达来自用户 <i>i</i> 的概率 = 它的速率占总速率的比例。</p>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:18px">
+<p style="font-size:32px;font-weight:700;color:#14253D">例：<i>λ</i> = (2, 3, 5)，总速率 10</p>
+<div style="display:flex;height:84px;border-radius:14px;overflow:hidden">
+<div style="width:128px;background:#1D4ED8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:700;color:#F4F8FF">20%</p></div>
+<div style="width:192px;background:#C2410C;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:700;color:#FFF6EC">30%</p></div>
+<div style="width:320px;background:#14253D;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:700;color:#F4F1E8">50%</p></div>
+</div>
+<div style="display:flex">
+<p style="width:128px;font-size:28px;color:#1E40AF">用户 1</p>
+<p style="width:192px;font-size:28px;color:#9A3412">用户 2</p>
+<p style="width:320px;font-size:28px;color:#14253D">用户 3</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">再问一个</p>
+<p style="font-size:28px;color:#14253D">连续 3 个都来自用户 3，随后一个来自别人的概率？</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0.5</p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">3</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">× 0.5 = 0.0625</p>
+</div>
+</div>
+</div>
+</div>
+<aside>【1.8 分钟】
+合并之后，基站看到一个呼叫，问：它来自哪个用户？
+把它想成一场“赛跑”：用户 1 的下一次到达时间 T₁ 服从 Exp(λ₁)；其余两个用户合并后仍是 Poisson 流，下一次到达时间 X 服从 Exp(λ₂+λ₃)。用户 1 是“下一个”，当且仅当 T₁ < X。
+推导：对 T₁ 的取值 z 积分，P{T₁<X} = ∫₀^∞ λ₁e^{−λ₁z}·P{X>z} dz = ∫₀^∞ λ₁e^{−λ₁z}·e^{−(λ₂+λ₃)z} dz = ∫₀^∞ λ₁ e^{−(λ₁+λ₂+λ₃)z} dz = λ₁/(λ₁+λ₂+λ₃)。
+结论很直观：下一个到达来自用户 i 的概率，就是它的速率占总速率的比例。
+例：速率 (2,3,5)，总速率 10，下一个来自三个用户的概率分别是 20%、30%、50%。
+再问一个：连续 3 个都来自用户 3，随后一个来自别人：每次独立，所以 0.5³ × 0.5 = 0.0625。
+这个“下一个来自谁，与过去无关”的性质，正是后面要讲的无记忆性的体现。
+（对应参考 PPT 的“红绿蓝三种汽车”的例题，这里换成了用户呼叫。）</aside>
+</section>

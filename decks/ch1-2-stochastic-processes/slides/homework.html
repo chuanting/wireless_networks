@@ -1,0 +1,41 @@
+<section id="homework" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">四道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① Poisson 到达</p>
+<p style="font-size:32px;color:#14253D">基站的呼叫按速率 <i>λ</i> = 4 次/分钟到达。求：2 分钟内恰好有 3 次呼叫的概率；相邻两次呼叫间隔超过 30 秒的概率。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 合并与分流</p>
+<p style="font-size:32px;color:#14253D">两路独立的 Poisson 流，速率为 3 和 5 个/秒，合并后每个包以概率 0.25 被转发到另一条链路。转发流的速率是多少？是 Poisson 流吗？</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ 动手算稳态分布</p>
+<div style="display:flex;align-items:center;gap:16px">
+<p style="font-size:32px;color:#14253D">两状态链：<i>P</i> =</p>
+<div style="display:flex;flex-direction:column;gap:2px;border-left:5px solid #14253D;border-right:5px solid #14253D;border-radius:10px;padding:4px 18px">
+<div style="display:flex"><p style="width:90px;font-size:36px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.7</p><p style="width:90px;font-size:36px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.3</p></div>
+<div style="display:flex"><p style="width:90px;font-size:36px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.2</p><p style="width:90px;font-size:36px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;text-align:center">0.8</p></div>
+</div>
+</div>
+<p style="font-size:32px;color:#14253D">求稳态分布 <i>π</i>。若两个状态的丢包率分别是 0 和 0.5，平均丢包率是多少？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ 想一想</p>
+<p style="font-size:32px;color:#14253D">路由器的负载从 <i>ρ</i> = 0.8 提高到 0.9，平均队长会变成原来的几倍？这对“把链路用满”的想法意味着什么？</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① 2 分钟内的平均到达数 λτ = 4 × 2 = 8。P{K=3} = 8³ e^{−8} / 3! = 512 × 0.000335 / 6 ≈ 0.0286。间隔超过 30 秒 = 0.5 分钟：P{T > 0.5} = e^{−λ×0.5} = e^{−2} ≈ 0.135。
+② 合并后速率 3 + 5 = 8 个/秒；以概率 0.25 分流，转发流速率 8 × 0.25 = 2 个/秒；独立分流后仍是 Poisson 流。
+③ π = πP：π_1 = 0.7 π_1 + 0.2 π_2，即 0.3 π_1 = 0.2 π_2，π_1 : π_2 = 2 : 3；归一化得 π = (0.4, 0.6)。平均丢包率 = 0.4 × 0 + 0.6 × 0.5 = 0.3。（也可用“流进 = 流出”：0.4 × 0.3 = 0.6 × 0.2 = 0.12。）
+④ E[N] = ρ/(1−ρ)：ρ = 0.8 时为 4，ρ = 0.9 时为 9，变成原来的 2.25 倍。负载只增加了 0.1，平均队长（也就是平均排队时延）却翻了一倍多——越接近满载，代价越大，所以不能追求把链路用满，要留出余量。
+可作为拓展题：把③的链换成三状态链，再用 π = πP 解一次；或把②中的“分流”改成“轮流”（每隔一个包转发一个），转发流还是 Poisson 流吗？（不是，间隔变成了 Erlang-2。）</aside>
+</section>

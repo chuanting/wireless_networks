@@ -1,0 +1,61 @@
+<section id="p-def" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · Poisson 过程</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Poisson 过程的“三条规矩”</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">1</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#14253D">计数过程</p>
+<p style="font-size:28px;color:#4B5A6B"><i>N</i>(<i>t</i>) 表示 [0, <i>t</i>] 内到达的总个数，<i>N</i>(0) = 0。</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">2</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#14253D">独立增量</p>
+<p style="font-size:28px;color:#4B5A6B">不重叠的两段时间里，到达数互相独立。上午来多少人，不影响下午来多少人。</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:24px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">3</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#14253D">到达数服从 Poisson 分布</p>
+<p style="font-size:28px;color:#4B5A6B">任意一段长为 <i>τ</i> 的时间里，到达数 <i>K</i> 服从参数为 <i>λτ</i> 的 Poisson 分布（右图）。</p>
+</div>
+</div>
+</div>
+<div style="width:760px;display:flex;flex-direction:column;gap:18px;background:#14253D;border-radius:24px;padding:32px 36px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">到达数的分布</p>
+<div style="display:flex;align-items:center;gap:14px">
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>P</i>{<i>K</i> = <i>k</i>} =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;align-items:flex-start;justify-content:center;padding:0 10px 6px">
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">(<i>λτ</i>)</p>
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>k</i></p>
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;padding-left:12px"><i>e</i></p>
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">−<i>λτ</i></p>
+</div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:6px 10px 0">
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>k</i>!</p>
+</div>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>k</i> = 0, 1, 2, …</p>
+<p style="font-size:32px;color:#F4F1E8">均值 = 方差 = <i>λτ</i></p>
+</div>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:20px 28px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">λ 叫“到达率”：平均每单位时间到达 λ 个。例：λ = 3 个/分钟，那么 2 分钟里平均来 6 个。</p>
+</div>
+<aside>【1.8 分钟】
+什么样的到达过程叫 Poisson 过程？只需要三条规矩：
+① 它是一个计数过程：N(t) 数的是从 0 时刻到 t 时刻累计到达了多少个，N(0)=0。
+② 独立增量：不重叠的两段时间里，到达数互相独立。比如上午 8–9 点来了多少个电话，不影响下午 3–4 点来多少个。
+③ 平稳：任意一段长度为 τ 的时间里，到达数 K 服从参数为 λτ 的 Poisson 分布：P{K=k} = (λτ)^k e^{−λτ} / k!，k=0,1,2,…，均值和方差都等于 λτ。
+λ 就是到达率——平均每单位时间来几个。例：基站平均每分钟 3 个呼叫（λ=3），那么 2 分钟里平均来 6 个。
+下面两页回答：这个 Poisson 分布的公式是怎么来的？它长什么样？
+[提示：这里的“增量” N(t)−N(s)，就是区间 (s, t] 里的到达数。]</aside>
+</section>

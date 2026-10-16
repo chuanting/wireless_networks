@@ -17,7 +17,11 @@ window.COURSE = {
       en: "Introduction & Mathematical Foundations",
       sections: [
         { no: "1.1", title: "课件待补充", status: "todo" },
-        { no: "1.2", title: "课件待补充", status: "todo" },
+        {
+          no: "1.2", title: "数学基础：随机过程", status: "ready",
+          desc: "随机过程的基本概念 · Poisson 过程 · 马尔可夫链",
+          deck: "ch1-2-stochastic-processes", slides: 38, minutes: 60
+        },
         {
           no: "1.3", title: "数学基础：图论", status: "ready",
           desc: "图的概念 · 路径与回路 · 生成树与最小生成树 · 割集",

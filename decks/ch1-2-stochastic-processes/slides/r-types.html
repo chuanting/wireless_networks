@@ -1,0 +1,45 @@
+<section id="r-types" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 随机过程的基本概念</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">几类常用的随机过程</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:30px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">类型一</p>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">独立过程</h3>
+<p style="font-size:32px;color:#14253D">各个时刻的取值互相独立。</p>
+<p style="font-size:28px;color:#4B5A6B">例：每个时隙独立地“抛硬币”，决定发不发包。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:24px;padding:30px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">类型二</p>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">独立增量过程</h3>
+<p style="font-size:32px;color:#14253D">不重叠时间段内的变化互相独立。</p>
+<p style="font-size:28px;color:#4B5A6B">例：累计到达数 <i>N</i>(<i>t</i>)。</p>
+<p style="font-size:28px;font-weight:700;color:#9A3412">→ Poisson 过程（第二部分）</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:30px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">类型三</p>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">平稳过程</h3>
+<p style="font-size:32px;color:#14253D">统计特性不随时间平移而改变。</p>
+<p style="font-size:28px;color:#4B5A6B">例：稳定工作时，接收机的噪声。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:24px;padding:30px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">类型四</p>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">马尔可夫过程</h3>
+<p style="font-size:32px;color:#14253D">未来只取决于现在，与过去无关。</p>
+<p style="font-size:28px;color:#4B5A6B">例：信道的好 / 坏状态、队列长度。</p>
+<p style="font-size:28px;font-weight:700;color:#9A3412">→ 马尔可夫链（第三部分）</p>
+</div>
+</div>
+</div>
+<aside>【1.5 分钟】
+实际中不会去研究“任意的”随机过程，而是研究几类有特殊结构、容易分析的：
+① 独立过程：各时刻的取值互相独立，联合分布等于各自分布的乘积。最简单，比如每个时隙独立地决定发不发包。
+② 独立增量过程：不重叠时间段里的变化互相独立。累计到达数就是典型——上午来多少人不影响下午来多少人。Poisson 过程就是其中最重要的一个。
+③ 平稳过程：统计特性不随时间平移而改变。下一页细讲。
+④ 马尔可夫过程：未来只取决于现在，与过去无关（无后效性）。信道状态、队列长度常用它来建模。离散状态的马尔可夫过程叫马尔可夫链。
+本课的两个重点（橙色）：Poisson 过程和马尔可夫链。可以证明：独立增量过程一定是马尔可夫过程，所以 Poisson 过程同时属于这两类。</aside>
+</section>

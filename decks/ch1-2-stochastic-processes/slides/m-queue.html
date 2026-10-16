@@ -1,0 +1,110 @@
+<section id="m-queue" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 马尔可夫链</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数字例子：负载从 0.5 到 0.9，队列有多长？</h2>
+</div>
+<svg aria-label="路由器缓冲区队长的稳态分布，ρ=0.5" viewBox="0 0 800 420" width="800" height="420" style="position:absolute;left:128px;top:290px">
+<g stroke="#5B6B7C" stroke-width="3"><path d="M30,360H770"/></g>
+<rect x="44" y="60" width="56" height="300" rx="4" fill="#1D4ED8"/>
+<rect x="118" y="210" width="56" height="150" rx="4" fill="#1D4ED8"/>
+<rect x="192" y="285" width="56" height="75" rx="4" fill="#1D4ED8"/>
+<rect x="266" y="322" width="56" height="38" rx="4" fill="#1D4ED8"/>
+<rect x="340" y="341" width="56" height="19" rx="4" fill="#1D4ED8"/>
+<rect x="414" y="351" width="56" height="9" rx="4" fill="#1D4ED8"/>
+<rect x="488" y="355" width="56" height="5" rx="4" fill="#1D4ED8"/>
+<rect x="562" y="358" width="56" height="2" rx="4" fill="#1D4ED8"/>
+<rect x="636" y="359" width="56" height="1" rx="4" fill="#1D4ED8"/>
+<rect x="710" y="359" width="56" height="1" rx="4" fill="#1D4ED8"/>
+</svg>
+<svg aria-label="路由器缓冲区队长的稳态分布，ρ=0.9" viewBox="0 0 800 420" width="800" height="420" style="position:absolute;left:992px;top:290px">
+<g stroke="#5B6B7C" stroke-width="3"><path d="M30,360H770"/></g>
+<rect x="44" y="300" width="56" height="60" rx="4" fill="#C2410C"/>
+<rect x="118" y="306" width="56" height="54" rx="4" fill="#C2410C"/>
+<rect x="192" y="311" width="56" height="49" rx="4" fill="#C2410C"/>
+<rect x="266" y="316" width="56" height="44" rx="4" fill="#C2410C"/>
+<rect x="340" y="321" width="56" height="39" rx="4" fill="#C2410C"/>
+<rect x="414" y="325" width="56" height="35" rx="4" fill="#C2410C"/>
+<rect x="488" y="328" width="56" height="32" rx="4" fill="#C2410C"/>
+<rect x="562" y="331" width="56" height="29" rx="4" fill="#C2410C"/>
+<rect x="636" y="334" width="56" height="26" rx="4" fill="#C2410C"/>
+<rect x="710" y="337" width="56" height="23" rx="4" fill="#C2410C"/>
+</svg>
+<p style="position:absolute;left:128px;top:236px;width:800px;font-size:36px;font-weight:700;color:#1E40AF"><i>ρ</i> = 0.5（轻载）</p>
+<p style="position:absolute;left:992px;top:236px;width:800px;font-size:36px;font-weight:700;color:#9A3412"><i>ρ</i> = 0.9（重载）</p>
+<p style="position:absolute;left:150px;top:308px;width:100px;font-size:28px;font-weight:700;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">0.50</p>
+<p style="position:absolute;left:224px;top:458px;width:100px;font-size:28px;font-weight:700;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">0.25</p>
+<p style="position:absolute;left:298px;top:533px;width:100px;font-size:28px;font-weight:700;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">0.125</p>
+<p style="position:absolute;left:1014px;top:548px;width:100px;font-size:28px;font-weight:700;text-align:center;color:#9A3412;font-family:'Times New Roman', Georgia, serif">0.10</p>
+<p style="position:absolute;left:1680px;top:585px;width:100px;font-size:28px;font-weight:700;text-align:center;color:#9A3412;font-family:'Times New Roman', Georgia, serif">0.039</p>
+<p style="position:absolute;left:170px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">0</p>
+<p style="position:absolute;left:244px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">1</p>
+<p style="position:absolute;left:318px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">2</p>
+<p style="position:absolute;left:392px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">3</p>
+<p style="position:absolute;left:466px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">4</p>
+<p style="position:absolute;left:540px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">5</p>
+<p style="position:absolute;left:614px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">6</p>
+<p style="position:absolute;left:688px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">7</p>
+<p style="position:absolute;left:762px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">8</p>
+<p style="position:absolute;left:836px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">9</p>
+<p style="position:absolute;left:1034px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">0</p>
+<p style="position:absolute;left:1108px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">1</p>
+<p style="position:absolute;left:1182px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">2</p>
+<p style="position:absolute;left:1256px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">3</p>
+<p style="position:absolute;left:1330px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">4</p>
+<p style="position:absolute;left:1404px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">5</p>
+<p style="position:absolute;left:1478px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">6</p>
+<p style="position:absolute;left:1552px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">7</p>
+<p style="position:absolute;left:1626px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">8</p>
+<p style="position:absolute;left:1700px;top:656px;width:60px;font-size:24px;line-height:1.4;text-align:center;color:#4B5A6B;font-family:'Times New Roman', Georgia, serif">9</p>
+<p style="position:absolute;left:128px;top:692px;width:800px;font-size:24px;text-align:center;color:#4B5A6B">缓冲区队长 <i>n</i>（两图纵轴比例相同）</p>
+<p style="position:absolute;left:992px;top:692px;width:800px;font-size:24px;text-align:center;color:#4B5A6B">缓冲区队长 <i>n</i>（两图纵轴比例相同）</p>
+<div style="position:absolute;left:128px;top:740px;width:800px;display:flex;gap:14px">
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#1E40AF">队列为空的概率</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0.50</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#1E40AF">平均队长</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#1E40AF">队长 ≥ 10 的概率</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0.001</p>
+</div>
+</div>
+<div style="position:absolute;left:992px;top:740px;width:800px;display:flex;gap:14px">
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#9A3412">队列为空的概率</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0.10</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#9A3412">平均队长</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">9</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:12px 18px">
+<p style="font-size:24px;color:#9A3412">队长 ≥ 10 的概率</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0.349</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;top:886px;width:1664px;display:flex;align-items:center;gap:40px;background:#14253D;border-radius:20px;padding:14px 36px">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">E[<i>N</i>] = </p></div>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 2px"><p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>ρ</i></p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 8px 0"><p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1 − <i>ρ</i></p></div>
+</div>
+</div>
+<p style="flex:1;font-size:30px;font-weight:700;line-height:1.4;color:#F4975A"><i>ρ</i> = 0.5 → 0.9 → 0.95，平均队长 1 → 9 → 19：越接近满载，排队时延越是急剧恶化。</p>
+</div>
+<aside>【2.5 分钟】
+把上一页的公式 π_n = (1−ρ) ρ^n 代入具体数字，看看它说了什么。左图 ρ = 0.5（轻载），右图 ρ = 0.9（重载），两张图用同样的纵轴比例。
+ρ = 0.5：π_0 = 0.5，一半的时间缓冲区是空的；概率随队长迅速衰减，π_1 = 0.25，π_2 = 0.125……平均队长 E[N] = 1；队长达到 10 个以上的概率 ρ^10 ≈ 0.001，千分之一。
+ρ = 0.9：π_0 = 0.1，只有 10% 的时间是空的；概率衰减得很慢，条形几乎是平的；平均队长 E[N] = 9；队长达到 10 个以上的概率 0.9^10 ≈ 0.349，高达 35%！
+平均队长公式：E[N] = Σ n π_n = ρ / (1−ρ)。ρ = 0.5 → 1；ρ = 0.9 → 9；ρ = 0.95 → 19。负载只涨了一点，队列涨了很多——这是排队系统最重要的“非线性”。
+网络含义：
+① 缓冲区大小要留余量。ρ = 0.9 时，队长 ≥ 10 的概率达到 35%，如果缓冲区只有 10 个包，就会频繁丢包。
+② 平均时延 ≈ 平均队长 ×（每个包的服务时间）。负载接近 1 时，时延按 1/(1−ρ) 的速度爆炸。这正是第 3 章“网络时延模型”（M/M/1 排队）要做的事：那里用的是连续时间的 Poisson 到达和指数服务，结论完全是这个形状。
+③ 所以实际网络很少把链路跑到接近满载，通常会把利用率控制在较低水平，给突发流量留出余量。
+[把三件事串起来：Poisson 过程描述“包怎么来”，马尔可夫链描述“队列怎么变”，稳态分布回答“队列平均有多长”。]
+[验证 ρ^10：0.5^10 = 0.000977；0.9^10 = 0.3487。]</aside>
+</section>

@@ -1,0 +1,82 @@
+<section id="p-pmf" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · Poisson 过程</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Poisson 分布长什么样？（<i>λτ</i> = 3）</h2>
+</div>
+<svg aria-label="泊松分布 λτ=3 时 k=0 到 10 的概率柱状图" viewBox="0 0 1000 600" width="1000" height="600" style="position:absolute;left:128px;top:264px">
+<g stroke="#5B6B7C" stroke-width="3"><path d="M40,500H1000"/></g>
+<rect x="60" y="427" width="64" height="73" rx="4" fill="#1D4ED8"/>
+<rect x="142" y="280" width="64" height="220" rx="4" fill="#1D4ED8"/>
+<rect x="224" y="170" width="64" height="330" rx="4" fill="#1D4ED8"/>
+<rect x="306" y="170" width="64" height="330" rx="4" fill="#1D4ED8"/>
+<rect x="388" y="252" width="64" height="248" rx="4" fill="#1D4ED8"/>
+<rect x="470" y="351" width="64" height="149" rx="4" fill="#C2410C"/>
+<rect x="552" y="426" width="64" height="74" rx="4" fill="#1D4ED8"/>
+<rect x="634" y="468" width="64" height="32" rx="4" fill="#1D4ED8"/>
+<rect x="716" y="488" width="64" height="12" rx="4" fill="#1D4ED8"/>
+<rect x="798" y="496" width="64" height="4" rx="4" fill="#1D4ED8"/>
+<rect x="880" y="499" width="64" height="1" rx="4" fill="#1D4ED8"/>
+</svg>
+<p style="position:absolute;left:150px;top:262px;width:500px;font-size:28px;font-weight:700;color:#14253D;font-family:'Times New Roman', Georgia, serif">概率 <i>P</i>{<i>K</i> = <i>k</i>}</p>
+<p style="position:absolute;left:185px;top:655px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.05</p>
+<p style="position:absolute;left:267px;top:508px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.15</p>
+<p style="position:absolute;left:349px;top:398px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.22</p>
+<p style="position:absolute;left:431px;top:398px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.22</p>
+<p style="position:absolute;left:513px;top:480px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.17</p>
+<p style="position:absolute;left:595px;top:579px;width:70px;font-size:24px;font-weight:700;color:#9A3412;text-align:center">0.10</p>
+<p style="position:absolute;left:677px;top:654px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.05</p>
+<p style="position:absolute;left:759px;top:696px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.02</p>
+<p style="position:absolute;left:841px;top:716px;width:70px;font-size:24px;color:#4B5A6B;text-align:center">0.01</p>
+<p style="position:absolute;left:185px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">0</p>
+<p style="position:absolute;left:267px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">1</p>
+<p style="position:absolute;left:349px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">2</p>
+<p style="position:absolute;left:431px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">3</p>
+<p style="position:absolute;left:513px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">4</p>
+<p style="position:absolute;left:595px;top:772px;width:70px;font-size:28px;font-weight:700;color:#9A3412;text-align:center">5</p>
+<p style="position:absolute;left:677px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">6</p>
+<p style="position:absolute;left:759px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">7</p>
+<p style="position:absolute;left:841px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">8</p>
+<p style="position:absolute;left:923px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">9</p>
+<p style="position:absolute;left:1005px;top:772px;width:70px;font-size:28px;color:#14253D;text-align:center">10</p>
+<p style="position:absolute;left:150px;top:822px;width:700px;font-size:28px;color:#4B5A6B">一分钟内到达的个数 <i>k</i></p>
+<div style="position:absolute;left:1220px;top:270px;width:572px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:32px;font-weight:700;color:#14253D">例：基站平均每分钟 3 个呼叫</p>
+<p style="font-size:28px;color:#4B5A6B"><i>λ</i> = 3 个/分钟，<i>τ</i> = 1 分钟，所以 <i>λτ</i> = 3。</p>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 24px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">恰好来 5 个</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">3</p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">5</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px"><i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">−3</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">/ 5! ≈ 0.101</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">一个也没有</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>P</i>{<i>K</i> = 0} = <i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">−3</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">≈ 0.050</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">至少来 1 个</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">−3</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">≈ 0.950</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">均值 = 方差 = 3：概率集中在 3 附近。</p>
+</div>
+<aside>【1.8 分钟】
+这是 λτ = 3 时的 Poisson 分布：横轴是区间内到达的个数 k，纵轴是概率。
+可以看到：最可能的是 2 个或 3 个（各约 0.22），整体围绕均值 3 左右对称偏右；个数越多，概率衰减得越快。
+例：基站平均每分钟 3 个呼叫（λ=3，τ=1，λτ=3）。
+① 恰好 5 个：3^5 e^{−3} / 5! = 243 × 0.0498 / 120 ≈ 0.101；
+② 一分钟内一个呼叫也没有：e^{−3} ≈ 0.050，大约 20 分钟里会有 1 分钟没有任何呼叫；
+③ 至少 1 个：1 − e^{−3} ≈ 0.950。
+Poisson 分布的均值 = 方差 = λτ，这是它的一个“指纹”：如果测得的到达数方差远大于均值，说明流量比 Poisson 更“突发”。
+让学生动手：如果 λ = 3，τ = 2 分钟，恰好来 6 个的概率是多少？（λτ = 6，6^6 e^{−6}/6! ≈ 0.161。）</aside>
+</section>

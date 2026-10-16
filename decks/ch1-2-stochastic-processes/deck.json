@@ -1,0 +1,27 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-16T12:00:00Z" },
+  "lists": "css",
+  "title": "随机过程基础：Poisson 过程与马尔可夫链",
+  "order": [
+    "cover", "why", "agenda",
+    "d1", "r-day", "r-many", "r-def", "r-mean", "r-corr", "r-types", "r-stat", "r-ergodic",
+    "d2", "p-count", "p-def", "p-derive", "p-pmf", "p-exp", "p-memory", "p-merge", "p-who", "p-split", "p-summary",
+    "d3", "m-intro", "m-prop", "m-matrix", "m-nstep", "m-converge", "m-stat", "m-balance", "m-cond", "m-apply", "m-bd", "m-bd-sol", "m-queue",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：网络里的随机现象，以及本课的三块内容。", "start": "cover" },
+    "s1": { "description": "随机过程的基本概念：样本函数、均值与相关、平稳性。", "start": "d1" },
+    "s2": { "description": "Poisson 过程：到达的数学模型，指数间隔，合并与分流。", "start": "d2" },
+    "s3": { "description": "马尔可夫链：信道模型、稳态分布与生灭链。", "start": "d3" },
+    "s4": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

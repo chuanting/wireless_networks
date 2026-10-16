@@ -1,0 +1,93 @@
+<section id="m-bd-sol" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 马尔可夫链</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">生灭链的稳态：切一刀就能解</h2>
+</div>
+<svg aria-label="生灭链：在状态 2 与 3 之间画一条竖线" viewBox="0 0 1664 300" width="1664" height="300" style="position:absolute;left:128px;top:250px">
+<circle cx="150" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><circle cx="420" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><circle cx="690" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><circle cx="960" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><circle cx="1230" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><circle cx="1500" cy="150" r="54" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="5"/><line x1="204" y1="130" x2="338.0" y2="130.0" stroke="#C2410C" stroke-width="4"/><polygon points="366,130 336.0,143.0 336.0,117.0" fill="#C2410C"/>
+<line x1="366" y1="170" x2="232.0" y2="170.0" stroke="#14253D" stroke-width="4"/><polygon points="204,170 234.0,157.0 234.0,183.0" fill="#14253D"/>
+<line x1="474" y1="130" x2="608.0" y2="130.0" stroke="#C2410C" stroke-width="4"/><polygon points="636,130 606.0,143.0 606.0,117.0" fill="#C2410C"/>
+<line x1="636" y1="170" x2="502.0" y2="170.0" stroke="#14253D" stroke-width="4"/><polygon points="474,170 504.0,157.0 504.0,183.0" fill="#14253D"/>
+<line x1="744" y1="130" x2="878.0" y2="130.0" stroke="#C2410C" stroke-width="4"/><polygon points="906,130 876.0,143.0 876.0,117.0" fill="#C2410C"/>
+<line x1="906" y1="170" x2="772.0" y2="170.0" stroke="#14253D" stroke-width="4"/><polygon points="744,170 774.0,157.0 774.0,183.0" fill="#14253D"/>
+<line x1="1014" y1="130" x2="1148.0" y2="130.0" stroke="#C2410C" stroke-width="4"/><polygon points="1176,130 1146.0,143.0 1146.0,117.0" fill="#C2410C"/>
+<line x1="1176" y1="170" x2="1042.0" y2="170.0" stroke="#14253D" stroke-width="4"/><polygon points="1014,170 1044.0,157.0 1044.0,183.0" fill="#14253D"/>
+<line x1="1284" y1="130" x2="1418.0" y2="130.0" stroke="#C2410C" stroke-width="4"/><polygon points="1446,130 1416.0,143.0 1416.0,117.0" fill="#C2410C"/>
+<line x1="1446" y1="170" x2="1312.0" y2="170.0" stroke="#14253D" stroke-width="4"/><polygon points="1284,170 1314.0,157.0 1314.0,183.0" fill="#14253D"/>
+<path d="M1564,150h46M1634,150h4" stroke="#5B6B7C" stroke-width="4" stroke-dasharray="4 10"/>
+<line x1="825.0" y1="20" x2="825.0" y2="280" stroke="#C2410C" stroke-width="5" stroke-dasharray="14 10"/>
+</svg>
+<p style="position:absolute;left:238px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">0</p>
+<p style="position:absolute;left:508px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">1</p>
+<p style="position:absolute;left:778px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">2</p>
+<p style="position:absolute;left:1048px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">3</p>
+<p style="position:absolute;left:1318px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">4</p>
+<p style="position:absolute;left:1588px;top:372px;width:80px;height:56px;font-size:40px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF;font-family:'Times New Roman', Georgia, serif">5</p>
+<p style="position:absolute;left:923px;top:324px;width:60px;font-size:36px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;font-family:'Times New Roman', Georgia, serif;background:#F0ECE0"><i>p</i></p>
+<p style="position:absolute;left:923px;top:434px;width:60px;font-size:36px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;font-family:'Times New Roman', Georgia, serif;background:#F0ECE0"><i>q</i></p>
+<p style="position:absolute;left:653px;top:226px;width:600px;font-size:28px;font-weight:700;text-align:center;color:#C2410C">在状态 2 与 3 之间切一刀</p>
+<p style="position:absolute;left:128px;top:540px;width:790px;font-size:28px;text-align:center;color:#1E40AF">左半：状态 0, 1, 2</p>
+<p style="position:absolute;left:988px;top:540px;width:790px;font-size:28px;text-align:center;color:#1E40AF">右半：状态 3, 4, 5, …</p>
+<div style="position:absolute;left:128px;top:600px;width:540px;height:220px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 切口两侧流量相等（右 = 左）</p>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">2</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px"><i>p</i> = <i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">3</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px"><i>q</i></p>
+</div>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:30px;line-height:1.3;color:#4B5A6B;padding-right:8px">切在哪都一样：</p>
+<p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>π</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p>
+<p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px"><i>p</i> = <i>π</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>+1</p>
+<p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px"><i>q</i></p>
+</div>
+</div>
+<div style="position:absolute;left:690px;top:600px;width:540px;height:220px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 逐级递推</p>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>+1</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">= <i>ρ</i> <i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p>
+</div>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">⟹ <i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">= <i>ρ</i></p><p style="align-self:flex-start;font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px"><i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0</p>
+</div>
+</div>
+<div style="position:absolute;left:1252px;top:600px;width:540px;height:220px;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 归一化：概率之和 = 1</p>
+<div style="display:flex;align-items:center;gap:6px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>π</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0</p></div>
+<div style="display:flex;flex-direction:column;align-items:center">
+<p style="font-size:22px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#14253D">∞</p>
+<p style="font-size:46px;line-height:1;font-family:'Times New Roman', Georgia, serif;color:#14253D">Σ</p>
+<p style="font-size:22px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>=0</p>
+</div>
+<div style="display:flex;align-items:flex-start"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>ρ</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding:0 4px">=</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;align-items:flex-end;padding:0 6px 2px"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>π</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0</p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>ρ</i></p></div>
+</div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:4px">= 1</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">等比级数求和，要求 <i>ρ</i> &lt; 1。</p>
+</div>
+<div style="position:absolute;left:128px;top:846px;width:1664px;display:flex;align-items:center;gap:48px;background:#C2410C;border-radius:22px;padding:22px 40px">
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#FFF6EC"><i>π</i></p><p style="font-size:32px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#FFF6EC"><i>n</i></p>
+<p style="font-size:60px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#FFF6EC;padding-left:10px">= (1 − <i>ρ</i>) <i>ρ</i></p><p style="align-self:flex-start;font-size:32px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#FFF6EC"><i>n</i></p>
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#FFF6EC;padding-left:24px"><i>n</i> = 0, 1, 2, …</p>
+</div>
+<p style="flex:1;font-size:30px;font-weight:700;line-height:1.4;color:#FFF6EC">几何分布：队长每多 1，概率就乘一个 <i>ρ</i>；队列为空的概率 = 1 − <i>ρ</i>。</p>
+</div>
+<aside>【3 分钟 · 本讲最漂亮的推导】
+现在来求生灭链的稳态分布 π_n。用上一页“画一刀”的想法，不必解一大堆联立方程。
+第一步：比如在状态 2 与 3 之间切一刀，把状态分成左右两半。稳态时，穿过这条线向右的概率流 = 向左的概率流。向右：只可能从 2 走到 3，概率流是 π_2 × p；向左：只可能从 3 走到 2，概率流是 π_3 × q。所以 π_2 p = π_3 q。切在哪一格都一样，一般写成 π_n p = π_{n+1} q。（这叫“局部平衡”。）
+第二步：π_{n+1} = (p/q) π_n = ρ π_n。每往右一格，乘一个 ρ。反复代入：π_n = ρ^n π_0。
+第三步：用归一化条件确定 π_0。Σ_{n≥0} π_n = π_0 Σ ρ^n = π_0 / (1−ρ) = 1（等比级数，要求 ρ < 1），所以 π_0 = 1 − ρ。
+结果：π_n = (1−ρ) ρ^n，n = 0, 1, 2, …，一个几何分布。π_0 = 1 − ρ 的直观意义：服务器忙的时间比例是 ρ，所以队列为空的概率是 1 − ρ。
+为什么“切一刀”可行？因为这是生灭链：左右只通过 n↔n+1 这一对箭头相连，没有别的通道。如果是一般的链，切口会有很多条边，就需要把所有边的流量加起来，这就是上一页最后讲的“流进 = 流出”。
+[板书建议：写 ①②③ 三步，每步一行，留着讲下一页的数字例子。]
+[追问：如果 ρ ≥ 1，这个级数不收敛，意味着什么？（队列无限增长，没有稳态。）]</aside>
+</section>

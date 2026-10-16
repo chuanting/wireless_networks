@@ -1,0 +1,65 @@
+<section id="m-apply" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 马尔可夫链</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">用起来：平均丢包率，以及错误为什么“成团”</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="width:880px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">平均丢包率：用稳态分布加权</p>
+<p style="font-size:28px;color:#14253D">设好状态丢包率 1%，坏状态丢包率 50%。</p>
+<div style="display:flex;height:72px;border-radius:14px;overflow:hidden">
+<div style="width:640px;background:#1D4ED8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:700;color:#F4F8FF">G · 80% 的时间 · 丢 1%</p></div>
+<div style="width:160px;background:#C2410C;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:700;color:#FFF6EC">B · 20%</p></div>
+</div>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">丢包率 = <i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">G</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px">× 0.01 + <i>π</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">B</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px">× 0.5</p>
+</div>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">= 0.8 × 0.01 + 0.2 × 0.5 = <b>0.108</b> ≈ 10.8%</p>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">稳态分布 = 长期时间比例，所以“平均”就是按比例加权。</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#14253D;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">在一个状态停留多久？</p>
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">平均停留 =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 4px"><p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1</p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:4px 8px 0">
+<div style="display:flex;align-items:flex-end"><p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1 − <i>P</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>ii</i></p></div>
+</div>
+</div>
+<p style="font-size:28px;color:#D5DCE6;padding-left:6px">个时隙</p>
+</div>
+<p style="font-size:28px;color:#D5DCE6">（停留时隙数服从几何分布）</p>
+</div>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">好信道</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;color:#14253D">10</p>
+<p style="font-size:28px;color:#14253D">个时隙</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">坏信道</p>
+<p style="font-size:44px;font-weight:700;line-height:1.2;color:#14253D">2.5</p>
+<p style="font-size:28px;color:#14253D">个时隙</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">1/(1 − 0.9) = 10；1/(1 − 0.6) = 2.5。</p>
+</div>
+</div>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 28px">
+<p style="font-size:32px;font-weight:700;color:#9A3412">一旦变坏，平均连续坏 2.5 个时隙：错误成团出现。编码交织、重传策略必须考虑这种“突发”。</p>
+</div>
+<aside>【1.8 分钟】
+稳态分布有什么用？两个应用。
+一、平均丢包率。假设好状态丢包率 1%，坏状态丢包率 50%。长期看，信道 80% 的时间是好的，20% 的时间是坏的，所以平均丢包率 = π_G × 0.01 + π_B × 0.5 = 0.8 × 0.01 + 0.2 × 0.5 = 0.108，约 10.8%。这就是“按稳态比例加权”。
+二、错误为什么会成团。在状态 i 停留的时隙数服从几何分布：P{停留 k 个时隙} = P_ii^{k−1}(1 − P_ii)，平均 1/(1 − P_ii)。好信道：1/(1 − 0.9) = 10 个时隙；坏信道：1/(1 − 0.6) = 2.5 个时隙。所以信道一旦变坏，平均要连续坏 2.5 个时隙——错误成团出现。
+（推导：每个时隙以概率 P_ii 留在原状态，连续留 k−1 次再离开的概率就是 P_ii^{k−1}(1−P_ii)，这是几何分布，均值 1/(1−P_ii)。）
+意义：如果忽略记忆、假设每个时隙独立地以 10.8% 概率丢包，平均丢包率同样是 10.8%，但丢包是均匀分布的；真实的信道丢包是成团的。成团的错误对纠错码的影响很大（需要交织把突发错误分散开），重传机制也要据此设计。马尔可夫模型的价值，就在于它能同时描述“平均水平”和“突发程度”。</aside>
+</section>

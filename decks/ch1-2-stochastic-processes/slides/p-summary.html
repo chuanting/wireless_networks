@@ -1,0 +1,72 @@
+<section id="p-summary" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · Poisson 过程 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Poisson 过程：一张表记住</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:stretch;gap:20px">
+<div style="width:330px;display:flex;align-items:center;background:#14253D;border-radius:18px;padding:18px 24px"><p style="font-size:32px;font-weight:700;color:#F4F1E8">区间内到达数 <i>K</i></p></div>
+<div style="flex:1;display:flex;align-items:center;gap:30px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 28px">
+<div style="display:flex;align-items:center;gap:12px">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>P</i>{<i>K</i> = <i>k</i>} =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;align-items:flex-start;justify-content:center;padding:0 8px 4px">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">(<i>λτ</i>)</p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>k</i></p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px"><i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">−<i>λτ</i></p>
+</div>
+<div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:4px 8px 0"><p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>k</i>!</p></div>
+</div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">均值 = 方差 = <i>λτ</i></p>
+</div>
+</div>
+<div style="display:flex;align-items:stretch;gap:20px">
+<div style="width:330px;display:flex;align-items:center;background:#14253D;border-radius:18px;padding:18px 24px"><p style="font-size:32px;font-weight:700;color:#F4F1E8">到达间隔 <i>T</i></p></div>
+<div style="flex:1;display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 28px">
+<p style="font-size:32px;color:#14253D">相互独立，服从指数分布</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>P</i>{<i>T</i> &gt; <i>s</i>} = <i>e</i></p>
+<p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">−<i>λs</i></p>
+</div>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>E</i>[<i>T</i>] = 1/<i>λ</i></p>
+<p style="font-size:28px;font-weight:700;color:#9A3412">无记忆</p>
+</div>
+</div>
+<div style="display:flex;align-items:stretch;gap:20px">
+<div style="width:330px;display:flex;align-items:center;background:#14253D;border-radius:18px;padding:18px 24px"><p style="font-size:32px;font-weight:700;color:#F4F1E8">多路合并</p></div>
+<div style="flex:1;display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 28px">
+<p style="font-size:32px;color:#14253D">仍是 Poisson，速率相加</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>λ</i> = <i>λ</i>₁ + <i>λ</i>₂ + …</p>
+<div style="display:flex;align-items:center;gap:8px">
+<p style="font-size:28px;color:#4B5A6B">下一个来自流 <i>i</i> 的概率 =</p>
+<div style="display:flex;align-items:flex-end">
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>λ</i></p>
+<p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>i</i></p>
+<p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:6px">/ <i>λ</i></p>
+</div>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:stretch;gap:20px">
+<div style="width:330px;display:flex;align-items:center;background:#14253D;border-radius:18px;padding:18px 24px"><p style="font-size:32px;font-weight:700;color:#F4F1E8">随机分流（概率 <i>p</i>）</p></div>
+<div style="flex:1;display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 28px">
+<p style="font-size:32px;color:#14253D">仍是 Poisson，速率</p>
+<p style="font-size:40px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>pλ</i>　与　(1 − <i>p</i>)<i>λ</i></p>
+<p style="font-size:28px;color:#4B5A6B">交替分配则不是</p>
+</div>
+</div>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">适用场合：大量独立用户汇聚的流量，近似 Poisson。真实流量可能更“突发”（方差大于均值），需要更复杂的模型。</p>
+</div>
+<aside>【1.2 分钟】
+把第二部分压缩成一张表，建议让学生自己先说一遍：
+① 一段时间 τ 内的到达数 K：Poisson 分布，P{K=k} = (λτ)^k e^{−λτ}/k!，均值 = 方差 = λτ；
+② 相邻到达的间隔 T：相互独立，服从指数分布，P{T>s}=e^{−λs}，E[T]=1/λ，具有无记忆性；
+③ 多路合并：仍是 Poisson，速率相加；下一个到达来自流 i 的概率 = λᵢ/λ；
+④ 随机分流（概率 p）：两路仍是 Poisson，速率 pλ 和 (1−p)λ；轮流分配则不是。
+最后一条提醒：Poisson 模型是“第一近似”。大量互相独立的用户汇聚到一起时，总流量近似 Poisson；但真实网络里常见突发（视频、网页），到达数的方差会远大于均值，这时需要更复杂的模型（如自相似流量、MMPP 等）。这一点第 3、6 章还会再提到。
+到这里，“到达”的数学模型就讲完了。下一部分换一个对象：状态怎么随时间变化。</aside>
+</section>

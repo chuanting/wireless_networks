@@ -1,0 +1,56 @@
+<section id="r-ergodic" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 随机过程的基本概念（时间紧可跳过）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">各态历经：一条够长的曲线，顶得上很多条</h2>
+</div>
+<p style="position:absolute;left:128px;top:246px;width:800px;font-size:32px;font-weight:700;color:#14253D">统计平均：竖着看，对很多条曲线平均</p>
+<p style="position:absolute;left:992px;top:246px;width:800px;font-size:32px;font-weight:700;color:#14253D">时间平均：横着看，沿一条曲线平均</p>
+<svg aria-label="许多条曲线：在固定时刻 t1 竖着取平均" viewBox="0 0 800 420" width="800" height="420" style="position:absolute;left:128px;top:290px">
+<g stroke="#5B6B7C" stroke-width="3" fill="none"><path d="M40,400H776M40,400V10"/></g>
+<line x1="40" y1="205" x2="776" y2="205" stroke="#C2410C" stroke-width="5" stroke-dasharray="14 10"/>
+<path d="M40,192L52,192L64,247L76,215L88,178L100,198L112,205L124,220L136,205L148,238L160,235L172,277L184,254L196,236L208,252L220,249L232,210L244,226L256,201L268,231L280,206L292,214L304,192L316,207L328,237L340,247L352,212L364,179L376,208L388,192L400,182L412,209L424,180L436,211L448,233L460,220L472,193L484,194L496,234L508,224L520,243L532,226L544,219L556,217L568,214L580,217L592,231L604,245L616,222L628,193L640,185L652,174L664,145L676,175L688,173L700,230L712,206L724,174L736,199L748,202L760,223" fill="none" stroke="#1D4ED8" stroke-width="2.8" opacity=".9" stroke-linejoin="round"/>
+<path d="M40,223L52,239L64,239L76,252L88,212L100,195L112,179L124,173L136,215L148,217L160,192L172,180L184,219L196,187L208,185L220,206L232,233L244,248L256,215L268,182L280,169L292,196L304,205L316,232L328,237L340,245L352,203L364,180L376,193L388,209L400,190L412,227L424,179L436,190L448,177L460,200L472,214L484,202L496,211L508,236L520,205L532,188L544,174L556,181L568,171L580,148L592,191L604,170L616,135L628,180L640,163L652,194L664,222L676,189L688,169L700,210L712,168L724,158L736,162L748,164L760,211" fill="none" stroke="#C2410C" stroke-width="2.8" opacity=".9" stroke-linejoin="round"/>
+<path d="M40,229L52,214L64,202L76,169L88,189L100,206L112,196L124,194L136,165L148,216L160,218L172,204L184,218L196,219L208,214L220,205L232,207L244,216L256,229L268,236L280,230L292,238L304,218L316,176L328,157L340,201L352,166L364,167L376,186L388,217L400,164L412,159L424,164L436,167L448,186L460,213L472,223L484,277L496,276L508,210L520,174L532,183L544,187L556,220L568,227L580,234L592,219L604,222L616,222L628,209L640,220L652,181L664,214L676,223L688,279L700,240L712,188L724,182L736,189L748,179L760,164" fill="none" stroke="#14253D" stroke-width="2.8" opacity=".9" stroke-linejoin="round"/>
+<path d="M40,248L52,215L64,208L76,191L88,181L100,223L112,216L124,207L136,229L148,258L160,255L172,252L184,213L196,237L208,240L220,200L232,188L244,209L256,184L268,173L280,168L292,200L304,186L316,192L328,210L340,234L352,243L364,242L376,237L388,182L400,193L412,222L424,231L436,209L448,222L460,213L472,212L484,203L496,184L508,160L520,153L532,170L544,250L556,190L568,209L580,231L592,239L604,227L616,224L628,225L640,208L652,200L664,204L676,207L688,212L700,194L712,227L724,229L736,211L748,178L760,165" fill="none" stroke="#5B6B7C" stroke-width="2.8" opacity=".9" stroke-linejoin="round"/>
+<path d="M40,220L52,198L64,215L76,158L88,167L100,221L112,206L124,217L136,190L148,227L160,236L172,246L184,218L196,222L208,194L220,209L232,163L244,195L256,214L268,202L280,234L292,217L304,250L316,217L328,195L340,197L352,276L364,205L376,197L388,193L400,216L412,177L424,235L436,179L448,227L460,211L472,187L484,213L496,172L508,187L520,167L532,157L544,152L556,175L568,228L580,208L592,237L604,207L616,222L628,230L640,213L652,226L664,223L676,221L688,175L700,195L712,239L724,179L736,189L748,195L760,203" fill="none" stroke="#7C9BE8" stroke-width="2.8" opacity=".9" stroke-linejoin="round"/>
+<line x1="400" y1="20" x2="400" y2="400" stroke="#14253D" stroke-width="2.5" stroke-dasharray="10 8"/>
+<circle cx="400" cy="182" r="9" fill="#1D4ED8" stroke="#FBF9F3" stroke-width="2.5"/><circle cx="400" cy="190" r="9" fill="#C2410C" stroke="#FBF9F3" stroke-width="2.5"/><circle cx="400" cy="164" r="9" fill="#14253D" stroke="#FBF9F3" stroke-width="2.5"/><circle cx="400" cy="193" r="9" fill="#5B6B7C" stroke="#FBF9F3" stroke-width="2.5"/><circle cx="400" cy="216" r="9" fill="#7C9BE8" stroke="#FBF9F3" stroke-width="2.5"/>
+</svg>
+<svg aria-label="一条足够长的曲线：沿时间横着取平均" viewBox="0 0 800 420" width="800" height="420" style="position:absolute;left:992px;top:290px">
+<g stroke="#5B6B7C" stroke-width="3" fill="none"><path d="M40,400H776M40,400V10"/></g>
+<line x1="40" y1="205" x2="776" y2="205" stroke="#C2410C" stroke-width="5" stroke-dasharray="14 10"/>
+<path d="M40,169L52,171L64,237L76,228L88,193L100,173L112,201L124,185L136,206L148,171L160,213L172,237L184,185L196,170L208,204L220,174L232,147L244,141L256,179L268,205L280,185L292,165L304,222L316,205L328,155L340,167L352,198L364,215L376,247L388,221L400,194L412,177L424,213L436,218L448,216L460,228L472,205L484,207L496,212L508,196L520,229L532,218L544,209L556,224L568,209L580,173L592,226L604,164L616,180L628,222L640,204L652,220L664,210L676,229L688,181L700,199L712,251L724,221L736,229L748,225L760,264" fill="none" stroke="#1D4ED8" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M40,372v14M776,372v14M40,379H776" stroke="#14253D" stroke-width="3" fill="none"/><path d="M776,379l-14,-8M776,379l-14,8" stroke="#14253D" stroke-width="3" fill="none"/>
+</svg>
+<p style="position:absolute;left:128px;top:716px;width:800px;font-size:28px;color:#4B5A6B">在 <i>t</i>₁ 时刻，对 5 个圆点取平均 → <i>E</i>[<i>X</i>(<i>t</i>₁)]</p>
+<p style="position:absolute;left:992px;top:716px;width:800px;font-size:28px;color:#4B5A6B">把一整条曲线沿时间取平均 → 时间平均</p>
+<div style="position:absolute;left:128px;top:776px;width:1664px;display:flex;gap:28px">
+<div style="flex:1;display:flex;align-items:center;gap:14px;background:#14253D;border-radius:22px;padding:18px 32px">
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">〈<i>X</i>〉 =</p>
+<div style="display:flex;flex-direction:column;align-items:center">
+<p style="font-size:40px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">lim</p>
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>T</i>→∞</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 4px"><p style="font-size:36px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1</p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:4px 8px 0"><p style="font-size:36px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">2<i>T</i></p></div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center">
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>T</i></p>
+<p style="font-size:60px;line-height:1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">∫</p>
+<p style="font-size:24px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">−<i>T</i></p>
+</div>
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i>(<i>t</i>) d<i>t</i> = <i>m</i></p>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:16px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">例：测链路时延</p>
+<p style="font-size:28px;color:#14253D">连续测一小时，用这一小时的平均值估计平均时延。</p>
+</div>
+</div>
+<aside>【1 分钟 · 时间紧可以跳过】
+一个很实际的问题：均值函数 m = E[X(t)] 是“很多条曲线”在某一时刻的平均（竖着看）。可我们通常只有一条曲线——比如一条链路，我只能测它这一次。怎么办？
+各态历经性（ergodicity）：对于平稳过程，如果沿时间取平均（横着看，一条够长的曲线）和统计平均（竖着看）相等（概率为 1），那么用一条足够长的曲线就能估计出过程的统计特性。
+公式：〈X〉= lim_{T→∞} (1/2T) ∫_{−T}^{T} X(t) dt = m。
+例子：测一条链路的平均时延。理论上要“很多条一模一样的链路同时测”；有了各态历经性，只需要把一条链路连续测一小时，取平均就行。这也是我们在实验和仿真里“跑很长时间取平均”的数学依据。
+注意：并不是所有平稳过程都有各态历经性；这里只要有直觉就行。</aside>
+</section>
