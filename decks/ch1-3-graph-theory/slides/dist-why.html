@@ -1,0 +1,32 @@
+<section id="dist-why" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 分布式算法</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">没有“总指挥”，怎么办？</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:28px 36px">
+<x-icon name="Database" style="color:#14253D;width:56px;height:56px"></x-icon>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">集中式（Prim、Kruskal）</h3>
+<p style="font-size:32px;color:#14253D">有一个“总指挥”</p>
+<p style="font-size:32px;color:#14253D">手里有完整的地图和所有造价</p>
+<p style="font-size:32px;color:#14253D">一个人算完，再通知大家</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:24px;padding:28px 36px">
+<x-icon name="Chat" style="color:#C2410C;width:56px;height:56px"></x-icon>
+<h3 style="font-size:40px;font-weight:700;color:#14253D">分布式</h3>
+<p style="font-size:32px;color:#14253D">没有总指挥</p>
+<p style="font-size:32px;color:#14253D">每个节点只认识自己的邻居，和相连线路的造价</p>
+<p style="font-size:32px;color:#14253D">只能互相发消息来协作</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:24px;padding:28px 40px">
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">比喻：6 个村的村长，只知道通往邻村的路费，没有全局地图，只能打电话。怎样一起算出最省钱的修路方案？</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">真实场景：路由器之间的自组织、无线传感器网络；以太网交换机用“生成树协议（STP）”分布式地消除环路。</p>
+<aside>【1.5 分钟】
+到现在为止，Prim 和 Kruskal 都有一个隐含的前提：有一个“总指挥”，手里拿着整张地图和所有造价，一个人算完再通知大家。
+现实中的网络往往不是这样：互联网里的路由器、野外的无线传感器节点，没有谁拥有全局信息；每个节点只认识自己的邻居、以及和邻居之间线路的代价，只能互相发消息。
+比喻：6 个村的村长，只知道通往邻村的路费，没有全局地图，只能打电话。怎样一起算出最省钱的修路方案？
+真实应用：以太网交换机之间用“生成树协议 STP”自动消除环路——它也是分布式地构造生成树，不过目标是消除环路，不是造价最小；无线传感器网络需要自组织地构造低能耗的数据汇聚树。
+没有总指挥，大家怎么合作算出最小生成树？1983 年，Gallager、Humblet 和 Spira 给出了经典算法（GHS），下面讲它的核心思想。</aside>
+</section>

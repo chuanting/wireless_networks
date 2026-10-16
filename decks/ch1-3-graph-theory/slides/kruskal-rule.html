@@ -1,0 +1,42 @@
+<section id="kruskal-rule" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Kruskal 算法</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Kruskal：从便宜到贵，逐条挑选</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">1</p>
+<div style="flex:1"><p style="font-size:32px;color:#14253D">把所有边按造价从小到大排队</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">2</p>
+<div style="flex:1"><p style="font-size:32px;color:#14253D">从最便宜的开始逐条检查：不会形成回路 → 选；会形成回路 → 跳过</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">3</p>
+<div style="flex:1"><p style="font-size:32px;color:#14253D">选够 n − 1 条边就停（6 个点：5 条）</p></div>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:16px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">比喻：逛“便宜货”清单。先买最便宜的；两栋楼若已能间接连通，就不再重复买线。</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;top:690px;width:1664px;font-size:32px;font-weight:700;color:#14253D">第 1 步的结果：9 条边按造价排好队</p>
+<p style="position:absolute;left:128px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">EF · 1</p>
+<p style="position:absolute;left:314px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">AD · 2</p>
+<p style="position:absolute;left:500px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">BE · 3</p>
+<p style="position:absolute;left:686px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">AB · 4</p>
+<p style="position:absolute;left:872px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">BD · 5</p>
+<p style="position:absolute;left:1058px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">BC · 6</p>
+<p style="position:absolute;left:1244px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">CE · 7</p>
+<p style="position:absolute;left:1430px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">CF · 8</p>
+<p style="position:absolute;left:1616px;top:750px;width:170px;height:64px;border-radius:14px;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">DE · 9</p>
+<p style="position:absolute;left:128px;top:836px;width:1664px;font-size:28px;color:#4B5A6B">EF（1 万）最便宜，排第一；DE（9 万）最贵，排最后。</p>
+<aside>【1.5 分钟】
+Kruskal 的比喻：逛“便宜货”清单。
+第一步：把 9 条线路按造价从小到大排队（见下方）。
+第二步：从最便宜的开始，逐条检查——加上它会不会形成回路？不会就选，会就跳过。
+第三步：选够 n − 1 = 5 条就停。
+怎么判断“会不会成回路”？看这条边的两端是不是已经在同一个“小团体”里（已经能间接连通）。在同一个团体 → 再连就多余 → 跳过。
+和 Prim 的区别：Prim 只让一个雪球长大；Kruskal 允许同时出现多个小团体，最后再合并成一个。
+下面一步一步走一遍。可以先让学生自己预测：前两条边会选谁？</aside>
+</section>

@@ -1,0 +1,32 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-16T08:00:00Z" },
+  "lists": "css",
+  "title": "图论基础：从地图到最小生成树",
+  "order": [
+    "cover", "everywhere", "problem", "agenda",
+    "d1", "g-what", "g-draw", "g-degree", "g-types", "g-store",
+    "d2", "p-bridge", "p-abstract", "p-path", "p-cycle", "p-connected", "p-euler", "p-quiz",
+    "d3", "t-tree", "t-prop", "t-span", "t-mst", "t-ideas",
+    "prim-rule", "prim-1", "prim-2", "prim-3", "prim-4", "prim-5",
+    "kruskal-rule", "kruskal-1", "kruskal-2", "kruskal-3", "kruskal-4",
+    "dist-why", "dist-idea", "dist-msg", "dist-r1", "dist-r2", "compare",
+    "d4", "cut-def", "cut-find", "cut-prop", "cut-why",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：图无处不在，抛出贯穿全课的问题——给校园 6 栋楼铺光纤。", "start": "cover" },
+    "s1": { "description": "图的概念：点、边、度，以及有向图和带权图。", "start": "d1" },
+    "s2": { "description": "路径与回路：从七桥问题讲到连通和一笔画。", "start": "d2" },
+    "s3": { "description": "生成树与最小生成树：Prim、Kruskal 和分布式算法。", "start": "d3" },
+    "s4": { "description": "割集：剪断哪些线会断网，以及三种算法为什么都正确。", "start": "d4" },
+    "s5": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

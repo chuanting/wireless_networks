@@ -1,0 +1,53 @@
+<section id="p-euler" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 路径与回路</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">欧拉的答案：数一数每个点的度</h2>
+</div>
+<svg aria-label="七桥问题的图：四个点的度分别是 3、3、5、3" viewBox="0 0 760 680" width="760" height="680" style="position:absolute;left:128px;top:264px">
+<g stroke="#6B7A8C" stroke-width="8" fill="none" stroke-linecap="round">
+<path d="M346,100 Q272.2,263.5 110,340"/>
+<path d="M346,100 Q183.8,176.5 110,340"/>
+<path d="M110,340 Q183.8,503.5 346,580"/>
+<path d="M110,340 Q272.2,416.5 346,580"/>
+<path d="M110,340 L582,340"/>
+<path d="M346,100 L582,340"/>
+<path d="M582,340 L346,580"/>
+</g>
+</svg>
+<p style="position:absolute;left:430px;top:320px;width:88px;height:88px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:88px;text-align:center">A</p>
+<p style="position:absolute;left:430px;top:800px;width:88px;height:88px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:88px;text-align:center">B</p>
+<p style="position:absolute;left:194px;top:560px;width:88px;height:88px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:88px;text-align:center">C</p>
+<p style="position:absolute;left:666px;top:560px;width:88px;height:88px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:88px;text-align:center">D</p>
+<p style="position:absolute;left:504px;top:294px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">3</p>
+<p style="position:absolute;left:504px;top:862px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">3</p>
+<p style="position:absolute;left:156px;top:534px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">5</p>
+<p style="position:absolute;left:740px;top:534px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">3</p>
+<div style="position:absolute;left:940px;top:264px;width:852px;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;color:#14253D">每次路过一个点，要“进”一条边、“出”一条边：用掉偶数条边。所以中途经过的点，度必须是偶数。</p>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 24px">
+<p style="width:260px;font-size:28px;font-weight:700;color:#C2410C">0 个奇度点</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">欧拉回路：走遍每条边一次，并回到起点</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 24px">
+<p style="width:260px;font-size:28px;font-weight:700;color:#C2410C">2 个奇度点</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">欧拉路径：从一个奇度点出发，在另一个奇度点结束</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 24px">
+<p style="width:260px;font-size:28px;font-weight:700;color:#C2410C">多于 2 个奇度点</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">不可能一笔画完</p></div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">（前提：图是连通的）</p>
+<div style="background:#C2410C;border-radius:20px;padding:24px 32px">
+<p style="font-size:32px;font-weight:700;color:#FFF6EC">七桥图：A、B、D 的度是 3，C 的度是 5，共 4 个奇度点，所以不可能！</p>
+</div>
+</div>
+<aside>【1.6 分钟】
+欧拉的洞察：想一想“一笔画”的过程。每次路过一个点，要“进”一条边、再“出”一条边，一共用掉偶数条边。所以，路线中间经过的点，度必须是偶数；只有起点和终点可以是奇数。
+于是得到判别法（图要连通）：
+0 个奇度点：有欧拉回路，能走遍每条边并回到起点；
+2 个奇度点：有欧拉路径，必须从一个奇度点出发，在另一个奇度点结束；
+多于 2 个奇度点：不可能。
+回到七桥：度分别是 3、3、5、3，四个奇度点，所以不可能——不仅不能回到起点，连“起点终点不同”的走法也不行。
+（顺带：度之和 = 3+3+5+3 = 14 = 2×7，正好是 7 座桥。）
+延伸：中国邮递员问题（管梅谷，1960 年提出）——邮递员要走遍每条街并回到邮局，怎样走最短？本质上是在欧拉回路的基础上加权。</aside>
+</section>

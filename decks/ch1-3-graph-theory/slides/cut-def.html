@@ -1,0 +1,42 @@
+<section id="cut-def" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 割集</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">割集：剪断哪几条线，网络会断开？</h2>
+</div>
+<x-connector x1="220" y1="340" x2="620" y2="300" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="620" y1="300" x2="1020" y2="340" head="none" style="color:#C2410C;border-width:10px;border-style:dashed"></x-connector>
+<x-connector x1="220" y1="340" x2="220" y2="780" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="620" y1="300" x2="220" y2="780" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="620" y1="300" x2="620" y2="820" head="none" style="color:#C2410C;border-width:10px;border-style:dashed"></x-connector>
+<x-connector x1="1020" y1="340" x2="620" y2="820" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="1020" y1="340" x2="1020" y2="780" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="220" y1="780" x2="620" y2="820" head="none" style="color:#C2410C;border-width:10px;border-style:dashed"></x-connector>
+<x-connector x1="620" y1="820" x2="1020" y2="780" head="none" style="color:#5B6B7C;border-width:6px"></x-connector>
+<x-connector x1="860" y1="250" x2="400" y2="940" head="none" style="color:#14253D;border-width:5px;border-style:dashed"></x-connector>
+<p style="position:absolute;left:180px;top:300px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">A</p>
+<p style="position:absolute;left:580px;top:260px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">B</p>
+<p style="position:absolute;left:980px;top:300px;width:80px;height:80px;border-radius:50%;background:#1D4ED8;border:3px solid #1D4ED8;color:#F4F8FF;font-size:40px;font-weight:700;line-height:80px;text-align:center">C</p>
+<p style="position:absolute;left:180px;top:740px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">D</p>
+<p style="position:absolute;left:580px;top:780px;width:80px;height:80px;border-radius:50%;background:#1D4ED8;border:3px solid #1D4ED8;color:#F4F8FF;font-size:40px;font-weight:700;line-height:80px;text-align:center">E</p>
+<p style="position:absolute;left:980px;top:740px;width:80px;height:80px;border-radius:50%;background:#1D4ED8;border:3px solid #1D4ED8;color:#F4F8FF;font-size:40px;font-weight:700;line-height:80px;text-align:center">F</p>
+<p style="position:absolute;left:128px;top:872px;width:300px;font-size:28px;font-weight:700;color:#14253D">S = {A, B, D}</p>
+<p style="position:absolute;left:760px;top:872px;width:340px;font-size:28px;font-weight:700;color:#1E40AF">V − S = {C, E, F}</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:32px;font-weight:700;color:#14253D">割：把所有点分成两部分 S 和 V − S，连接两部分的所有边。</p>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">割集</p>
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">删掉这些边，图就不连通；而且少删其中任何一条，图都还是连通的。</p>
+</div>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 32px">
+<p style="font-size:32px;color:#14253D">例：橙色虚线 BC、BE、DE 被剪断，校园网裂成 {A, B, D} 和 {C, E, F}。</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">意义：割集越小，网络越脆弱——只要同时断掉这几条线，网络就瘫痪。</p>
+</div>
+<aside>【2 分钟】
+回到前面“连通”那一页：施工队挖断了 BC、BE、DE 三条光缆，校园网裂成两块。这一组边就叫“割集”。
+先说“割”：把所有点分成两部分，比如 S = {A, B, D} 和 V−S = {C, E, F}，连接两部分的所有边（虚线穿过的三条橙色边）。
+割集的定义：删掉它们，图就不连通；而且“最小”——少删其中任何一条，图还是连通的。
+网络的含义：割集 = 几条线同时被挖断才会断网。割集越小，网络越脆弱。
+问学生：这个割集里有 3 条边，能不能少剪一条？（不能：少剪任何一条，两部分之间还有线路连着。）
+[术语说明：不同教材对“割”和“割集”的写法略有差别，有的把“割集”定义为“极小的割”，本课采用这种定义。]</aside>
+</section>

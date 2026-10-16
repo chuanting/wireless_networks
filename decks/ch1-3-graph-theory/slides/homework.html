@@ -1,0 +1,35 @@
+<section id="homework" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">四道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 度与一笔画</p>
+<p style="font-size:32px;color:#14253D">5 个点两两相连的图有几条边？每个点的度是多少？它有欧拉回路吗？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 树</p>
+<p style="font-size:32px;color:#14253D">一棵树有 8 个点，有几条边？再给它加一条边，会发生什么？</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ 动手算最小生成树</p>
+<p style="font-size:32px;color:#14253D">边与造价：AB 3、AC 1、BC 2、BD 4、CD 5、CE 6、DE 7。分别用 Kruskal 和 Prim 求最小生成树及总造价。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:28px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ 想一想</p>
+<p style="font-size:32px;color:#14253D">如果有两条边造价相同，分布式算法可能遇到什么问题？怎么解决？</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① 边数 = 5×4/2 = 10；每个点的度是 4（偶数）；全部是偶度点，所以有欧拉回路。
+② 8 个点，7 条边；再加一条边，恰好出现一个回路。
+③ Kruskal 排序：AC 1、BC 2、AB 3、BD 4、CD 5、CE 6、DE 7。选 AC ✓，选 BC ✓，AB 跳过（A、B 已通过 C 连通，会成回路），选 BD ✓，CD 跳过（C、D 已通过 B 连通），选 CE ✓，共 4 条 = 5 − 1，停止。总造价 1+2+4+6 = 13。
+Prim（从 A 出发）：AC（1）→ BC（2）→ BD（4）→ CE（6），顺序不同但同样是 13。
+④ 平局时，可能出现“团体 A 选了团体 B、B 选了 C、C 又选回 A”绕一圈的情况，形成回路。解决办法：用节点编号等规则给边的造价“打破平局”，使所有边的造价互不相同。
+可作为拓展题：任何割集一定至少包含每棵生成树中的一条边，为什么？（因为生成树要连通两部分。）</aside>
+</section>

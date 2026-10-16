@@ -1,0 +1,53 @@
+<section id="t-mst" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 生成树与最小生成树</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">最小生成树：总造价最小的生成树</h2>
+</div>
+<x-connector x1="220" y1="340" x2="620" y2="300" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="300" x2="1020" y2="340" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="340" x2="220" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="300" x2="220" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="300" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="1020" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="780" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="820" x2="1020" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<p style="position:absolute;left:180px;top:300px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">A</p>
+<p style="position:absolute;left:580px;top:260px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">B</p>
+<p style="position:absolute;left:980px;top:300px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">C</p>
+<p style="position:absolute;left:180px;top:740px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">D</p>
+<p style="position:absolute;left:580px;top:780px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">E</p>
+<p style="position:absolute;left:980px;top:740px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">F</p>
+<p style="position:absolute;left:388px;top:298px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">4</p>
+<p style="position:absolute;left:788px;top:298px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">6</p>
+<p style="position:absolute;left:188px;top:538px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">2</p>
+<p style="position:absolute;left:388px;top:518px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">5</p>
+<p style="position:absolute;left:588px;top:538px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">3</p>
+<p style="position:absolute;left:788px;top:558px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">7</p>
+<p style="position:absolute;left:988px;top:538px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">8</p>
+<p style="position:absolute;left:388px;top:778px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">9</p>
+<p style="position:absolute;left:788px;top:778px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #6B7A8C;color:#14253D;font-size:28px;font-weight:700;line-height:44px;text-align:center">1</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">最小（重量）生成树 MST</p>
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">所有生成树中，总造价最小的那一棵</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 32px">
+<p style="font-size:32px;font-weight:700;color:#14253D">方案甲：4+5+6+7+8 = 30 万</p>
+<p style="font-size:28px;color:#4B5A6B">选 AB、BD、BC、CE、CF</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 32px">
+<p style="font-size:32px;font-weight:700;color:#14253D">方案乙：2+4+3+1+8 = 18 万</p>
+<p style="font-size:28px;color:#4B5A6B">选 AD、AB、BE、EF、CF</p>
+</div>
+<p style="font-size:32px;font-weight:700;color:#C2410C">还有更便宜的吗？</p>
+<p style="font-size:28px;color:#4B5A6B">不能一棵一棵试：10 个点的完全图有 1 亿棵生成树，20 个点约有 2.6×10²³ 棵。</p>
+</div>
+<aside>【1.5 分钟】
+现在把造价加回来。每棵生成树都有一个总造价：方案甲 30 万，方案乙 18 万（让学生自己加一遍，确认会算）。
+最小（重量）生成树 = 总造价最小的生成树。
+让大家猜：还有更便宜的吗？（有，16 万。先不说方案。）
+为什么不能全部试一遍？小图 55 棵还行，但点数一多就爆炸：10 个点的完全图有 1 亿棵生成树，20 个点约 2.6×10²³ 棵（凯莱公式：n 个点的完全图有 n^(n−2) 棵生成树）。
+好消息：有简单又高效的办法，今天学三个。
+[验证数据：这 55 棵生成树的总造价，最小 16 万，最大 34 万。]</aside>
+</section>

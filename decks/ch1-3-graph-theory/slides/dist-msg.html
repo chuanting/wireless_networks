@@ -1,0 +1,54 @@
+<section id="dist-msg" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 分布式算法</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一个团体怎么“找出口”？靠发消息</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">1</p>
+<div style="flex:1"><p style="font-size:32px;font-weight:700;color:#14253D">广播（Initiate）</p></div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">团体的“领导者”通知所有成员：开始找最便宜的出口边！</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">2</p>
+<div style="flex:1"><p style="font-size:32px;font-weight:700;color:#14253D">测试（Test）</p></div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">每个成员按造价从小到大，逐条问对面的邻居：“你和我是同一个团体吗？”</p>
+<p style="font-size:28px;font-weight:700;color:#1E40AF">是 → 拒绝（Reject）；不是 → 接受（Accept）</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">3</p>
+<div style="flex:1"><p style="font-size:32px;font-weight:700;color:#14253D">汇报（Report）</p></div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">成员把自己找到的最优出口，一层层上报给领导者；领导者选出全团体最便宜的那条。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">4</p>
+<div style="flex:1"><p style="font-size:32px;font-weight:700;color:#14253D">连接（Connect）</p></div>
+</div>
+<p style="font-size:28px;color:#4B5A6B">指令传到出口边的这一端，沿这条边发出“合并请求”，两个团体合并。</p>
+</div>
+</div>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:20px 32px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">全程只有“问邻居、报领导、发请求”这几种消息，没有人需要知道整张地图。</p>
+</div>
+<p style="position:absolute;left:128px;top:900px;width:1664px;font-size:28px;color:#4B5A6B">这套消息流程来自 Gallager–Humblet–Spira（GHS）算法，1983 年。</p>
+<aside>【1.5 分钟】
+提示学生：这一页是“进阶”，不需要记住英文名，只要理解思路：问邻居 → 汇报 → 合并。
+一个团体内部，在没有“总指挥”的情况下怎么找到最便宜的出口边？靠四种消息：
+① 广播：团体里指定一个领导者（根），向所有成员广播“开始找出口”；
+② 测试：每个成员按造价从小到大，逐条问对面的邻居“你和我是同一个团体吗？”。如果是同一个团体，对面回复“拒绝”，说明这条边是内部边，排除，接着问下一条；如果不是，回复“接受”，这就是该成员的最优出口；
+③ 汇报：成员把各自的最优出口一层层上报，领导者从中选出全团体最便宜的；
+④ 连接：领导者把指令传到出口边所在的那个成员，它沿这条边发出“合并请求”，两个团体合并。
+真实的 GHS 算法还有“级别（level）”规则：团体合并时按级别决定谁并入谁，保证效率；本课省略。
+GHS 的总消息数是 O(E + n log n)，时间复杂度 O(n log n)——这是分布式 MST 算法的经典结果。</aside>
+</section>

@@ -1,0 +1,32 @@
+<section id="g-store" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 图的概念</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">怎样把图交给计算机</h2>
+</div>
+<p style="position:absolute;left:128px;top:252px;width:800px;font-size:40px;font-weight:700;color:#14253D">邻接矩阵：一张表</p>
+<table style="position:absolute;left:128px;top:320px;width:800px;font-size:32px;color:#14253D">
+<tr style="background:#14253D"><th style="width:20%;text-align:center;color:#F4F1E8"></th><th style="width:16%;text-align:center;color:#F4F1E8">小明</th><th style="width:16%;text-align:center;color:#F4F1E8">小红</th><th style="width:16%;text-align:center;color:#F4F1E8">小刚</th><th style="width:16%;text-align:center;color:#F4F1E8">小丽</th><th style="width:16%;text-align:center;color:#F4F1E8">小华</th></tr>
+<tr><td style="text-align:center"><b>小明</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
+<tr style="background:#F0ECE0"><td style="text-align:center"><b>小红</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
+<tr><td style="text-align:center"><b>小刚</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td></tr>
+<tr style="background:#F0ECE0"><td style="text-align:center"><b>小丽</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td></tr>
+<tr><td style="text-align:center"><b>小华</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td></tr>
+</table>
+<p style="position:absolute;left:128px;top:760px;width:800px;font-size:28px;color:#4B5A6B">第 i 行第 j 列是 1，表示 i 和 j 是好友。想知道“两人是不是好友”，查一格就行。</p>
+<p style="position:absolute;left:1008px;top:252px;width:784px;font-size:40px;font-weight:700;color:#14253D">邻接表：每人一份邻居名单</p>
+<table style="position:absolute;left:1008px;top:320px;width:784px;font-size:32px;color:#14253D">
+<tr style="background:#14253D"><th style="width:28%;text-align:center;color:#F4F1E8">点</th><th style="width:72%;text-align:left;color:#F4F1E8">邻居</th></tr>
+<tr><td style="text-align:center"><b>小明</b></td><td style="text-align:left">小红、小刚</td></tr>
+<tr style="background:#F0ECE0"><td style="text-align:center"><b>小红</b></td><td style="text-align:left">小明、小刚</td></tr>
+<tr><td style="text-align:center"><b>小刚</b></td><td style="text-align:left">小明、小红、小丽</td></tr>
+<tr style="background:#F0ECE0"><td style="text-align:center"><b>小丽</b></td><td style="text-align:left">小刚、小华</td></tr>
+<tr><td style="text-align:center"><b>小华</b></td><td style="text-align:left">小丽</td></tr>
+</table>
+<p style="position:absolute;left:1008px;top:760px;width:784px;font-size:28px;color:#4B5A6B">只记录存在的边，边很少的图用它更省空间。</p>
+<p style="position:absolute;left:128px;top:880px;width:1664px;font-size:32px;font-weight:700;color:#14253D;text-align:center">后面所有算法，都是在这样的数据上运行的。带权图：把 1 换成权就行。</p>
+<aside>【1 分钟 · 时间紧可以跳过】
+计算机看不懂“画出来的图”，要把图变成数据。两种常用办法，都用刚才的 5 位同学演示：
+邻接矩阵：一张表，第 i 行第 j 列写 1，表示 i 和 j 相连。想知道“两人是不是好友”，查一格就行。
+邻接表：每个点记一份邻居名单。边很少的图用它更省空间。
+不用记细节，只要知道：后面所有算法都是在这样的数据上运行的。对带权图，把 1 换成边权就行。</aside>
+</section>

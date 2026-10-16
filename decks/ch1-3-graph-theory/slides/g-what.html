@@ -1,0 +1,37 @@
+<section id="g-what" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 图的概念</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">图 = 一些点 + 连接点的线</h2>
+</div>
+<x-connector x1="250" y1="400" x2="250" y2="780" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="250" y1="400" x2="600" y2="590" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="250" y1="780" x2="600" y2="590" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="600" y1="590" x2="880" y2="400" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="880" y1="400" x2="1000" y2="780" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<p style="position:absolute;left:194px;top:344px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小明</p>
+<p style="position:absolute;left:194px;top:724px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小红</p>
+<p style="position:absolute;left:544px;top:534px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小刚</p>
+<p style="position:absolute;left:824px;top:344px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小丽</p>
+<p style="position:absolute;left:944px;top:724px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小华</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">点（顶点）</p>
+<p style="font-size:32px;color:#14253D">一个个体：这里是一个人</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 36px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">边</p>
+<p style="font-size:32px;color:#14253D">两点之间的关系：这里是“互为好友”</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:28px 36px">
+<p style="font-size:40px;font-weight:700;color:#F4F1E8">图 G = (V, E)</p>
+<p style="font-size:28px;color:#D5DCE6">V = 点的集合 = {小明, 小红, 小刚, 小丽, 小华}</p>
+<p style="font-size:28px;color:#D5DCE6">E = 边的集合 = {明红, 明刚, 红刚, 刚丽, 丽华}</p>
+</div>
+</div>
+<aside>【1.7 分钟】
+拿 5 位同学的朋友圈举例：小明、小红、小刚三个人互相认识；小刚还认识小丽；小丽认识小华。
+把每个人画成一个点，每一对好友之间画一条线——这就是一张图。
+“点”也叫顶点（vertex），“线”也叫边（edge）。数学上写成 G = (V, E)：V 是点的集合，E 是边的集合。
+让大家数一数：这张图有几个点？几条边？（5 个点，5 条边。）
+提示：边只表示“认识”这件事，不表示认识了多久、关系多亲密——那是后面“带权图”要处理的。</aside>
+</section>

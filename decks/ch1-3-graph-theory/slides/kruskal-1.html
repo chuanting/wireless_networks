@@ -1,0 +1,59 @@
+<section id="kruskal-1" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Kruskal 算法</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">第 1–2 步：EF（1）、AD（2）入选</h2>
+</div>
+<x-connector x1="220" y1="340" x2="620" y2="300" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="300" x2="1020" y2="340" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="340" x2="220" y2="780" head="none" style="color:#C2410C;border-width:11px"></x-connector>
+<x-connector x1="620" y1="300" x2="220" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="300" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="1020" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="780" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="820" x2="1020" y2="780" head="none" style="color:#C2410C;border-width:11px"></x-connector>
+<p style="position:absolute;left:180px;top:300px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">A</p>
+<p style="position:absolute;left:580px;top:260px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">B</p>
+<p style="position:absolute;left:980px;top:300px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">C</p>
+<p style="position:absolute;left:180px;top:740px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">D</p>
+<p style="position:absolute;left:580px;top:780px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">E</p>
+<p style="position:absolute;left:980px;top:740px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">F</p>
+<p style="position:absolute;left:388px;top:298px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">4</p>
+<p style="position:absolute;left:788px;top:298px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">6</p>
+<p style="position:absolute;left:188px;top:538px;width:64px;height:44px;border-radius:22px;background:#C2410C;border:3px solid #C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:44px;text-align:center">2</p>
+<p style="position:absolute;left:388px;top:518px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">5</p>
+<p style="position:absolute;left:588px;top:538px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">3</p>
+<p style="position:absolute;left:788px;top:558px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">7</p>
+<p style="position:absolute;left:988px;top:538px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">8</p>
+<p style="position:absolute;left:388px;top:778px;width:64px;height:44px;border-radius:22px;background:#F0ECE0;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:44px;text-align:center">9</p>
+<p style="position:absolute;left:788px;top:778px;width:64px;height:44px;border-radius:22px;background:#C2410C;border:3px solid #C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:44px;text-align:center">1</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:32px;font-weight:700;color:#14253D">按造价从小到大，依次检查：</p>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 28px">
+<p style="font-size:32px;font-weight:700;color:#14253D">第 1 条 EF = 1</p>
+<p style="font-size:28px;color:#4B5A6B">E、F 还不相连 → 选</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 28px">
+<p style="font-size:32px;font-weight:700;color:#14253D">第 2 条 AD = 2</p>
+<p style="font-size:28px;color:#4B5A6B">A、D 还不相连 → 选</p>
+</div>
+<div style="background:#14253D;border-radius:16px;padding:16px 28px">
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">现在的小团体：{E, F}　{A, D}　{B}　{C}</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">橙色：本步选中　深色：已选入　划线：跳过</p>
+</div>
+<p style="position:absolute;left:128px;top:884px;width:170px;height:56px;border-radius:14px;background:#C2410C;border:3px solid #C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">EF · 1</p>
+<p style="position:absolute;left:314px;top:884px;width:170px;height:56px;border-radius:14px;background:#C2410C;border:3px solid #C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">AD · 2</p>
+<p style="position:absolute;left:500px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">BE · 3</p>
+<p style="position:absolute;left:686px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">AB · 4</p>
+<p style="position:absolute;left:872px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">BD · 5</p>
+<p style="position:absolute;left:1058px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">BC · 6</p>
+<p style="position:absolute;left:1244px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">CE · 7</p>
+<p style="position:absolute;left:1430px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">CF · 8</p>
+<p style="position:absolute;left:1616px;top:884px;width:170px;height:56px;border-radius:14px;background:#FFFEFA;border:3px solid #B4BEC9;color:#5B6B7C;font-size:28px;font-weight:700;line-height:56px;text-align:center">DE · 9</p>
+<aside>【0.8 分钟】
+按排好的队，第 1 条 EF = 1：E、F 还不相连，选。第 2 条 AD = 2：A、D 也不相连，选。
+现在有 4 个小团体：{E,F}、{A,D}、{B}、{C}。
+注意 EF 和 AD 离得很远，Kruskal 并不要求它们连在一起——这是和 Prim 最大的不同：Prim 始终只有一个“雪球”，Kruskal 可以同时在多个地方开工。
+底部一排是 9 条边的排队情况：橙色 = 本步选中。</aside>
+</section>

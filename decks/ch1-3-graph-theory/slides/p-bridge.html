@@ -1,0 +1,40 @@
+<section id="p-bridge" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 路径与回路</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">哥尼斯堡七桥问题</h2>
+</div>
+<svg aria-label="哥尼斯堡七桥示意图：河把城市分成北岸、南岸和两座岛，共七座桥" viewBox="0 0 800 600" width="800" height="600" style="position:absolute;left:128px;top:300px">
+<rect x="0" y="0" width="800" height="600" rx="24" fill="#CFE0F2"/>
+<rect x="0" y="0" width="800" height="80" rx="24" fill="#E6DAB0"/>
+<rect x="0" y="520" width="800" height="80" rx="24" fill="#E6DAB0"/>
+<g stroke="#7A4A21" stroke-width="16" fill="none">
+<line x1="210" y1="70" x2="210" y2="300"/>
+<line x1="330" y1="70" x2="330" y2="300"/>
+<line x1="210" y1="530" x2="210" y2="300"/>
+<line x1="330" y1="530" x2="330" y2="300"/>
+<line x1="270" y1="300" x2="630" y2="300"/>
+<line x1="630" y1="70" x2="630" y2="300"/>
+<line x1="630" y1="530" x2="630" y2="300"/>
+</g>
+<ellipse cx="270" cy="300" rx="120" ry="80" fill="#E6DAB0"/>
+<ellipse cx="630" cy="300" rx="95" ry="70" fill="#E6DAB0"/>
+</svg>
+<p style="position:absolute;left:408px;top:320px;width:240px;font-size:32px;font-weight:700;color:#14253D;text-align:center">北岸 A</p>
+<p style="position:absolute;left:408px;top:840px;width:240px;font-size:32px;font-weight:700;color:#14253D;text-align:center">南岸 B</p>
+<p style="position:absolute;left:278px;top:580px;width:240px;font-size:32px;font-weight:700;color:#14253D;text-align:center">中心岛 C</p>
+<p style="position:absolute;left:638px;top:580px;width:240px;font-size:32px;font-weight:700;color:#14253D;text-align:center">东岛 D</p>
+<div style="position:absolute;left:1008px;top:300px;width:784px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:32px;color:#4B5A6B">18 世纪，普鲁士的哥尼斯堡（今俄罗斯加里宁格勒）被河分成 4 块陆地，7 座桥把它们连起来。</p>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:24px 32px">
+<p style="font-size:40px;font-weight:700;color:#9A3412">游戏：每座桥都走一次，而且只走一次，能做到吗？</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">请用手指在图上试 30 秒。</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">1736 年，数学家欧拉（Euler）证明：不可能。他的思路开创了图论。</p>
+</div>
+<aside>【1.5 分钟 · 讲故事】
+18 世纪的哥尼斯堡（今天俄罗斯的加里宁格勒），一条河把城市分成了 4 块陆地：北岸、南岸，还有河中的两座岛。7 座桥把这 4 块陆地连起来（见图）。
+市民们有个游戏：能不能设计一条散步路线，每座桥恰好走一次？
+让大家用手指在图上试 30 秒——不管怎么试，都失败。
+1736 年，数学家欧拉证明了：这是不可能的。他的做法是把问题“抽象”成图——下一页就讲。这篇论文被认为是图论的开端。
+[说明：原问题只要求每座桥走一次，不要求回到出发点；我们后面会看到，两种要求都不可能。]</aside>
+</section>

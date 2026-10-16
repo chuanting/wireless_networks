@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课件 · 现代通信网络</title>
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#03060f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060b18'/%3E%3Cpath d='M9 10l14 4M9 10l5 12M23 14l-9 8' stroke='%2335e0ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='9' cy='10' r='3.2' fill='%2335e0ff'/%3E%3Ccircle cx='23' cy='14' r='3.2' fill='%238b7bff'/%3E%3Ccircle cx='14' cy='22' r='3.2' fill='%2338e8a0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+</head>
+<body>
+<div id="loader"><div class="spin"></div><p id="loader-msg">正在加载课件…</p></div>
+
+<div id="app" hidden>
+  <div id="viewport">
+    <div id="stage"></div>
+    <div id="hit-prev" class="hit" aria-hidden="true"></div>
+    <div id="hit-next" class="hit" aria-hidden="true"></div>
+    <div id="blackout" hidden></div>
+  </div>
+  <aside id="notes" hidden aria-label="演讲备注">
+    <div class="n-head"><b>演讲备注</b><span id="n-count"></span><span class="sp"></span><button id="n-close" type="button" aria-label="关闭备注">×</button></div>
+    <div id="n-body"></div>
+  </aside>
+</div>
+
+<div class="bar top">
+  <a id="back" href="../index.html">← 课程目录</a>
+  <span id="deck-title" class="title"></span>
+  <span class="spacer"></span>
+  <button id="clock" type="button" class="mono" title="计时器：点击或按 T 暂停/继续，R 重置">⏱ 00:00</button>
+</div>
+<div class="bar bottom">
+  <button id="btn-prev" type="button" aria-label="上一步">‹</button>
+  <span id="counter" class="mono">1 / 1</span>
+  <button id="btn-next" type="button" aria-label="下一步">›</button>
+  <span id="section" class="section"></span>
+  <span class="spacer"></span>
+  <button id="btn-notes" type="button" aria-pressed="false">备注 <kbd>N</kbd></button>
+  <button id="btn-speaker" type="button">讲者视图 <kbd>S</kbd></button>
+  <button id="btn-overview" type="button">总览 <kbd>O</kbd></button>
+  <button id="btn-full" type="button">全屏 <kbd>F</kbd></button>
+  <button id="btn-help" type="button" aria-label="快捷键帮助">?</button>
+</div>
+<div id="progress"><i></i></div>
+
+<div id="overview" hidden>
+  <div class="ov-top"><b>总览</b><span class="sp"></span><a id="export" class="pill" href="#" target="_blank" rel="noopener">导出 PDF</a><button id="ov-close" type="button">关闭 Esc</button></div>
+  <div id="ov-body"></div>
+</div>
+
+<div id="help" hidden>
+  <div class="box">
+    <h2>快捷键</h2>
+    <dl>
+      <dt>→ ↓ 空格 PgDn</dt><dd>下一步 / 下一页（含“点击出现”的内容）</dd>
+      <dt>← ↑ PgUp</dt><dd>上一步 / 上一页</dd>
+      <dt>Home / End</dt><dd>第一页 / 最后一页</dd>
+      <dt>N</dt><dd>显示 / 隐藏演讲备注面板</dd>
+      <dt>S</dt><dd>打开「讲者视图」窗口：备注 + 下一页预览 + 计时，可放在笔记本屏幕上，投影只显示课件</dd>
+      <dt>O 或 G</dt><dd>总览（按部分分组的缩略图），点击跳转</dd>
+      <dt>F</dt><dd>全屏</dd>
+      <dt>B 或 .</dt><dd>黑屏（再按一次恢复）</dd>
+      <dt>T / R</dt><dd>计时器 暂停继续 / 重置（第一次翻页时自动开始）</dd>
+      <dt>点击画面</dt><dd>点右侧 = 下一步，点左侧 = 上一步；手机/平板可左右滑动</dd>
+      <dt>URL #12</dt><dd>直接跳到第 12 页；在总览里可导出 PDF</dd>
+    </dl>
+    <p style="margin:18px 0 0;text-align:right"><button id="help-close" type="button" class="pill">关闭 Esc</button></p>
+  </div>
+</div>
+
+<script src="../data/course.js"></script>
+<script type="module" src="../assets/js/viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<section id="p-abstract" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 路径与回路</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">抽象成图：陆地是点，桥是线</h2>
+</div>
+<svg aria-label="七桥问题的图：4 个点 A、B、C、D，共 7 条边，其中 A 与 C、C 与 B 之间各有两条边" viewBox="0 0 872 672" width="872" height="672" style="position:absolute;left:128px;top:264px">
+<g stroke="#6B7A8C" stroke-width="8" fill="none" stroke-linecap="round">
+<path d="M432,66 Q327.9,248.9 132,326"/>
+<path d="M432,66 Q236.1,143.1 132,326"/>
+<path d="M132,326 Q236.1,508.9 432,586"/>
+<path d="M132,326 Q327.9,403.1 432,586"/>
+<path d="M132,326 L732,326"/>
+<path d="M432,66 L732,326"/>
+<path d="M732,326 L432,586"/>
+</g>
+</svg>
+<p style="position:absolute;left:510px;top:280px;width:100px;height:100px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:100px;text-align:center">A</p>
+<p style="position:absolute;left:510px;top:800px;width:100px;height:100px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:100px;text-align:center">B</p>
+<p style="position:absolute;left:210px;top:540px;width:100px;height:100px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:100px;text-align:center">C</p>
+<p style="position:absolute;left:810px;top:540px;width:100px;height:100px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:40px;font-weight:700;line-height:100px;text-align:center">D</p>
+<p style="position:absolute;left:640px;top:310px;width:160px;font-size:28px;color:#4B5A6B">北岸</p>
+<p style="position:absolute;left:640px;top:830px;width:160px;font-size:28px;color:#4B5A6B">南岸</p>
+<p style="position:absolute;left:160px;top:656px;width:200px;font-size:28px;color:#4B5A6B;text-align:center">中心岛</p>
+<p style="position:absolute;left:760px;top:656px;width:200px;font-size:28px;color:#4B5A6B;text-align:center">东岛</p>
+<div style="position:absolute;left:1088px;top:264px;width:704px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">第 1 步</p>
+<p style="font-size:32px;color:#14253D">每块陆地画成一个点（A、B、C、D）</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">第 2 步</p>
+<p style="font-size:32px;color:#14253D">每座桥画成一条边；两块陆地之间有 2 座桥，就画 2 条边</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">问题变成</p>
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">能不能“一笔画”出整张图：每条边恰好画一次？</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">桥有多长、陆地什么形状，都不重要，只看“谁连着谁”。</p>
+</div>
+<aside>【1.2 分钟】
+这是图论里最重要的思维动作：抽象。
+第 1 步：陆地不管多大、什么形状，统统画成一个点——北岸 A、南岸 B、中心岛 C、东岛 D。
+第 2 步：每座桥画成一条边。中心岛和北岸之间有两座桥，就画两条边——这叫“多重边”，是本课唯一出现重复边的地方。
+这样，“每座桥走一次”就变成了“一笔画出整张图，每条边恰好画一次”。
+欧拉的洞察：路线只和“谁连着谁”有关，和桥多长、陆地多大无关。这正是上一部分“同一个图可以有不同画法”的道理。</aside>
+</section>

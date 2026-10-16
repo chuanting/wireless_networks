@@ -1,0 +1,41 @@
+<section id="p-cycle" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 路径与回路</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">回路：走一圈，回到出发点</h2>
+</div>
+<x-connector x1="220" y1="340" x2="620" y2="300" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="620" y1="300" x2="1020" y2="340" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="340" x2="220" y2="780" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="620" y1="300" x2="220" y2="780" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="620" y1="300" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="1020" y1="340" x2="1020" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="220" y1="780" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<x-connector x1="620" y1="820" x2="1020" y2="780" head="none" style="color:#B4BEC9;border-width:5px"></x-connector>
+<p style="position:absolute;left:180px;top:300px;width:80px;height:80px;border-radius:50%;background:#FBE3D2;border:3px solid #C2410C;color:#9A3412;font-size:40px;font-weight:700;line-height:80px;text-align:center">A</p>
+<p style="position:absolute;left:580px;top:260px;width:80px;height:80px;border-radius:50%;background:#FBE3D2;border:3px solid #C2410C;color:#9A3412;font-size:40px;font-weight:700;line-height:80px;text-align:center">B</p>
+<p style="position:absolute;left:980px;top:300px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">C</p>
+<p style="position:absolute;left:180px;top:740px;width:80px;height:80px;border-radius:50%;background:#FBE3D2;border:3px solid #C2410C;color:#9A3412;font-size:40px;font-weight:700;line-height:80px;text-align:center">D</p>
+<p style="position:absolute;left:580px;top:780px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">E</p>
+<p style="position:absolute;left:980px;top:740px;width:80px;height:80px;border-radius:50%;background:#FFFEFA;border:3px solid #5B6B7C;color:#14253D;font-size:40px;font-weight:700;line-height:80px;text-align:center">F</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:40px;font-weight:700;color:#14253D">回路</h3>
+<p style="font-size:32px;color:#14253D">起点和终点是同一个点的路径。</p>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">例</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">A → B → D → A</p>
+<p style="font-size:28px;color:#4B5A6B">图书馆 → 教学楼 → 宿舍 → 图书馆</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">回路 = 备份线路</p>
+<p style="font-size:32px;color:#14253D">AB 断了还能绕 A → D → B；但每条备份线都要花钱。</p>
+</div>
+<p style="font-size:32px;font-weight:700;color:#14253D">最小生成树：刚好连通、没有多余备份，所以不含回路。</p>
+</div>
+<aside>【1.2 分钟】
+回路：起点和终点是同一个点的路径（中间的点不重复）。例：图书馆 → 教学楼 → 宿舍 → 图书馆，即 A→B→D→A。
+真实例子：北京地铁 2 号线是环线，坐满一圈回到原来的站，它本身就是一个回路。
+
+重点来了（为后面铺垫）：回路在网络里 = 备份线路。A→B 这条线断了，还可以走 A→D→B 绕过去。备份提高可靠性，但每多一条备份线，就多花一份钱。
+最小生成树的目标是“刚好连通”，不要任何多余的备份，所以：最小生成树不含回路。请大家记住这句话，一会儿要用。</aside>
+</section>

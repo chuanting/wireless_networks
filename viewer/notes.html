@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>讲者视图 · 现代通信网络</title>
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>
+  html, body { overflow: auto; }
+  .sv { display: grid; grid-template-columns: minmax(300px, 46%) 1fr; gap: 18px; height: 100vh; padding: 16px; }
+  .sv .left { display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+  .sv .lbl { font: 500 .72rem/1 var(--mono); letter-spacing: .14em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+  .pv { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #000; }
+  .pv .scaler { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+  .pv.small { width: 62%; opacity: .92; }
+  .sv .right { display: flex; flex-direction: column; min-height: 0; border: 1px solid var(--line); border-radius: 14px; background: #060c1b; }
+  .sv .top { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .sv .top .sp { flex: 1; }
+  .sv .big { font: 700 1.5rem/1 var(--mono); font-variant-numeric: tabular-nums; }
+  .sv .top button { border: 1px solid var(--line); background: rgba(10, 18, 38, .72); border-radius: 999px; padding: 6px 14px; }
+  .sv .top button:hover { border-color: rgba(53, 224, 255, .6); }
+  #nt { flex: 1; overflow: auto; padding: 18px 22px 40px; white-space: pre-wrap; font-size: 20px; line-height: 1.85; }
+  #nt:empty::before { content: "（本页没有备注）"; color: var(--muted); }
+  #status { font-size: .8rem; color: var(--muted); }
+  #status.bad { color: var(--amber); }
+  #clock2.warn { color: var(--amber); }
+  @media (max-width: 800px) { .sv { grid-template-columns: 1fr; height: auto; } }
+</style>
+</head>
+<body>
+<div class="sv" id="sv" hidden>
+  <div class="left">
+    <div><div class="lbl">当前页</div><div class="pv" id="pv-cur"></div></div>
+    <div><div class="lbl">下一页</div><div class="pv small" id="pv-next"></div></div>
+  </div>
+  <div class="right">
+    <div class="top">
+      <b id="cnt" class="big">– / –</b>
+      <span id="steps" style="color:var(--muted);font-size:.9rem"></span>
+      <span class="sp"></span>
+      <span id="status">连接中…</span>
+      <span class="big" id="clock2">00:00</span>
+      <button id="tg" type="button">暂停/继续 T</button>
+      <button id="rs" type="button">重置 R</button>
+    </div>
+    <div class="top" style="border-bottom:1px solid var(--line)">
+      <button id="bp" type="button">‹ 上一步</button>
+      <button id="bn" type="button">下一步 ›</button>
+      <span class="sp"></span>
+      <span style="color:var(--muted);font-size:.85rem">← → 翻页　T 计时　R 重置</span>
+    </div>
+    <div id="nt"></div>
+  </div>
+</div>
+<p id="msg" style="padding:40px;color:var(--muted)">正在加载…</p>
+<script type="module" src="../assets/js/notes.js"></script>
+</body>
+</html>

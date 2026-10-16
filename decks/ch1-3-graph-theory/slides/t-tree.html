@@ -1,0 +1,37 @@
+<section id="t-tree" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 生成树与最小生成树</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">树：连通、且没有回路的图</h2>
+</div>
+<x-connector x1="624" y1="330" x2="324" y2="530" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="624" y1="330" x2="624" y2="530" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="624" y1="330" x2="924" y2="530" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="324" y1="530" x2="224" y2="740" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="324" y1="530" x2="424" y2="740" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="924" y1="530" x2="924" y2="740" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<p style="position:absolute;left:546px;top:298px;width:156px;height:64px;border-radius:32px;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:28px;font-weight:700;line-height:64px;text-align:center">校长</p>
+<p style="position:absolute;left:246px;top:498px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">教务处</p>
+<p style="position:absolute;left:546px;top:498px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">学生处</p>
+<p style="position:absolute;left:846px;top:498px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">后勤处</p>
+<p style="position:absolute;left:146px;top:708px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">教学科</p>
+<p style="position:absolute;left:346px;top:708px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">考试科</p>
+<p style="position:absolute;left:846px;top:708px;width:156px;height:64px;border-radius:32px;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:28px;font-weight:700;line-height:64px;text-align:center">食堂</p>
+<div style="position:absolute;left:1100px;top:250px;width:692px;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:40px;font-weight:700;color:#14253D">树 = 连通 + 没有回路</h3>
+<p style="font-size:32px;color:#14253D">学校的组织结构、家谱、电脑里的文件夹，都是树。</p>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么没有回路？</p>
+<p style="font-size:32px;color:#14253D">每个人只有一个直属上级；任何两个部门之间，只有唯一一条汇报路线。</p>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:24px 32px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">网络的角度：树 = 刚好连通，没有一条多余的线。</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">在教学科和考试科之间再连一条线，就出现了回路，它就不再是树。</p>
+</div>
+<aside>【1.5 分钟】
+树：连通并且没有回路的图。
+例子：学校的组织结构（校长 → 处室 → 科室）、家谱、电脑里的文件夹。数一数：7 个点，6 条边。
+为什么说“没有回路”？每个人只有一个直属上级，任何两个部门之间只有唯一一条汇报路线。
+网络的角度：树 = 刚好连通，没有任何多余的备份线。回忆上一部分：回路 = 备份线路。
+如果在教学科和考试科之间再连一条线，就出现回路（教务处—教学科—考试科—教务处），不再是树。</aside>
+</section>

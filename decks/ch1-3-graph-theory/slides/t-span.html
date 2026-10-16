@@ -1,0 +1,41 @@
+<section id="t-span" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 生成树与最小生成树</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">生成树：用最少的线把所有点连起来</h2>
+</div>
+<x-connector x1="620" y1="300" x2="1020" y2="340" head="none" style="color:#B4BEC9;border-width:5px;border-style:dashed"></x-connector>
+<x-connector x1="620" y1="300" x2="220" y2="780" head="none" style="color:#B4BEC9;border-width:5px;border-style:dashed"></x-connector>
+<x-connector x1="1020" y1="340" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px;border-style:dashed"></x-connector>
+<x-connector x1="220" y1="780" x2="620" y2="820" head="none" style="color:#B4BEC9;border-width:5px;border-style:dashed"></x-connector>
+<x-connector x1="220" y1="340" x2="620" y2="300" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="220" y1="340" x2="220" y2="780" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="620" y1="300" x2="620" y2="820" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="1020" y1="340" x2="1020" y2="780" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<x-connector x1="620" y1="820" x2="1020" y2="780" head="none" style="color:#C2410C;border-width:10px"></x-connector>
+<p style="position:absolute;left:180px;top:300px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">A</p>
+<p style="position:absolute;left:580px;top:260px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">B</p>
+<p style="position:absolute;left:980px;top:300px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">C</p>
+<p style="position:absolute;left:180px;top:740px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">D</p>
+<p style="position:absolute;left:580px;top:780px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">E</p>
+<p style="position:absolute;left:980px;top:740px;width:80px;height:80px;border-radius:50%;background:#14253D;border:3px solid #14253D;color:#F4F1E8;font-size:40px;font-weight:700;line-height:80px;text-align:center">F</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:40px;font-weight:700;color:#14253D">生成树</h3>
+<p style="font-size:32px;color:#14253D">从连通图中选出一部分边（橙色实线），使得：</p>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:24px 32px">
+<p style="font-size:32px;font-weight:700;color:#14253D">① 包含所有的点</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">② 全部连通</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">③ 没有回路（它是一棵树）</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:24px 32px">
+<p style="font-size:40px;font-weight:700;color:#F4F1E8">6 个点 → 5 条边</p>
+<p style="font-size:28px;color:#D5DCE6">这个校园图一共有 55 棵不同的生成树，每一棵都是一个可行的铺线方案。</p>
+</div>
+<p style="font-size:28px;color:#4B5A6B">灰色虚线：这个方案没有用到的线路。</p>
+</div>
+<aside>【1.7 分钟】
+生成树 = 在连通图里选出一部分边，满足三条：包含所有点、全部连通、没有回路——也就是一棵包含所有点的树。
+图上橙色这 5 条边就是一棵生成树：A-D、A-B、B-E、E-F、F-C。验证：6 个点，5 条边，连通，没有回路。灰色虚线是没被选中的线路。
+生成树不唯一：这个只有 6 个点、9 条边的小图，就有 55 棵不同的生成树。
+每一棵生成树，都是一个可行的铺线方案：全部连通，没有浪费。
+现在的问题就变成：这 55 个方案里，哪个最便宜？（下一页加上造价。）</aside>
+</section>

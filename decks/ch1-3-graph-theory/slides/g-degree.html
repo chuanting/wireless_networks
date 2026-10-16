@@ -1,0 +1,44 @@
+<section id="g-degree" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 图的概念</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">度：一个点连着几条线</h2>
+</div>
+<x-connector x1="250" y1="400" x2="250" y2="780" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="250" y1="400" x2="600" y2="590" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="250" y1="780" x2="600" y2="590" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="600" y1="590" x2="880" y2="400" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<x-connector x1="880" y1="400" x2="1000" y2="780" head="none" style="color:#6B7A8C;border-width:6px"></x-connector>
+<p style="position:absolute;left:194px;top:344px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小明</p>
+<p style="position:absolute;left:194px;top:724px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小红</p>
+<p style="position:absolute;left:544px;top:534px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小刚</p>
+<p style="position:absolute;left:824px;top:344px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小丽</p>
+<p style="position:absolute;left:944px;top:724px;width:112px;height:112px;border-radius:50%;background:#FFFEFA;border:3px solid #14253D;color:#14253D;font-size:32px;font-weight:700;line-height:112px;text-align:center">小华</p>
+<p style="position:absolute;left:176px;top:326px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">2</p>
+<p style="position:absolute;left:176px;top:802px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">2</p>
+<p style="position:absolute;left:622px;top:612px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">3</p>
+<p style="position:absolute;left:902px;top:326px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">2</p>
+<p style="position:absolute;left:1022px;top:706px;width:52px;height:52px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:52px;text-align:center">1</p>
+<div style="position:absolute;left:1144px;top:250px;width:648px;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:40px;font-weight:700;color:#14253D">度 = 这个点连着的边数</h3>
+<p style="font-size:32px;color:#4B5A6B">小刚认识 3 个人，所以他的度是 3。橙色数字就是每个点的度。</p>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">握手定理</p>
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">所有点的度之和 = 边数 × 2</p>
+<p style="font-size:32px;color:#F4F1E8">2 + 2 + 3 + 2 + 1 = 10 = 5 × 2</p>
+<p style="font-size:28px;color:#D5DCE6">每条边有两个端点，每个端点各数一次。</p>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:20px 32px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">思考：班上 7 位同学，能让每个人恰好有 3 位好友吗？</p>
+</div>
+</div>
+<div data-build-in="fade 1" style="position:absolute;left:1144px;top:840px;width:648px;background:#C2410C;border-radius:20px;padding:16px 32px">
+<p style="font-size:28px;font-weight:700;color:#FFF6EC">不可能：7 × 3 = 21 是奇数，而度之和必须是偶数。</p>
+</div>
+<aside>【2 分钟】
+度（degree）：一个点连着几条边。小刚连着小明、小红、小丽，度是 3；小华只认识小丽，度是 1。
+握手定理：所有点的度加起来，等于边数的 2 倍。原因：每条边有两个端点，数度的时候每个端点各数了一次。验算：2+2+3+2+1 = 10 = 2×5。
+
+思考题（先让大家想 20 秒，再点击显示答案）：7 位同学，每人恰好有 3 位好友，可能吗？
+答案：不可能。度之和 = 7×3 = 21，是奇数；但度之和必须是边数的 2 倍，一定是偶数。
+延伸（可选）：任何图里，度为奇数的点一定有偶数个。这个结论在第二部分“一笔画”里要用。</aside>
+</section>
