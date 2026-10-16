@@ -5,83 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>现代通信网络 · Modern Communication Networks</title>
 <meta name="description" content="现代通信网络课程讲义：通信网络概论及数学基础、端到端传输协议、网络时延模型、多址接入协议、路由算法、流量和拥塞控制、通信网络前沿简介。">
-<meta name="theme-color" content="#050914">
-<meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060b18'/%3E%3Cpath d='M9 10l14 4M9 10l5 12M23 14l-9 8' stroke='%2335e0ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='9' cy='10' r='3.2' fill='%2335e0ff'/%3E%3Ccircle cx='23' cy='14' r='3.2' fill='%238b7bff'/%3E%3Ccircle cx='14' cy='22' r='3.2' fill='%2338e8a0'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#fcfbf8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d3f72'/%3E%3Cpath d='M9 11l14 3M9 11l5 11M23 14l-9 8' stroke='%23fff' stroke-width='1.8' fill='none'/%3E%3Ccircle cx='9' cy='11' r='3' fill='%23fff'/%3E%3Ccircle cx='23' cy='14' r='3' fill='%23fff'/%3E%3Ccircle cx='14' cy='22' r='3' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 <body>
-<canvas id="net" aria-hidden="true"></canvas>
-<div class="veil" aria-hidden="true"></div>
 
-<header class="nav">
-  <a class="brand" href="#top" aria-label="现代通信网络 首页">
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M9 10l14 4M9 10l5 12M23 14l-9 8" stroke="#35e0ff" stroke-width="2" fill="none"/><circle cx="9" cy="10" r="3.2" fill="#35e0ff"/><circle cx="23" cy="14" r="3.2" fill="#8b7bff"/><circle cx="14" cy="22" r="3.2" fill="#38e8a0"/></svg>
-    <span>现代通信网络</span>
-  </a>
-  <nav>
-    <a href="#curriculum">课程目录</a>
-    <a id="nav-repo" href="https://github.com/chuanting/wireless_networks" target="_blank" rel="noopener">GitHub</a>
-  </nav>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">现代通信网络</a>
+    <nav aria-label="站点导航">
+      <a href="#curriculum">课程目录</a>
+      <a id="nav-repo" href="https://github.com/chuanting/wireless_networks" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <section class="hero" id="top">
-    <div class="hero-in">
-      <p class="eyebrow"><span class="dot"></span>Modern Communication Networks · 6G Era</p>
-      <h1><span class="grad">现代通信网络</span></h1>
-      <p class="sub">从图论、传输协议到路由与拥塞控制，走向 6G</p>
-      <p class="lead">信息如何在网络中高效、可靠地流动？背景是一个实时仿真的网络：基站、卫星、路由器与终端之间，数据包正沿最短路径转发；当流量突发、链路拥塞时，路由会自动绕行。</p>
-      <ul class="tags" aria-label="关键词">
-        <li class="t6g">6G</li><li>空天地一体化</li><li>通感一体</li><li>AI 原生</li><li>路由算法</li><li>拥塞控制</li>
-      </ul>
-      <div class="cta">
-        <a class="btn primary" href="#curriculum">进入课程目录 <span aria-hidden="true">→</span></a>
-        <a class="btn" href="https://github.com/chuanting/wireless_networks" target="_blank" rel="noopener">GitHub 仓库</a>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="kicker">Modern Communication Networks</p>
+        <h1>现代通信网络</h1>
+        <p class="lead">本课程讲义围绕“信息如何在网络中高效、可靠地传递”展开：从通信网络的基本概念与数学基础出发，依次讨论端到端传输、时延模型、多址接入、路由算法、流量与拥塞控制，并简要介绍 6G 等前沿方向。</p>
+        <div class="cta">
+          <a class="btn primary" href="#curriculum">浏览课程目录</a>
+          <a class="btn" href="viewer/?deck=ch1-3-graph-theory">最近更新：1.3 数学基础：图论</a>
+        </div>
       </div>
-    </div>
 
-    <aside class="hud" aria-label="网络仿真实时指标">
-      <div class="hud-title"><span>LIVE · NETWORK SIMULATION</span><em>仿真示意</em></div>
-      <div class="hud-grid">
-        <div><b id="hud-flight">0</b><span>在途分组</span></div>
-        <div><b id="hud-delay">0</b><span>平均时延 (ms)</span></div>
-        <div><b id="hud-cong">0</b><span>拥塞链路</span></div>
-      </div>
-      <canvas id="spark" width="360" height="72" aria-hidden="true"></canvas>
-      <p class="hud-event" id="hud-event">稳态转发</p>
-      <ul class="legend">
-        <li class="l-bs">基站</li><li class="l-sat">卫星</li><li class="l-path">最短路径</li><li class="l-cong">拥塞</li>
-      </ul>
-    </aside>
+      <figure class="fig">
+        <svg viewBox="0 0 520 340" role="img" aria-label="带权网络示意图：节点 s 到节点 t 的最短路径为 s、b、e、t，长度为 13">
+          <g class="links">
+            <line x1="46"  y1="190" x2="130" y2="84"/>
+            <line x1="130" y1="84"  x2="250" y2="180"/>
+            <line x1="130" y1="84"  x2="285" y2="52"/>
+            <line x1="130" y1="280" x2="250" y2="180"/>
+            <line x1="285" y1="52"  x2="250" y2="180"/>
+            <line x1="250" y1="180" x2="310" y2="292"/>
+            <line x1="250" y1="180" x2="392" y2="138"/>
+            <line x1="285" y1="52"  x2="392" y2="138"/>
+            <line x1="392" y1="138" x2="476" y2="226"/>
+          </g>
+          <g class="path">
+            <line x1="46"  y1="190" x2="130" y2="280"/>
+            <line x1="130" y1="280" x2="310" y2="292"/>
+            <line x1="310" y1="292" x2="476" y2="226"/>
+          </g>
+          <g class="w">
+            <text x="88"  y="137">4</text>
+            <text x="190" y="132">5</text>
+            <text x="207" y="68">6</text>
+            <text x="190" y="230">4</text>
+            <text x="267" y="116">3</text>
+            <text x="280" y="236">5</text>
+            <text x="321" y="159">5</text>
+            <text x="338" y="95">4</text>
+            <text x="434" y="182">3</text>
+          </g>
+          <g class="w on">
+            <text x="88"  y="235">3</text>
+            <text x="220" y="286">6</text>
+            <text x="393" y="259">4</text>
+          </g>
+          <g class="nodes">
+            <circle cx="130" cy="84"  r="11"/><text x="130" y="84">a</text>
+            <circle cx="250" cy="180" r="11"/><text x="250" y="180">c</text>
+            <circle cx="285" cy="52"  r="11"/><text x="285" y="52">d</text>
+            <circle cx="392" cy="138" r="11"/><text x="392" y="138">f</text>
+          </g>
+          <g class="nodes on">
+            <circle cx="46"  cy="190" r="13"/><text x="46"  y="190">s</text>
+            <circle cx="130" cy="280" r="11"/><text x="130" y="280">b</text>
+            <circle cx="310" cy="292" r="11"/><text x="310" y="292">e</text>
+            <circle cx="476" cy="226" r="13"/><text x="476" y="226">t</text>
+          </g>
+        </svg>
+        <figcaption><span>图 1</span>带权网络中 s 到 t 的最短路径 s → b → e → t，权重之和为 13</figcaption>
+      </figure>
+    </div>
   </section>
 
-  <section class="curriculum" id="curriculum" aria-labelledby="cur-title">
-    <div class="sec-head">
-      <p class="eyebrow mono">CURRICULUM · 7 CHAPTERS</p>
-      <h2 id="cur-title">课程目录</h2>
-      <p class="hint">点击一章，展开该章的小节；再点击小节，进入课件。</p>
-    </div>
-    <div class="menu">
-      <ol class="chapters" id="chapters"></ol>
-      <div class="panel" id="panel" aria-live="polite"></div>
+  <section class="toc" id="curriculum" aria-labelledby="cur-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="cur-title">课程目录</h2>
+        <p>点击章节展开小节，再点击小节进入课件。</p>
+      </header>
+      <div class="menu">
+        <ol class="chapters" id="chapters"></ol>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="foot">
-  <span>现代通信网络 · 课程讲义</span>
-  <span class="sep">·</span>
-  <span>背景为实时仿真，仅作示意</span>
-  <span class="sep">·</span>
-  <a href="https://github.com/chuanting/wireless_networks" target="_blank" rel="noopener">源码</a>
+  <div class="wrap">
+    <span>现代通信网络 · 课程讲义</span>
+    <a href="https://github.com/chuanting/wireless_networks" target="_blank" rel="noopener">源码仓库</a>
+  </div>
 </footer>
 
 <script src="data/course.js"></script>
-<script src="assets/js/network-bg.js"></script>
 <script src="assets/js/landing.js"></script>
 </body>
 </html>

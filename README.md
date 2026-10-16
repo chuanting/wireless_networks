@@ -19,11 +19,11 @@
 ## 仓库结构
 
 ```
-index.html                 课程主页（实时仿真的网络背景 + 章节/小节菜单）
+index.html                 课程主页（简介 + 章 → 小节 → 课件 的目录菜单）
 data/course.js             课程目录：主页的菜单完全由它生成
 viewer/index.html          课件放映页   viewer/?deck=<deck-id>#<页码>
 viewer/notes.html          讲者视图（由放映页按 S 打开）
-assets/css, assets/js      主页与放映器的样式/脚本（无第三方依赖）
+assets/css, assets/js      主页与放映器的样式/脚本（无第三方依赖；仅加载 Google Fonts）
 decks/<deck-id>/           每一讲课件
   deck.json                页序、分部、标题
   slides/<slide-id>.html   一页一个文件（1920×1080 画布，行内样式）
@@ -58,7 +58,5 @@ python3 -m http.server 8000
 
 ## 说明
 
-- 主页背景是一个浏览器内实时运行的网络仿真（Canvas）：基站覆盖圈、低轨卫星、终端、数据包、
-  Dijkstra 路径发现，以及突发流量导致的拥塞与自适应绕行；系统开启「减少动态效果」时只显示静态画面。
-- 页面使用 Google Fonts（Noto Sans SC、Space Grotesk、JetBrains Mono）；离线时回退到系统字体。
+- 页面使用 Google Fonts（Noto Serif SC、Noto Sans SC）；离线时回退到系统字体。
 - 演讲备注（含练习题参考答案）保存在每页的 `<aside>` 里，随站点公开可见；如需保密，请在发布前删除对应内容。
