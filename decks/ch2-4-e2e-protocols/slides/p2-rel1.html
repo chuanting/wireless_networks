@@ -1,0 +1,50 @@
+<section id="p2-rel1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 可靠传输</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">累积确认 + 缓存乱序 + 超时重传</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:flex-start">
+<div style="width:1130px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">接收方的缓冲区：第 2 段（2000–2999）丢了</p>
+<div style="display:flex;gap:6px"><div style="width:204px;height:96px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;display:flex;flex-direction:column;justify-content:center;gap:2px"><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#1E40AF">1000–1999</p><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#1E40AF">已收，已确认</p></div><div style="width:204px;height:96px;background:#FEE2E2;border:2px solid #B91C1C;border-radius:10px;display:flex;flex-direction:column;justify-content:center;gap:2px"><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#991B1B">2000–2999</p><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#991B1B">空缺！</p></div><div style="width:204px;height:96px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:10px;display:flex;flex-direction:column;justify-content:center;gap:2px"><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">3000–3999</p><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">乱序，先存着</p></div><div style="width:204px;height:96px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:10px;display:flex;flex-direction:column;justify-content:center;gap:2px"><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">4000–4999</p><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">乱序，先存着</p></div><div style="width:204px;height:96px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:10px;display:flex;flex-direction:column;justify-content:center;gap:2px"><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">5000–5999</p><p style="font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#4B5A6B">乱序，先存着</p></div></div>
+<p style="font-size:26px;line-height:1.5;color:#14253D">B 此时回的 ack 一直是 <b>2000</b>——“2000 之前都收到了，我还在等 2000”。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">一旦 2000–2999 重发到达，缓冲区里的 3000–5999 马上连上，B 一次回 <b>ack = 6000</b>。</p>
+</div>
+<div style="display:flex;gap:16px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">2.2 的返回 n</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">丢一个，其后的全部重发。浪费带宽。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">TCP 的做法</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">后面的先存着，<b>只重发缺的那一个</b>。省带宽。</p>
+</div>
+</div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">① 累积确认</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">ack = 连续收到的最后一个字节 + 1。像 2.2 的返回 n。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② 乱序的先存着</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方缓存乱序到达的段，发送方只需重发缺的那段。像 2.2 的选择重发。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 超时重传</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">发送方对最老的未确认段计时；超时就重发它。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ SACK（了解）</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方还能用选项告知“我另外收到了哪几块”，更精确。</p>
+</div>
+</div>
+</div>
+<aside>【3.5 分钟】
+TCP 的可靠传输，核心是三件事。
+一，累积确认。ack 等于“连续收到的最后一个字节加 1”。上一页看过。这像 2.2 的返回 n。
+二，接收方把乱序到达的段先存起来。看图：发了 1000 到 5999，一共 5 段，每段 1000 字节。第 2 段，2000 到 2999，丢了。后面的第 3、4、5 段先到了，接收方把它们存在缓冲区里，不丢弃。这一点像 2.2 的选择重发。但此时回的确认号一直是 2000：“2000 之前我都收到了，还在等 2000”。一旦第 2 段重发到达，缓冲区里的 3000 到 5999 立刻连上，B 一次回 ack = 6000。
+所以 TCP 的做法其实是：确认像返回 n，累积的；缓存像选择重发，乱序的先存着。这样发送方只需要重发缺的那一段。
+三，超时重传。发送方对最老的、还没被确认的那一段启动定时器，超时就重发它。超时时间怎么定，是后面的重点。
+还有一个了解性的选项叫 SACK，选择确认：接收方可以在 ACK 里附带说“除了 2000 之前，我还收到了 3000 到 5999”，让发送方更精确地知道缺哪些。
+[提示：问学生：为什么 TCP 要缓存乱序的段？——因为网络里乱序是常态，丢掉就浪费了网络。]</aside>
+</section>

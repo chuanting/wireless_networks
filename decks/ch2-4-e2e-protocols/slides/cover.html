@@ -1,0 +1,20 @@
+<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 2 章 · 端到端的传输协议 · 2.4</p>
+<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">网络层和运输层</h1>
+<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">的点对点传输协议</h2>
+<p style="font-size:32px;color:#B9C4D3">为什么链路可靠还不够 · 虚电路 · 端到端窗口 · TCP</p>
+<svg aria-label="装饰图：四个节点依次相连，一条橙色的弧线从第一个节点直达最后一个节点，表示端到端" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
+<path d="M40,250H610" stroke="#8FA3BD" stroke-width="6" fill="none"/>
+<path d="M40,214C150,30 500,30 592,206" stroke="#F4975A" stroke-width="6" fill="none" stroke-dasharray="14 10"/>
+<polygon points="610,226 576,212 604,190" fill="#F4975A"/>
+<circle cx="40" cy="250" r="28" fill="#F4975A"/><circle cx="230" cy="250" r="22" fill="#B9C4D3"/><circle cx="420" cy="250" r="22" fill="#B9C4D3"/><circle cx="610" cy="250" r="28" fill="#F4975A"/>
+<rect x="112" y="226" width="34" height="24" rx="4" fill="#3B4E68"/><rect x="302" y="226" width="34" height="24" rx="4" fill="#3B4E68"/><rect x="492" y="226" width="34" height="24" rx="4" fill="#3B4E68"/>
+</svg>
+<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<aside>【开场 · 1 分钟】
+前三节课我们一直在讲“一条链路”：2.1 怎么在比特流里划出一帧；2.2 怎么检错、怎么重传；2.3 把这些装配成标准协议 HDLC。今天的第 2.4 节，视野要放大：数据从发送方到接收方，通常要经过很多条链路、很多个中间节点。这时还需要什么协议？
+本节分两大块：第一块是网络层的点对点协议——一次“会话”的分组，怎样标识、怎样编号、怎样用窗口控制；第二块是运输层，重点讲 TCP：端口、三次握手、可靠传输、超时重传、流量控制。
+贯穿全节的一条线索：这里用到的思想，仍然是前面学过的那几样——编号、确认、窗口、超时重传、初始化——只是环境更恶劣了。所以你会不断看到“似曾相识”。
+右边装饰图：四个节点相连，下面灰线是一条条链路；上面橙色的虚线弧，是从第一个节点直达最后一个节点的“端到端”。
+全程用具体例子，不要求预先知识。时间不限，全部讲完约 100 分钟，可以分两次。</aside>
+</section>

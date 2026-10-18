@@ -1,0 +1,41 @@
+<section id="p2-cc" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 预告</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">拥塞控制：窗口不只由接收方说了算</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:flex-start">
+<div style="position:relative;width:1060px;height:420px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<svg aria-label="拥塞窗口随时间变化的锯齿形曲线：先指数增长，再每次加一，丢包后减半" viewBox="0 0 1000 400" width="1000" height="400" style="position:absolute;left:0px;top:0px">
+<path d="M60,380H980M60,380V20" stroke="#8A97A6" stroke-width="3" fill="none"/>
+<path d="M60,124H980" stroke="#E3DDCB" stroke-width="2" stroke-dasharray="10 8" fill="none"/>
+<polyline points="70,372 94,364 118,348 142,316 166,252 190,124 214,116 238,108 262,100 286,92 310,84 334,76 358,68 382,60 406,220 430,212 454,204 478,196 502,188 526,180 550,172 574,164 598,156 622,148 646,140 670,132 694,124 718,116 742,108 766,100 790,92 814,84 838,76 862,68 886,60 910,220 934,212 958,204 982,196" fill="none" stroke="#1D4ED8" stroke-width="5"/>
+<path d="M382,60V220" stroke="#C2410C" stroke-width="4" stroke-dasharray="6 6" fill="none"/>
+</svg>
+<p style="position:absolute;left:2px;top:48px;width:60px;font-size:22px;font-weight:400;line-height:1.3;text-align:right;color:#4B5A6B">cwnd</p><p style="position:absolute;left:268px;top:236px;width:430px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#1E40AF">慢启动：每个 RTT 翻倍（指数增长）</p><p style="position:absolute;left:224px;top:0.0px;width:340px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#1E40AF">拥塞避免：每个 RTT 加 1</p><p style="position:absolute;left:394px;top:108px;width:240px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#C2410C">丢包：窗口减半</p><p style="position:absolute;left:60px;top:386px;width:900px;font-size:22px;font-weight:400;line-height:1.3;text-align:left;color:#4B5A6B">横轴：时间（以 RTT 计）</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">为什么需要？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">只用接收窗口，发送方会把<b>网络</b>塞满，大家一起丢包、一起重传，越传越堵。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">怎么做</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">发送方自己再维护一个拥塞窗口 cwnd：先试探着增加，一丢包就减半。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">锯齿形</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">“加性增、乘性减”（AIMD）：稳定、公平地分享带宽。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">详细内容在<b>第 6 章</b>“流量和拥塞控制”。</p>
+</div>
+</div>
+</div>
+<aside>【2 分钟 · 可压缩 · 预告】
+流量控制保护的是接收方。但是网络本身也会拥塞——很多发送方同时往网络里灌数据，路由器的缓冲区满了，开始丢包。丢包又引起重传，重传再加重拥塞，越传越堵。
+所以 TCP 的发送方，除了遵守接收窗口，还自己再维护一个拥塞窗口 cwnd，实际窗口是两者的较小值。
+看图：cwnd 的变化像锯齿。刚开始，窗口很小，只有 1 个报文段，每过一个往返时间翻倍：1、2、4、8、16、32——叫“慢启动”，名字叫慢，其实是指数增长，很快。到一个阈值之后，改成每个往返时间只加 1——叫“拥塞避免”，试探着往上增加。一旦出现丢包，这是网络拥塞的信号，窗口减半，再从头往上增加。
+这样的“加性增、乘性减”，英文缩写 AIMD，能让很多条连接稳定而且公平地分享带宽。
+详细内容留到第 6 章“流量和拥塞控制”。这里只要知道：TCP 的发送窗口 = min（接收窗口，拥塞窗口）。
+[提示：这是一个“预告”，本节不要求掌握。]</aside>
+</section>

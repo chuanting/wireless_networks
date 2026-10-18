@@ -1,0 +1,41 @@
+<section id="p2-isn" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接建立</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">初始序号 ISN 为什么不从 0 开始？</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">序号空间（示意，0–10000）</p>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:400px;font-size:26px;font-weight:700;color:#14253D">旧连接遗留的迟到分段</p><div style="position:relative;width:920px;height:60px;background:#EFEBDD;border-radius:12px"><p style="position:absolute;left:92px;top:6px;width:184px;height:48px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:44px;text-align:center;color:#9A3412">1000–3000</p></div></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:400px;font-size:26px;font-weight:700;color:#14253D">新连接，ISN = 0（最糟）</p><div style="position:relative;width:920px;height:60px;background:#EFEBDD;border-radius:12px"><p style="position:absolute;left:0px;top:6px;width:368px;height:48px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:44px;text-align:center;color:#1E40AF">窗口 0–4000</p></div></div>
+<p style="font-size:24px;color:#9A3412;font-weight:700">↑ 与旧分段重叠：旧数据被当成新数据收下！</p>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:400px;font-size:26px;font-weight:700;color:#14253D">新连接，ISN = 6000（随机选）</p><div style="position:relative;width:920px;height:60px;background:#EFEBDD;border-radius:12px"><p style="position:absolute;left:552px;top:6px;width:368px;height:48px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:44px;text-align:center;color:#1E40AF">窗口 6000–10000</p></div></div>
+<p style="font-size:24px;color:#1E40AF;font-weight:700">↑ 不重叠：迟到的旧分段会被丢弃。</p>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">① 让 ISN 变化</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">RFC 793：用 4 μs 一跳的时钟，约 4.77 小时一圈。现代系统：时钟 + 加密哈希（不可预测）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 等一等：TIME_WAIT</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">连接关闭后，同一个四元组等 2MSL 才能再用（下面讲）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 防伪造</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">ISN 可预测，攻击者就能伪造报文冒充；随机化也提高安全性。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;line-height:1.45;color:#F4F1E8">这正是 2.3 里解决初始化问题的两招：<b>随机数</b>（ISN）和<b>长定时器</b>（TIME_WAIT）。</p>
+</div>
+<aside>【3 分钟】
+既然 SYN 里要带一个初始序号 ISN，为什么不能每次都从 0 开始，那样不是更简单吗？
+看图。条上的刻度表示序号空间。橙色是“旧连接”留下的、迟到的分段，序号 1000 到 3000，它们还在网络里漂。如果新连接用同样的四元组——比如同一个客户端又用同一个端口连同一个服务器——并且 ISN 从 0 开始，新连接的窗口是 0 到 4000，和旧分段重叠！旧数据就会被当成新数据收下。这就是 2.3 里讲的“旧数据混进新一轮”。
+如果 ISN 是随机选的，比如 6000，窗口是 6000 到 10000，就和旧分段不重叠，迟到的旧分段会被识别出来丢弃。
+所以 ISN 应该变化。三个办法：
+一，让 ISN 随时间变化。最初的 RFC 793 规定用一个每 4 微秒加 1 的时钟，2 的 32 次方乘 4 微秒大约 4.77 小时一圈。现代的系统用时钟再加上加密哈希，让它不可预测。
+二，等一等：连接关闭以后，同样的四元组要等 2MSL 才能再用，让旧分段在网络里“死光”。下面两页讲。
+三，防伪造：ISN 如果可预测，攻击者就能伪造报文冒充；随机化提高了安全性。
+这正是 2.3 里解决初始化问题的两招：随机数（对应 ISN），长定时器（对应 TIME_WAIT）。
+[验算：2^32 × 4 μs = 17 179.9 s ≈ 4.77 小时。]</aside>
+</section>

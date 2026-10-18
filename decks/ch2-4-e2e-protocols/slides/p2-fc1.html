@@ -1,0 +1,72 @@
+<section id="p2-fc1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 流量控制</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">接收窗口：接收方说了算</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:727px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="接收窗口：窗口为 0 时发送方停下，窗口更新后继续" viewBox="0 0 1072 657" width="1072" height="657" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V633" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V633" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,119" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,122 817,130 820,108" fill="#1D4ED8"/>
+<path d="M240,75L818,150" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,152 817,161 820,139" fill="#1D4ED8"/>
+<path d="M840,122L262,196" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,199 260,185 263,207" fill="#14253D"/>
+<path d="M840,152L262,227" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,230 260,216 263,238" fill="#14253D"/>
+<path d="M240,230L818,305" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,308 817,316 820,294" fill="#1D4ED8"/>
+<path d="M240,261L818,336" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,338 817,347 820,325" fill="#1D4ED8"/>
+<path d="M840,308L262,382" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,385 260,371 263,393" fill="#14253D"/>
+<path d="M840,338L262,413" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,416 260,402 263,424" fill="#C2410C"/>
+<circle cx="240" cy="416" r="9" fill="#C2410C"/>
+<circle cx="840" cy="447" r="9" fill="#1D4ED8"/>
+<path d="M840,447L262,522" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="240,524 260,511 263,533" fill="#1D4ED8"/>
+<path d="M240,540L818,615" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,618 817,626 820,604" fill="#1D4ED8"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:127px;top:704px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">窗口为 0：停发</p>
+<p style="position:absolute;left:994px;top:733px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">应用取走数据</p>
+<p style="position:absolute;left:556px;top:331px;width:224px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=0  len=1000</p>
+<p style="position:absolute;left:413px;top:423px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=1000  len=1000</p>
+<p style="position:absolute;left:413px;top:461px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA;border-radius:6px">ack=1000  win=3000</p>
+<p style="position:absolute;left:533px;top:516px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ack=2000  win=2000</p>
+<p style="position:absolute;left:593px;top:562px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8;background:#FFFEFA;border-radius:6px">seq=2000  len=1000</p>
+<p style="position:absolute;left:413px;top:609px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=3000  len=1000</p>
+<p style="position:absolute;left:413px;top:647px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA;border-radius:6px">ack=3000  win=1000</p>
+<p style="position:absolute;left:556px;top:699px;width:224px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ack=4000  win=0</p>
+<p style="position:absolute;left:473px;top:739px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">ack=4000  win=4000</p>
+<p style="position:absolute;left:533px;top:824px;width:270px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=4000  len=1000</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">① 接收窗口 win</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 在每个 ACK 里写：缓冲区还剩多少字节。例中 B 共 4000 字节，应用暂时不取。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 发送方遵守</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">未确认的字节数 ≤ win。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ win = 0</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">发送方停下。应用取走数据后，B 发窗口更新；发送方还会定时探测，以防更新丢失。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">对照 2.3：HDLC 用 RNR / RR 做“停 / 走”；TCP 直接告诉对方<b>还能收多少</b>，更精细。</p>
+</div>
+</div>
+<aside>【3 分钟】
+流量控制：接收方来不及处理，怎么让发送方慢下来？
+TCP 的办法：接收方在每个 ACK 里，把自己缓冲区剩下的空间，写进 win 字段，叫接收窗口。发送方必须遵守：未被确认的字节数，不能超过 win。
+看图：B 的缓冲区 4000 字节，应用程序还没有来取数据。A 发了两段 seq = 0 和 seq = 1000，B 收到后，缓冲区里有了 1000，回 ack = 1000，win = 3000；再收到一段，回 ack = 2000，win = 2000。A 看到 win，知道还能再发 2000，于是发 seq = 2000、3000。B 又收下两段：ack = 3000，win = 1000；ack = 4000，win = 0——缓冲区满了。A 看到 win = 0，停下（橙色标注）。
+过了一会儿，应用程序把缓冲区里的数据取走了，B 发一个窗口更新：ack = 4000，win = 4000。A 恢复发送。
+一个小细节：如果这个窗口更新丢了，A 会永远等下去，B 也在等 A 发数据——死锁。所以 A 在窗口为 0 的时候，会定时发一个很小的“探测”报文，催对方回复当前的窗口。
+对照 2.3：HDLC 用 RNR 和 RR，一个“停”一个“走”，是开关式的；TCP 用一个数值，直接告诉对方“我还能收多少”，更精细。
+[提示：这里是流量控制——保护接收方；第 6 章还会讲“拥塞控制”——保护网络。两者不同。]</aside>
+</section>

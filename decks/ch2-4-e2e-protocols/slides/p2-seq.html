@@ -1,0 +1,43 @@
+<section id="p2-seq" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 运输层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">字节序号与累积确认</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:flex-start">
+<div style="width:1130px"><div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">一个字节流被切成报文段（每段 1000 字节）</p>
+<div style="display:flex;gap:6px"><p style="width:255px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">字节 1000–1999</p><p style="width:255px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">字节 2000–2999</p><p style="width:255px;height:64px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#4B5A6B">字节 3000–3999</p><p style="width:255px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">字节 4000–4999</p></div>
+<p style="font-size:24px;color:#4B5A6B">第 3 段在网络里丢了（灰色）；其余三段到达。</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 18px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">A 发 seq = 1000</p><p style="flex:1;font-size:26px;color:#14253D">数据 1000 字节 → B 回 <b>ack = 2000</b>（2000 之前都收到了）</p></div>
+<div style="display:flex;align-items:center;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 18px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">A 发 seq = 2000</p><p style="flex:1;font-size:26px;color:#14253D">数据 1000 字节 → B 回 <b>ack = 3000</b></p></div>
+<div style="display:flex;align-items:center;gap:16px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 18px"><p style="width:300px;font-size:26px;font-weight:700;color:#9A3412">A 发 seq = 4000</p><p style="flex:1;font-size:26px;color:#14253D">第 3 段没到，B 只能再回 <b>ack = 3000</b>（还是想要 3000）</p></div>
+</div>
+</div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">seq：这一段第一个字节的编号</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">ack：我期待收到的<b>下一个</b>字节编号（累积确认）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么按字节、不按段编号？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">段的大小可以变；重传时可以重新分段、合并。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">编号会不会用完？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">32 位 = 2 的 32 次方 ≈ 43 亿字节。1 Gb/s 下约 <b>34 秒</b>就绕一圈。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">和 2.2 一样：窗口必须远小于编号空间（≤ 一半），否则新旧分不清；高速下靠“时间戳”选项帮忙。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+TCP 怎样编号？和 HDLC 不一样：HDLC 对“帧”编号，3 位；TCP 对“字节”编号，32 位。
+图里：一个数据流被切成每段 1000 字节的报文段。第 1 段装的是第 1000 到 1999 号字节，所以它的序号 seq 等于 1000——也就是这一段第一个字节的编号。
+确认号 ack 的含义：我期待收到的下一个字节的编号，而且是“累积”的：ack = 2000 的意思是，2000 之前的所有字节我都收到了，现在想要 2000。
+走一遍：A 发 seq = 1000，1000 个字节；B 回 ack = 2000。A 发 seq = 2000；B 回 ack = 3000。现在第 3 段（3000 到 3999）在网络里丢了。A 又发了 seq = 4000 的一段，它到了，但是 B 只能回 ack = 3000——因为 B 还是在等 3000 号字节。这就是“累积确认”：只确认到连续收到的最后一个。注意这一点——它是后面“快速重传”的基础。
+为什么按字节编号，而不是按报文段编号？因为报文段的大小可以变：重传时，可以把几个小段合并成一个大段重新发。
+编号会不会用完？32 位，2 的 32 次方约 43 亿字节。在 1 Gb/s 的链路上，每秒 1.25 亿字节，43 亿字节只要 34 秒就绕一圈回来。这和 2.2 里讲的“序号空间”问题是同一类：窗口必须远小于编号空间，否则分不清新旧。高速链路上靠“时间戳”选项来解决。
+[验算：2^32 = 4 294 967 296 字节；÷ 1.25×10^8 字节/秒 ≈ 34.4 秒。]</aside>
+</section>

@@ -1,0 +1,44 @@
+<section id="summary" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#C2410C">为什么</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">链路可靠 ≠ 整条路可靠：节点会断电、缓冲区会满。必须由<b>两端</b>确认（端到端论证）。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#C2410C">网络层</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">虚电路（VC 号、标号交换）与数据报；编号 + 窗口，窗口 ≥ <i>R</i>·<i>T</i>；逐跳与端到端互补；X.25 例。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#C2410C">端口与序号</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">四元组标识连接；TCP 按<b>字节</b>编号，ack = 期待的下一个字节（累积确认）。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#C2410C">连接管理</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">三次握手（随机 ISN 识破旧 SYN）；四次挥手 + TIME_WAIT（2MSL）。——2.3 初始化的升级版。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#C2410C">可靠与定时</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">累积确认 + 乱序缓存；超时重传 + 3 个重复 ACK 快速重传；RTO = SRTT + 4·RTTVAR。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:16px 26px">
+<p style="width:220px;font-size:32px;font-weight:700;color:#F4975A">流量控制</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F4F1E8">接收窗口 win；实际窗口 = min(win, cwnd)；拥塞控制见第 6 章。</p>
+</div>
+</div>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 28px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一章（第 3 章）：网络时延模型——排队论：为什么“排队”让时延变化这么大。</p></div>
+<aside>【2 分钟】
+带着大家快速回顾，每行一句话：
+为什么：链路可靠不等于整条路可靠，节点会断电，缓冲区会满，必须由两端确认——端到端论证。
+网络层：虚电路和数据报；虚电路的 VC 号和标号交换；编号加窗口，窗口要不小于 R 乘 T；逐跳重传与端到端重传互补；X.25 是一个具体例子。
+端口与序号：四元组标识一个连接；TCP 按字节编号，确认号是期待的下一个字节，累积确认。
+连接管理：三次握手，用随机的初始序号识破旧的 SYN；四次挥手，主动关闭的一方等 2MSL。这是 2.3 初始化的升级版。
+可靠与定时：累积确认加乱序缓存；超时重传，三个重复 ACK 快速重传；RTO 等于 SRTT 加 4 倍 RTTVAR。
+流量控制：接收窗口 win；实际窗口是 win 和 cwnd 的较小值；拥塞控制第 6 章讲。
+把第 2 章四节连起来：2.1 划出一帧；2.2 检错和重传；2.3 把它们装配成 HDLC，并说明怎样初始化；2.4 把这些思想推广到端到端，用于网络层和 TCP。
+下一章是第 3 章，网络时延模型，用排队论回答：为什么排队会让时延变化这么大——正是今天讲 RTO 时遇到的问题。
+最后留 3 分钟提问，然后布置练习。</aside>
+</section>

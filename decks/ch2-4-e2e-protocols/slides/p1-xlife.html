@@ -1,0 +1,58 @@
+<section id="p1-xlife" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">X.25：虚电路的一生</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:714px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="X.25 虚电路的呼叫建立、数据传输与清除" viewBox="0 0 1072 644" width="1072" height="644" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V620" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V620" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,121" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,124 817,132 820,110" fill="#C2410C"/>
+<path d="M840,140L262,217" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,220 260,206 263,228" fill="#C2410C"/>
+<path d="M240,236L818,313" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,316 817,324 820,302" fill="#1D4ED8"/>
+<path d="M240,268L818,345" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,348 817,356 820,334" fill="#1D4ED8"/>
+<path d="M840,348L262,425" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,428 260,414 263,436" fill="#14253D"/>
+<path d="M240,444L818,521" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,524 817,532 820,510" fill="#C2410C"/>
+<path d="M840,524L262,601" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,604 260,590 263,612" fill="#C2410C"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A（主叫）</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B（被叫）</p>
+<p style="position:absolute;left:576px;top:335px;width:184px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">Call Request</p>
+<p style="position:absolute;left:569px;top:430px;width:198px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">Call Accepted</p>
+<p style="position:absolute;left:536px;top:521px;width:264px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">Data  P(S)=0  P(R)=0</p>
+<p style="position:absolute;left:536px;top:633px;width:264px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">Data  P(S)=1  P(R)=0</p>
+<p style="position:absolute;left:380px;top:670px;width:144px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR  P(R)=2</p>
+<p style="position:absolute;left:569px;top:734px;width:198px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">Clear Request</p>
+<p style="position:absolute;left:534px;top:809px;width:268px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">Clear Confirmation</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① 呼叫建立</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">Call Request → Call Accepted。路径上每个节点登记 VC 表，分配号码。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">② 数据传输</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">Data 分组带 P(S) / P(R)；没有数据可捎带时，用 RR 单独确认（和 HDLC 的 RR 一样）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ 清除</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">Clear Request → Clear Confirmation。每个节点删除 VC 表项。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">和 2.3 的 SABM / UA → 数据 → DISC / UA 是同一个模式：<b>建立、传输、拆除</b>。</p>
+</div>
+</div>
+<aside>【3 分钟 · 可压缩】
+看一条 X.25 虚电路的一生。图里 A 是主叫，B 是被叫，中间的网络节点省略了。
+第一阶段，呼叫建立：A 发一个 Call Request，意思是“我要和 B 建立一条虚电路”。这个请求沿路经过每一个节点，每个节点登记一条 VC 表项，分配一个号码。B 如果同意，回 Call Accepted，虚电路建好了。
+第二阶段，数据传输：A 发两个 Data 分组，P(S) 分别是 0 和 1，P(R) 都是 0，表示“我还没收到你的数据”。B 没有数据要发，就用一个 RR 单独确认：RR、P(R) 等于 2，意思是“0 到 1 号都收到了，期待 2 号”。这里的 RR 和 2.3 学的 HDLC 的 RR 含义一样。
+第三阶段，清除：A 发 Clear Request，B 回 Clear Confirmation，路径上每个节点把 VC 表项删掉。
+对照 2.3：HDLC 是 SABM 加 UA 建立、传数据、DISC 加 UA 拆除；X.25 是 Call Request 加 Call Accepted、传数据、Clear Request 加 Clear Confirmation。是同一个模式：建立、传输、拆除。区别是，这里的“建立”不是在一条链路上，而是在一条经过很多节点的路径上。
+[提示：如果节点故障、VC 表丢了怎么办？X.25 有 Reset 和 Restart 分组，让两端重新同步——和 2.3 的初始化是同类问题。]</aside>
+</section>

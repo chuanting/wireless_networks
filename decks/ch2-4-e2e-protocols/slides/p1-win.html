@@ -1,0 +1,42 @@
+<section id="p1-win" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">网络层为什么也要编号、确认和窗口？</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">① 编号：认出“谁是谁”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">在数据报网络里分组可能<b>乱序、丢失、重复</b>。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">3 号比 2 号先到 → 按编号重排；5 号没来 → 知道丢了；4 号来了两次 → 丢掉一个。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">② 确认：告诉发送方“收到哪了”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方回“我已收到 0–4 号”（累积确认，和 2.2 的 RN 一样）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">③ 窗口：限制“在途”的分组数</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">发送方最多有 <i>n</i> 个未确认的分组在网络里：</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">• 流量控制：接收方来不及处理，就不确认，发送方自动停下。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">• 保护网络：不让一个会话把网络塞满。</p>
+</div>
+</div>
+<div style="flex:1.05;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">窗口和速率有什么关系？（推导）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">设窗口为 <i>n</i> 个分组，一个往返时间为 <i>T</i>。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">发送方发出 <i>n</i> 个后，必须等确认回来才能继续：最快每隔 <i>T</i> 发 <i>n</i> 个。</p>
+<p style="font-size:30px;line-height:1.5;font-weight:700;color:#14253D">速率 ≤ <i>n</i> / <i>T</i>　（分组 / 秒）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">设链路最大速率为 <i>R</i>（分组 / 秒）。要跑满，需要 <i>n</i> / <i>T</i> ≥ <i>R</i>，即</p>
+<p style="font-size:34px;line-height:1.5;font-weight:700;color:#C2410C"><i>n</i> ≥ <i>R</i> · <i>T</i></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><i>R</i> · <i>T</i> 就是“管道”里能同时装下的分组数。这和 2.2 的 <i>n</i> ≈ 1 + 2<i>a</i> 是同一个结论。</p>
+</div>
+</div>
+<aside>【3 分钟】
+链路层有的零件，网络层的端到端协议也要有。三个：编号、确认、窗口。
+编号：在数据报网络里，同一次会话的分组可能走不同的路，所以可能乱序、丢失、重复。有了编号，接收方可以：3 号比 2 号先到，按编号重排；5 号一直没来，知道它丢了；4 号来了两次，丢掉一个。
+确认：接收方回一个“我已收到 0 到 4 号”。这叫累积确认，和 2.2 里的 RN 是一回事。
+窗口：发送方最多允许有 n 个“未确认”的分组在网络里。窗口有两个作用：一是流量控制——接收方来不及处理时，就不确认，发送方的窗口用完了，自然停下；二是保护网络——不让一个会话把整个网络塞满。
+右边推导窗口和速率的关系。设窗口是 n 个分组，一个往返时间是 T。发送方发出 n 个分组后，必须等确认回来才能继续发。所以最快的情况是：每隔 T 秒发 n 个。因此速率不会超过 n 除以 T。
+再设链路能跑到的最大速率是 R，单位是分组每秒。要跑满，需要 n/T 大于等于 R，也就是 n 大于等于 R 乘 T。R 乘 T 是什么？就是“管道”里能同时装下的分组数。这和 2.2 里讲的“窗口 n 约等于 1 加 2a”是同一个结论，只是换了一种写法。
+下一页算一个具体的例子，看看这个窗口到底要多大。</aside>
+</section>

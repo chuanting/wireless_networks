@@ -1,0 +1,74 @@
+<section id="p1-session" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先建电路，还是直接寄？两类服务</h2>
+</div>
+<div style="display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">什么是一次“会话”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">两个用户之间一次持续的通信（比如一次文件传输）。它的一串分组要穿过网络中的多个节点。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">虚电路：像打电话</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">先“拨号”建立一条固定路径，再通话，最后挂断。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">数据报：像寄信</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">不用事先建立，每封信（分组）自己写地址、自己找路。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:18px;background:#14253D;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#F4975A">比较项</p>
+<p style="width:620px;font-size:26px;font-weight:700;color:#F4F1E8">虚电路（Virtual Circuit）</p>
+<p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">数据报（Datagram）</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">要先建立连接吗</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">要（呼叫建立阶段）</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">不要</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">分组走哪条路</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">整个会话固定同一条路径</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">每个分组各自选路</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">分组头里写什么</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">很短的 VC 号</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">完整的目的地址</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">到达顺序</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">保持发送顺序</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">可能乱序</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">路由器要记状态吗</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">要（VC 表）</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">不要</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">路径上某节点故障</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">经过它的所有 VC 都中断</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">绕路，影响小</p>
+</div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:10px 24px">
+<p style="width:360px;font-size:26px;font-weight:700;color:#C2410C">典型网络</p>
+<p style="width:620px;font-size:26px;line-height:1.35;color:#14253D">X.25、帧中继、ATM</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">IP 网络（互联网）</p>
+</div>
+</div>
+<aside>【4 分钟】
+先说清楚“会话”。一次会话，就是两个用户之间一次持续的通信，比如一次文件传输、一次视频通话。这次通信要发很多个分组，这些分组要穿过网络里的很多个节点。问题：网络怎样把这一串分组送到对方？有两种思路。
+第一种，虚电路，像打电话：先“拨号”——在通信之前，先在网络里建立一条固定的路径；然后所有分组都沿这条路走；通完了再“挂断”，拆掉这条路径。
+第二种，数据报，像寄信：不用事先建立任何东西，每个分组自己写上完整的目的地址，每经过一个路由器，路由器就看地址，现场决定下一步往哪走。
+下面这张表把区别列出来，记几个关键点：
+一，要不要建立连接：虚电路要，数据报不要。
+二，分组走哪条路：虚电路整个会话同一条路径，所以到达顺序保持；数据报每个分组各自选路，可能乱序。
+三，分组头里写什么：虚电路只写一个很短的 VC 号；数据报要写完整地址——下一页会算开销。
+四，路由器要不要记状态：虚电路要，每个节点都有一张 VC 表；数据报的路由器不记会话状态，只要路由表。
+五，节点故障：虚电路经过它的所有 VC 都中断，因为表丢了；数据报可以绕路，影响小。
+典型例子：X.25、帧中继、ATM 是虚电路；我们今天用的互联网 IP 是数据报。
+[提示：本节把两类服务的差别讲清即可，不需要记表；下一页看地址和 VC 号怎么工作。]</aside>
+</section>

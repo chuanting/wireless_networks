@@ -1,0 +1,46 @@
+<section id="why" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">链路都可靠，整条路就可靠吗？</h2>
+</div>
+<div style="position:relative;width:1664px;height:290px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<svg aria-label="分组经过三条链路从 A 到 B：每条链路都有确认，但第二个路由器断电，分组丢失" viewBox="0 0 1660 286" width="1660" height="286" style="position:absolute;left:0px;top:0px">
+<path d="M190,150H550M630,150H990M1070,150H1430" stroke="#1D4ED8" stroke-width="6" fill="none"/>
+<circle cx="150" cy="150" r="42" fill="#14253D"/><circle cx="590" cy="150" r="42" fill="#3B4E68"/><circle cx="1030" cy="150" r="42" fill="#3B4E68"/><circle cx="1470" cy="150" r="42" fill="#14253D"/>
+<path d="M1000,120L1060,180M1000,180L1060,120" stroke="#C2410C" stroke-width="9" stroke-linecap="round"/>
+</svg>
+<p style="position:absolute;left:90px;top:142px;width:120px;font-size:30px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">A</p><p style="position:absolute;left:530px;top:142px;width:120px;font-size:30px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">R1</p><p style="position:absolute;left:970px;top:142px;width:120px;font-size:30px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">R2</p><p style="position:absolute;left:1410px;top:142px;width:120px;font-size:30px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">B</p><p style="position:absolute;left:220px;top:84px;width:300px;font-size:26px;font-weight:700;line-height:1.3;text-align:center;color:#1D4ED8">链路 1：收到了 ✓</p><p style="position:absolute;left:660px;top:84px;width:300px;font-size:26px;font-weight:700;line-height:1.3;text-align:center;color:#1D4ED8">链路 2：收到了 ✓</p><p style="position:absolute;left:1100px;top:84px;width:300px;font-size:26px;font-weight:700;line-height:1.3;text-align:center;color:#C2410C">链路 3：根本没发</p><p style="position:absolute;left:120px;top:210px;width:260px;font-size:24px;font-weight:400;line-height:1.3;text-align:center;color:#4B5A6B">发送方 A</p><p style="position:absolute;left:1340px;top:210px;width:260px;font-size:24px;font-weight:400;line-height:1.3;text-align:center;color:#4B5A6B">接收方 B：什么也没收到</p><p style="position:absolute;left:800px;top:214px;width:520px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#C2410C">R2 在转发前断电重启，内存里的分组丢了</p>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 每一段链路都可靠</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每条链路都有 CRC 和 ARQ（2.2、2.3），“收到了”的确认都发回了。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② 但确认只代表“下一站收到了”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">R1 得到确认后就删掉了副本；R2 收下分组后如果断电、或缓冲区满被丢弃，这个分组就没了。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">③ 链路层谁也不知道</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每条链路都以为自己做对了。只有 A 和 B 两端自己，才能知道整条路到底送到没有。</p>
+</div>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">类比：快递</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">中转站签收 ≠ 收件人签收。如果只信中转站的签收，包裹在最后一个中转站丢了也没人知道。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">这就是“端到端论证”：要保证整件事正确，最后必须由<b>两端</b>来检查和重传；中间的逐段可靠只是为了提高效率。</p>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+先问一个问题：如果每一条链路都已经用 2.2、2.3 讲的办法做到了可靠，那整条路是不是就可靠了？
+看图：A 发给 B，要经过 R1、R2 两个路由器，三条链路。分组 P 经过链路 1 到了 R1，链路 1 的 ARQ 确认了；R1 转发给 R2，链路 2 也确认了；R1 这时就把 P 的副本删掉了，因为它已经“交差”了。然而 R2 在转发给 B 之前突然断电重启，内存里的 P 没了。链路 3 上根本没有发过这个分组。
+结果：三条链路没有一条出错，每一条都以为自己做对了——但 B 什么也没收到，A 也不知道。
+为什么会这样？因为链路层的确认只代表“下一个节点收到了”，不代表“最终的接收方收到了”。路由器内存里的分组，会因为断电、软件错误、缓冲区满而丢失。
+类比：快递。包裹每经过一个中转站都有人签收，但中转站签收不等于收件人收到。如果只相信中转站的签收，包裹在最后一个中转站丢了，谁也不知道。
+结论：要保证整件事正确，最终必须由两端自己检查、自己重传。这叫“端到端论证”（end-to-end argument）。逐段的可靠传输不是没用，它可以让大部分错误在本地就得到纠正，提高效率；但它不能取代端到端。
+这就是本节要学的：在两端之间，再建一层可靠传输。
+[提示：可以问学生“你网购的快递，物流显示‘已到站点’，你就算收到了吗？”]</aside>
+</section>

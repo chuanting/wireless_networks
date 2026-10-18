@@ -1,0 +1,73 @@
+<section id="p2-fast" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 可靠传输</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">快速重传：不等超时</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:678px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="快速重传：三个重复 ACK 触发立即重发" viewBox="0 0 1072 608" width="1072" height="608" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V584" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V584" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,131" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,134 817,142 820,120" fill="#1D4ED8"/>
+<path d="M240,80L552,127" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<path d="M538,113L566,141M538,141L566,113" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
+<path d="M240,116L818,203" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,206 817,214 820,192" fill="#1D4ED8"/>
+<path d="M240,152L818,239" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,242 817,250 820,228" fill="#1D4ED8"/>
+<path d="M240,188L818,275" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,278 817,286 820,264" fill="#1D4ED8"/>
+<path d="M840,134L262,221" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,224 260,210 263,232" fill="#14253D"/>
+<path d="M840,206L262,293" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,296 260,282 263,304" fill="#C2410C"/>
+<path d="M840,242L262,329" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,332 260,318 263,340" fill="#C2410C"/>
+<path d="M840,278L262,365" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,368 260,354 263,376" fill="#C2410C"/>
+<path d="M240,386L818,473" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,476 817,484 820,462" fill="#C2410C"/>
+<path d="M840,476L262,563" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,566 260,552 263,574" fill="#14253D"/>
+<circle cx="240" cy="368" r="9" fill="#C2410C"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:127px;top:656px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">第 3 个重复 ACK</p>
+<p style="position:absolute;left:599px;top:342px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=1000</p>
+<p style="position:absolute;left:455px;top:388px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8;background:#FFFEFA;border-radius:6px">seq=2000</p>
+<p style="position:absolute;left:479px;top:428px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8;background:#FFFEFA;border-radius:6px">seq=3000</p>
+<p style="position:absolute;left:659px;top:491px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8;background:#FFFEFA;border-radius:6px">seq=4000</p>
+<p style="position:absolute;left:431px;top:525px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">seq=5000</p>
+<p style="position:absolute;left:767px;top:439px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA;border-radius:6px">ack=2000</p>
+<p style="position:absolute;left:431px;top:561px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;background:#FFFEFA;border-radius:6px">ack=2000</p>
+<p style="position:absolute;left:599px;top:572px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;background:#FFFEFA;border-radius:6px">ack=2000</p>
+<p style="position:absolute;left:599px;top:640px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ack=2000</p>
+<p style="position:absolute;left:549px;top:676px;width:237px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">seq=2000（重发）</p>
+<p style="position:absolute;left:599px;top:774px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ack=6000</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 为什么要快</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">超时通常 ≥ 200 ms 甚至 1 s，而 RTT 可能只有几十 ms。干等太浪费。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② 规则</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">收到 <b>3 个重复 ACK</b>，就立即重发那一段，不等超时。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 为什么是 3 个</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">乱序也会产生 1–2 个重复 ACK。3 个，基本说明真丢了。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">④ 重发后</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 已缓存 3000–5999，所以一次回 ack = 6000。</p>
+</div>
+</div>
+<aside>【3 分钟】
+等超时重传是很慢的：TCP 的超时通常至少是 200 毫秒，常常 1 秒；而一个往返时间可能只有几十毫秒。有没有办法更快？有，叫快速重传。
+看图：A 连续发 5 段：seq = 1000、2000、3000、4000、5000，每段 1000 字节。其中 seq = 2000 的段丢了（红叉）。
+B 收到第 1 段，回 ack = 2000。第 2 段丢了，B 收不到。接着第 3 段、第 4 段、第 5 段先后到了，但是它们都是乱序的：B 要的是 2000，来的却是 3000。B 每收到一个乱序段，就再回一个 ack = 2000——重复的 ACK。
+A 在收到第 3 个重复的 ack = 2000 时，明白了：2000 这一段多半丢了，不等超时，立即重发（橙色）。B 收到后，缓冲区里 2000 到 5999 全连上了，一次回 ack = 6000。
+为什么是“3 个”重复 ACK，不是 1 个？因为网络偶尔会让分组乱序，乱序也会产生 1 到 2 个重复 ACK，但要产生 3 个，说明后面至少 3 个段都到了，而这一段迟迟没到，真的丢了的可能性大得多。
+[提示：对照 2.3 的 REJ：REJ 是接收方立即通知发送方“序号不对”；快速重传用“重复 ACK”做同样的事——没有专门的 REJ 帧，而是复用了 ACK。]</aside>
+</section>

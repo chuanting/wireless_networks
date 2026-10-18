@@ -49,7 +49,11 @@ window.COURSE = {
           desc: "HDLC 家族与工作模式 · 帧格式（I、S、U 帧）· 工作过程（建立、捎带确认、REJ、RNR）· 链路初始化与节点故障",
           deck: "ch2-3-hdlc", slides: 40, minutes: 90
         },
-        { no: "2.4", title: "网络层和运输层的点对点传输协议", status: "todo" }
+        {
+          no: "2.4", title: "网络层和运输层的点对点传输协议", status: "ready",
+          desc: "为什么链路可靠还不够 · 虚电路与数据报 · 端到端窗口 · X.25 · TCP（端口、握手挥手、可靠传输、重传定时器、流量控制）",
+          deck: "ch2-4-e2e-protocols", slides: 37, minutes: 100
+        }
       ]
     },
     { id: "ch3", no: 3, icon: "delay", title: "网络时延模型", en: "Network Delay Models", sections: [] },

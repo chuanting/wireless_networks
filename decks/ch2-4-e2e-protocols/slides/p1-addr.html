@@ -1,0 +1,48 @@
+<section id="p1-addr" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">地址与会话识别：VC 号怎样“换号”</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1100px;height:400px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="虚电路：A、N1、N2、B 四个节点，三条链路上的虚电路号分别是 7、3、12" viewBox="0 0 1100 330" width="1100" height="330" style="position:absolute;left:128px;top:300px">
+<path d="M110,110H330M450,110H670M790,110H1010" stroke="#1D4ED8" stroke-width="6" fill="none"/>
+<circle cx="80" cy="110" r="36" fill="#14253D"/><circle cx="390" cy="110" r="36" fill="#3B4E68"/><circle cx="730" cy="110" r="36" fill="#3B4E68"/><circle cx="1040" cy="110" r="36" fill="#14253D"/>
+<path d="M390,150V210M730,150V210" stroke="#BDB59B" stroke-width="3" fill="none"/>
+</svg>
+<p style="position:absolute;left:158px;top:394px;width:100px;font-size:28px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">A</p><p style="position:absolute;left:468px;top:394px;width:100px;font-size:28px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">N1</p><p style="position:absolute;left:808px;top:394px;width:100px;font-size:28px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">N2</p><p style="position:absolute;left:1118px;top:394px;width:100px;font-size:28px;font-weight:700;line-height:1.3;text-align:center;color:#F4F1E8">B</p><p style="position:absolute;left:278px;top:340px;width:160px;height:44px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:40px;text-align:center;color:#1E40AF">VC 7</p><p style="position:absolute;left:618px;top:340px;width:160px;height:44px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:40px;text-align:center;color:#1E40AF">VC 3</p><p style="position:absolute;left:938px;top:340px;width:160px;height:44px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:40px;text-align:center;color:#1E40AF">VC 12</p><p style="position:absolute;left:353px;top:515px;width:330px;height:86px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;font-size:24px;font-weight:400;line-height:82px;text-align:center;color:#14253D"></p><p style="position:absolute;left:693px;top:515px;width:330px;height:86px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;font-size:24px;font-weight:400;line-height:82px;text-align:center;color:#14253D"></p>
+<p style="position:absolute;left:365px;top:522px;width:310px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#C2410C">N1 的 VC 表</p><p style="position:absolute;left:365px;top:550px;width:310px;font-size:24px;font-weight:400;line-height:1.3;text-align:left;color:#14253D">（A 侧，7）→（N2 侧，3）</p><p style="position:absolute;left:705px;top:522px;width:310px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#C2410C">N2 的 VC 表</p><p style="position:absolute;left:705px;top:550px;width:310px;font-size:24px;font-weight:400;line-height:1.3;text-align:left;color:#14253D">（N1 侧，3）→（B 侧，12）</p>
+<p style="position:absolute;left:160px;top:680px;width:1060px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#14253D">分组头里只有一个 VC 号；每经过一个节点，查 VC 表，换成下一段的号码再转发。</p>
+<div style="position:absolute;left:1250px;top:272px;width:542px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">数据报</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每个分组头写<b>完整地址</b>，路由器每次查路由表选路。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">虚电路：标号交换</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">头里只写 <b>VC 号</b>，节点查 VC 表，把号码换成下一段的。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么每段号码不同？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每条链路自己分配，不必全网协调；号码短，头就小。</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;top:730px;width:1100px;display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">开销举例：数据 100 字节</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">IPv4 头至少 20 字节：20 / 120 ≈ <b>17%</b>。X.25 头 3 字节：3 / 103 ≈ <b>3%</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">代价</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每个节点要存 VC 表；节点断电，表丢了，经过它的 VC 就断了。</p>
+</div>
+</div>
+<aside>【4 分钟】
+分组头里要写什么，才能让每个路由器知道它该去哪？
+数据报的做法最直接：每个分组头里写完整的目的地址，路由器每收到一个分组，就查路由表，决定下一步走哪条链路。
+虚电路的做法不一样。看图：A 要和 B 通信。先“拨号”建立虚电路：A 到 N1 这一段，网络给这段分配了一个号码 VC 7；N1 到 N2 这一段是 VC 3；N2 到 B 这一段是 VC 12。同时，N1 的 VC 表里记一条：从 A 那边来的、号码是 7 的，转到 N2 那一侧，号码换成 3；N2 的表里记：从 N1 那边来的 3，转到 B 那一侧，换成 12。
+之后，A 发的每个分组，头里只写 VC 7。N1 收到，查表，改成 3，转给 N2；N2 查表，改成 12，转给 B。这就是“标号交换”。
+为什么每一段要换号码？因为每条链路自己分配自己的号码，就不用全网协调，不会冲突；而且号码可以很短，分组头就小。
+开销算一笔：数据 100 字节。IPv4 的头至少 20 字节，开销 20/120 ≈ 17%；X.25 的头只有 3 字节，开销 3/103 ≈ 3%。对短分组，比如语音，差别更明显。
+代价：每个节点要存 VC 表。节点一断电，表就丢了，所有经过它的 VC 都断了——这正是 2.3 里讲的“节点故障”问题的网络层版本。
+[提示：IPv4 头固定部分 20 字节，X.25 数据分组头 3 字节，是常见的数。]</aside>
+</section>

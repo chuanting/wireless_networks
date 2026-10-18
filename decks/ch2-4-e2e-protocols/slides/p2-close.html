@@ -1,0 +1,58 @@
+<section id="p2-close" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接关闭</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">四次挥手：每个方向各关一次</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:642px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="TCP 四次挥手" viewBox="0 0 1072 572" width="1072" height="572" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V548" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V548" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,148" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,152 816,159 820,137" fill="#C2410C"/>
+<path d="M840,152L262,256" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,260 260,245 264,267" fill="#14253D"/>
+<path d="M840,278L262,382" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,386 260,371 264,393" fill="#C2410C"/>
+<path d="M240,386L818,490" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="840,494 816,501 820,479" fill="#14253D"/>
+<path d="M214,386V566M206,386H222M206,566H222" stroke="#1D4ED8" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B</p>
+<p style="position:absolute;left:127px;top:355px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">FIN_WAIT_1</p>
+<p style="position:absolute;left:127px;top:550px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">FIN_WAIT_2</p>
+<p style="position:absolute;left:113px;top:697px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#1D4ED8">TIME_WAIT</p>
+<p style="position:absolute;left:994px;top:442px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">CLOSE_WAIT</p>
+<p style="position:absolute;left:994px;top:568px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">LAST_ACK</p>
+<p style="position:absolute;left:994px;top:784px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">CLOSED</p>
+<p style="position:absolute;left:592px;top:347px;width:151px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">FIN  seq=u</p>
+<p style="position:absolute;left:578px;top:453px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK  ack=u+1</p>
+<p style="position:absolute;left:592px;top:581px;width:151px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">FIN  seq=v</p>
+<p style="position:absolute;left:578px;top:687px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK  ack=v+1</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① FIN</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 说：“我没数据要发了”（A→B 方向关闭）。FIN 也占 1 个序号。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② ACK</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 确认。但 B 可能还有数据要发——这叫<b>半关闭</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ FIN</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 的数据发完，也发 FIN。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">④ ACK</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 确认，然后<b>等 2MSL</b>（TIME_WAIT）才真正结束。</p>
+</div>
+</div>
+<aside>【3 分钟】
+连接怎么关闭？看图：四个报文，所以叫“四次挥手”。
+为什么是四次，而不是像建立那样三次？因为 TCP 的连接是全双工的，两个方向的数据流是独立的。关闭也要两个方向分别关。
+第一步：A 发 FIN，意思是“我没有数据要发了”。这只关闭了 A 到 B 的方向。FIN 也占一个序号。A 进入 FIN_WAIT_1。
+第二步：B 回 ACK，确认这个 FIN。B 进入 CLOSE_WAIT。注意这时 B 到 A 的方向还开着，B 可能还有数据要发给 A，这种状态叫“半关闭”。A 收到 ACK，进入 FIN_WAIT_2，等 B 的 FIN。
+第三步：B 的数据发完了，也发一个 FIN。B 进入 LAST_ACK。
+第四步：A 回 ACK。B 收到后，进入 CLOSED，彻底结束。而 A 不能马上结束，要进入 TIME_WAIT 状态，等 2MSL 的时间才真正关闭。为什么？下一页回答。
+[提示：中间那段“B 发 ACK 之后、发 FIN 之前”，B 可以继续发数据，所以不能把 ACK 和 FIN 合并——除非 B 恰好也没数据了，这时它们可以合成一个报文，变成三次。]</aside>
+</section>

@@ -1,0 +1,51 @@
+<section id="p2-hs2" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接建立</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么是三次？——识破旧的重复 SYN</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:638px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="旧的重复 SYN 被第三次握手识破" viewBox="0 0 1072 568" width="1072" height="568" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V544" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V544" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L820,276" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,284 815,286 824,266" fill="#C2410C"/>
+<path d="M840,284L262,400" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,404 259,389 264,410" fill="#C2410C"/>
+<path d="M240,404L818,520" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="840,524 816,530 821,509" fill="#14253D"/>
+<circle cx="840" cy="284" r="8" fill="#8A97A6"/>
+<circle cx="240" cy="404" r="9" fill="#1D4ED8"/>
+<circle cx="840" cy="524" r="8" fill="#8A97A6"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B</p>
+<p style="position:absolute;left:994px;top:570px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#C2410C">以为 A 要连接</p>
+<p style="position:absolute;left:127px;top:674px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#1D4ED8">不是我发的 SYN</p>
+<p style="position:absolute;left:994px;top:810px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">丢弃，释放</p>
+<p style="position:absolute;left:510px;top:365px;width:316px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">旧 SYN  seq=100（迟到）</p>
+<p style="position:absolute;left:503px;top:574px;width:329px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">SYN+ACK  seq=y  ack=101</p>
+<p style="position:absolute;left:635px;top:721px;width:66px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RST</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① 两次握手会怎样</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 分不清收到的 SYN 是新的还是旧的：旧 SYN 也会让 B 以为连接建立了，白白占资源，等一个永远不会来的数据。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">② 三次握手怎样识破</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 收到 ack = 101，可是自己根本没发过 seq = 100 的 SYN，于是回 RST（复位）。B 收到 RST，放弃。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 对照 2.3</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">HDLC 的 ACKI 没有“身份”，旧 ACKI 会被误认。TCP 的序号 x 就像那个<b>随机数 r</b>，被 ACK 原样带回来，新旧立刻分清。</p>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+为什么是三次握手，而不是两次？看一个具体的场景。
+前面 A 曾经发过一个 SYN，序号 100，但是它在网络里迷了路，迟到了很久。A 早就放弃了这次连接尝试，也许 A 已经重启过。
+现在这个旧的 SYN 终于到了 B。B 不知道它是旧的，以为是 A 刚发来的新请求，于是回一个 SYN+ACK：seq = y，ack = 101。
+如果协议只有两次握手，B 这时就认为连接建立了，开始给这个连接分配缓冲区，等 A 发数据——但 A 根本不知道有这回事，永远不会发。B 白白占用了资源。
+三次握手怎么办？A 收到这个 SYN+ACK，一看，ack = 101，也就是它要确认的是序号 100 的 SYN——可是 A 根本没有这样的连接请求！所以 A 不会回 ACK，而是发一个 RST，意思是“复位，没这回事”。B 收到 RST，就放弃这个半开的连接。
+这里的关键：第三次握手，A 要把 B 的 ack 检查一遍，并且用自己的行动（ACK 或 RST）表态。这就让新旧握手可以区分开了。
+对照 2.3：我们在 2.3 里讲过，HDLC 的 ACKI 没有“身份”，旧的 ACKI 会被误当成新 INIT 的回答，办法之一是“随机数”：INIT 带随机数 r，ACKI 原样带回。TCP 的做法完全一样：SYN 里的序号 x 就是那个随机数，ACK 把它原样带回，即 ack = x + 1。
+[提示：这是本节的一个重点，它把 2.3 的初始化问题和 TCP 联系起来了。]</aside>
+</section>

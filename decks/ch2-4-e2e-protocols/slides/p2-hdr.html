@@ -1,0 +1,45 @@
+<section id="p2-hdr" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 运输层</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">TCP 报文头：最少 20 字节</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;justify-content:space-between;width:1152px"><p style="font-size:22px;color:#4B5A6B">位 0</p><p style="font-size:22px;color:#4B5A6B">16</p><p style="font-size:22px;color:#4B5A6B">31</p></div>
+<div style="display:flex;gap:0px"><p style="width:572px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">源端口（16 位）</p><p style="width:572px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">目的端口（16 位）</p></div>
+<div style="display:flex;gap:0px"><p style="width:1148px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">序号（32 位）：本段第一个字节的编号</p></div>
+<div style="display:flex;gap:0px"><p style="width:1148px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">确认号（32 位）：期待收到的下一个字节编号</p></div>
+<div style="display:flex;gap:0px"><p style="width:140px;height:64px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#4B5A6B">头长</p><p style="width:212px;height:64px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#4B5A6B">保留</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">U</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">A</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">P</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">R</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">S</p><p style="width:32px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">F</p><p style="width:572px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">窗口（16 位）</p></div>
+<div style="display:flex;gap:0px"><p style="width:572px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">校验和（16 位）</p><p style="width:572px;height:64px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#4B5A6B">紧急指针（16 位）</p></div>
+<div style="display:flex;gap:0px"><p style="width:1148px;height:64px;background:#14253D;border:2px solid #14253D;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#F4F1E8">选项（长度可变）+ 数据</p></div>
+<p style="font-size:24px;line-height:1.4;color:#4B5A6B">标志位：U 紧急、<b>A</b> 确认有效、P 推送、<b>R</b> 复位、<b>S</b> 同步（建立连接）、<b>F</b> 结束（关闭连接）。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">最少 20 字节</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">比 HDLC 的 6 字节大得多，因为要管的事多。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">序号与确认号</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">都是 32 位，<b>按字节</b>编号。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">窗口</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方告诉发送方：我还能收多少字节。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">SYN、FIN、ACK、RST</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">握手、挥手、确认、复位，都靠标志位。</p>
+</div>
+</div>
+</div>
+<aside>【2.5 分钟】
+TCP 的报文头，最少 20 个字节。每一行 32 位。不要求记忆，只要认识几个关键的字段。
+第一行：源端口、目的端口，各 16 位——刚才讲的端口。
+第二行：序号，32 位。这是本报文段第一个数据字节的编号。注意：TCP 是对“字节”编号的，不是对报文段编号。下一页详细讲。
+第三行：确认号，32 位，表示“我期待收到的下一个字节的编号”。
+第四行：头长；保留位；六个标志位，U、A、P、R、S、F——其中最重要的是 A（确认有效）、R（复位）、S（同步，用来建立连接）、F（结束，用来关闭连接）；再往后是窗口，16 位，接收方告诉发送方“我还能收多少字节”，用于流量控制。
+第五行：校验和，16 位，对整个报文做检验——还记得 2.2 的检错吗？TCP 也有一个，但它是简单的“加法校验”，比 CRC 弱，因为链路层已经有 CRC 了。最后是选项和数据。
+和 HDLC 的 6 字节开销相比，TCP 的头大得多，因为它要管的事多得多：端口、字节序号、窗口、连接管理。
+[提示：现场可以问：“这些字段里，哪些是 2.2、2.3 里见过的？”答案：序号、确认号（SN、RN）、校验和（CRC）、窗口。]</aside>
+</section>

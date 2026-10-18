@@ -1,0 +1,54 @@
+<section id="p2-hs1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接建立</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三次握手：SYN、SYN+ACK、ACK</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:556px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="TCP 三次握手" viewBox="0 0 1072 486" width="1072" height="486" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V462" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V462" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L819,171" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,176 816,182 821,161" fill="#C2410C"/>
+<path d="M840,176L261,303" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,308 259,293 264,314" fill="#C2410C"/>
+<path d="M240,308L819,435" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,440 816,446 821,425" fill="#C2410C"/>
+<circle cx="840" cy="176" r="8" fill="#8A97A6"/>
+<circle cx="240" cy="308" r="9" fill="#1D4ED8"/>
+<circle cx="840" cy="440" r="9" fill="#1D4ED8"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 客户端</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 服务器</p>
+<p style="position:absolute;left:127px;top:357px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">SYN_SENT</p>
+<p style="position:absolute;left:994px;top:462px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">SYN_RCVD</p>
+<p style="position:absolute;left:127px;top:594px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#1D4ED8">ESTABLISHED</p>
+<p style="position:absolute;left:994px;top:726px;width:200px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">ESTABLISHED</p>
+<p style="position:absolute;left:592px;top:357px;width:151px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">SYN  seq=x</p>
+<p style="position:absolute;left:505px;top:469px;width:326px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">SYN+ACK  seq=y  ack=x+1</p>
+<p style="position:absolute;left:578px;top:617px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACK  ack=y+1</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① SYN</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 选一个初始序号 x，发 SYN。SYN 本身<b>占 1 个序号</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② SYN+ACK</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">B 也选自己的初始序号 y；ack = x + 1，表示“x 收到了”。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ ACK</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 回 ack = y + 1。此后 A 的第一个数据字节编号是 x + 1。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">每一方都做了两件事：<b>宣布自己的起点</b>，<b>确认对方的起点</b>。B 把自己的 SYN 和对 A 的 ACK 合并成一个报文，所以共 3 个报文。</p>
+</div>
+</div>
+<aside>【3 分钟 · 重点】
+TCP 怎么建立连接？三次握手。图里 A 是客户端，B 是服务器。
+第一步：A 发一个 SYN 报文，SYN 是“同步”，意思是“我想建立连接”，里面带着 A 选的初始序号 x。SYN 本身占一个序号。
+第二步：B 收到后，回一个 SYN+ACK：SYN 是 B 宣布自己的初始序号 y；ACK 是确认 A 的 SYN，确认号是 x+1，意思是“x 这个号我收到了，我期待下一个 x+1”。
+第三步：A 回一个 ACK，确认号 y+1，确认 B 的 SYN。这时双方都进入 ESTABLISHED，已建立。此后 A 的第一个数据字节编号是 x+1，B 的第一个数据字节编号是 y+1。
+总结一下：每一方都做了两件事：宣布自己的起点，确认对方的起点。因为 B 把“宣布自己的起点”和“确认 A 的起点”合并成了一个报文，所以总共是 3 个报文，不是 4 个。
+对照 2.3：HDLC 建立连接只用两步，SABM 和 UA，它们不带编号。TCP 为什么要三步？下一页回答。
+[提示：先让学生猜：“为什么不能两步就够？”]</aside>
+</section>

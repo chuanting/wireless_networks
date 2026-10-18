@@ -1,0 +1,26 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T19:00:00Z" },
+  "lists": "css",
+  "title": "网络层和运输层的点对点传输协议",
+  "order": [
+    "cover", "why", "where", "agenda",
+    "d1", "p1-session", "p1-addr", "p1-win", "p1-bdp", "p1-err", "p1-x25", "p1-xlife", "p1-sum",
+    "d2", "p2-role", "p2-ports", "p2-hdr", "p2-seq", "p2-hs1", "p2-hs2", "p2-isn", "p2-close", "p2-tw", "p2-state",
+    "p2-rel1", "p2-fast", "p2-rto1", "p2-rto2", "p2-fc1", "p2-fc2", "p2-cc", "p2-udp", "p2-cmp", "p2-sum",
+    "summary", "project", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：为什么链路可靠还不够，端到端协议在体系中的位置。", "start": "cover" },
+    "s1": { "description": "网络层的点对点协议：虚电路与数据报、VC 号、端到端窗口、逐跳与端到端、X.25。", "start": "d1" },
+    "s2": { "description": "运输层 TCP：端口、握手与挥手、可靠传输、重传定时器、流量控制，并与 HDLC 对照。", "start": "d2" },
+    "s3": { "description": "总结、拓展实践与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}
