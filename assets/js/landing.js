@@ -26,7 +26,7 @@
   /* 二级菜单：小节 */
   function sectionHtml(s) {
     if (s.status === 'ready' && s.deck) {
-      const meta = [s.slides ? s.slides + ' 页' : '', s.minutes ? '约 ' + s.minutes + ' 分钟' : ''].filter(Boolean).join(' · ');
+      const meta = s.slides ? s.slides + ' 页' : '';
       return '<li class="sec ready"><a href="viewer/?deck=' + encodeURIComponent(s.deck) + '">' +
         '<span class="s-no">' + esc(s.no) + '</span>' +
         '<span class="s-body"><b>' + esc(s.title) + '</b>' + (s.desc ? '<i>' + esc(s.desc) + '</i>' : '') + (meta ? '<span class="meta">' + meta + '</span>' : '') + '</span>' +
