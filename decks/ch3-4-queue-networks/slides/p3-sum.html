@@ -1,0 +1,31 @@
+<section id="p3-sum" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Jackson 定理：四句话</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">模型</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">开放网络：外部泊松到达，指数服务，按概率 <i>P</i><i>ij</i> 转移或离开。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">流量方程</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D"><i>λ</i><i>i</i> = <i>γ</i><i>i</i> + Σ <i>λ</i><i>j</i> <i>P</i><i>ji</i>：先求每个节点的总到达率。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">定理</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">各节点独立、像孤立的 M/M/1；<i>N</i> = Σ<i>ρ</i><i>i</i>/(1−<i>ρ</i><i>i</i>)；<i>T</i> = <i>N</i>/<i>γ</i>。（到达不必是泊松！）</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#F4975A">封闭网络</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#F4F1E8">固定 <i>M</i> 个顾客，乘积形式 + 归一化：窗口流控的模型。</p>
+</div>
+</div>
+<aside>【1.5 分钟】
+第三部分小结，四句话：
+模型：开放网络，外部泊松到达，指数服务，服务完按概率转移或者离开。
+流量方程：λ_i 等于 γ_i，加上从别的节点转来的；先求出每个节点的总到达率。
+定理：各个节点的顾客数相互独立，每个节点像一个孤立的 M/M/1；N 等于各节点 ρ 除以 (1 减 ρ) 之和；T 等于 N 除以总的外部到达率。到达不必是泊松，也成立。
+封闭网络：固定 M 个顾客，乘积形式加归一化，用来建模窗口流量控制。
+下面进入最后一部分：数据网络里怎么用——Kleinrock 的独立性近似。</aside>
+</section>

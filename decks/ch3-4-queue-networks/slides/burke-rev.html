@@ -1,0 +1,56 @@
+<section id="burke-rev" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · Burke 定理</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">直观：把录像倒着放</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:14px;width:820px"><div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:18px 22px"><p style="font-size:26px;font-weight:700;color:#14253D">原来的录像：蓝点 = 到达（向上），橙点 = 离开（向下）</p><div style="position:relative;width:760px;height:200px"><svg aria-label="系统中顾客数随时间的阶梯曲线，蓝色向上的跳跃是到达，橙色向下的跳跃是离开" viewBox="0 0 760 200" width="760" height="200" style="position:absolute;left:0px;top:0px">
+<path d="M30,170H740M30,170V10" stroke="#8A97A6" stroke-width="3" fill="none"/>
+<path d="M30,170H94V126H158V82H222V126H286V82H350V38H414V82H478V126H542V82H606V126H670V170H734" stroke="#14253D" stroke-width="5" fill="none"/>
+<circle cx="94" cy="148" r="9" fill="#1D4ED8"/>
+<circle cx="158" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="222" cy="104" r="9" fill="#C2410C"/>
+<circle cx="286" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="350" cy="60" r="9" fill="#1D4ED8"/>
+<circle cx="414" cy="60" r="9" fill="#C2410C"/>
+<circle cx="478" cy="104" r="9" fill="#C2410C"/>
+<circle cx="542" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="606" cy="104" r="9" fill="#C2410C"/>
+<circle cx="670" cy="148" r="9" fill="#C2410C"/>
+</svg></div></div><div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:18px 22px"><p style="font-size:26px;font-weight:700;color:#14253D">倒放的录像：原来的离开（橙）变成向上，原来的到达（蓝）变成向下</p><div style="position:relative;width:760px;height:200px"><svg aria-label="系统中顾客数随时间的阶梯曲线，蓝色向上的跳跃是到达，橙色向下的跳跃是离开" viewBox="0 0 760 200" width="760" height="200" style="position:absolute;left:0px;top:0px">
+<path d="M30,170H740M30,170V10" stroke="#8A97A6" stroke-width="3" fill="none"/>
+<path d="M30,170H94V126H158V82H222V126H286V82H350V38H414V82H478V126H542V82H606V126H670V170H734" stroke="#14253D" stroke-width="5" fill="none"/>
+<circle cx="94" cy="148" r="9" fill="#C2410C"/>
+<circle cx="158" cy="104" r="9" fill="#C2410C"/>
+<circle cx="222" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="286" cy="104" r="9" fill="#C2410C"/>
+<circle cx="350" cy="60" r="9" fill="#C2410C"/>
+<circle cx="414" cy="60" r="9" fill="#1D4ED8"/>
+<circle cx="478" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="542" cy="104" r="9" fill="#C2410C"/>
+<circle cx="606" cy="104" r="9" fill="#1D4ED8"/>
+<circle cx="670" cy="148" r="9" fill="#1D4ED8"/>
+</svg></div></div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">生灭链的特性：时间可逆</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">M/M/1 的 <i>N</i>(<i>t</i>) 是生灭链，稳态时<b>倒放与正放的统计规律完全一样</b>——看不出录像是正放还是倒放。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">于是</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">正放里“向上跳”（到达）是速率 <i>λ</i> 的泊松过程 → 倒放里“向上跳”也是速率 <i>λ</i> 的泊松过程。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">倒放里的向上跳</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">正是原来的<b>向下跳</b>，也就是<b>离开</b>。所以离开过程是速率 <i>λ</i> 的泊松过程。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 可压缩】
+Burke 定理有一个很漂亮的直观解释：把录像倒着放。
+上图是 M/M/1 的顾客数 N(t) 随时间的变化，是一个阶梯曲线。每次向上跳一格，是一个顾客到达，用蓝点标出；每次向下跳一格，是一个顾客离开，用橙点标出。
+M/M/1 的状态，是一条生灭链——只在相邻的状态之间跳。生灭链有一个特别的性质：稳态的时候，它是“时间可逆”的：把它的录像倒着放，统计规律和正着放完全一样，你看不出来录像是正着放，还是倒着放。（这是因为“切一刀”给出的细致平衡：向上跳和向下跳的次数，在每一刀上都一样。）
+下面这个图，就是上面那个图倒着放的结果。你会看到：倒着放，原来的“离开”，也就是橙点，变成了向上的跳；原来的“到达”，变成了向下的跳。
+推理：正着放，向上跳，也就是到达，是速率 λ 的泊松过程。因为倒放和正放的统计规律一样，所以倒放里的向上跳，也是速率 λ 的泊松过程。而倒放里的向上跳，恰好就是原来的向下跳，也就是离开。所以：离开过程，也是速率 λ 的泊松过程！
+[提示：这个“倒放”的论证是严格的，但比较抽象；时间紧时只要记住结论。]</aside>
+</section>

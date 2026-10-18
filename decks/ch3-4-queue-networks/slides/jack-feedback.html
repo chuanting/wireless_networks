@@ -1,0 +1,36 @@
+<section id="jack-feedback" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Jackson 定理</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">神奇之处：到达不是泊松，乘积形式依然成立</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1100px"><div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">反馈很强时（<i>p</i>2 接近 1）：到达 CPU 的“成串”出现</p>
+<div style="display:flex;align-items:center;gap:14px"><p style="width:290px;font-size:26px;font-weight:700;color:#14253D">外部到达（泊松）</p><div style="position:relative;width:800px;height:50px;background:#F6F2E8;border-radius:8px"><div style="position:absolute;left:40px;top:6px;width:6px;height:38px;background:#1D4ED8;border-radius:3px"></div><div style="position:absolute;left:330px;top:6px;width:6px;height:38px;background:#1D4ED8;border-radius:3px"></div><div style="position:absolute;left:600px;top:6px;width:6px;height:38px;background:#1D4ED8;border-radius:3px"></div></div></div>
+<div style="display:flex;align-items:center;gap:14px"><p style="width:290px;font-size:26px;font-weight:700;color:#14253D">实际到达 CPU（含反馈）</p><div style="position:relative;width:800px;height:50px;background:#F6F2E8;border-radius:8px"><div style="position:absolute;left:40px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:70px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:92px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:120px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:330px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:352px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:390px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:600px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:618px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:650px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:690px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div><div style="position:absolute;left:716px;top:6px;width:6px;height:38px;background:#C2410C;border-radius:3px"></div></div></div>
+<p style="font-size:24px;color:#4B5A6B">每个外部到达（蓝）触发一串反馈到达（橙）：到达间隔很不独立。</p>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:12px;width:620px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">神奇之处</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">CPU 的到达过程<b>不是泊松</b>（成串、相关），但<b>同一时刻的顾客数</b>仍然是乘积形式——Jackson 定理依然成立。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">Jackson 没有说的</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">不保证每个节点的到达是泊松；不保证“到达间隔”的统计；一个任务在网络里经历的时延的<b>分布</b>要复杂得多。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">一句话</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">平均顾客数、平均时延：<b>可以信</b>；到达过程的细节：<b>别指望</b>。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟 · 可压缩】
+Jackson 定理的“神奇”在这里。
+看这个有反馈的网络。设 p_2 很大，接近 1，也就是每个任务处理完 CPU，几乎总是要去 I/O，I/O 回来再用 CPU，如此往复。对 CPU 而言，一个外部任务进来之后，在很短的时间内，又会有它的“反馈到达”，一次、两次……成串地到达。
+图里，上面一行蓝色，是外部到达，稀疏的泊松过程。下面一行橙色，是实际到达 CPU 的过程：每个外部到达，触发一串反馈到达。显然，到达间隔不是独立的，到达过程不是泊松过程。
+按理说，这时 CPU 不能用 M/M/1 分析，因为 M/M/1 需要泊松到达。但是 Jackson 定理告诉我们：同一时刻，各节点的顾客数，仍然是乘积形式，每个节点的顾客数分布，就像一个孤立的 M/M/1。这是一个“神奇”的结果。
+但是要注意它没有说什么：它不保证每个节点的到达是泊松；不保证到达间隔的统计；一个任务在网络里经历的总时延的分布，也要复杂得多。
+一句话：平均顾客数、平均时延，可以信；到达过程的细节，别指望。
+[提示：这是排队论里一个经典的“反直觉”结果。]</aside>
+</section>

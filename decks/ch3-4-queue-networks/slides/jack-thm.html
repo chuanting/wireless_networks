@@ -1,0 +1,38 @@
+<section id="jack-thm" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Jackson 定理</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Jackson 定理：乘积形式</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">Jackson 定理（开放网络）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">若 ① 外部到达是泊松；② 各节点服务时间独立、指数分布，且所有 <i>ρ</i><i>i</i> = <i>λ</i><i>i</i>/<i>μ</i><i>i</i> &lt; 1，则稳态时各节点顾客数<b>相互独立</b>，且每个节点像一个孤立的 M/M/1：</p>
+<p style="font-size:30px;font-weight:700;line-height:1.5;color:#C2410C;padding-left:20px"><i>P</i>(<i>n</i>1, …, <i>n</i><i>K</i>) = Π<i>i</i> (1 − <i>ρ</i><i>i</i>) <i>ρ</i><i>i</i> 的 <i>n</i><i>i</i> 次方</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">于是：<i>N</i><i>i</i> = <i>ρ</i><i>i</i>/(1 − <i>ρ</i><i>i</i>)；<i>N</i> = Σ<i>N</i><i>i</i>；<b>网络平均时延 <i>T</i> = <i>N</i> / Σ<i>γ</i><i>i</i></b>（Little 定理）。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">CPU / I/O 例（<i>μ</i>1 = 8，<i>μ</i>2 = 5）</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>ρ</i>1 = 4/8 = 0.5，<i>ρ</i>2 = 3/5 = 0.6；<i>N</i>1 = 1，<i>N</i>2 = 1.5。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">结果</p>
+<p style="font-size:30px;line-height:1.4;color:#14253D"><i>N</i> = 2.5；<i>T</i> = <i>N</i>/<i>γ</i> = <b>2.5 秒</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">交叉验算：按访问次数</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">CPU：4 次 × 1/(8−4) = 1 s；I/O：3 次 × 1/(5−3) = 1.5 s；合计 2.5 s ✓</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">事件模拟验证：<i>T</i> ≈ 2.51 s。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+Jackson 定理：如果外部到达是泊松过程；各节点的服务时间是相互独立的指数分布；而且每个节点的 ρ_i 都小于 1，那么在稳态时：各个节点的顾客数相互独立；而且每个节点的顾客数，就像一个孤立的 M/M/1 队列，到达率是流量方程解出的 λ_i。联合分布是乘积形式：P(n_1, ..., n_K) 等于 对 i 连乘 (1 减 ρ_i) 乘 ρ_i 的 n_i 次方。
+所以：每个节点的平均顾客数 N_i 等于 ρ_i 除以 (1 减 ρ_i)；整个网络里的平均顾客数是 N_i 的总和；网络的平均时延，用 Little 定理，T 等于 N 除以外部总到达率 Σγ_i。
+CPU、I/O 例子：μ_1 等于 8，μ_2 等于 5。λ_1 是 4，λ_2 是 3。所以 ρ_1 等于 0.5，ρ_2 等于 0.6。N_1 等于 1，N_2 等于 1.5，N 等于 2.5。T 等于 2.5 除以 γ，也就是 2.5 秒。
+交叉验算，用另一种方法：每个任务访问 CPU 4 次，每次的时延是 1 除以 (8 减 4)，0.25 秒，一共 1 秒；访问 I/O 3 次，每次 1 除以 (5 减 3)，0.5 秒，一共 1.5 秒；合计 2.5 秒。完全一致。我用事件模拟验证过，T 约 2.51 秒。
+注意：Jackson 定理给的是联合分布，因而给出平均顾客数和平均时延。下一页说明，它“神奇”在哪里。
+[验算：N = 0.5/0.5 + 0.6/0.4 = 1 + 1.5 = 2.5；T = 2.5/1 = 2.5 s。]</aside>
+</section>

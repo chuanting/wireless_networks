@@ -1,0 +1,33 @@
+<section id="recap" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">回顾：要用的结论</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">M/M/1（3.2）</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D"><i>N</i> = <i>ρ</i>/(1 − <i>ρ</i>)，<i>T</i> = 1/(<i>μ</i> − <i>λ</i>)。</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">状态是生灭链，稳态用“切一刀”。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">Little 定理（3.1）</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D"><i>N</i> = <i>λT</i>，可对<b>任意子系统</b>、整个网络使用。</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">网络的平均时延 <i>T</i> = <i>N</i>/<i>γ</i>（<i>γ</i> = 进入网络的总到达率）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">泊松过程（1.2）</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">合并：相加仍是泊松。</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">随机分流：仍是泊松。</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">“交替分流”则不是。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;line-height:1.45;color:#F4F1E8">新问题：一个队列的<b>输出</b>，作为下一个队列的<b>输入</b>，还是泊松过程吗？</p>
+</div>
+<aside>【2 分钟】
+先回顾三条结论。
+一，M/M/1：N 等于 ρ 除以 (1 减 ρ)，T 等于 1 除以 (μ 减 λ)。状态是生灭链，稳态用“切一刀”解出来。
+二，Little 定理：它对任意子系统、对整个网络都能用。整个网络的平均时延 T，等于网络里的平均分组总数 N，除以进入网络的总到达率 γ。这是今天最后一步的关键。
+三，泊松过程的两个性质，第 1.2 节学过：几个独立的泊松过程合并，仍然是泊松过程；一个泊松过程随机地分成几路，每一路仍然是泊松过程。注意是“随机分流”，如果是“交替分流”，奇数号给一路，偶数号给另一路，就不是了。
+新的问题：一个队列的输出，作为下一个队列的输入，它还是泊松过程吗？如果是，网络就好算了；如果不是，就麻烦了。这是下面要回答的。</aside>
+</section>
