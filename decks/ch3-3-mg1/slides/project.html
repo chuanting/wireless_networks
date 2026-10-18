@@ -1,0 +1,34 @@
+<section id="project" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：看见“方差的代价”</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:30px 32px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
+<p style="font-size:40px;font-weight:700;color:#14253D">验证 P-K 公式</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">单服务员队列，泊松到达，分别用固定、指数、“90% 短 + 10% 长”三种服务时间，<i>ρ</i> = 0.8，统计平均等待。</p>
+<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>三者之比应接近 0.5 : 1 : 3.27（P-K 的 (1+<i>C</i>²)/2）。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:30px 32px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">中级</p>
+<p style="font-size:40px;font-weight:700;color:#14253D">优先级队列模拟</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">实现两类业务（本节例子），分别模拟先来先服务、非强插、强插。比较各类的等待时间。</p>
+<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>非强插：<i>W</i>1 ≈ 0.45 ms，<i>W</i>2 ≈ 1.89 ms；强插：<i>T</i>1 ≈ 0.204 ms。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:30px 32px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">进阶</p>
+<p style="font-size:40px;font-weight:700;color:#14253D">轮询系统模拟</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">模拟 4 个站、走时 0.2、服务 1，比较耗尽、闸门、限制三种规则，画出等待时间对 <i>λ</i> 的曲线。</p>
+<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>λ</i> = 0.5 时应约 1.20、1.40、1.75；限制型在 <i>λ</i> 接近 0.83 时发散。</p>
+</div>
+</div>
+<div style="background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 28px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>在 ARQ 模拟里加入窗口（返回 n），统计等效服务时间的均值和二阶矩，再用 P-K 公式预测等待，看误差多大。</p></div>
+<aside>【选做 · 课上只需 1 分钟介绍】
+这页是给想动手的同学准备的，不在课上做。
+基础：验证 P-K 公式。写一个单服务员的队列，到达泊松，服务时间分别用三种：固定、指数、“90% 短包加 10% 长包”。ρ 取 0.8，分别统计平均等待。三者的比，应该接近 0.5 比 1 比 3.27，也就是 P-K 公式的 (1 加 C 平方) 除以 2。（老师用事件模拟验证过：混合包，模拟 2.02 毫秒，P-K 1.95 毫秒。）
+中级：优先级队列的模拟。两类业务，用本节的数据；分别模拟先来先服务、非强插、强插。比较各类的平均等待。非强插：第 1 类约 0.45 毫秒，第 2 类约 1.89 毫秒；强插：第 1 类的总时延约 0.204 毫秒。
+进阶：轮询系统的模拟。4 个站，走时 0.2，服务时间 1，比较耗尽、闸门、限制三种规则，画出等待时间对 λ 的曲线。λ 等于 0.5 时，应该约 1.20、1.40、1.75；限制型在 λ 接近 0.83 时发散。
+更进一步：在 ARQ 模拟里加入返回 n 的窗口，统计等效服务时间的平均值和二阶矩，再用 P-K 公式预测等待，看误差多大。
+[提示：这些练习不要求提交，愿意做的同学可以课后找老师交流。]</aside>
+</section>

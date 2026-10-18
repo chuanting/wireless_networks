@@ -1,0 +1,40 @@
+<section id="mg1-arq" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/G/1 应用</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">应用：ARQ 重传对时延的影响</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">返回 n 的 ARQ：重传让服务时间“变长且波动”</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">分组长度 1 个时隙；出错概率 <i>p</i>；确认要等 <i>n</i> 个时隙，出错就重传。分组到达是泊松过程（速率 <i>λ</i> 个/时隙）。</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D"><b>等效服务时间</b> <i>X</i> = 从首次发送开始，到最后一次发送结束。若重传了 <i>k</i> 次：<i>X</i> = 1 + <i>kn</i>，概率 (1 − <i>p</i>) × <i>p</i> 的 <i>k</i> 次方。</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D"><i>E</i>[<i>X</i>] = 1 + <i>np</i> / (1 − <i>p</i>)</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D"><i>E</i>[<i>X</i> 的平方] = 1 + 2<i>np</i>/(1 − <i>p</i>) + <i>n</i> 的平方 <i>p</i>(1 + <i>p</i>)/(1 − <i>p</i>) 的平方</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">代入 P-K 公式即可得到 <i>W</i>、<i>T</i>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">数字：<i>n</i> = 6，<i>p</i> = 0.1，<i>λ</i> = 0.5</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>E</i>[<i>X</i>] = 1.667，<i>ρ</i> = 0.833；<i>E</i>[<i>X</i> 的平方] = 7.22。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">结果</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>W</i> = 0.5 × 7.22 / [2 × (1 − 0.833)] = <b>10.8 个时隙</b>；<i>T</i> = 12.5 时隙。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">无差错时</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>p</i> = 0：<i>X</i> = 1（固定），<i>W</i> = 0.5 时隙。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">出错率只有 10%，等待却增加 <b>20 倍</b>：重传使 <i>ρ</i> 变高，又使波动变大——<b>双重打击</b>。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+P-K 公式的第一个应用：返回 n 的 ARQ，2.2 节学的。一个分组长度是一个时隙，出错概率 p，每发一次要等 n 个时隙才知道对错，错了就重传。分组到达是泊松过程。
+问：分组的平均时延是多少？关键是把“重传”变成“服务时间”：一个分组占用信道的时间，从它第一次发送开始，到它最后一次发送结束，叫“等效服务时间”。如果重传了 k 次，一共发了 k+1 次，等效服务时间是 1 加 k 乘 n：最后一次正确的发送 1 个时隙，加上每次错误各占用 n 个时隙。k 次重传的概率，是 (1 减 p) 乘 p 的 k 次方，这是一个几何分布。
+算出平均值：E[X] 等于 1 加 n p 除以 (1 减 p)。二阶矩，也就是 E[X 平方]：等于 1 加 2np/(1−p) 加 n 平方乘 p 乘 (1+p) 除以 (1−p) 的平方。
+代入数字：n 等于 6，p 等于 0.1，λ 等于每时隙 0.5 个。平均服务时间 1.667，ρ 等于 0.833；二阶矩 7.22。P-K 公式：W 等于 0.5 乘 7.22，除以 2 乘 (1 减 0.833)，约 10.8 个时隙。总时延 T 约 12.5 个时隙。
+对比无差错的情形：p 等于 0，服务时间固定 1 个时隙，M/D/1，W 只有 0.5 个时隙。出错率只有 10%，等待时间增加了 20 倍！因为：一，重传使平均服务时间增加，ρ 从 0.5 变成 0.833；二，重传使服务时间的波动变大，二阶矩从 1 变成 7.22。双重打击。
+[验算：E[X²] = 1 + 2×6×0.1/0.9 + 36×0.1×1.1/0.81 = 1 + 1.333 + 4.889 = 7.222；用事件模拟验证过：W ≈ 10.78。]</aside>
+</section>

@@ -1,0 +1,19 @@
+<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 3 章 · 网络的时延模型 · 3.3</p>
+<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">M/G/1 排队系统</h1>
+<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">与 P-K 公式</h2>
+<p style="font-size:32px;color:#B9C4D3">剩余服务时间 · 方差的代价 · 休假 · 轮询 · 优先级</p>
+<svg aria-label="装饰图：长短不一的顾客依次进入服务员，表示服务时间任意分布" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
+<rect x="10" y="150" width="26" height="56" rx="6" fill="#B9C4D3"/><rect x="46" y="150" width="70" height="56" rx="6" fill="#B9C4D3"/><rect x="126" y="150" width="40" height="56" rx="6" fill="#B9C4D3"/><rect x="176" y="150" width="96" height="56" rx="6" fill="#B9C4D3"/><rect x="282" y="150" width="34" height="56" rx="6" fill="#F4975A"/>
+<path d="M340,178H410" stroke="#8FA3BD" stroke-width="6" fill="none"/><polygon points="426,178 406,166 406,190" fill="#8FA3BD"/>
+<circle cx="500" cy="178" r="58" fill="#3B4E68"/><circle cx="500" cy="178" r="30" fill="#F4975A"/>
+<path d="M562,178H624" stroke="#8FA3BD" stroke-width="6" fill="none"/>
+</svg>
+<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<aside>【开场 · 1 分钟】
+3.2 节里，我们假定服务时间是指数分布，得到了漂亮的公式。但是现实里的分组长度，往往不是指数分布：有的系统分组是固定长度，比如 ATM 的信元；有的系统分组长短悬殊，比如 40 字节的确认包和 1500 字节的数据包混在一起；还有的分组要重传，服务时间就变长了。
+这一节，把服务时间放宽到“任意分布”，这就是 M/G/1 排队系统。核心结果只有一个：P-K 公式，Pollaczek 和 Khinchin 得到的。它告诉我们，决定时延的，不只是服务时间的平均值，还有它的二阶矩——也就是方差。
+接着用 P-K 公式分析四类问题：一、ARQ 重传对时延的影响；二、服务员“休假”，也就是时分复用、频分复用的时延；三、轮询和预约系统，也就是令牌环这类网络；四、优先级排队。
+右边装饰图：长短不一的顾客依次走进服务员，服务时间各不相同。
+全程用具体例子，时间不限，全部讲完约 110 分钟，可以分两次。</aside>
+</section>

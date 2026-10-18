@@ -1,0 +1,39 @@
+<section id="mg1-derive" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/G/1</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">推导（一）：W = R / (1 − ρ)</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.15;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">取平均：从 <i>W</i> 的分解到 P-K 的前一步</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">① 对分解式取平均（顾客到达时看到时间平均，PASTA）：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D;padding-left:20px"><i>W</i> = <i>R</i> + <i>E</i>[<i>X</i>] · <i>N</i><i>Q</i></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">这里 <i>R</i> 表示平均剩余服务时间。（用到了：到达与服务相互独立。）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">② 对队列用 Little 定理：<i>N</i><i>Q</i> = <i>λW</i>，代入：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D;padding-left:20px"><i>W</i> = <i>R</i> + <i>λE</i>[<i>X</i>] <i>W</i> = <i>R</i> + <i>ρW</i></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">③ 解出 <i>W</i>：</p>
+<p style="font-size:50px;font-weight:700;line-height:1.3;color:#C2410C;padding-left:20px"><i>W</i> = <i>R</i> / (1 − <i>ρ</i>)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">检验：M/M/1</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">M/M/1 里，<i>R</i> = <i>ρ</i>/<i>μ</i>（下一页会得到），于是 <i>W</i> = <i>ρ</i> / [<i>μ</i>(1 − <i>ρ</i>)] = <i>ρ</i>/(<i>μ</i> − <i>λ</i>)，和 3.2 节一致。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">直觉</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">等待 = “剩余时间”被放大 1/(1 − <i>ρ</i>) 倍：<i>ρ</i> 越大，队列里累积的越多，放大越厉害。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:27px;line-height:1.45;color:#F4F1E8">现在只差一件事：平均剩余服务时间 <i>R</i>。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+对上一页的分解式取平均。等待时间的平均 W，等于平均的剩余服务时间 R，加上平均每个顾客的服务时间乘上队列里的平均顾客数 N_Q。
+这一步用到了两点：一，泊松到达看到的是时间平均，所以新顾客看到的平均 R、平均 N_Q，就是长期平均的 R 和 N_Q；二，到达和服务相互独立，所以新顾客前面排队的人数，和他们的服务时间无关，可以分开取平均。
+第二步，对队列用 Little 定理：N_Q 等于 λ 乘 W。代入：W 等于 R 加 λ 乘 E[X] 乘 W。而 λ 乘 E[X] 就是 ρ，所以 W 等于 R 加 ρ 乘 W。
+第三步，把含 W 的项移到一边：W 乘 (1 减 ρ) 等于 R，所以 W 等于 R 除以 (1 减 ρ)。
+这个结果和 M/M/1 的形式一致，直觉也清楚：等待时间，就是剩余服务时间被放大 1/(1 − ρ) 倍；ρ 越大，队列里积累的越多，放大越厉害。
+现在只差一件事：平均剩余服务时间 R 是多少？下一页用一个图形来求。
+[提示：学生常问“为什么新到的顾客，看到的剩余时间是平均值”——就是 PASTA：泊松到达是“随机观察者”。]</aside>
+</section>

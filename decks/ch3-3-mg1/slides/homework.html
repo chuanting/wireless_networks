@@ -1,0 +1,46 @@
+<section id="homework" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">六道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">① P-K 公式</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">M/G/1：服务时间在 [1, 3] ms 上均匀分布，<i>λ</i> = 0.3 个/ms。求 <i>ρ</i>、<i>W</i>、<i>T</i>、<i>N</i><i>Q</i>；与同平均的 M/M/1 比较。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">② M/D/1</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D"><i>μ</i> = 1000 个/秒，<i>λ</i> = 900 个/秒。分别求 M/M/1 与 M/D/1 的 <i>W</i> 和 <i>T</i>。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">③ 大小包混合</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">8 Mb/s 链路上，80% 是 100 字节、20% 是 1000 字节。求 <i>E</i>[<i>X</i>]、<i>E</i>[<i>X</i> 的平方]、<i>C</i> 的平方；<i>ρ</i> = 0.7 时的 <i>W</i>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">④ ARQ</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">返回 n：<i>n</i> = 4，<i>p</i> = 0.2，<i>λ</i> = 0.4 个/时隙。求 <i>E</i>[<i>X</i>]、<i>ρ</i>、<i>E</i>[<i>X</i>²]、<i>W</i>、<i>T</i>。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">⑤ 复用方式</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D"><i>m</i> = 5 个用户，总负荷 <i>λ</i> = 0.6。求 FDM、时隙 FDM、TDM、统计复用的平均时延（单位：时隙）。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">⑥ 优先级</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">非强插，两类：<i>λ</i>1 = 0.1/ms，<i>X</i>1 = 1 ms；<i>λ</i>2 = 0.2/ms，<i>X</i>2 = 2 ms（都固定）。求 <i>W</i>1、<i>W</i>2 与先来先服务的 <i>W</i>。</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① 均匀分布 [1,3]：E[X] = 2 ms；方差 (3−1)²/12 = 1/3，E[X²] = 4 + 1/3 = 4.333 ms²。ρ = 0.3×2 = 0.6。W = λE[X²]/(2(1−ρ)) = 0.3×4.333/(2×0.4) = 1.625 ms；T = 3.625 ms；N_Q = λW = 0.4875。同平均的 M/M/1：W = ρ/(1−ρ)E[X] = 1.5×2 = 3 ms，比均匀分布大。
+② M/M/1：ρ = 0.9，W = ρ/(μ−λ) = 0.9/100 = 9 ms，T = 10 ms。M/D/1：W = 4.5 ms，T = 5.5 ms。
+③ 8 Mb/s：100 字节 = 800 位，0.1 ms；1000 字节 = 8000 位，1 ms。E[X] = 0.8×0.1 + 0.2×1 = 0.28 ms；E[X²] = 0.8×0.01 + 0.2×1 = 0.208 ms²；C² = 0.208/0.28² − 1 = 1.653。ρ = 0.7 → λ = 0.7/0.28 = 2.5 个/ms。W = λE[X²]/(2(1−ρ)) = 2.5×0.208/(2×0.3) = 0.867 ms。
+④ E[X] = 1 + np/(1−p) = 1 + 4×0.2/0.8 = 2；ρ = 0.4×2 = 0.8；E[X²] = 1 + 2np/(1−p) + n²p(1+p)/(1−p)² = 1 + 2 + 16×0.2×1.2/0.64 = 1 + 2 + 6 = 9；W = λE[X²]/(2(1−ρ)) = 0.4×9/(2×0.2) = 9 时隙；T = W + E[X] = 11 时隙。
+⑤ T_FDM = m + λm/(2(1−λ)) = 5 + 0.6×5/(0.8) = 5 + 3.75 = 8.75；T_SFDM = 8.75 + 2.5 = 11.25；T_TDM = 1 + 2.5 + 3.75 = 7.25；统计复用：1 + 0.6/(0.8) = 1.75。
+⑥ ρ1 = 0.1×1 = 0.1；ρ2 = 0.2×2 = 0.4；σ2 = 0.5。R = (1/2)(0.1×1² + 0.2×2²) = (1/2)(0.1 + 0.8) = 0.45 ms。W1 = R/(1−ρ1) = 0.45/0.9 = 0.5 ms；W2 = R/((1−0.1)(1−0.5)) = 0.45/0.45 = 1.0 ms。先来先服务：W = R/(1−ρ) = 0.45/0.5 = 0.9 ms。守恒验证：0.1×0.5 + 0.4×1.0 = 0.45 = 0.5×0.9 ✓。
+[验算：⑤ 8.75 − 5 + ... = 见公式；④ 16×0.2×1.2 = 3.84，3.84/0.64 = 6。]</aside>
+</section>

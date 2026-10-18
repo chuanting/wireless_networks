@@ -1,0 +1,40 @@
+<section id="vac-W" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 休假</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">休假的 M/G/1：W = λE[X²]/(2(1 − ρ)) + E[V²]/(2E[V])</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">推导：剩余时间里多了“休假的剩余”</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">新顾客到达时，可能碰上正在服务（剩余服务时间），也可能碰上服务员在休假（剩余休假时间）。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">① 服务部分，与 M/G/1 相同：(1/2) <i>λE</i>[<i>X</i>²]</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">② 休假部分：休假的时间占比 1 − <i>ρ</i>，每次平均 <i>E</i>[<i>V</i>]，所以单位时间的休假次数 = (1 − <i>ρ</i>) / <i>E</i>[<i>V</i>]；每次休假是一个面积 <i>V</i>²/2 的三角形：</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D;padding-left:20px">休假的平均剩余 = (1/2)(1 − <i>ρ</i>) <i>E</i>[<i>V</i>²] / <i>E</i>[<i>V</i>]</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">③ 相加后用 <i>W</i> = <i>R</i> / (1 − <i>ρ</i>)：</p>
+<p style="font-size:34px;font-weight:700;line-height:1.4;color:#C2410C;padding-left:20px"><i>W</i> = <i>λE</i>[<i>X</i>²] / [2(1 − <i>ρ</i>)] + <i>E</i>[<i>V</i>²] / (2<i>E</i>[<i>V</i>])</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">读法</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">第一项：普通 M/G/1 的等待；第二项：<b>平均要多等“半个休假”</b>（剩余休假）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">休假固定为 <i>V</i></p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">第二项 = <i>V</i>/2：多等半个休假。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">例</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">M/D/1：<i>λ</i> = 0.5，<i>X</i> = 1（<i>ρ</i> = 0.5），休假 <i>V</i> = 2：<i>W</i> = 0.5 + 1 = <b>1.5</b>（无休假时只有 0.5）。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+推导还是用“剩余时间”的办法。一个新顾客到达，可能碰上两种情况：正在服务，那么要等剩余服务时间；或者服务员正在休假，那么要等剩余休假时间。
+第一部分，服务的剩余，和普通 M/G/1 完全相同，是二分之一乘 λ 乘 E[X 平方]。
+第二部分，休假的剩余：用同样的三角形面积法。服务员在休假的时间占比是 1 减 ρ，因为服务员的时间，不是在服务，就是在休假。每次休假平均 E[V]，所以单位时间内休假的次数，是 (1 减 ρ) 除以 E[V]。每次休假是一个三角形，面积是 V 平方除以 2。所以休假的平均剩余，等于二分之一乘 (1 减 ρ) 乘 E[V 平方] 除以 E[V]。
+把两部分相加，得到总的平均剩余时间 R。再用 W 等于 R 除以 (1 减 ρ)：
+W 等于 λ 乘 E[X 平方] 除以 2(1 减 ρ)，再加上 E[V 平方] 除以 2E[V]。
+解释很简单：第一项，普通 M/G/1 的等待；第二项，平均要多等“半个休假”。如果休假时间固定为 V，第二项就是 V 的一半。
+一个小例子：M/D/1，λ 是 0.5，服务时间固定 1，ρ 等于 0.5；如果服务员每次休假固定 2，那么 W 等于 0.5 加 1，等于 1.5——比没有休假的 0.5，多了整整 1 个单位。
+[验算：E[V²]/(2E[V]) = 4/(2×2) = 1；λE[X²]/(2(1−ρ)) = 0.5/(2×0.5) = 0.5。]</aside>
+</section>

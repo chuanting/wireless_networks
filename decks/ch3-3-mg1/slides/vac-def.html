@@ -1,0 +1,35 @@
+<section id="vac-def" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 休假</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">服务员“休假”的 M/G/1</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">服务员的时间线：服务 → 队列空了就休假 → 回来发现还空，再休假</p>
+<div style="display:flex;gap:6px"><p style="width:170px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务 <i>X</i></p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p><p style="width:170px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务</p><p style="width:130px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务</p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p></div>
+<p style="font-size:26px;line-height:1.5;color:#14253D">休假期间到达的顾客，必须<b>等到休假结束</b>才能被服务。</p>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">模型</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">M/G/1，但服务员每次服务完、队列变空以后，要“休假”一段时间 <i>V</i>。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">休假回来若仍无人，再休假一次。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">已知量</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">休假时间 <i>V</i>1, <i>V</i>2, … 独立同分布，平均 <i>E</i>[<i>V</i>]，二阶矩 <i>E</i>[<i>V</i>²]；</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">与到达、服务相互独立。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">现实中的“休假”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">节点去做别的事：存数据、信令交换。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">时隙系统：只能在时隙开头开始发送——<b>等下一个时隙，就是休假</b>。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">轮询：服务员去服务别的用户。</p>
+</div>
+</div>
+<aside>【3 分钟】
+M/G/1 的一个变种：服务员有休假。图里是服务员的时间线：服务一个顾客，服务完了如果队列里没有人，服务员就去“休假”，休假一段时间 V；休假回来，如果队列里仍然没有人，再休一次。休假期间到达的顾客，必须等到休假结束才能被服务。
+假设每次休假的时间是独立同分布的，平均 E[V]，二阶矩 E[V 平方]，和到达、服务都无关。
+现实里什么是“休假”？一，节点要去做别的事：存数据、信令交换，这段时间不处理分组；二，时隙系统：只能在时隙的开头才能开始发送，如果一个分组在时隙中间到达，就得等下一个时隙开始——这段等待，等价于服务员在“休假”；三，轮询：服务员去服务别的用户了，轮到你之前，对你来说就是在休假。
+所以“休假模型”，能描述很多要等一段时间才能开始服务的系统。下一页推导它的时延。
+[提示：问学生：“你在车站等公交，车每 10 分钟一班，你的平均等待是多久？”（5 分钟，这就是休假的剩余时间。）]</aside>
+</section>

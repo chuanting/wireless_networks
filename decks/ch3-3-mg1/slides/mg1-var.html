@@ -1,0 +1,30 @@
+<section id="mg1-var" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/G/1</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">方差的代价：同样的平均，不同的等待</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1060px;display:flex"><div style="flex:1.1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">例：互联网的“大小包混合”</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">10 Mb/s 链路上，90% 是 40 字节的小包（0.032 ms），10% 是 1500 字节的大包（1.2 ms）。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><i>E</i>[<i>X</i>] = 0.9×0.032 + 0.1×1.2 = <b>0.149 ms</b></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><i>E</i>[<i>X</i> 的平方] = 0.9×0.032 的平方 + 0.1×1.2 的平方 = <b>0.145</b> ms 的平方</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><i>C</i> 的平方 = 0.145 / 0.149 的平方 − 1 ≈ <b>5.5</b></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">设 <i>ρ</i> = 0.8：(1 + <i>C</i> 的平方)/ 2 ≈ 3.27。</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><i>W</i>(P-K) ≈ <b>1.95 ms</b>；同样平均值的 M/M/1：0.60 ms；M/D/1：0.30 ms。</p>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:14px;width:560px"><div style="width:600px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">等待时间对比（<i>ρ</i> = 0.8）</p>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:24px;font-weight:700;color:#14253D">M/D/1  0.30 ms</p><div style="height:36px;width:46px;background:#1D4ED8;border-radius:8px"></div></div><div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:24px;font-weight:700;color:#14253D">M/M/1  0.60 ms</p><div style="height:36px;width:92px;background:#1D4ED8;border-radius:8px"></div></div><div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:24px;font-weight:700;color:#14253D">大小包混合 1.95 ms</p><div style="height:36px;width:300px;background:#C2410C;border-radius:8px"></div></div></div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">“少数很长的包，拖累所有人”：一个长包进入服务，后面的都得等它。</p>
+</div></div>
+</div>
+<aside>【4 分钟 · 重点】
+用一个贴近互联网的例子，体会方差的代价。10 兆比特每秒的链路上，90% 的分组是 40 字节的小包，传输一个 0.032 毫秒；10% 是 1500 字节的大包，传输一个 1.2 毫秒。
+先算服务时间的平均值：0.9 乘 0.032 加 0.1 乘 1.2，等于 0.149 毫秒。再算二阶矩：0.9 乘 0.032 的平方，加 0.1 乘 1.2 的平方，等于 0.145 毫秒的平方。波动系数 C 平方：二阶矩除以平均值的平方，减 1，约 5.5。这么大的波动系数，说明服务时间波动非常大。
+设 ρ 等于 0.8。P-K 公式：等待时间 W 约 1.95 毫秒。对比：假设服务时间平均值相同，但是是指数分布，M/M/1，W 只有 0.60 毫秒；固定长度，M/D/1，W 只有 0.30 毫秒。大小包混合的等待，是 M/M/1 的 3.27 倍，是 M/D/1 的 6.5 倍！
+右边的条形图直观展示这个差别。结论：同样的平均服务时间，同样的利用率，服务时间的方差越大，等待时间越长。原因很直观：一个 1500 字节的长包进入服务，后面所有的分组，不论大小，都得等它。
+所以，调度和流量管理里，常常设法减少波动：比如把长包切成小块，让大小更均匀。
+[验算：我用事件模拟验证过：混合包 ρ=0.8，模拟 W ≈ 2.02 ms，P-K 1.95 ms。]</aside>
+</section>

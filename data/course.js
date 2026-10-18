@@ -69,7 +69,11 @@ window.COURSE = {
           desc: "M/M/1 的稳态分布与时延公式 · 统计复用 · 有限缓冲区 · M/M/m、爱尔兰 C 与 B 公式",
           deck: "ch3-2-mm-queues", slides: 31, minutes: 100
         },
-        { no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "todo" },
+        {
+          no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "ready",
+          desc: "P-K 公式的推导与方差的代价 · ARQ 时延 · 休假与 FDM/TDM 复用 · 轮询系统 · 优先级排队",
+          deck: "ch3-3-mg1", slides: 36, minutes: 110
+        },
         { no: "3.4", title: "排队网络", status: "todo" }
       ]
     },

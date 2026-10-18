@@ -1,0 +1,33 @@
+<section id="prio-def" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">优先级排队：两种“插队”方式</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">两个优先级队列，一个服务员</p>
+<div style="display:flex;align-items:center;gap:14px"><p style="width:200px;font-size:26px;font-weight:700;color:#1D4ED8">第 1 类（高）</p><div style="display:flex;gap:6px"><p style="width:50px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px"> </p><p style="width:50px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px"> </p><p style="width:50px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px"> </p></div></div><div style="display:flex;align-items:center;gap:14px"><p style="width:200px;font-size:26px;font-weight:700;color:#C2410C">第 2 类（低）</p><div style="display:flex;gap:6px"><p style="width:50px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px"> </p><p style="width:50px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px"> </p><p style="width:50px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px"> </p><p style="width:50px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px"> </p><p style="width:50px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px"> </p></div></div><p style="font-size:26px;line-height:1.5;color:#14253D">服务员<b>总是先服务高优先级</b>；同一类内先来先服务。</p>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">非强插（Nonpreemptive）</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">高优先级分组到达时，<b>正在发的低优先级分组继续发完</b>，再轮到高优先级。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">强插（Preemptive-resume）</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">高优先级一到，<b>立即中断</b>低优先级分组，发完后再<b>从断点继续</b>。例：ATM 的信元。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">记号</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">类 1 最高。第 <i>k</i> 类：到达率 <i>λ</i><i>k</i>，服务时间平均 1/<i>μ</i><i>k</i>、二阶矩 <i>E</i>[<i>X</i><i>k</i>²]。</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>ρ</i><i>k</i> = <i>λ</i><i>k</i>/<i>μ</i><i>k</i>；<i>σ</i><i>k</i> = <i>ρ</i>1 + … + <i>ρ</i><i>k</i>。</p>
+</div>
+</div>
+<aside>【3 分钟】
+不同的业务，对时延的要求不同。语音通话、控制信令怕等；文件传输、电子邮件不怕等。那么可以给它们不同的优先级：语音是第 1 类，优先级最高；文件是第 2 类，较低。
+图里：两个队列，一个服务员。服务员总是先服务高优先级队列里的分组；高优先级队列空了，才服务低优先级的。同一类之内，先来先服务。
+高优先级分组到达的时候，如果服务员正在发一个低优先级分组，怎么办？有两种做法。
+一，非强插：不打断，等当前这个低优先级分组发完，再服务高优先级的。
+二，强插，叫“强插-恢复”：立即中断低优先级分组，去发高优先级的；高优先级发完，低优先级的从断点继续。ATM 的信元就是这样：一个分组被切成若干个信元，高优先级信元一来，低优先级的信元流暂停。
+记号：优先级从 1 到 n，1 最高。第 k 类到达率 λ_k，服务时间的平均值和二阶矩；ρ_k 是第 k 类的利用率；σ_k 是前 k 类的利用率之和，叫累计利用率，要小于 1。
+[提示：非强插简单，强插对高优先级的保护更彻底，但低优先级被中断，要有“恢复”机制。]</aside>
+</section>

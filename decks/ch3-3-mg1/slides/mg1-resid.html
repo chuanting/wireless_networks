@@ -1,0 +1,38 @@
+<section id="mg1-resid" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/G/1</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">推导（二）：平均剩余服务时间 R = λ E[X²] / 2</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="position:relative;width:900px;height:420px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<svg aria-label="剩余服务时间随时间的变化：每次服务开始时跳到服务时间 X，再线性下降到 0" viewBox="0 0 900 340" width="900" height="340" style="position:absolute;left:0px;top:0px">
+<path d="M70,300H880M70,300V30" stroke="#8A97A6" stroke-width="3" fill="none"/>
+<polygon points="110,300 110,160 270,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/><polygon points="350,300 350,230 430,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/><polygon points="550,300 550,90 790,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/>
+</svg>
+<p style="position:absolute;left:20px;top:14px;width:520px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#9A3412">剩余服务时间 r(t)：锯齿</p><p style="position:absolute;left:100.0px;top:126px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X1 = 2</p><p style="position:absolute;left:340.0px;top:196px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X2 = 1</p><p style="position:absolute;left:540px;top:56px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X3 = 3</p><p style="position:absolute;left:86.0px;top:308px;width:640px;font-size:24px;font-weight:400;line-height:1.3;text-align:left;color:#4B5A6B">三个三角形的面积分别是 X 的平方 / 2</p><p style="position:absolute;left:60px;top:344px;width:820px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#14253D">面积 = 2 + 0.5 + 4.5 = 7；观察 10 秒：<i>R</i> = 7 / 10 = 0.7</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">每次服务</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">开始时，剩余时间<b>跳到</b> <i>X</i>，然后均匀下降到 0：一个直角三角形，面积 <i>X</i> 的平方 / 2。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">时间平均</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>R</i> = (1/<i>t</i>) × 所有三角形面积之和 = (1/2) · [服务次数 / <i>t</i>] · [Σ<i>X</i> 的平方 / 服务次数]</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:32px;font-weight:700;color:#9A3412">极限</p>
+<p style="font-size:34px;line-height:1.4;color:#14253D"><b><i>R</i> = (1/2) <i>λ</i> <i>E</i>[<i>X</i> 的平方]</b></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:25px;line-height:1.45;color:#F4F1E8">数字核对：<i>λ</i> = 3/10，<i>E</i>[<i>X</i> 的平方] = (4+1+9)/3 = 4.67；(1/2) × 0.3 × 4.67 = 0.7 ✓。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+这一页求平均剩余服务时间 R。看图：横轴是时间，纵轴是“正在服务的那个顾客，还剩多少服务时间”，叫 r(t)。
+每次服务开始的瞬间，r 跳到这个顾客的服务时间 X；然后随着服务进行，匀速下降，到 0 服务完成。服务员空闲时，r 等于 0。图里有三次服务，服务时间分别是 2、1、3，所以是三个直角三角形，底和高都是 X，面积是 X 的平方除以 2。
+r(t) 的时间平均，就是所有三角形的总面积，除以总时间 t。把它拆成两个因子：服务次数除以 t，就是单位时间服务的顾客数；再乘上每次服务的 X 平方的平均，除以 2。当 t 趋于无穷，服务次数除以 t，等于到达率 λ；X 平方的平均，是二阶矩 E[X 平方]。所以平均剩余服务时间 R，等于二分之一乘 λ 乘 E[X 平方]。
+用图里的数字核对：10 秒里服务 3 个顾客，λ 等于 0.3，二阶矩 E[X 平方]，等于 (4 加 1 加 9) 除以 3，约 4.67。二分之一乘 0.3 乘 4.67 等于 0.7。直接数面积：2 加 0.5 加 4.5 等于 7，除以 10，也是 0.7。完全吻合。
+[验算：面积 = 2²/2 + 1²/2 + 3²/2 = 2 + 0.5 + 4.5 = 7。]</aside>
+</section>

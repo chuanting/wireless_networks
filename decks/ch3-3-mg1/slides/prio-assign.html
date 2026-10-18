@@ -1,0 +1,43 @@
+<section id="prio-assign" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">谁该有高优先级？——短的先走</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">同样两类，换个优先级顺序</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><b>短包优先</b>（上一页）：<i>W</i>短 = 0.454，<i>W</i>长 = 1.892 ms</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><b>长包优先</b>：<i>W</i>长 = 0.436/(1 − 0.72) = 1.557，<i>W</i>短 = 0.436/(0.28 × 0.24) = 6.49 ms</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">按分组数加权的<b>平均等待</b>（短 200 个/秒，长 600 个/秒）：</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">短优先：(200 × 0.454 + 600 × 1.892)/800 = <b>1.53 ms</b></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">长优先：(600 × 1.557 + 200 × 6.49)/800 = <b>2.79 ms</b></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">先来先服务：<b>1.82 ms</b></p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">规则</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">服务时间<b>短</b>的（<i>μ</i> 大的）给高优先级——“最短作业优先”的思想。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">为什么</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">短的先走，让更多顾客少等；长的只拖累它自己。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">反过来的代价</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">让长包优先，平均等待几乎翻倍（2.79 对 1.53 ms）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">现实</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">小包（确认、控制、语音）通常优先——既符合直觉，也最小化平均时延。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟】
+有两类业务，应该给谁高优先级？用同一个例子，换一下顺序。
+短包优先，就是上一页的情形：短包等待 0.454 毫秒，长包 1.892 毫秒。
+长包优先：把公式里的顺序换过来。长包是第 1 类，ρ_1 等于 0.72，W_长 等于 R 除以 (1 减 0.72)，等于 1.557 毫秒；短包变成第 2 类，W_短 等于 R 除以 (1 减 0.72) 乘 (1 减 0.76)，等于 6.49 毫秒。
+看对所有分组的平均等待，按分组数加权。短包有每秒 200 个，长包每秒 600 个。短优先：(200 乘 0.454 加 600 乘 1.892) 除以 800，等于 1.53 毫秒。长优先：(600 乘 1.557 加 200 乘 6.49) 除以 800，等于 2.79 毫秒。先来先服务：1.82 毫秒。
+所以：让服务时间短的业务拥有高优先级，平均等待最小，比先来先服务还好；反过来让长的优先，平均等待几乎翻倍。道理很直观：短的先走，让更多的顾客少等；长的优先，会让一大堆短的顾客，等一个长的。这就是计算机里的“最短作业优先”。
+现实里，网络设备通常给小包——确认包、控制包、语音包——高优先级，既符合直觉，也符合这个结论。
+[验算：W_长优先 = 0.436/0.28 = 1.557 ms；W_短 = 0.436/(0.28×0.24) = 6.488 ms。]</aside>
+</section>

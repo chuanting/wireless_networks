@@ -1,0 +1,39 @@
+<section id="prio-np" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">非强插优先级的等待时间</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.25;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">非强插：用同样的“剩余时间”方法</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">平均剩余服务时间（不分类，谁在服务都算）：<i>R</i> = (1/2) Σ <i>λ</i><i>i</i> <i>E</i>[<i>X</i><i>i</i> 的平方]</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><b>第 1 类</b>只需等：剩余时间 + 队里第 1 类的服务：</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D;padding-left:20px"><i>W</i>1 = <i>R</i> + <i>ρ</i>1 <i>W</i>1　→　<i>W</i>1 = <i>R</i> / (1 − <i>ρ</i>1)</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D"><b>第 2 类</b>要等：剩余时间 + 队里第 1、2 类 + 等待期间新到的第 1 类：</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D;padding-left:20px"><i>W</i>2 = <i>R</i> + <i>ρ</i>1 <i>W</i>1 + <i>ρ</i>2 <i>W</i>2 + <i>ρ</i>1 <i>W</i>2</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">解得 <i>W</i>2 = <i>R</i> / [(1 − <i>ρ</i>1)(1 − <i>ρ</i>1 − <i>ρ</i>2)]。一般地：</p>
+<p style="font-size:40px;font-weight:700;line-height:1.3;color:#C2410C;padding-left:20px"><i>W</i><i>k</i> = <i>R</i> / [(1 − <i>σ</i><i>k</i>−1)(1 − <i>σ</i><i>k</i>)]</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">读法</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">分母有两个因子：前面所有<b>更高类</b>占掉的比例 (1 − <i>σ</i><i>k</i>−1)，和包括自己在内的 (1 − <i>σ</i><i>k</i>)。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">检查</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">只有 1 类时：<i>σ</i>0 = 0，<i>σ</i>1 = <i>ρ</i>，<i>W</i>1 = <i>R</i>/(1 − <i>ρ</i>)：就是 P-K 公式 ✓。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">平均时延</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>T</i><i>k</i> = 1/<i>μ</i><i>k</i> + <i>W</i><i>k</i>；所有分组平均 <i>T</i> = Σ <i>λ</i><i>k</i> <i>T</i><i>k</i> / <i>λ</i>。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+推导还是用“剩余时间”的办法。先定义平均剩余服务时间 R：不分类，不管此刻正在服务的是哪一类，R 等于二分之一，乘各类的 λ_i 乘二阶矩之和。
+第 1 类，最高优先级：一个第 1 类的顾客到达，要等的只有两样：当前正在服务的顾客的剩余时间 R（因为非强插，不能打断），以及队列里已经有的第 1 类顾客的服务时间。后者平均是 ρ_1 乘 W_1（Little 定理）。所以 W_1 等于 R 加 ρ_1 W_1，解得 W_1 等于 R 除以 (1 减 ρ_1)。
+第 2 类要等的：剩余时间 R；队列里第 1 类和第 2 类的顾客，每个都要发完，分别是 ρ_1 W_1 和 ρ_2 W_2；还有在他等待期间，新到达的第 1 类顾客——它们优先，会插到他前面，数量是 λ_1 乘 W_2，每个服务 1/μ_1，合起来是 ρ_1 W_2。所以 W_2 等于 R 加 ρ_1 W_1 加 ρ_2 W_2 加 ρ_1 W_2。把 W_1 代入，解得 W_2 等于 R 除以 (1 减 ρ_1)(1 减 ρ_1 减 ρ_2)。
+一般地：W_k 等于 R 除以 (1 减 σ_{k−1}) 乘 (1 减 σ_k)。分母的两个因子：前者是前面所有更高类占掉的比例，后者包括自己。
+检查：只有一类的时候，退化成 P-K 公式。
+[提示：这个公式有名字，叫 Cobham 公式（1954）。]</aside>
+</section>

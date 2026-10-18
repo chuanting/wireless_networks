@@ -1,0 +1,36 @@
+<section id="poll-exh" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 轮询</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种服务规则的平均等待时间</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.3;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">平均等待时间（<i>ρ</i> = <i>λE</i>[<i>X</i>]，<i>V</i> 的平均 <i>E</i>[<i>V</i>]、方差 <i>σ</i>²）</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><b>耗尽型</b>：<i>W</i> = <i>λE</i>[<i>X</i>²]/[2(1−<i>ρ</i>)] + <i>E</i>[<i>V</i>](<i>m</i> − <i>ρ</i>)/[2(1−<i>ρ</i>)] + <i>σ</i>²/(2<i>E</i>[<i>V</i>])</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><b>闸门型</b>：<i>W</i> = <i>λE</i>[<i>X</i>²]/[2(1−<i>ρ</i>)] + <i>E</i>[<i>V</i>](<i>m</i> + <i>ρ</i>)/[2(1−<i>ρ</i>)] + <i>σ</i>²/(2<i>E</i>[<i>V</i>])</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><b>限制型</b>（<i>V</i> 固定）：<i>W</i> = {<i>λE</i>[<i>X</i>²] + <i>E</i>[<i>V</i>](<i>m</i> + <i>ρ</i>)} / [2(1 − <i>ρ</i> − <i>λE</i>[<i>V</i>])]</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">稳定条件：耗尽、闸门要 <i>ρ</i> &lt; 1；限制型要 <i>ρ</i> + <i>λE</i>[<i>V</i>] &lt; 1。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">三项分别是什么</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">① 像普通 M/G/1 的等待；② “走一圈”的开销；③ 走时的波动。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">轻载检查</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>λ</i> → 0：耗尽型 <i>W</i> → <i>mE</i>[<i>V</i>]/2 = <b>半个循环</b>：来了要等令牌转到我。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">耗尽 vs 闸门</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">差 <i>ρE</i>[<i>V</i>]/(1 − <i>ρ</i>)：耗尽型总是更好。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟 · 可压缩】
+三种服务规则的平均等待时间，给出结果（推导用的还是剩余时间的方法，比较长，不要求掌握推导）。
+耗尽型：W 等于三项之和。第一项，λ 乘 E[X 平方] 除以 2(1 减 ρ)，和普通 M/G/1 一样；第二项，E[V] 乘 (m 减 ρ) 除以 2(1 减 ρ)，是令牌“走一圈”的开销；第三项，σ 平方除以 2E[V]，是走时波动的影响，走时固定就没有这一项。
+闸门型：把第二项里的 (m 减 ρ) 换成 (m 加 ρ)，所以耗尽型总是更好，差了 ρ 乘 E[V] 除以 (1 减 ρ)。
+限制型：公式有所不同，分母里多了 λE[V] 这一项：W 等于 λE[X 平方] 加 E[V] 乘 (m 加 ρ)，整体除以 2 乘 (1 减 ρ 减 λE[V])。稳定条件也更严：ρ 加 λE[V] 小于 1，因为每个分组的发送都伴随一次走时。
+轻载检查：λ 趋于 0，耗尽型的等待趋于 m 乘 E[V] 除以 2，等于半个循环：一个分组来了，平均要等令牌转到它这里，半圈。
+[验算：我用事件模拟验证过三个公式：m=4，V=0.2，X=1：λ=0.5 时，耗尽/闸门/限制型的模拟值 1.19、1.39、1.74，公式 1.20、1.40、1.75。]</aside>
+</section>

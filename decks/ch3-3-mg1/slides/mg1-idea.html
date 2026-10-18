@@ -1,0 +1,35 @@
+<section id="mg1-idea" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/G/1</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">解法的思路：新顾客要等多久？</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1070px"><div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:26px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">一个新顾客到达：他要等多久？</p>
+<div style="display:flex;gap:6px;align-items:center"><p style="width:150px;height:64px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#4B5A6B">已服务</p><p style="width:190px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">剩余 <i>R</i></p><p style="width:160px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF"><i>X</i></p><p style="width:120px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF"><i>X</i></p><p style="width:200px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF"><i>X</i></p><p style="font-size:34px;font-weight:700;color:#14253D">▼</p></div>
+<p style="font-size:24px;color:#4B5A6B">正在服务的顾客（灰 + 橙）　队列里的 <i>N</i><i>Q</i> 个顾客（蓝）　▼ 新顾客到达</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D"><b>等待时间 = 正在服务者的剩余时间 <i>R</i> + 队里每个人的服务时间之和</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><i>W</i><i>i</i> = <i>R</i><i>i</i> + <i>X</i>（第 1 个）+ <i>X</i>（第 2 个）+ … + <i>X</i>（第 <i>N</i><i>i</i> 个）</p>
+</div></div>
+<div style="width:560px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">为什么不用状态图？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">服务时间不是指数的，“已服务多久”会影响“还要多久”——没有无记忆性，状态图要带上已服务时间，太复杂。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">换个思路</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">直接计算<b>一个新到达顾客的等待时间</b>：看他到达时，前面是什么情形。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">只要算出平均的 <i>R</i>，剩下的由 Little 定理完成。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟 · 重点】
+M/M/1 里，我们用状态转移图。但是 M/G/1 的服务时间不是指数的，没有无记忆性：一个顾客已经服务了多久，会影响他还需要多久。要用状态图，状态里还要带上“已服务时间”，太复杂了。
+换一个思路：不看整个系统的状态，直接计算“一个新到达顾客要等多久”。
+看图：一个新顾客在某个时刻到达，▼ 表示他。这时系统是什么样子？有两部分。一部分是正在服务的顾客，他已经服务了一段时间（灰色），还剩下一段，叫剩余服务时间 R（橙色）。另一部分是在队列里排队的顾客，有 N_Q 个，每个都要完整服务一次，每个服务时间是 X（蓝色）。
+所以新顾客的等待时间，等于：正在服务者的剩余时间 R，加上队列里每个顾客的服务时间之和。
+接下来我们对它取平均。只要算出平均的剩余服务时间，剩下的，Little 定理就能解决。
+[提示：问学生：“如果新顾客到的时候服务员空闲，R 是多少？”（0，且队里没人，W = 0。）]</aside>
+</section>

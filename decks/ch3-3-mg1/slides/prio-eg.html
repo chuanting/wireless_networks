@@ -1,0 +1,40 @@
+<section id="prio-eg" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数字例子：语音优先，数据几乎无损</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1050px;display:flex"><div style="flex:1.1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">例：语音类（高）+ 数据类（低）</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">第 1 类：<i>λ</i>1 = 200 个/秒，发送 0.2 ms（固定）→ <i>ρ</i>1 = 0.04</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">第 2 类：<i>λ</i>2 = 600 个/秒，发送 1.2 ms（固定）→ <i>ρ</i>2 = 0.72；<i>σ</i>2 = 0.76</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D"><i>R</i> = (1/2)(200 × 0.2 的平方 + 600 × 1.2 的平方) / 1000 = <b>0.436 ms</b></p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">无优先级（先来先服务）：<i>W</i> = <i>R</i>/(1 − 0.76) = <b>1.82 ms</b>（两类相同）</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">非强插：<i>W</i>1 = 0.436 / 0.96 = <b>0.454 ms</b>；<i>W</i>2 = 0.436 / (0.96 × 0.24) = <b>1.89 ms</b></p>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:12px;width:600px"><div style="width:600px;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">平均等待时间（ms）</p>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:290px;font-size:26px;font-weight:700;color:#14253D">先来先服务（两类）</p><div style="height:44px;width:182px;background:#8A97A6;border-radius:8px"></div><p style="font-size:26px;font-weight:700;color:#14253D">1.82</p></div><div style="display:flex;align-items:center;gap:16px"><p style="width:290px;font-size:26px;font-weight:700;color:#14253D">第 1 类（高）</p><div style="height:44px;width:45px;background:#1D4ED8;border-radius:8px"></div><p style="font-size:26px;font-weight:700;color:#14253D">0.45</p></div><div style="display:flex;align-items:center;gap:16px"><p style="width:290px;font-size:26px;font-weight:700;color:#14253D">第 2 类（低）</p><div style="height:44px;width:189px;background:#C2410C;border-radius:8px"></div><p style="font-size:26px;font-weight:700;color:#14253D">1.89</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">高优先级受益</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><b>等待降到原来的 1/4</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">低优先级代价</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">只增加约 4%（1.82 → 1.89）。</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8"><b>守恒定律</b>：Σ <i>ρ</i><i>k</i> <i>W</i><i>k</i> 是常数（0.04 × 0.454 + 0.72 × 1.892 = 1.38 = 0.76 × 1.817）：优先级只是<b>重新分配</b>等待，不会让总等待变少。</p>
+</div>
+<aside>【3 分钟】
+用数字看优先级的效果。两类业务：第 1 类，语音类，每秒 200 个分组，每个发 0.2 毫秒，固定长度，所以 ρ_1 等于 0.04，很小。第 2 类，数据类，每秒 600 个分组，每个 1.2 毫秒，ρ_2 等于 0.72，σ_2 等于 0.76——链路 76% 的时间在忙。
+先算平均剩余服务时间 R：二分之一乘 (200 乘 0.2 毫秒的平方，加 600 乘 1.2 毫秒的平方)，换算单位，等于 0.436 毫秒。
+如果没有优先级，先来先服务：W 等于 R 除以 (1 减 0.76)，1.82 毫秒——两类顾客一样。
+用非强插优先级：第 1 类：W_1 等于 0.436 除以 0.96，0.454 毫秒；第 2 类：W_2 等于 0.436 除以 (0.96 乘 0.24)，1.89 毫秒。
+看图：语音类的等待，从 1.82 降到 0.45，降到原来的四分之一；数据类的等待，从 1.82 变成 1.89，只增加了 4%。为什么代价这么小？因为高优先级类很小，只占 4% 的负荷，对低优先级类影响有限。
+最后一个重要的守恒定律：对所有类，ρ_k 乘 W_k 之和是一个常数，不依赖于优先级的分配。验算：0.04 乘 0.454 加 0.72 乘 1.892，等于 1.38；而 0.76 乘 1.817，也等于 1.38。所以优先级不能让总等待变少，它只是在各类之间“重新分配”等待。
+[验算：用事件模拟验证过：非强插，W_1 ≈ 0.455 ms，W_2 ≈ 1.88 ms。]</aside>
+</section>

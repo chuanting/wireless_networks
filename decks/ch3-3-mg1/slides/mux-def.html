@@ -1,0 +1,31 @@
+<section id="mux-def" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 多路复用</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">设定：m 个用户怎样共用一条信道？</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1000px"><div style="display:flex;flex-direction:column;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:26px;font-weight:700;color:#C2410C">FDM：3 个用户，各占 1/3 频带，一个分组要发 3 个时隙</p><div style="display:flex;gap:4px"><p style="width:206px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#1E40AF">用户 1：一个分组</p></div><div style="display:flex;gap:4px"><p style="width:206px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#9A3412">用户 2：一个分组</p></div><div style="display:flex;gap:4px"><p style="width:206px;height:46px;background:#E5F0E5;border:2px solid #4C7A4C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#2F5A2F">用户 3：一个分组</p></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:26px;font-weight:700;color:#C2410C">TDM：一帧 3 个时隙，每人一个；分组只要 1 个时隙，但要等自己的时隙</p><div style="display:flex;gap:4px"><p style="width:66px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#1E40AF">1</p><p style="width:66px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#9A3412">2</p><p style="width:66px;height:46px;background:#E5F0E5;border:2px solid #4C7A4C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#2F5A2F">3</p><p style="width:66px;height:46px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#1E40AF">1</p><p style="width:66px;height:46px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#9A3412">2</p><p style="width:66px;height:46px;background:#E5F0E5;border:2px solid #4C7A4C;border-radius:8px;font-size:22px;font-weight:700;line-height:42px;text-align:center;color:#2F5A2F">3</p></div></div>
+</div></div>
+<div style="width:660px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">设定</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>m</i> 个用户共用一条信道。时间单位 = 全速发一个分组的时间。总到达率 <i>λ</i>（个/时隙），每人 <i>λ</i>/<i>m</i>；<i>ρ</i> = <i>λ</i>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">三种做法</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">FDM（频分）· 时隙 FDM（分组只能从时隙开头发）· TDM（时分）。再与<b>统计复用</b>（谁有数据谁用）比。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟】
+用休假模型，比较几种多路复用方式的时延。设有 m 个用户，共用一条信道。时间单位取：用全部信道速率发送一个分组所需的时间，叫一个时隙。总到达率 λ，单位是个分组每时隙；每个用户 λ/m。所以信道利用率 ρ 就等于 λ。
+三种做法：
+一，频分复用 FDM：信道分成 m 份，每个用户占 1/m 的频带。速度只有 1/m，所以一个分组要发 m 个时隙，图里 m 等于 3，每个分组占 3 格。用户随时可以发，不需要等别人。
+二，时隙 FDM：和 FDM 一样，每个分组要发 m 个时隙，但是只能从时隙的开头开始发。如果分组在时隙中间到达，要等下一个时隙开头。
+三，时分复用 TDM：一帧 m 个时隙，每个用户一帧里占 1 个时隙，速度是全速，所以一个分组只要 1 个时隙；但是必须等到自己的那个时隙才能发。
+最后，我们再拿它们和统计复用比：所有用户共用一条全速信道，谁有数据谁用，先来先服务。
+下一页，用刚才的休假公式算它们的时延。
+[提示：图里 TDM 一行：1、2、3、1、2、3 是三个用户轮流的时隙。]</aside>
+</section>
