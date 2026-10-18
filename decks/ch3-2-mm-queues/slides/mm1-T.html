@@ -1,0 +1,35 @@
+<section id="mm1-T" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/M/1</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">时延 T = 1 / (μ − λ)</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">用 Little 定理变成时延</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">平均时延：<i>T</i> = <i>N</i> / <i>λ</i> = <i>ρ</i> / [<i>λ</i>(1 − <i>ρ</i>)] = 1 / (<i>μ</i> − <i>λ</i>)</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">平均等待：<i>W</i> = <i>T</i> − 1/<i>μ</i> = <i>ρ</i> / (<i>μ</i> − <i>λ</i>)</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">队列里的平均人数：<i>N</i><i>Q</i> = <i>λ</i><i>W</i> = <i>ρ</i> 的平方 ÷ (1 − <i>ρ</i>)</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">到达时需要等待的概率：<i>P</i>(等待) = 1 − <i>p</i>0 = <i>ρ</i></p>
+<p style="font-size:24px;line-height:1.5;color:#4B5A6B">最后一条：泊松到达“看到”的是时间平均（PASTA 性质），所以顾客来时发现服务员忙的概率，等于服务员忙的时间比例 <i>ρ</i>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">核对 3.1 的曲线</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D"><i>μT</i> = 1 / (1 − <i>ρ</i>)：<i>ρ</i> = 0.5 → 2；0.9 → 10；0.99 → 100。就是“曲棍球棒”！</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">直觉：剩余容量</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D"><i>μ</i> − <i>λ</i> 是服务员“多出来的服务能力”。多出来越少，等得越久。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;line-height:1.45;color:#F4F1E8"><i>T</i> = 1/(<i>μ</i> − <i>λ</i>)：M/M/1 里<b>最重要的一个公式</b>。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+把 N 变成时延，一步：Little 定理。T 等于 N 除以 λ。N 是 ρ 除以 (1 减 ρ)，ρ 是 λ 除以 μ，代进去化简：T 等于 1 除以 (μ 减 λ)。这就是 M/M/1 最重要的公式。
+再看其他量。平均等待时间 W：停留减去服务，T 减 1/μ，等于 ρ 除以 (μ 减 λ)。队列里的平均人数 N_Q：等待时间乘 λ，等于 ρ 的平方除以 (1 减 ρ)。到达时需要等待的概率：系统非空的概率，1 减 p_0，等于 ρ。
+最后一条有一个微妙之处：顾客到达的时刻，看到的系统状态，和系统在任意时刻的平均状态是一样的吗？对泊松到达，是的——这叫 PASTA 性质，“泊松到达看到的是时间平均”。所以顾客到达时，服务员忙的概率就是服务员忙的时间比例，ρ。对其他到达过程，这一条不一定成立。
+右边两点。一，核对 3.1 的曲线：μ 乘 T 等于 1 除以 (1 减 ρ)，ρ 等于 0.5 时是 2，0.9 时是 10，0.99 时是 100。这就是 3.1 节那条“曲棍球棒”曲线的公式！二，直觉：μ 减 λ，是服务员“多出来的服务能力”，多出来越少，等得越久。
+[验算：N_Q = λW：ρ=0.8 时，ρ^2/(1−ρ) = 3.2；W = ρ/(μ−λ)。]</aside>
+</section>

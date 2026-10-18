@@ -1,0 +1,36 @@
+<section id="recap" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">回顾：1.2 节的三件工具</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">① 泊松过程（到达）</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">速率 <i>λ</i>：长度 <i>τ</i> 内到达 <i>n</i> 个的概率是 e 的 −<i>λτ</i> 次方 × (<i>λτ</i>) 的 <i>n</i> 次方 ÷ <i>n</i>!</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">间隔是<b>指数分布</b>，均值 1/<i>λ</i>。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">很短的 <i>δ</i> 内：来 1 个的概率 ≈ <i>λδ</i>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">② 指数分布的无记忆性</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">已经服务了多久，<b>不影响</b>还要服务多久。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">所以“现在有几个顾客”就足以预测未来——不用记服务了多久。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">这使 <i>N</i>(<i>t</i>) 成为马尔可夫链。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">③ 生灭链与“切一刀”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">只在相邻状态之间跳：<i>n</i> → <i>n</i> ± 1。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">稳态时，切开 <i>n</i> 与 <i>n</i> + 1 之间，向右的流量 = 向左的流量。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">再加上“概率之和为 1”，就能解出稳态分布。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;line-height:1.45;color:#F4F1E8">这三件工具合在一起，就是 M/M/1 的全部数学。</p>
+</div>
+<aside>【3 分钟】
+M/M/1 要用的数学工具，全在第 1.2 节。快速回顾三样。
+一，泊松过程，描述到达。速率 λ 的泊松过程，在长度 τ 的时间内到达 n 个顾客的概率，是 e 的负 λτ 次方，乘以 λτ 的 n 次方，再除以 n 的阶乘。它的到达间隔是指数分布，平均 1/λ。在很短的时间 δ 内，来一个顾客的概率约是 λδ，来两个以上的概率可以忽略。
+二，指数分布的无记忆性。指数分布的服务时间有一个特别的性质：已经服务了多久，不影响还要服务多久。比如一个平均服务 1 分钟的顾客，已经被服务了 2 分钟还没完，他还需要的时间，分布和刚开始时一模一样。这个性质很关键：它意味着，要预测系统的未来，只需要知道“现在有几个顾客”，不需要记录每个顾客已经服务了多久。这使得系统里的顾客数 N(t) 成为一条马尔可夫链。
+三，生灭链和“切一刀”。如果状态只在相邻的状态之间跳，叫生灭链。稳态的时候，在 n 和 n+1 之间切一刀：每秒钟向右跳过这一刀的次数，等于向左跳过的次数。再加上所有概率之和等于 1，就能解出稳态分布。
+这三件工具合在一起，就是 M/M/1 的全部数学。
+[提示：如果学生对这三条陌生，可以回放 1.2 的对应页：p-memory 和 m-bd-sol。]</aside>
+</section>

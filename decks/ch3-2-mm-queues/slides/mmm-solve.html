@@ -1,0 +1,50 @@
+<section id="mmm-solve" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/m</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">M/M/m 的稳态分布与爱尔兰 C 公式</h2>
+</div>
+<div style="position:relative;width:1664px;height:240px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<svg aria-label="生灭链状态转移图" viewBox="0 0 1664 240" width="1664" height="240" style="position:absolute;left:0px;top:0px">
+<circle cx="60" cy="120" r="34" fill="#FFFEFA" stroke="#14253D" stroke-width="4"/>
+<circle cx="416" cy="120" r="34" fill="#FFFEFA" stroke="#14253D" stroke-width="4"/>
+<circle cx="772" cy="120" r="34" fill="#FFFEFA" stroke="#14253D" stroke-width="4"/>
+<circle cx="1128" cy="120" r="34" fill="#FFFEFA" stroke="#14253D" stroke-width="4"/>
+<circle cx="1484" cy="120" r="34" fill="#FFFEFA" stroke="#14253D" stroke-width="4"/>
+<path d="M100,98L362,98" stroke="#1D4ED8" stroke-width="5" fill="none"/><polygon points="376,98 360,88 360,108" fill="#1D4ED8"/>
+<path d="M376,142L114,142" stroke="#C2410C" stroke-width="5" fill="none"/><polygon points="100,142 116,132 116,152" fill="#C2410C"/>
+<path d="M456,98L718,98" stroke="#1D4ED8" stroke-width="5" fill="none"/><polygon points="732,98 716,88 716,108" fill="#1D4ED8"/>
+<path d="M732,142L470,142" stroke="#C2410C" stroke-width="5" fill="none"/><polygon points="456,142 472,132 472,152" fill="#C2410C"/>
+<path d="M812,98L1074,98" stroke="#1D4ED8" stroke-width="5" fill="none"/><polygon points="1088,98 1072,88 1072,108" fill="#1D4ED8"/>
+<path d="M1088,142L826,142" stroke="#C2410C" stroke-width="5" fill="none"/><polygon points="812,142 828,132 828,152" fill="#C2410C"/>
+<path d="M1168,98L1430,98" stroke="#1D4ED8" stroke-width="5" fill="none"/><polygon points="1444,98 1428,88 1428,108" fill="#1D4ED8"/>
+<path d="M1444,142L1182,142" stroke="#C2410C" stroke-width="5" fill="none"/><polygon points="1168,142 1184,132 1184,152" fill="#C2410C"/>
+<path d="M1524,120.0H1604" stroke="#8A97A6" stroke-width="5" stroke-dasharray="4 10" fill="none"/>
+<path d="M950,6V234" stroke="#14253D" stroke-width="4" stroke-dasharray="12 8" fill="none"/>
+</svg><p style="position:absolute;left:20.0px;top:103.0px;width:80px;font-size:28px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">0</p><p style="position:absolute;left:376.0px;top:103.0px;width:80px;font-size:28px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">1</p><p style="position:absolute;left:732.0px;top:103.0px;width:80px;font-size:28px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">2</p><p style="position:absolute;left:1088.0px;top:103.0px;width:80px;font-size:28px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">3</p><p style="position:absolute;left:1444.0px;top:103.0px;width:80px;font-size:28px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">4</p><p style="position:absolute;left:168.0px;top:54.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#1E40AF"><i>λ</i></p><p style="position:absolute;left:168.0px;top:154.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#9A3412"><i>μ</i></p><p style="position:absolute;left:524.0px;top:54.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#1E40AF"><i>λ</i></p><p style="position:absolute;left:524.0px;top:154.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#9A3412">2<i>μ</i></p><p style="position:absolute;left:801.68px;top:54.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#1E40AF"><i>λ</i></p><p style="position:absolute;left:801.68px;top:154.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#9A3412">3<i>μ</i></p><p style="position:absolute;left:1236.0px;top:54.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#1E40AF"><i>λ</i></p><p style="position:absolute;left:1236.0px;top:154.0px;width:140px;font-size:26px;font-weight:700;line-height:1.1;text-align:center;color:#9A3412">3<i>μ</i></p><p style="position:absolute;left:890.0px;top:206px;width:120px;font-size:24px;font-weight:700;line-height:1.1;text-align:center;color:#14253D">切一刀</p>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">切一刀（<i>m</i> = 3）：<i>λp</i><i>n</i> = min(<i>n</i>+1, <i>m</i>) <i>μ</i> <i>p</i>(<i>n</i>+1)</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>n</i> &lt; <i>m</i>：<i>p</i><i>n</i> = <i>p</i>0 · <i>a</i> 的 <i>n</i> 次方 / <i>n</i>!</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>n</i> ≥ <i>m</i>：<i>p</i><i>n</i> = <i>p</i>0 · <i>a</i> 的 <i>n</i> 次方 / (<i>m</i>! · <i>m</i> 的 (<i>n</i>−<i>m</i>) 次方)</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>p</i>0 由 Σ<i>p</i><i>n</i> = 1 求出。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">等待概率：爱尔兰 C 公式</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><b><i>P</i><i>Q</i> = Σ(<i>n</i>≥<i>m</i>) <i>p</i><i>n</i> = <i>p</i>0 · <i>a</i> 的 <i>m</i> 次方 / [<i>m</i>! (1 − <i>ρ</i>)]</b></p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">顾客到达时发现 <i>m</i> 个服务员全忙（需要等待）的概率。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">其余量</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>N</i><i>Q</i> = <i>P</i><i>Q</i> · <i>ρ</i> / (1 − <i>ρ</i>)</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>W</i> = <i>P</i><i>Q</i> / (<i>mμ</i> − <i>λ</i>)</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D"><i>T</i> = <i>W</i> + 1/<i>μ</i>；<i>N</i> = <i>N</i><i>Q</i> + <i>a</i></p>
+</div>
+</div>
+<aside>【5 分钟 · 重点】
+方法和 M/M/1 一样：切一刀。在 n 和 n+1 之间切一刀：向右是 λ 乘 p_n；向左，是 n+1 状态的概率，乘上这时的离开速率——n+1 个顾客时，如果 n+1 不超过 m，离开速率是 (n+1)μ；如果超过了，是 mμ。
+所以当 n 小于 m 时：(n+1) p_{n+1} 等于 a 乘 p_n，一层层推下去，p_n 等于 p_0 乘 a 的 n 次方除以 n 的阶乘。当 n 大于等于 m：p_{n+1} 等于 ρ 乘 p_n，从 p_m 开始，每往后一格乘 ρ，所以 p_n 等于 p_0 乘 a 的 n 次方，除以 m 的阶乘和 m 的 (n 减 m) 次方。p_0 由概率之和等于 1 求出。
+最重要的一个量：到达的顾客发现 m 个服务员全忙，需要等待的概率 P_Q，等于 n 大于等于 m 的所有 p_n 之和。后半部分是一个等比级数，求和得：P_Q 等于 p_0 乘 a 的 m 次方，除以 m 的阶乘乘上 (1 减 ρ)。这个公式叫爱尔兰 C 公式，是客服中心、排队论里最常用的公式。
+有了 P_Q，其余的量都好算：队列里的平均人数 N_Q 等于 P_Q 乘 ρ 除以 (1 减 ρ)；平均等待 W 等于 P_Q 除以 (mμ 减 λ)；停留时间 T 等于 W 加 1/μ；系统里的平均人数 N 等于 N_Q 加 a——因为平均有 a 个服务员在忙。
+[提示：m 等于 1 时，P_Q 就是 ρ，所有公式退化为 M/M/1。]</aside>
+</section>

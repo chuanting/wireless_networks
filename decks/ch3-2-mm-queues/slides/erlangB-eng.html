@@ -1,0 +1,33 @@
+<section id="erlangB-eng" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/m/m</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">工程应用：线路要配多少？</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:960px"><div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:14px;background:#14253D;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:26px;font-weight:700;color:#F4975A">线路数</p><p style="width:300px;font-size:26px;font-weight:700;color:#F4F1E8">阻塞 1% 时能承载 <i>a</i></p><p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">线路利用率</p></div>
+<div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 1</p><p style="width:300px;font-size:28px;color:#14253D">0.01</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">1%</p></div><div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 5</p><p style="width:300px;font-size:28px;color:#14253D">1.36</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">27%</p></div><div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 10</p><p style="width:300px;font-size:28px;color:#14253D">4.46</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">44%</p></div><div style="display:flex;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 20</p><p style="width:300px;font-size:28px;color:#14253D">12.0</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">60%</p></div><div style="display:flex;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 50</p><p style="width:300px;font-size:28px;color:#14253D">37.9</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">75%</p></div><div style="display:flex;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 22px"><p style="width:190px;font-size:28px;font-weight:700;color:#C2410C"><i>m</i> = 100</p><p style="width:300px;font-size:28px;color:#14253D">84.1</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">83%</p></div>
+</div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">① 反问：需要几条线路？</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>a</i> = 5，目标 1%：<i>m</i> = 11；<i>a</i> = 20：<i>m</i> = 30；<i>a</i> = 100：<i>m</i> = 117。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② 大群效应</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">同样 1% 阻塞：10 条线路只能跑到 44%，100 条能跑到 83%。<b>线路群越大，效率越高</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 工程含义</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">中继线要<b>集中汇聚</b>，不要拆成小群；这与“统计复用”是同一个道理。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟 · 可压缩】
+爱尔兰 B 公式的工程用法。
+第一个用法：反问。已知业务量 a，要求阻塞概率不超过 1%，需要几条线路？a 等于 5 爱尔兰，需要 11 条；a 等于 20，需要 30 条；a 等于 100，需要 117 条。
+第二个用法：看规模效应，表格里是反过来：线路数是 m，在阻塞概率 1% 的要求下，最多能承载多少业务量，以及对应的线路利用率。m 等于 1：只能承载 0.01 爱尔兰，利用率 1%。m 等于 10：4.46 爱尔兰，利用率 44%。m 等于 50：37.9，75%。m 等于 100：84.1，83%。
+结论：线路群越大，利用效率越高。同样要求 1% 阻塞，10 条线路只能跑到 44%，而 100 条线路能跑到 83%。
+工程含义：中继线要集中汇聚，不要拆成很多个小群。这和前面统计复用的结论，是同一个道理：大的资源池，彼此调剂，利用率高。
+[验算：Python 复算：a=5 → 11；a=20 → 30；a=100 → 117；m=10 时 a=4.461，利用率 0.442；m=100 时 a=84.06，利用率 0.832。]</aside>
+</section>

@@ -1,0 +1,40 @@
+<section id="mm1-eg1" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/M/1 例题</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例题一：一台共用设备能服务多少人？</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">例：全校共用一台打印机</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">全校 2 万名师生共用一台打印机；每个任务平均 3 分钟（指数分布，<i>μ</i> = 1/3 个/分钟）；任务泊松到达。要求<b>平均排队人数不超过 5 人</b>：每人平均隔多久能用一次？</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">① <i>N</i><i>Q</i> = <i>ρ</i> 的平方 / (1 − <i>ρ</i>) = 5　→　<i>ρ</i> 的平方 + 5<i>ρ</i> − 5 = 0</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">② 解得 <i>ρ</i> = (−5 + √45) / 2 ≈ <b>0.854</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">③ <i>λ</i> = <i>ρμ</i> = 0.854 / 3 ≈ 0.285 个/分钟 ≈ <b>410 个/天</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">④ 2 万人 ÷ 410 ≈ <b>49 天</b>：每人约 49 天才能用一次。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">顺便算时延</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i> = (1/<i>μ</i>) / (1 − <i>ρ</i>) = 3 / 0.146 ≈ <b>20.6 分钟</b>；<i>W</i> ≈ 17.6 分钟。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">提醒</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">“平均排队 5 人”听起来不多，但每个人要等约 18 分钟，因为 <i>ρ</i> 已经 0.85。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">若每天只开 12 小时</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>λ</i> 的单位按“每天开放时间”折算：间隔天数加倍。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟】
+用 M/M/1 做一个小设计题。（这个例子原来是传真机，我们换成打印机。）
+全校 2 万名师生共用一台打印机。每个任务平均 3 分钟，服务时间是指数分布，所以 μ 等于每分钟 1/3 个。任务是泊松到达。要求：平均排队人数不超过 5 人。问每个人平均隔多少天才能用一次？
+第一步：N_Q 等于 ρ 的平方除以 (1 减 ρ)，要求等于 5。整理成 ρ 的平方加 5ρ 减 5 等于 0。
+第二步：解这个二次方程：ρ 等于 (负 5 加根号 45) 除以 2，约 0.854。
+第三步：λ 等于 ρ 乘 μ，0.854 除以 3，约每分钟 0.285 个，一天 24 小时，约 410 个任务。
+第四步：2 万人除以每天 410 个，约 49 天。也就是每人大约每 49 天才能用一次，这个设备能满足的人群并不多。
+顺便算时延：T 等于 3 分钟除以 (1 减 0.854)，约 20.6 分钟；等待约 17.6 分钟。虽然“平均排队 5 个人”听起来不多，但是每个人要等十几分钟，因为利用率已经到 0.85。
+如果设备每天只开 12 小时，λ 按开放时间折算，间隔天数加倍。
+[验算：ρ=(−5+√45)/2=0.8541；0.8541/3×1440 = 410；20000/410 = 48.8；3/(1−0.8541) = 20.56。]</aside>
+</section>

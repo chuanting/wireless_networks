@@ -1,0 +1,19 @@
+<section id="mm1-split" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/M/1 应用</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">反过来：把一条大信道切成小信道，代价有多大？</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #C2410C;border-radius:22px;padding:22px 28px"><p style="font-size:30px;font-weight:700;color:#C2410C">切成 k 份（FDM / TDM）</p><p style="font-size:26px;line-height:1.5;color:#14253D">一条 (<i>λ</i>, <i>μ</i>) 的信道，切成 <i>k</i> 个子信道：</p><p style="font-size:26px;line-height:1.5;color:#14253D">每个 (<i>λ</i>/<i>k</i>, <i>μ</i>/<i>k</i>)。</p><p style="font-size:26px;line-height:1.5;color:#14253D">每个子信道时延 <i>T</i>′ = 1 / (<i>μ</i>/<i>k</i> − <i>λ</i>/<i>k</i>) = <b><i>k</i> · <i>T</i></b></p><p style="font-size:26px;line-height:1.5;color:#14253D">时延增加到 <i>k</i> 倍。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #C2410C;border-radius:22px;padding:22px 28px"><p style="font-size:30px;font-weight:700;color:#C2410C">更糟：忙闲不均</p><p style="font-size:26px;line-height:1.5;color:#14253D">2 个子信道，每个 <i>μ</i> = 50；两个用户 <i>λ</i>1 = 45、<i>λ</i>2 = 5。</p><p style="font-size:26px;line-height:1.5;color:#14253D">信道 1：<i>T</i> = 1/(50 − 45) = 200 ms；</p><p style="font-size:26px;line-height:1.5;color:#14253D">信道 2：<i>T</i> = 1/(50 − 5) = 22 ms。</p><p style="font-size:26px;line-height:1.5;color:#14253D">按分组加权：(45 × 200 + 5 × 22) / 50 ≈ <b>182 ms</b>。</p><p style="font-size:26px;line-height:1.5;color:#14253D">合并（<i>λ</i> = 50，<i>μ</i> = 100）：<i>T</i> = <b>20 ms</b>，相差约 9 倍。</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;line-height:1.45;color:#F4F1E8">分割的两个代价：每个小信道<b>更慢</b>（时延 × <i>k</i>）；忙闲<b>不均</b>时，有的信道饿死，有的信道挤爆。</p>
+</div>
+<aside>【3 分钟】
+反过来问：如果把一条大信道，切成 k 个小信道，各管各的，代价是什么？
+第一个代价：设大信道的到达率是 λ，服务速率是 μ。切成 k 个子信道，每个子信道分到的到达率是 λ 除以 k，服务速率也是 μ 除以 k（因为速率被分成了 k 份）。每个子信道的时延：1 除以 (μ/k 减 λ/k)，也就是 k 倍的 1 除以 (μ 减 λ)——时延变成了原来的 k 倍。
+第二个代价更严重：忙闲不均。比如把信道切成 2 个，每个服务速率 50；两个用户的到达率不一样，一个每秒 45，一个每秒 5。信道 1 的 ρ 是 0.9，T 等于 1 除以 (50 减 45)，200 毫秒；信道 2 很闲，T 等于 1 除以 (50 减 5)，22 毫秒。按分组数加权平均，(45 乘 200 加 5 乘 22) 除以 50，约 182 毫秒。如果合并在一起，到达率 50，服务速率 100，T 等于 1 除以 50，20 毫秒——相差 9 倍！
+所以结论：能共享就共享。分组交换里把所有流汇在一条链路上统计复用，比固定分配好得多。当然，固定分配也有优点：保证质量，不会被别人挤占——这是电路交换的优势。
+[验算：1/(50−45)=0.2 s；1/(50−5)=0.0222 s；(45×0.2+5×0.0222)/50 = 0.1822 s；1/(100−50)=0.02 s。]</aside>
+</section>

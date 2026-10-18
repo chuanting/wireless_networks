@@ -1,0 +1,40 @@
+<section id="mm1-eg2" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/M/1 例题</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例题二：路由器输出口，升级链路还是控制流量？</h2>
+</div>
+<div style="display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">设定</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">平均分组 10 000 位，原链路 10 Mb/s：<i>μ</i> = 1000 个/秒；流量 <i>λ</i> = 800 个/秒。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">另外：缓冲区够用吗</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>ρ</i> = 0.8：P(<i>N</i> ≥ 10) = 0.8 的 10 次方 ≈ <b>10.7%</b>：有 1/10 的时间，队里至少 10 个。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:10px;background:#14253D;border-radius:12px;padding:10px 20px"><p style="width:330px;font-size:26px;font-weight:700;color:#F4975A">情形</p><p style="width:170px;font-size:26px;font-weight:700;color:#F4F1E8"><i>λ</i>、<i>μ</i>（个/秒）</p><p style="width:190px;font-size:26px;font-weight:700;color:#F4F1E8"><i>ρ</i></p><p style="width:190px;font-size:26px;font-weight:700;color:#F4F1E8"><i>N</i>、<i>N</i><i>Q</i></p><p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">平均时延 <i>T</i></p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:330px;font-size:26px;font-weight:700;color:#C2410C">现状：10 Mb/s</p><p style="width:170px;font-size:26px;color:#14253D">800、1000</p><p style="width:190px;font-size:26px;color:#14253D">0.8</p><p style="width:190px;font-size:26px;color:#14253D">4、3.2</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">5 ms</p></div>
+<div style="display:flex;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 20px"><p style="width:330px;font-size:26px;font-weight:700;color:#C2410C">链路速率翻倍：20 Mb/s</p><p style="width:170px;font-size:26px;color:#14253D">800、2000</p><p style="width:190px;font-size:26px;color:#14253D">0.4</p><p style="width:190px;font-size:26px;color:#14253D">0.67、0.27</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">0.83 ms</p></div>
+<div style="display:flex;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 20px"><p style="width:330px;font-size:26px;font-weight:700;color:#C2410C">流量增加 10%</p><p style="width:170px;font-size:26px;color:#14253D">880、1000</p><p style="width:190px;font-size:26px;color:#14253D">0.88</p><p style="width:190px;font-size:26px;color:#14253D">7.3、6.5</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">8.33 ms</p></div>
+</div>
+<div style="display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">结论一</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>ρ</i> 较高时，<b>速率翻倍</b>，时延降到约 1/6（不是 1/2！），因为 <i>ρ</i> 同时减半。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">结论二</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">流量仅增 10%，时延增加 67%。接近满负荷时，<b>稍微多一点流量，时延就大幅上升</b>。</p>
+</div>
+</div>
+<aside>【3 分钟】
+再看一个网络工程里的例子：路由器输出口。设平均分组 10000 位，原来链路 10 兆比特每秒，μ 等于每秒 1000 个；流量 λ 是每秒 800 个，ρ 等于 0.8。
+现状：N 等于 4，N_Q 等于 3.2，T 等于 1/(1000−800)，等于 5 毫秒。传输一个分组本身只要 1 毫秒，所以排队让时延放大了 5 倍。
+情形二：把链路速率翻倍，到 20 兆比特每秒，μ 变成 2000。ρ 降到 0.4，T 等于 1/(2000−800)，等于 0.83 毫秒。注意：速率翻倍，时延不是减半，而是降到了原来的大约六分之一！因为速率翻倍，一方面传输时间减半，另一方面 ρ 也减半，排队时延大幅减少。
+情形三：流量只增加 10%，到每秒 880 个。ρ 变成 0.88，T 等于 1/(1000−880)，等于 8.33 毫秒，比原来增加了 67%。
+所以结论：当 ρ 较高时，稍微多一点容量，时延大幅下降；稍微多一点流量，时延大幅上升。这就是为什么网络规划，要给链路留足余量，不要跑得太满。
+顺便：缓冲区够用吗？ρ 等于 0.8，系统里至少有 10 个分组的概率，是 0.8 的 10 次方，约 10.7%。
+[验算：N=ρ/(1−ρ)：0.4→0.667，0.88→7.33；N_Q=ρ^2/(1−ρ)：0.4→0.267，0.88→6.45；T：5、0.833、8.333 ms。]</aside>
+</section>

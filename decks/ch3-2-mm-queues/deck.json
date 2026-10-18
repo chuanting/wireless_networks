@@ -1,0 +1,25 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T23:30:00Z" },
+  "lists": "css",
+  "title": "M/M/m 型排队系统",
+  "order": [
+    "cover", "why", "recap", "agenda",
+    "d1", "mm1-def", "mm1-markov", "mm1-cut", "mm1-solve", "mm1-N", "mm1-T", "mm1-card", "mm1-eg1", "mm1-eg2", "mm1-mux", "mm1-split", "mm1-K", "p1-sum",
+    "d2", "mmm-def", "mmm-solve", "mmm-eg", "mmm-vs", "mminf", "mmmm", "erlangB-calc", "erlangB-eng", "p2-sum",
+    "summary", "project", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：为什么先学 M/M/1，回顾泊松过程、指数分布与生灭链。", "start": "cover" },
+    "s1": { "description": "M/M/1：状态转移图、稳态分布、队长与时延公式、统计复用与有限缓冲区。", "start": "d1" },
+    "s2": { "description": "M/M/m、M/M/∞ 与 M/M/m/m：爱尔兰 C 公式与爱尔兰 B 公式。", "start": "d2" },
+    "s3": { "description": "总结、拓展实践与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

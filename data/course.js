@@ -64,7 +64,11 @@ window.COURSE = {
           desc: "四种时延 · 排队系统的描述（Kendall 记号、利用率）· Little 定理的证明与五个应用",
           deck: "ch3-1-delay-little", slides: 35, minutes: 100
         },
-        { no: "3.2", title: "M/M/m 型排队系统", status: "todo" },
+        {
+          no: "3.2", title: "M/M/m 型排队系统", status: "ready",
+          desc: "M/M/1 的稳态分布与时延公式 · 统计复用 · 有限缓冲区 · M/M/m、爱尔兰 C 与 B 公式",
+          deck: "ch3-2-mm-queues", slides: 31, minutes: 100
+        },
         { no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "todo" },
         { no: "3.4", title: "排队网络", status: "todo" }
       ]

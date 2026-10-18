@@ -1,0 +1,36 @@
+<section id="mmm-eg" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/m 例题</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例题：客服热线，该配几个座席？</h2>
+</div>
+<div style="display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">设定</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每分钟平均来 <i>λ</i> = 2.4 个电话；每次通话平均 1 分钟（<i>μ</i> = 1/分钟）。<i>a</i> = <i>λ</i>/<i>μ</i> = 2.4 爱尔兰。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">起点</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>m</i> = 2：<i>ρ</i> = 1.2 &gt; 1，<b>不稳定</b>；至少需要 <i>m</i> = 3。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:10px;background:#14253D;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#F4975A">量</p><p style="width:250px;font-size:26px;font-weight:700;color:#F4F1E8"><i>m</i> = 3 个座席</p><p style="width:250px;font-size:26px;font-weight:700;color:#F4F1E8"><i>m</i> = 4 个座席</p><p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8"><i>m</i> = 5 个座席</p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">每座席利用率 <i>ρ</i></p><p style="width:250px;font-size:26px;color:#14253D">0.80</p><p style="width:250px;font-size:26px;color:#14253D">0.60</p><p style="flex:1;font-size:26px;color:#14253D">0.48</p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">需要等待的概率 <i>P</i><i>Q</i></p><p style="width:250px;font-size:26px;color:#14253D">64.7%</p><p style="width:250px;font-size:26px;color:#14253D">28.7%</p><p style="flex:1;font-size:26px;color:#14253D">11.4%</p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">平均等待 <i>W</i></p><p style="width:250px;font-size:26px;color:#14253D">1.08 分钟</p><p style="width:250px;font-size:26px;color:#14253D">0.18 分钟（11 秒）</p><p style="flex:1;font-size:26px;color:#14253D">0.04 分钟（2.6 秒）</p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">平均通话 + 等待 <i>T</i></p><p style="width:250px;font-size:26px;color:#14253D">2.08 分钟</p><p style="width:250px;font-size:26px;color:#14253D">1.18 分钟</p><p style="flex:1;font-size:26px;color:#14253D">1.04 分钟</p></div>
+<div style="display:flex;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 20px"><p style="width:300px;font-size:26px;font-weight:700;color:#C2410C">队列平均人数 <i>N</i><i>Q</i></p><p style="width:250px;font-size:26px;color:#14253D">2.59</p><p style="width:250px;font-size:26px;color:#14253D">0.43</p><p style="flex:1;font-size:26px;color:#14253D">0.10</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:27px;line-height:1.45;color:#F4F1E8">第 4 个座席：等待概率从 65% 降到 29%，平均等待从 65 秒降到 11 秒——<b>边际收益最大</b>。再加第 5 个，改善就小多了。</p>
+</div>
+<aside>【4 分钟】
+用爱尔兰 C 公式，做一个具体的设计：客服热线。
+设定：每分钟平均来 2.4 个电话，每次通话平均 1 分钟。所以 a 等于 2.4 爱尔兰：平均需要 2.4 个座席同时在忙。
+首先，座席数至少要大于 a：如果只有 2 个座席，每个座席利用率 ρ 是 1.2，大于 1，不稳定，队伍会无限长。所以至少要 3 个座席。
+m 等于 3：每个座席利用率 0.8；用爱尔兰 C 公式，P_Q 是 64.7%，也就是 65% 的来电要等待；平均等待 W 是 1.08 分钟，65 秒；通话加等待一共 2.08 分钟；队列里平均 2.59 人。
+m 等于 4：利用率 0.6；P_Q 降到 28.7%；平均等待只有 0.18 分钟，约 11 秒。
+m 等于 5：利用率 0.48；P_Q 是 11.4%；平均等待 2.6 秒。
+看变化：从 3 个座席到 4 个座席，改善最大：等待概率从 65% 降到 29%，平均等待从 65 秒降到 11 秒；从 4 到 5，改善就小多了。这叫边际收益递减。工程上选座席数，要在服务质量和成本之间折中。
+[验算：Erlang C(3, 2.4) = 0.6472，W = 0.6472/(3−2.4) = 1.0787；用事件模拟验证过，m=3 时平均等待约 1.07 分钟。]</aside>
+</section>

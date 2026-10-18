@@ -1,0 +1,43 @@
+<section id="mmmm" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/m/m</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">损失制与爱尔兰 B 公式</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">M/M/m/m：m 条线路，没有等待位置（损失制）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">到达时若 <i>m</i> 条线路全忙，呼叫立刻被拒绝（<b>阻塞</b>）。状态只有 0, 1, …, <i>m</i>。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">切一刀和 M/M/∞ 完全一样，只是只取到 <i>m</i> 为止：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D;padding-left:20px"><i>p</i><i>n</i> = (<i>a</i> 的 <i>n</i> 次方 / <i>n</i>!) / Σ(<i>k</i>=0…<i>m</i>) (<i>a</i> 的 <i>k</i> 次方 / <i>k</i>!)</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">阻塞概率 = 所有线路全忙的概率（泊松到达看到时间平均）：</p>
+<p style="font-size:34px;line-height:1.5;font-weight:700;color:#C2410C;padding-left:20px"><i>B</i>(<i>m</i>, <i>a</i>) = (<i>a</i> 的 <i>m</i> 次方 / <i>m</i>!) / Σ(<i>k</i>=0…<i>m</i>) (<i>a</i> 的 <i>k</i> 次方 / <i>k</i>!)</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">——<b>爱尔兰 B 公式</b>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">小例子：<i>m</i> = 3，<i>a</i> = 2</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">各项 a 的 k 次方 / k!：1, 2, 2, 1.33；和 = 6.33。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">阻塞概率</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>B</i> = 1.33 / 6.33 ≈ <b>21%</b>：每 5 个呼叫被拒绝 1 个。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">对照 3.1 节</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">300 线、<i>a</i> = 360：下限 16.7%，精确 <b>17.9%</b>；<i>a</i> = 300：下限 0，精确 <b>4.5%</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">惊人的性质</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">公式对<b>任意服务时间分布</b>都成立，只要平均值是 1/<i>μ</i>（不敏感性）。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+M/M/m/m：m 个服务员，系统里最多 m 个顾客，没有等待的位置。来的顾客，如果发现 m 个服务员全忙，就立刻被拒绝，走掉了。这是电话网的模型：m 条线路，全忙就打不通——叫损失制，被拒绝的概率，叫阻塞概率或者呼损率。
+分析方法和 M/M/∞ 完全一样，只是状态只有 0 到 m。切一刀得到：p_n 正比于 a 的 n 次方除以 n 的阶乘。归一化：除以 k 从 0 到 m 的所有项之和。
+阻塞概率，就是 m 条线路全忙的概率 p_m：B(m, a) 等于 a 的 m 次方除以 m 的阶乘，再除以所有项的和。这就是爱尔兰 B 公式，电话网用了一百多年。
+一个小例子：m 等于 3，a 等于 2。各项是 1、2、2、1.33，和是 6.33。阻塞概率 1.33 除以 6.33，约 21%：每 5 个呼叫被拒绝 1 个。
+对照 3.1 节的例子：300 条线路，a 等于 360，Little 定理给的下限是 16.7%，精确值是 17.9%，很接近；a 等于 300，下限是 0，精确值 4.5%——随机性造成的。
+还有一个惊人的性质：这个公式不仅适用于指数分布的通话时间，对任意的服务时间分布都成立，只要平均值是 1/μ。这叫“不敏感性”，所以电话网设计起来特别方便。
+[验算：B(3,2) = 0.2105；B(300,360) = 0.1786；B(300,300) = 0.0447；模拟验证过 B(3,2) ≈ 0.210，B(10,8) ≈ 0.121。]</aside>
+</section>

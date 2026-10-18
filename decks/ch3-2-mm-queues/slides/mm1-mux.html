@@ -1,0 +1,31 @@
+<section id="mm1-mux" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · M/M/1 应用</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">统计复用：把许多小信道合成一个大信道</h2>
+</div>
+<div style="display:flex;gap:22px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #C2410C;border-radius:22px;padding:22px 28px"><p style="font-size:30px;font-weight:700;color:#C2410C">各用各的：10 条独立信道</p><p style="font-size:26px;line-height:1.5;color:#14253D">每条：<i>λ</i> = 80，<i>μ</i> = 100 个/秒</p><p style="font-size:26px;line-height:1.5;color:#14253D">每条 <i>ρ</i> = 0.8</p><p style="font-size:26px;line-height:1.5;color:#14253D"><i>T</i> = 1 / (100 − 80) = <b>50 ms</b></p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px"><p style="font-size:30px;font-weight:700;color:#1D4ED8">合并成 1 条大信道</p><p style="font-size:26px;line-height:1.5;color:#14253D">到达 <i>kλ</i> = 800，服务 <i>kμ</i> = 1000 个/秒</p><p style="font-size:26px;line-height:1.5;color:#14253D"><i>ρ</i> 仍是 0.8</p><p style="font-size:26px;line-height:1.5;color:#14253D"><i>T</i> = 1 / (1000 − 800) = <b>5 ms</b></p></div>
+</div>
+<div style="display:flex;gap:22px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">一般结论</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D"><i>k</i> 个 (<i>λ</i>, <i>μ</i>) 的流合并成 (<i>kλ</i>, <i>kμ</i>)：<b><i>T</i>′ = <i>T</i> / <i>k</i></b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">为什么</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">同样的负荷 <i>ρ</i>，大管道里“此消彼长”，彼此借用空闲，排队少得多。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:30px;line-height:1.45;color:#F4F1E8">这就是为什么分组交换（统计复用）比电路交换（固定分配）更高效。</p>
+</div>
+<aside>【3 分钟】
+M/M/1 的一个重要应用：统计复用。
+左边：10 个业务，每个业务有自己独立的一条信道。每条信道：到达率 λ 是每秒 80 个，服务速率 μ 是每秒 100 个，ρ 等于 0.8。每个分组的平均时延 T，等于 1 除以 (100 减 80)，50 毫秒。
+右边：把这 10 个业务合并，共用一条 10 倍速的大信道：到达率是 10 乘 80，800；服务速率是 10 乘 100，1000。ρ 还是 0.8。平均时延 T 等于 1 除以 (1000 减 800)，5 毫秒——只有原来的十分之一！
+一般结论：k 个流，每个到达率 λ、服务速率 μ，合并成到达率 kλ、服务速率 kμ 的一个流，时延 T′ 等于 T 除以 k。
+为什么会这样？同样是 ρ 等于 0.8，但是在大管道里，大家共用，“此消彼长”：某个业务暂时没数据，它的容量可以立刻被别人用上；而分开的信道，空闲了就浪费了。
+这就是为什么分组交换，也叫统计复用，比电路交换那种固定分配的方式，效率更高。
+[验算：1/(100−80) = 50 ms；1/(1000−800) = 5 ms。]</aside>
+</section>
