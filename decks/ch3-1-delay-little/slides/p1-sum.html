@@ -1,0 +1,36 @@
+<section id="p1-sum" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">时延的构成：五句话</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">四种时延</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">处理 + 排队 + 传输 + 传播。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">传输</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">= <i>L</i> / <i>R</i>，由分组大小和链路速率决定。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">传播</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">= <i>d</i> / <i>s</i>，由距离和传播速度决定；与速率无关。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">谁说了算</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D"><i>a</i> = 传播 / 传输。<i>a</i> 小，传输为主；<i>a</i> 大，传播为主。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:20px 30px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#F4975A">排队</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#F4F1E8">唯一随机的一项；负荷 ρ → 1 时陡增，所以需要<b>排队论</b>。</p>
+</div>
+</div>
+<aside>【1.5 分钟】
+第一部分小结，五句话：
+四种时延：处理、排队、传输、传播，加起来是一个节点的总时延。
+传输时延等于 L 除以 R，由分组大小和链路速率决定。
+传播时延等于 d 除以 s，由距离和传播速度决定，和速率没有关系。
+谁说了算：a 等于传播时延除以传输时延。a 小的时候传输为主，a 大的时候传播为主。
+排队时延：四种里唯一随机的，而且负荷接近 1 的时候陡增，所以需要排队论。
+下面进入第二部分：怎样用数学语言描述一个排队系统。</aside>
+</section>

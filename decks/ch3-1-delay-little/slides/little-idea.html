@@ -1,0 +1,41 @@
+<section id="little-idea" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Little 定理</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">Little 定理：一句话</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:30px 36px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">Little 定理</p>
+<p style="font-size:120px;font-weight:700;line-height:1.1;color:#14253D"><i>N</i> = <i>λ</i> · <i>T</i></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><i>N</i>：系统中的<b>平均顾客数</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><i>λ</i>：平均<b>到达率</b>（个/秒）</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D"><i>T</i>：每位顾客在系统内的平均<b>停留时间</b>（秒）</p>
+<p style="font-size:26px;line-height:1.5;color:#4B5A6B">一句话：系统里的平均人数 = 来的速度 × 每人待的时间。</p>
+</div>
+<div style="width:700px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">餐厅</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每小时进来 60 人，每人平均待 0.5 小时。</p>
+</div><p style="font-size:30px;font-weight:700;color:#9A3412;padding-left:12px">→ 店里平均 60 × 0.5 = 30 人</p>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">水管</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每秒流入 2 升水，每升水平均在管里停 5 秒。</p>
+</div><p style="font-size:30px;font-weight:700;color:#9A3412;padding-left:12px">→ 管里平均有 2 × 5 = 10 升</p>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">路由器</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每秒到达 2000 个分组，每个平均在路由器里停 5 ms。</p>
+</div><p style="font-size:30px;font-weight:700;color:#9A3412;padding-left:12px">→ 平均有 2000 × 0.005 = 10 个分组</p>
+</div>
+</div>
+<aside>【3 分钟 · 重点】
+Little 定理，一个公式：N 等于 λ 乘 T。
+N 是系统中的平均顾客数；λ 是平均到达率，单位个每秒；T 是每位顾客在系统内的平均停留时间，单位秒。
+用一句话说：系统里的平均人数，等于来的速度乘以每个人待的时间。
+先不证明，用三个例子感受一下。
+餐厅：每小时进来 60 个人，每个人平均待半小时，那么店里平均有多少人？60 乘 0.5 等于 30 人。很自然：如果每分钟进 1 个人，每个人待 30 分钟，稳定的时候，店里就总有大约 30 个人。
+水管：每秒钟流进 2 升水，每升水平均在管子里停 5 秒，管里平均有 10 升水。
+路由器：每秒到达 2000 个分组，每个分组平均在路由器里停留 5 毫秒，那么路由器里平均有 2000 乘 0.005，等于 10 个分组。
+这三个例子的结构完全一样：流量乘以停留时间，等于库存。
+Little 定理的威力在于：它不关心到达是泊松还是别的分布，不关心服务时间的分布，也不关心先来先服务还是别的顺序。下一页我们证明它，然后看它的条件。
+[提示：学生常见的疑问：“等于是个单位换算吧？”——是的，这个直觉是对的，下面的证明就是把这个直觉严格化。]</aside>
+</section>

@@ -1,0 +1,18 @@
+<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 3 章 · 网络的时延模型 · 3.1</p>
+<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">时延的构成与</h1>
+<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">Little 定理</h2>
+<p style="font-size:32px;color:#B9C4D3">四种时延 · 排队模型 · 利用率 · N = λT</p>
+<svg aria-label="装饰图：一排顾客依次进入一个服务员，表示排队系统" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
+<rect x="20" y="150" width="44" height="56" rx="8" fill="#B9C4D3"/><rect x="76" y="150" width="44" height="56" rx="8" fill="#B9C4D3"/><rect x="132" y="150" width="44" height="56" rx="8" fill="#B9C4D3"/><rect x="188" y="150" width="44" height="56" rx="8" fill="#B9C4D3"/><rect x="244" y="150" width="44" height="56" rx="8" fill="#B9C4D3"/><rect x="300" y="150" width="44" height="56" rx="8" fill="#F4975A"/>
+<path d="M370,178H440" stroke="#8FA3BD" stroke-width="6" fill="none"/><polygon points="456,178 436,166 436,190" fill="#8FA3BD"/>
+<circle cx="520" cy="178" r="58" fill="#3B4E68"/><circle cx="520" cy="178" r="30" fill="#F4975A"/>
+<path d="M582,178H624" stroke="#8FA3BD" stroke-width="6" fill="none"/>
+</svg>
+<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<aside>【开场 · 1 分钟】
+前两章我们一直在讲“数据怎样可靠地送到”。从这一章开始，换一个问题：送到需要多久？也就是网络的时延。
+这一节分三块。第一块，把一个分组的时延拆成四个部分——处理、排队、传输、传播——看看谁说了算。第二块，学会用数学语言描述一个“排队系统”。第三块，学一条最基本、最漂亮的定理：Little 定理，N 等于 λ 乘 T，它不挑分布、不挑规则，到处都能用。
+右边装饰图：一排顾客依次走向一个服务员，这就是排队系统最基本的样子。
+全程用具体例子，不要求预先知识。时间不限，全部讲完约 100 分钟，可以分两次。</aside>
+</section>

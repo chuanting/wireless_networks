@@ -1,0 +1,38 @@
+<section id="little-proof-2" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Little 定理</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">图形证明（二）：除以 t，取极限</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:26px 32px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">图形证明（二）：从面积到公式</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">① 面积的两种算法（上一页）：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D;padding-left:24px">∫ <i>N</i>(<i>τ</i>) d<i>τ</i>（0 到 <i>t</i>）= Σ <i>T</i><i>i</i>（前 <i>α</i>(<i>t</i>) 位顾客）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">② 两边除以 <i>t</i>，右边再乘除一个 <i>α</i>(<i>t</i>)：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D;padding-left:24px"><i>N</i>(<i>t</i>) 的平均 = [<i>α</i>(<i>t</i>) / <i>t</i>] · [Σ <i>T</i><i>i</i> / <i>α</i>(<i>t</i>)]</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">③ 三项含义：左边是时间平均人数；方括号 1 是平均到达率 <i>λ</i>；方括号 2 是平均停留时间 <i>T</i>。令 <i>t</i> → ∞：</p>
+<p style="font-size:60px;line-height:1.3;font-weight:700;color:#C2410C;padding-left:24px"><i>N</i> = <i>λ</i> · <i>T</i></p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">小细节</p>
+<p style="font-size:24px;line-height:1.4;color:#14253D">到 <i>t</i> 时刻还没离开的顾客，其停留时间只算了一部分；<i>t</i> 很大时，这点误差占比趋于 0。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">为什么到达率 = 离开率</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">稳定时队列不无限增长，所以平均来多少，就平均走多少。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">证明里没有用到到达的分布、服务的分布，也没有用到服务顺序。</p>
+</div>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+接着上一页，把面积相等写成公式，再变成 Little 定理。
+第一步：面积的两种算法，得到：N(τ) 从 0 到 t 积分，等于前 α(t) 位顾客的停留时间之和，也就是 T_1 加 T_2 一直加到 T_α(t)。α(t) 是到 t 时刻为止到达的顾客数。
+第二步：两边除以 t，右边再乘上 α(t)、除以 α(t)——乘除同一个数，值不变。就得到：左边是 N(t) 的时间平均，右边是两项的乘积：第一项，α(t) 除以 t，是单位时间到达的顾客数，也就是平均到达率 λ；第二项，所有停留时间之和除以顾客数，是平均停留时间 T。
+第三步：令 t 趋于无穷。系统稳定的时候，这三项都有极限，就得到 N 等于 λ 乘 T。
+有两个小细节。一，到 t 时刻还没离开的顾客，他的停留时间只算了一部分，所以“前 α(t) 位顾客的停留时间之和”并不严格等于阴影面积；但是 t 很大的时候，这个误差占的比例趋于零。二，我们这里用的是“到达率”。稳定时，到达率等于离开率，因为队列不会无限增长。
+最重要的一句话：整个证明里，没有用到到达过程的分布，没有用到服务时间的分布，也没有用到服务顺序。所以它适用范围极广。
+[提示：这个证明不需要背，要理解的是“同一块面积、两种算法”这个想法。]</aside>
+</section>

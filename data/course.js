@@ -56,7 +56,19 @@ window.COURSE = {
         }
       ]
     },
-    { id: "ch3", no: 3, icon: "delay", title: "网络时延模型", en: "Network Delay Models", sections: [] },
+    {
+      id: "ch3", no: 3, icon: "delay", title: "网络时延模型", en: "Network Delay Models",
+      sections: [
+        {
+          no: "3.1", title: "时延的构成与 Little 定理", status: "ready",
+          desc: "四种时延 · 排队系统的描述（Kendall 记号、利用率）· Little 定理的证明与五个应用",
+          deck: "ch3-1-delay-little", slides: 35, minutes: 100
+        },
+        { no: "3.2", title: "M/M/m 型排队系统", status: "todo" },
+        { no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "todo" },
+        { no: "3.4", title: "排队网络", status: "todo" }
+      ]
+    },
     { id: "ch4", no: 4, icon: "mac", title: "多址接入协议", en: "Multiple Access Protocols", sections: [] },
     { id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms", sections: [] },
     { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [] },

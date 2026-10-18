@@ -1,0 +1,37 @@
+<section id="app-hall" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 应用三</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">应用三：始终客满的服务大厅</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="width:1030px"><div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:26px 30px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">例：服务大厅，<i>K</i> 个窗口，大厅里始终有 <i>N</i> 位顾客</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">走一位，立刻进来一位（始终客满）。每位顾客平均服务 <i>E</i>[<i>X</i>]。求顾客在大厅里的平均停留时间 <i>T</i>。</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">① 整个大厅：<i>N</i> = <i>λ</i> · <i>T</i>　→　<i>T</i> = <i>N</i> / <i>λ</i></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">② 所有窗口：始终全忙，窗口里平均有 <i>K</i> 个顾客：<i>K</i> = <i>λ</i> · <i>E</i>[<i>X</i>]　→　<i>λ</i> = <i>K</i> / <i>E</i>[<i>X</i>]</p>
+<p style="font-size:30px;line-height:1.5;font-weight:700;color:#9A3412">③ 代入：<i>T</i> = <i>N</i> · <i>E</i>[<i>X</i>] / <i>K</i></p>
+</div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">数字</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>K</i> = 4 个窗口，<i>N</i> = 20 位，<i>E</i>[<i>X</i>] = 6 分钟：<i>λ</i> = 4 / 6 = 40 位/小时；<i>T</i> = 20 × 6 / 4 = <b>30 分钟</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">网络里的对应</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">窗口式流量控制：网络里始终有 <i>N</i> 个分组在途，每个分组平均 <i>T</i> = <i>N</i> / <i>λ</i>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">用两次 Little 定理：先对整体，再对窗口，消去 <i>λ</i>。</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟】
+第三个应用：一个“始终客满”的服务大厅。大厅有 K 个窗口，里面始终有 N 位顾客——走一位，立刻进来一位。每位顾客平均服务 X 横。问：顾客在大厅里的平均停留时间 T 是多少？
+这里只知道 N、K 和 X 横，不知道到达率 λ，怎么办？用两次 Little 定理。
+第一次，对整个大厅：N 等于 λ 乘 T，所以 T 等于 N 除以 λ。
+第二次，只对窗口：因为始终客满，所以 K 个窗口始终全忙，窗口里的平均人数等于 K，所以 K 等于 λ 乘 X 横，得到 λ 等于 K 除以 X 横。
+代入第一个式子：T 等于 N 乘 X 横除以 K。
+数字：4 个窗口，大厅里始终 20 位顾客，每位平均服务 6 分钟。λ 是 4 除以 6，每分钟 2/3 位，也就是每小时 40 位。T 等于 20 乘 6 除以 4，等于 30 分钟。
+这个例子在网络里的对应是窗口式流量控制：网络里始终有 N 个分组在途，如果每个分组都要被处理，那么每个分组的平均时延 T 等于 N 除以吞吐量 λ。
+[验算：4/6 min^-1 = 40/h；20×6/4 = 30 min。]</aside>
+</section>
