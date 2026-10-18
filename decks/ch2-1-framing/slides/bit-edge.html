@@ -1,0 +1,53 @@
+<section id="bit-edge" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 面向比特的组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">两个容易漏掉的边角：帧头和帧尾</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 数据以 11111 开头</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#9A3412">✗ 没插 0</p>
+<div style="display:flex;gap:3px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p>
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FDEBDD;border:2px dashed #C2410C;color:#9A3412">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方数到 5 个 1，下一位 0 被当成“插入的”删掉：数据少了一位。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">✓ 插了 0</p>
+<div style="display:flex;gap:3px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p>
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#14253D">蓝色的 0 被正确识别并删除，数据不受损。</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 数据以 11111 结尾</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#9A3412">✗ 没插 0</p>
+<div style="display:flex;gap:3px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FDEBDD;border:2px dashed #C2410C;color:#9A3412">0</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#14253D">Flag 开头的 0 被当成“插入的”删掉，Flag 被破坏，帧尾认错。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">✓ 插了 0</p>
+<div style="display:flex;gap:3px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+<p style="width:36px;height:50px;line-height:46px;border-radius:7px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#14253D">蓝色的 0 被删掉，后面的 Flag 完好无损。</p>
+</div>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:18px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">规则与位置无关：数据里只要有连续 5 个 1，就要插 0 —— 帧头、帧尾、帧中间都一样。</p></div>
+<aside>【3 分钟】
+这一页讲两个容易忽略的边角：数据正好以 11111 开头，或者以 11111 结尾。
+情形 ①：数据以 11111 开头，紧跟在前面的 Flag 后面。Flag 的最后一位是 0，之后是数据：1 1 1 1 1，然后是数据里的下一位 0。如果发送方这时不插 0，接收方数到 5 个 1，下一位恰好是 0，它会把这个 0 当成“插入的”删掉，数据就少了一位。所以必须照常插。
+情形 ②：数据以 11111 结尾，紧挨着结尾的 Flag（以 0 开头）。如果不插 0，接收方数到 5 个 1，下一位正好是 Flag 的第一个 0，它会把这个 0 当成插入的删掉，Flag 就被破坏了，接收方认不出帧的结尾。所以结尾也要插一个 0：数据变成 …11111 0，再接 Flag。
+结论：规则与位置无关。数据里只要有连续 5 个 1，就要插 0——帧头、帧尾、帧中间都一样。发送方在整个数据（包括地址、控制、校验）上一视同仁地做插入，最后才加上两头的 Flag。
+[提示：这个细节是考试和课后习题的常见陷阱，建议学生用“先插入、后加 Flag”的顺序记住它。]</aside>
+</section>

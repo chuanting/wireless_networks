@@ -1,0 +1,53 @@
+<section id="bit-sum" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">面向比特的组帧：一张表记住</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:200px;font-size:28px;font-weight:700;color:#C2410C">路标</p>
+<p style="flex:1;font-size:28px;color:#14253D">Flag = <b>01111110</b>（0，六个 1，0），十六进制 7E</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:200px;font-size:28px;font-weight:700;color:#C2410C">发送方</p>
+<p style="flex:1;font-size:28px;color:#14253D">数据里每出现连续 <b>5 个 1</b>，插入一个 <b>0</b>；最后在两头加 Flag</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:200px;font-size:28px;font-weight:700;color:#C2410C">接收方</p>
+<p style="flex:1;font-size:28px;color:#14253D">5 个 1 之后是 0：删掉；是 1 再看下一位：0 → Flag，1 → 中止</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:200px;font-size:28px;font-weight:700;color:#C2410C">特殊信号</p>
+<p style="flex:1;font-size:28px;color:#14253D">连续 7 个以上的 1 = 中止；连续 15 个以上的 1 = 空闲</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 26px">
+<p style="width:200px;font-size:28px;font-weight:700;color:#9A3412">开销</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;color:#14253D">平均：插入的 0 ≈ <i>k</i> / 64，加上 Flag；最坏（数据全是 1）：每 5 位多 1 位，也就是 <b>20%</b></p>
+<p style="font-size:26px;color:#4B5A6B">最优的 Flag 长度 <i>j</i> ≈ log2 <i>k</i>；HDLC 固定用 6。</p>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">优点</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 数据可以是任意多个比特</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 最坏开销有上界（20%），平均开销可以算出来</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 附带中止、空闲信号，不用另外设计</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:30px;font-weight:700;color:#14253D">代价</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 必须逐位处理：硬件很容易，软件稍慢</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 帧长随数据变化，事先不能确定</p>
+</div>
+</div>
+<aside>【1.5 分钟】
+面向比特的组帧，一张表回顾：
+路标：Flag = 01111110，十六进制 7E。
+发送方：数据里每出现连续 5 个 1，插入一个 0；最后在两头加 Flag。
+接收方：5 个 1 之后，如果是 0，删掉；如果是 1，再看下一位：0 表示 Flag，1 表示中止。
+特殊信号：连续 7 个以上的 1 是中止，连续 15 个以上的 1 是空闲。
+开销：平均来说，插入的 0 大约是 k/64，加上 Flag；最坏的情况是数据全是 1，每 5 位要多 1 位，也就是 20%——有上界，这点比字节插入的“最坏翻倍”要好得多。最优的 Flag 长度大约是 log2 k，HDLC 固定用 6。
+优点：数据可以是任意多个比特；最坏开销有上界，平均开销可以算出来；附带中止和空闲信号。代价：必须逐位处理，硬件实现很容易，软件稍慢；帧长随数据变化。
+[和字符组帧比较一下：平均开销，字节插入大约 0.78%，比特插入大约 1.56%（j = 6）；最坏开销，字节插入是 100%，比特插入是 20%。平均是字节好，最坏是比特好。在“比较”那一页会放在一起看。]</aside>
+</section>

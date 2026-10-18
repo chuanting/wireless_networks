@@ -29,7 +29,21 @@ window.COURSE = {
         }
       ]
     },
-    { id: "ch2", no: 2, icon: "transport", title: "端到端的传输协议", en: "End-to-End Transport Protocols", sections: [] },
+    {
+      id: "ch2", no: 2, icon: "transport",
+      title: "端到端的传输协议",
+      en: "End-to-End Transport Protocols",
+      sections: [
+        {
+          no: "2.1", title: "组帧技术", status: "ready",
+          desc: "为什么组帧 · 字符组帧（SLIP、PPP）· 比特插入（HDLC）· 帧的开销 · 长度计数",
+          deck: "ch2-1-framing", slides: 51, minutes: 90
+        },
+        { no: "2.2", title: "链路层的差错控制技术", status: "todo" },
+        { no: "2.3", title: "标准数据链路控制协议及其初始化", status: "todo" },
+        { no: "2.4", title: "网络层和运输层的点对点传输协议", status: "todo" }
+      ]
+    },
     { id: "ch3", no: 3, icon: "delay", title: "网络时延模型", en: "Network Delay Models", sections: [] },
     { id: "ch4", no: 4, icon: "mac", title: "多址接入协议", en: "Multiple Access Protocols", sections: [] },
     { id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms", sections: [] },

@@ -1,0 +1,45 @@
+<section id="ov-2" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 进阶（可略）· 帧的开销</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">开销随 <i>j</i> 怎么变？（<i>k</i> = 1000 位）</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#14253D">每帧平均多发的位数 OV(<i>j</i>)</p>
+<div style="display:flex;align-items:flex-end;gap:22px;height:400px;border-bottom:3px solid #5B6B7C;padding:0 20px">
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">67.5</p><div style="width:76px;height:324px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">37.3</p><div style="width:76px;height:179px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:28px;font-weight:700;color:#9A3412">22.6</p><div style="width:76px;height:109px;background:#C2410C;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">15.8</p><div style="width:76px;height:76px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">12.9</p><div style="width:76px;height:62px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:28px;font-weight:700;color:#1E40AF">11.95</p><div style="width:76px;height:57px;background:#1D4ED8;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">11.98</p><div style="width:76px;height:57px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">12.5</p><div style="width:76px;height:60px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">13.2</p><div style="width:76px;height:64px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">14.1</p><div style="width:76px;height:68px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">15.1</p><div style="width:76px;height:72px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+</div>
+<div style="display:flex;gap:22px;padding:0 20px;font-family:'Times New Roman', Georgia, serif;text-align:center">
+<p style="width:110px;font-size:28px;color:#4B5A6B">4</p><p style="width:110px;font-size:28px;color:#4B5A6B">5</p><p style="width:110px;font-size:28px;font-weight:700;color:#9A3412">6</p><p style="width:110px;font-size:28px;color:#4B5A6B">7</p><p style="width:110px;font-size:28px;color:#4B5A6B">8</p><p style="width:110px;font-size:28px;font-weight:700;color:#1E40AF">9</p><p style="width:110px;font-size:28px;color:#4B5A6B">10</p><p style="width:110px;font-size:28px;color:#4B5A6B">11</p><p style="width:110px;font-size:28px;color:#4B5A6B">12</p><p style="width:110px;font-size:28px;color:#4B5A6B">13</p><p style="width:110px;font-size:28px;color:#4B5A6B">14</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B;text-align:center">Flag 中 1 的个数 <i>j</i>（横轴）</p>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412"><i>j</i> = 6：HDLC 的选择</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">22.6 位。<i>j</i> 偏小，数据里太容易撞上 Flag，要插很多 0。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 26px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF"><i>j</i> = 9：最小</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">11.95 位。再增大 <i>j</i>，Flag 太长，开销又回升。</p>
+</div>
+</div>
+<aside>【3 分钟 · 进阶】
+把公式 OV(j) = k/2^j + (j+1) 在 k = 1000 时画出来，j 从 4 到 14。（数值：j=4：62.5+5 = 67.5；j=5：31.3+6 = 37.3；j=6：15.6+7 = 22.6；j=7：7.8+8 = 15.8；j=8：3.9+9 = 12.9；j=9：1.95+10 = 11.95；j=10：0.98+11 = 11.98；j=11：12.5；j=12：13.2；j=13：14.1；j=14：15.1。）
+看图：
+j 小的时候（4、5），开销非常大：Flag 很短，数据里太容易撞上，要插很多 0。
+j 增大，开销迅速下降，在 j = 9 附近到达最低点 11.95 位；
+之后 j 再增大，Flag 本身越来越长，总开销又缓慢回升。
+橙色柱是 HDLC 的选择 j = 6：22.6 位，几乎是最小值的两倍。
+最小值恰好在 j = 9 附近，是巧合吗？——不是，下一页用公式推出来。
+[图形说明：纵轴是每帧平均多发的位数，单位：比特；高度按比例画，j = 6 比 j = 9 高出约一倍。]</aside>
+</section>

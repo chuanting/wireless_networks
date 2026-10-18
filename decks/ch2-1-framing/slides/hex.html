@@ -1,0 +1,54 @@
+<section id="hex" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先补一个小工具：十六进制</h2>
+</div>
+<div style="display:flex;gap:28px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#14253D;border-radius:22px;padding:22px 30px">
+<p style="font-size:30px;font-weight:700;line-height:1.45;color:#F4975A">1 位十六进制 = 4 个比特</p>
+<p style="font-size:30px;font-weight:700;line-height:1.45;color:#F4F1E8">1 个字节（8 比特）= 2 位十六进制</p>
+</div>
+<div style="width:620px;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;color:#1E40AF">写法：<b>7EH</b>、<b>0x7E</b>、<b>7E</b> 都表示十六进制数 7E。</p>
+<p style="font-size:28px;color:#1E40AF">十六进制的“数字”：0–9，然后 A=10 … F=15。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;text-align:center">
+<div style="display:flex;gap:10px">
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">0</p><p style="font-size:26px;color:#4B5A6B">0000</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">1</p><p style="font-size:26px;color:#4B5A6B">0001</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">2</p><p style="font-size:26px;color:#4B5A6B">0010</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">3</p><p style="font-size:26px;color:#4B5A6B">0011</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">4</p><p style="font-size:26px;color:#4B5A6B">0100</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">5</p><p style="font-size:26px;color:#4B5A6B">0101</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">6</p><p style="font-size:26px;color:#4B5A6B">0110</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">7</p><p style="font-size:26px;color:#4B5A6B">0111</p></div>
+</div>
+<div style="display:flex;gap:10px">
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">8</p><p style="font-size:26px;color:#4B5A6B">1000</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">9</p><p style="font-size:26px;color:#4B5A6B">1001</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">A</p><p style="font-size:26px;color:#4B5A6B">1010</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">B</p><p style="font-size:26px;color:#4B5A6B">1011</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">C</p><p style="font-size:26px;color:#4B5A6B">1100</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">D</p><p style="font-size:26px;color:#4B5A6B">1101</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">E</p><p style="font-size:26px;color:#4B5A6B">1110</p></div>
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 0"><p style="font-size:34px;font-weight:700;color:#C2410C">F</p><p style="font-size:26px;color:#4B5A6B">1111</p></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">四个今天要用到的字节</p>
+<div style="display:flex;gap:16px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 22px"><p style="font-size:36px;font-weight:700;color:#9A3412">7E</p><p style="font-size:28px;color:#14253D">0111 1110</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 22px"><p style="font-size:36px;font-weight:700;color:#9A3412">C0</p><p style="font-size:28px;color:#14253D">1100 0000</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:16px;padding:14px 22px"><p style="font-size:36px;font-weight:700;color:#1E40AF">DB</p><p style="font-size:28px;color:#14253D">1101 1011</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 22px"><p style="font-size:36px;font-weight:700;color:#14253D">41</p><p style="font-size:28px;color:#14253D">0100 0001 = “A”</p></div>
+</div>
+</div>
+<aside>【3 分钟】
+后面的协议文档都用十六进制写字节，比如 7E、C0、DB。先花几分钟把它弄懂，不难。
+规则就一条：一位十六进制数对应四个比特。0 到 9 就是 0 到 9，然后 A 是 10，B 是 11，……F 是 15。上面的表把 16 个数字和它们的 4 位二进制一一对应起来了。
+一个字节有 8 个比特，所以正好用两位十六进制写：前 4 位一个数字，后 4 位一个数字。
+例：7E：7 = 0111，E = 1110，拼起来是 0111 1110。C0：C = 1100，0 = 0000，拼起来是 1100 0000。DB：D = 1101，B = 1011，拼起来是 1101 1011。41：4 = 0100，1 = 0001，拼起来是 0100 0001，在 ASCII 码里就是大写字母 A。
+写法上，7EH、0x7E、7E 都是同一个意思（H 或 0x 表示十六进制）。
+[提示：现场可以点两个同学，让他们把“5A”“F3”转成二进制，检验一下。5A = 0101 1010；F3 = 1111 0011。]</aside>
+</section>

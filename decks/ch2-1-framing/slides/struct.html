@@ -1,0 +1,48 @@
+<section id="struct" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 回到帧结构</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">把组帧放回一整帧里：发送和接收的流水线</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">HDLC 帧（2.3 节详细讲）</p>
+<div style="display:flex;align-items:stretch;gap:4px;height:84px;text-align:center">
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#C2410C;border-radius:12px 0 0 12px"><p style="font-size:28px;font-weight:700;color:#FFF6EC">Flag</p><p style="font-size:22px;color:#FFE9D6">01111110</p></div>
+<div style="width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#14253D"><p style="font-size:28px;font-weight:700;color:#F4F1E8">地址</p><p style="font-size:22px;color:#B9C4D3">8 位</p></div>
+<div style="width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#14253D"><p style="font-size:28px;font-weight:700;color:#F4F1E8">控制</p><p style="font-size:22px;color:#B9C4D3">8 位</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1D4ED8"><p style="font-size:30px;font-weight:700;color:#F4F8FF">信息</p><p style="font-size:22px;color:#DCE6FB">任意多个比特</p></div>
+<div style="width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#14253D"><p style="font-size:28px;font-weight:700;color:#F4F1E8">FCS</p><p style="font-size:22px;color:#B9C4D3">16 位</p></div>
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#C2410C;border-radius:0 12px 12px 0"><p style="font-size:28px;font-weight:700;color:#FFF6EC">Flag</p><p style="font-size:22px;color:#FFE9D6">01111110</p></div>
+</div>
+<div style="display:flex;gap:4px;align-items:flex-start">
+<div style="width:200px"></div>
+<div style="flex:1;border-top:6px solid #1D4ED8;padding-top:6px;text-align:center"><p style="font-size:26px;font-weight:700;color:#1E40AF">比特插入作用在这一段（地址 ~ FCS）</p></div>
+<div style="width:200px"></div>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:20px 26px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">发送方</p>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">①</p><p style="font-size:28px;color:#14253D">拼好地址、控制、信息</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">②</p><p style="font-size:28px;color:#14253D">算出 FCS 接在后面（2.2 节）</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">③</p><p style="font-size:28px;color:#14253D"><b>比特插入</b>：每 5 个 1 补一个 0</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">④</p><p style="font-size:28px;color:#14253D">在前后各加一个 Flag，送出</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:20px 26px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">接收方</p>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">①</p><p style="font-size:28px;color:#14253D"><b>找 Flag</b>（连续 6 个 1），划出一帧</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">②</p><p style="font-size:28px;color:#14253D"><b>删掉</b> 5 个 1 后面插入的 0</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">③</p><p style="font-size:28px;color:#14253D">用 FCS 检查有没有出错（2.2 节）</p></div>
+<div style="display:flex;gap:12px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">④</p><p style="font-size:28px;color:#14253D">没出错：取出信息交给上层</p></div>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">组帧只是第一步：找到帧、还原帧，然后才轮到“检错”（下一节）。</p></div>
+<aside>【2 分钟】
+最后把今天学的东西放回一帧里，看看发送和接收的完整流水线。
+一个 HDLC 帧：Flag、地址、控制、信息、FCS、Flag。地址和控制各 8 位，信息是任意多个比特，FCS 是 16 位的校验码。各字段的含义是 2.3 节的内容。
+比特插入作用在中间这一段，也就是地址到 FCS。Flag 本身是不插入的，否则就不是 Flag 了。
+发送方：① 拼好地址、控制、信息；② 算出 FCS，接在后面；③ 做比特插入；④ 在前后各加一个 Flag，送出去。
+接收方：① 找 Flag（连续 6 个 1），划出一帧；② 删掉 5 个 1 之后插入的 0；③ 用 FCS 检查有没有出错；④ 没出错就取出信息交给上层。
+注意顺序：FCS 是在插入之前算的，接收方是在删除之后检查的。
+组帧只是第一步：找到帧、还原帧，然后才轮到检错——这就是下一节（2.2）的内容。
+[提示：这里自然引出下一节：FCS 是怎么算的？出错了怎么办？]</aside>
+</section>

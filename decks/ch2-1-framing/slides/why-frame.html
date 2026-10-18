@@ -1,0 +1,47 @@
+<section id="why-frame" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:30px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 为什么需要组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么不干脆一直发，非要切成一帧一帧？</h2>
+</div>
+<div style="display:flex;gap:36px;align-items:stretch">
+<div style="width:640px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 检错要有“一块”</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">校验码是针对一块数据算出来的，必须知道这块数据在哪里。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 出错只重发一小块</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">哪一块错了，就重发哪一块，不必从头再来。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 共享链路要“轮流”</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">多个用户的数据必须以帧为单位交替发送，不能一个人占满。</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">例：传一个 1 GB 的文件，途中有 1 个比特出错</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#4B5A6B">不分帧：整个文件是一大块</p>
+<div style="display:flex;height:48px;border-radius:10px;overflow:hidden"><div style="width:420px;background:#B9C4D3"></div><div style="width:10px;background:#C2410C"></div><div style="flex:1;background:#B9C4D3"></div></div>
+<p style="font-size:28px;color:#14253D">发现出错 → 只能<b>重传 1 GB</b></p>
+</div>
+<div data-build-in="fade 1" style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#4B5A6B">分帧：切成约 66.7 万帧（每帧 1500 字节）</p>
+<div style="display:flex;gap:3px;height:48px">
+<div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#C2410C;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div><div style="flex:1;background:#1D4ED8;border-radius:3px"></div>
+</div>
+<p style="font-size:28px;color:#14253D">只重传出错的那一帧：<b>1500 字节</b>，约为原来的 1/666 667。</p>
+</div>
+</div>
+</div>
+<aside>【2 分钟】
+为什么要把比特流切成一帧一帧，而不是一直发下去？三个理由：
+① 检错要有“一块”。校验码是针对一块数据算出来的，所以必须知道这块数据在哪里，才能算、才能比。
+② 出错只重发一小块。哪一块错了，就重发哪一块，不需要从头再来。
+③ 共享链路要轮流。如果好几个用户共用一条链路，数据要以帧为单位交替发，否则一个用户会一直占着。
+右边这个例子最直观：传一个 1 GB 的文件，途中有 1 个比特出错。
+不分帧：整个文件是一大块，发现出错，只能重传整整 1 GB。
+（点击）分帧：把文件切成 1500 字节一帧，大约 66.7 万帧（10⁹ ÷ 1500 ≈ 666 667），只有橙色那一帧出错，只需重传 1500 字节，是原来的约 1/666 667。
+所以，分帧不只是“方便标记”，它是后面所有可靠传输机制的基础。
+[验算：1 GB = 10⁹ 字节（按十进制算），10⁹ ÷ 1500 ≈ 666 667。]</aside>
+</section>

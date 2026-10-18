@@ -1,0 +1,37 @@
+<section id="questions" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:30px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 为什么需要组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">接收方面对一长串比特，要回答三个问题</h2>
+</div>
+<p style="position:absolute;left:128px;top:300px;width:400px;font-size:28px;font-weight:700;text-align:center;color:#C2410C">① 从哪里开始？</p>
+<p style="position:absolute;left:1128px;top:300px;width:400px;font-size:28px;font-weight:700;text-align:center;color:#C2410C">② 到哪里结束？</p>
+<p style="position:absolute;left:978px;top:536px;width:500px;font-size:28px;font-weight:700;text-align:center;color:#C2410C">③ 哪一段是校验？</p>
+<div style="position:absolute;left:1228px;top:478px;width:0;height:52px;border-left:4px dashed #C2410C"></div>
+<div style="position:absolute;left:328px;top:346px;width:0;height:120px;border-left:4px dashed #C2410C"></div>
+<div style="position:absolute;left:1328px;top:346px;width:0;height:120px;border-left:4px dashed #C2410C"></div>
+<div style="position:absolute;left:128px;top:390px;width:1664px;display:flex;align-items:stretch;height:84px">
+<div style="width:200px;display:flex;align-items:center;justify-content:center;background:#E3DDCB;border-radius:14px 0 0 14px"><p style="font-size:28px;color:#4B5A6B">…前一帧</p></div>
+<div style="width:1000px;display:flex;align-items:stretch">
+<div style="width:140px;display:flex;align-items:center;justify-content:center;background:#14253D"><p style="font-size:28px;font-weight:700;color:#F4F1E8">帧头</p></div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#1D4ED8"><p style="font-size:32px;font-weight:700;color:#F4F8FF">载荷</p></div>
+<div style="width:200px;display:flex;align-items:center;justify-content:center;background:#C2410C"><p style="font-size:28px;font-weight:700;color:#FFF6EC">校验码</p></div>
+</div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#E3DDCB;border-radius:0 14px 14px 0"><p style="font-size:28px;color:#4B5A6B">后一帧…</p></div>
+</div>
+<div style="position:absolute;left:128px;top:620px;width:1664px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;gap:24px">
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px"><p style="font-size:28px;line-height:1.45;color:#14253D">发送方连续不断地发帧，帧与帧之间<b>没有空隙</b>。</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px"><p style="font-size:28px;line-height:1.45;color:#14253D">接收方只看到比特流，必须<b>自己</b>找出每帧的起点和终点。</p></div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:22px 32px"><p style="font-size:34px;font-weight:700;color:#F4F1E8">组帧技术 = 在比特流里放“路标”，让接收方找到帧的边界。</p></div>
+</div>
+<aside>【1.5 分钟】
+回到接收方的立场。它面前是一条没有空隙的比特流：…前一帧，本帧，后一帧…
+它必须回答三个问题：
+① 这一帧从哪里开始？（图中左边的虚线）
+② 到哪里结束？（右边的虚线）
+③ 哪一段是校验码？——只有知道校验码在哪里，才能检查有没有出错。
+第③个问题通常好解决：只要帧的起点终点定了，校验码一般固定在帧尾的若干位置。所以真正的难点是前两个：起点和终点。
+组帧技术，说白了就是在比特流里放“路标”。放什么样的路标、路标本身怎么保证不被误认，就是接下来所有方法的区别。
+[提示：帧头里的类型、地址等字段，位置是由协议固定下来的，只要找到帧头的起点，就能顺次读出来。]</aside>
+</section>

@@ -1,0 +1,49 @@
+<section id="ppp-2" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · PPP</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">PPP 帧里每个字段是做什么的</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#9A3412">7E</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">标志</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">帧的起点和终点。载荷里碰到 7E 要转义（下一页）。</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#14253D">FF</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">地址</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">全 1，表示“所有站点”。点到点链路上只有对方一个，所以是固定值。</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#14253D">03</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">控制</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">固定值，表示“无编号信息帧”：不要求确认，收到就交给上层。</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#9A3412">协议</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">协议类型</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px"><p style="font-size:28px;line-height:1.4;color:#14253D">告诉接收方：信息字段里装的是什么，该交给谁处理。</p>
+<div style="display:flex;gap:14px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700"><p style="background:#DCE6FB;border-radius:8px;padding:2px 12px;color:#1E40AF">0021 = IP 数据报</p><p style="background:#DCE6FB;border-radius:8px;padding:2px 12px;color:#1E40AF">C021 = 链路控制 LCP</p><p style="background:#DCE6FB;border-radius:8px;padding:2px 12px;color:#1E40AF">8021 = 网络控制 NCP</p></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#1E40AF">信息</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">载荷</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">要运送的内容，默认最长 1500 字节。</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 26px">
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;color:#14253D">FCS</p>
+<p style="width:170px;font-size:28px;font-weight:700;color:#14253D">帧校验序列</p>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">对整帧算出的校验码，用于发现传输错误（怎么算，见 2.2 节）。</p>
+</div>
+</div>
+<aside>【3 分钟】
+逐个字段看一遍：
+7E 标志：帧的起点和终点。如果载荷里碰到 7E，要转义，下一页讲。
+FF 地址：全 1，表示“所有站点”。因为是点到点链路，对方只有一个，所以是固定值，没有实际作用。
+03 控制：固定值，表示“无编号信息帧”：收到就交给上层，不要求确认。
+协议类型：2 个字节，告诉接收方信息字段里装的是什么，该交给谁处理。这就是比 SLIP 多出的“类型字段”。比如 0021 表示信息字段是 IP 数据报；C021 表示是链路控制数据（LCP）；8021 表示是网络控制数据（NCP）。
+信息：载荷。默认最长 1500 字节。
+FCS：帧校验序列，2 个字节。对整个帧算出的校验码，用来发现传输错误。这是比 SLIP 多出的“校验字段”，怎么算是 2.2 节的内容。
+前三个固定字段（7E、FF、03）说明 PPP 其实是借用了 HDLC 帧的形式，下一部分讲面向比特的组帧时会看到 HDLC，两者的格式非常像。
+[提示：想想看，为什么需要“协议类型”字段？——接收方收到一个信息字段，必须知道它是 IP 数据报还是别的东西，才能交给正确的上层。就像信封上要写“内装：信件/账单”。]</aside>
+</section>

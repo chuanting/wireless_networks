@@ -1,0 +1,50 @@
+<section id="e2e" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第 2 章 · 端到端的传输协议</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">“端到端”有三种距离</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;gap:32px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 32px">
+<svg aria-label="两个节点之间直接相连" viewBox="0 0 440 90" width="440" height="90">
+<line x1="60" y1="45" x2="380" y2="45" stroke="#C2410C" stroke-width="8"/>
+<circle cx="60" cy="45" r="30" fill="#C2410C"/><circle cx="380" cy="45" r="30" fill="#C2410C"/>
+</svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#9A3412">① 一条物理链路直接相连 → 链路层协议（2.1–2.3）</p>
+<p style="font-size:28px;color:#14253D">例：手机与家里的 Wi-Fi 路由器；两台路由器之间的专线。今天的组帧就发生在这里。</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:32px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 32px">
+<svg aria-label="一个子网内经过多个中间节点的通路" viewBox="0 0 440 90" width="440" height="90">
+<line x1="40" y1="45" x2="400" y2="45" stroke="#B9B09A" stroke-width="6"/>
+<circle cx="40" cy="45" r="26" fill="#1D4ED8"/><circle cx="147" cy="45" r="18" fill="#B9B09A"/><circle cx="253" cy="45" r="18" fill="#B9B09A"/><circle cx="400" cy="45" r="26" fill="#1D4ED8"/>
+</svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">② 同一个子网内，经过多条链路 → 网络层的端到端协议（2.4）</p>
+<p style="font-size:28px;color:#14253D">例：宿舍的笔记本访问校园网里的服务器，中间经过好几台交换机和路由器。</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:32px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 32px">
+<svg aria-label="跨越不同网络的通路" viewBox="0 0 440 90" width="440" height="90">
+<line x1="40" y1="45" x2="400" y2="45" stroke="#B9B09A" stroke-width="6"/>
+<rect x="95" y="12" width="120" height="66" rx="33" fill="none" stroke="#5B6B7C" stroke-width="4" stroke-dasharray="8 6"/><rect x="225" y="12" width="120" height="66" rx="33" fill="none" stroke="#5B6B7C" stroke-width="4" stroke-dasharray="8 6"/>
+<circle cx="40" cy="45" r="26" fill="#1D4ED8"/><circle cx="130" cy="45" r="14" fill="#B9B09A"/><circle cx="180" cy="45" r="14" fill="#B9B09A"/><circle cx="260" cy="45" r="14" fill="#B9B09A"/><circle cx="310" cy="45" r="14" fill="#B9B09A"/><circle cx="400" cy="45" r="26" fill="#1D4ED8"/>
+</svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">③ 跨越不同的网络 → 运输层的端到端协议（2.4）</p>
+<p style="font-size:28px;color:#14253D">例：你访问国外的网站，数据要穿过校园网、运营商网络、对方的机房网络。TCP 就是这样一类协议。</p>
+</div>
+</div>
+</div>
+<div style="background:#DCE6FB;border-radius:20px;padding:18px 28px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">距离越远，要解决的问题越多；但它们都建立在“一条链路上能正确传帧”之上，所以我们从最底下开始。</p>
+</div>
+<aside>【2 分钟】
+本章标题里的“端到端”，其实有三种不同的“距离”，对应三类协议：
+① 通信双方直接用一条物理链路相连。比如手机和 Wi-Fi 路由器、两台路由器之间的光纤。这时只需要链路层协议，保证“这一跳”传对。本章前三节（2.1–2.3）讲的就是它。
+② 通信双方在同一个子网里，中间经过很多条链路。比如宿舍的电脑访问校内服务器，路上经过好几台设备。这时需要网络层的端到端协议，保证“整条通路”传对。
+③ 通信双方在不同的网络里。比如访问国外网站，数据要穿过好几个运营商的网络。这时需要运输层的端到端协议，TCP 是最典型的例子。
+这两类（②③）放在 2.4 节。
+今天先把最底下一层打好：一条链路上，一帧怎么划出来。
+[提示：用“快递”类比：① 是同一栋楼里的邻居互相递东西；② 是同城快递；③ 是跨国快递。距离越远，要处理的问题越多。]</aside>
+</section>

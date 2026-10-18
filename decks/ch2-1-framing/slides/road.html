@@ -1,0 +1,58 @@
+<section id="road" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:30px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第 2 章 · 端到端的传输协议</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">这一章要解决什么问题</h2>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#14253D;border-radius:22px;padding:24px 36px">
+<p style="font-size:32px;font-weight:700;line-height:1.45;color:#F4F1E8">物理层只给我们一根“比特管道”：会出错，而且没有边界。怎样在它上面做出一条<b>可靠</b>的数据通道？</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">可靠传输要做三件事</p>
+<div style="display:flex;align-items:stretch;gap:20px">
+<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">①</p>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">划边界</p><p style="font-size:28px;color:#4B5A6B">组帧：一帧从哪开始、到哪结束</p></div>
+</div>
+<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">②</p>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">发现错误</p><p style="font-size:28px;color:#4B5A6B">校验：这一帧收对了吗</p></div>
+</div>
+<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">③</p>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">消除错误</p><p style="font-size:28px;color:#4B5A6B">重传：错了就再发一遍</p></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">本章的四节</p>
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#C2410C;border-radius:20px;padding:20px 26px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#FFF6EC">2.1</p>
+<p style="font-size:32px;font-weight:700;color:#FFF6EC">组帧技术</p>
+<p style="font-size:28px;color:#FFE9D6">今天：怎样划出一帧</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.2</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">链路层的差错控制</p>
+<p style="font-size:28px;color:#4B5A6B">检错、重传</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.3</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">标准数据链路控制协议</p>
+<p style="font-size:28px;color:#4B5A6B">HDLC 及其初始化</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.4</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">网络层和运输层的端到端协议</p>
+<p style="font-size:28px;color:#4B5A6B">跨越多条链路怎么办</p>
+</div>
+</div>
+</div>
+<aside>【2 分钟】
+先看整章的地图。
+问题：物理层给我们的是一根“比特管道”。它只管把比特从 A 送到 B，有两个毛病：一是会出错（噪声会把 0 变成 1），二是没有边界（上一页看到的）。我们要在它上面做出一条可靠的数据通道。
+可靠传输要做三件事：① 划边界，也就是组帧；② 发现错误，用校验码；③ 消除错误，最常见的办法是重传。
+对应本章的四节：2.1 组帧（今天）；2.2 链路层的差错控制（检错码、重传机制，也就是①之后的②和③）；2.3 标准数据链路控制协议 HDLC，把前面的东西装配成一个真正的标准；2.4 把视野从“一条链路”扩大到“跨越多条链路的端到端”，也就是网络层和运输层的传输协议（TCP 就在这里）。
+今天这一节只做第一件事。顺序是有道理的：不先划出一帧，后面的“检查这一帧对不对”就没有对象。
+[提示：这一页有一个重要的“前后依赖”，可以强调：组帧是所有后续协议的地基。]</aside>
+</section>

@@ -1,0 +1,35 @@
+<section id="stack" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:30px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 为什么需要组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先找到今天的位置：链路层与物理层的交界</h2>
+</div>
+<div style="display:flex;gap:40px;align-items:stretch">
+<div style="width:820px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 28px"><p style="flex:1;font-size:32px;font-weight:700;color:#14253D">应用层</p><p style="font-size:28px;color:#4B5A6B">数据单位：报文（一条微信消息）</p></div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 28px"><p style="flex:1;font-size:32px;font-weight:700;color:#14253D">运输层</p><p style="font-size:28px;color:#4B5A6B">报文段（TCP / UDP）</p></div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:16px 28px"><p style="flex:1;font-size:32px;font-weight:700;color:#14253D">网络层</p><p style="font-size:28px;color:#4B5A6B">分组（IP 数据报，也叫“包”）</p></div>
+<div style="display:flex;align-items:center;background:#C2410C;border-radius:16px;padding:16px 28px"><p style="flex:1;font-size:32px;font-weight:700;color:#FFF6EC">数据链路层</p><p style="font-size:28px;font-weight:700;color:#FFF6EC">帧 ← 今天的主角</p></div>
+<div style="display:flex;align-items:center;background:#1D4ED8;border-radius:16px;padding:16px 28px"><p style="flex:1;font-size:32px;font-weight:700;color:#F4F8FF">物理层</p><p style="font-size:28px;font-weight:700;color:#F4F8FF">比特（0 和 1）</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">每一层的做法</p>
+<p style="font-size:30px;color:#14253D">把上一层交下来的东西当作“货物”，包上自己的“包装”，再交给下一层。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">链路层夹在中间</p>
+<p style="font-size:30px;color:#14253D">上面交来的是一个个<b>分组</b>；下面只认一长串<b>比特</b>。它要把前者变成后者，而且让对方能还原。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">所以组帧要回答</p>
+<p style="font-size:30px;color:#14253D">在连续的比特里，一个分组从哪里开始、到哪里结束？</p>
+</div>
+</div>
+</div>
+<aside>【2 分钟】
+先把今天讲的东西放回“五层模型”里（第 1 章讲过分层）。
+从上到下：应用层的数据单位叫报文，比如一条微信消息；运输层加上 TCP 或 UDP 的头，叫报文段；网络层加上 IP 头，叫分组（也叫 IP 数据报、包）；数据链路层把分组装进“帧”；物理层把帧变成一串 0 和 1，也就是比特，送上线路。
+每一层的做法都一样：把上一层交下来的当作货物，包上自己的“包装”，交给下一层。收到的时候，反过来一层层拆。
+今天关心的是橙色和蓝色这两层的交界：链路层手上是一个一个的分组，物理层只认一长串比特。链路层要做的是把分组变成比特流，并且保证对方能把它们重新分开。这就是“组帧”。
+[提示：如果学生对五层模型还不熟，可以只强调“每一层加一个包装”这一点，不需要记各层名字。]</aside>
+</section>

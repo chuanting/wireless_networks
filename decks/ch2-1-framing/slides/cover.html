@@ -1,0 +1,20 @@
+<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 2 章 · 端到端的传输协议 · 2.1</p>
+<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">组帧技术</h1>
+<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">怎样在没有边界的比特流里划出一帧</h2>
+<p style="font-size:32px;color:#B9C4D3">字符组帧 · 比特插入 · 长度计数 · 帧的开销</p>
+<svg aria-label="装饰图：比特流被橙色的标志分成一帧一帧" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
+<path fill="#F4975A" d="M3 60h22v44h-22zM28 60h22v44h-22zM53 60h22v44h-22zM278 60h22v44h-22zM303 60h22v44h-22zM328 60h22v44h-22zM553 60h22v44h-22zM578 60h22v44h-22zM603 60h22v44h-22zM3 160h22v44h-22zM28 160h22v44h-22zM53 160h22v44h-22zM203 160h22v44h-22zM228 160h22v44h-22zM253 160h22v44h-22zM553 160h22v44h-22zM578 160h22v44h-22zM603 160h22v44h-22zM3 260h22v44h-22zM28 260h22v44h-22zM53 260h22v44h-22zM353 260h22v44h-22zM378 260h22v44h-22zM403 260h22v44h-22zM553 260h22v44h-22zM578 260h22v44h-22zM603 260h22v44h-22z"/>
+<path fill="#B9C4D3" d="M78 60h22v44h-22zM103 60h22v44h-22zM153 60h22v44h-22zM203 60h22v44h-22zM228 60h22v44h-22zM353 60h22v44h-22zM378 60h22v44h-22zM403 60h22v44h-22zM428 60h22v44h-22zM453 60h22v44h-22zM503 60h22v44h-22zM528 60h22v44h-22zM153 160h22v44h-22zM278 160h22v44h-22zM328 160h22v44h-22zM353 160h22v44h-22zM378 160h22v44h-22zM403 160h22v44h-22zM453 160h22v44h-22zM528 160h22v44h-22zM103 260h22v44h-22zM128 260h22v44h-22zM153 260h22v44h-22zM203 260h22v44h-22zM228 260h22v44h-22zM278 260h22v44h-22zM303 260h22v44h-22zM453 260h22v44h-22z"/>
+<path fill="#3B4E68" d="M128 60h22v44h-22zM178 60h22v44h-22zM253 60h22v44h-22zM478 60h22v44h-22zM78 160h22v44h-22zM103 160h22v44h-22zM128 160h22v44h-22zM178 160h22v44h-22zM303 160h22v44h-22zM428 160h22v44h-22zM478 160h22v44h-22zM503 160h22v44h-22zM78 260h22v44h-22zM178 260h22v44h-22zM253 260h22v44h-22zM328 260h22v44h-22zM428 260h22v44h-22zM478 260h22v44h-22zM503 260h22v44h-22zM528 260h22v44h-22z"/>
+</svg>
+<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<aside>【开场 · 1 分钟】
+欢迎大家。第 1 章我们学了数学基础（图论、随机过程），从这一章开始进入协议本身。第 2 章的题目是“端到端的传输协议”，它要回答一个核心问题：网络底下只给我们一根会出错的“比特管道”，怎么在上面做出一条可靠的数据通道？
+今天是第 2 章的第一节：组帧技术。先不讲错误，只回答一个更基本的问题——比特一个接一个地流过来，接收方怎么知道一帧从哪里开始、到哪里结束？
+右边的装饰图：每一行是一段比特流，橙色的格子是“标志”，把流切成一帧一帧。这就是今天要学的东西。
+
+今天的路线：为什么需要组帧 → 面向字符的组帧（串口、SLIP、PPP）→ 面向比特的组帧（比特插入）→ 长度计数 → 方法比较。
+全程用具体的例子带着走，不需要预先学过计算机网络；会用到二进制和十六进制，课上会先补一下。
+时间上不做限制，以讲明白为准。整节课大约 90 分钟，可以分成两次：前两部分一次，后两部分一次。</aside>
+</section>

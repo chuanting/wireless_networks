@@ -1,0 +1,46 @@
+<section id="char-sum" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">面向字符的组帧：一张表记住</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:0;background:#14253D;border-radius:14px;padding:14px 24px">
+<p style="width:240px;font-size:28px;font-weight:700;color:#F4975A">协议</p>
+<p style="width:200px;font-size:28px;font-weight:700;color:#F4F1E8">路标</p>
+<p style="width:240px;font-size:28px;font-weight:700;color:#F4F1E8">转义字符</p>
+<p style="flex:1;font-size:28px;font-weight:700;color:#F4F1E8">转义规则</p>
+</div>
+<div style="display:flex;align-items:center;gap:0;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 24px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700">
+<p style="width:240px;font-family:'Noto Sans SC', sans-serif;color:#14253D">玩具协议</p><p style="width:200px;color:#9A3412">~</p><p style="width:240px;color:#1E40AF">\</p><p style="flex:1;color:#14253D">~ → \~　　\ → \\</p>
+</div>
+<div style="display:flex;align-items:center;gap:0;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 24px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700">
+<p style="width:240px;font-family:'Noto Sans SC', sans-serif;color:#14253D">SLIP</p><p style="width:200px;color:#9A3412">C0（END）</p><p style="width:240px;color:#1E40AF">DB（ESC）</p><p style="flex:1;color:#14253D">C0 → DB DC　　DB → DB DD</p>
+</div>
+<div style="display:flex;align-items:center;gap:0;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 24px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700">
+<p style="width:240px;font-family:'Noto Sans SC', sans-serif;color:#14253D">PPP</p><p style="width:200px;color:#9A3412">7E</p><p style="width:240px;color:#1E40AF">7D</p><p style="flex:1;color:#14253D">7E → 7D 5E　　7D → 7D 5D</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:22px 28px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">优点</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 实现简单，按字节处理，软件友好</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 载荷任意，保证透明传输</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:22px 28px">
+<p style="font-size:30px;font-weight:700;color:#9A3412">缺点</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 开销随数据变化，最坏翻倍</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">• 数据长度必须是整数个字节，比特数不是 8 的倍数就不行</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:18px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">共同点：路标 + 转义字符 + 两条改写规则。不同协议只是字节选得不一样。</p></div>
+<aside>【1.5 分钟】
+面向字符的组帧，到这里就讲完了。一张表回顾：
+玩具协议：路标 ~，转义字符 \，规则 ~ → \~，\ → \\。
+SLIP：路标 C0，转义字符 DB，规则 C0 → DB DC，DB → DB DD。
+PPP：路标 7E，转义字符 7D，规则 7E → 7D 5E，7D → 7D 5D。
+三个协议的思路是一样的：选一个路标字节，选一个转义字节，再规定两条改写规则，让路标和转义字节在载荷里都不会冲突。区别只是选了哪些字节，以及改写的代号是什么。
+优点：实现简单，按字节处理，软件很友好；载荷任意，保证透明传输。
+缺点：开销随数据变化，最坏翻倍；数据长度必须是整数个字节——比如有些编码后的数据是 12 位或 15 位一组，就不好处理。
+为了解决这些问题，人们想了另一种办法：不再以字节为单位，而是以比特为单位来标记边界。这就是下一部分。
+[过渡问题：如果路标不是一个字节，而是一个比特串，转义也在比特层面做，会怎样？]</aside>
+</section>

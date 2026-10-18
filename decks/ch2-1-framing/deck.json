@@ -1,0 +1,29 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T12:00:00Z" },
+  "lists": "css",
+  "title": "组帧技术：怎样在比特流里划出一帧",
+  "order": [
+    "cover", "why", "road", "e2e", "agenda",
+    "d1", "stack", "pipe", "frame", "why-frame", "questions", "transp",
+    "d2", "hex", "uart-1", "uart-2", "toy", "toy-esc", "toy-why", "slip-1", "slip-2", "slip-3", "slip-4", "ppp-1", "ppp-2", "ppp-3", "ppp-4", "ppp-5", "char-sum",
+    "d3", "bit-1", "bit-2", "bit-3", "bit-4", "bit-quiz", "bit-edge", "bit-abort", "ov-0", "ov-1", "ov-2", "ov-3", "bit-sum",
+    "d4", "len-1", "len-2", "len-3", "compare", "choose", "struct",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：问题引入、第 2 章路线图、本讲安排。", "start": "cover" },
+    "s1": { "description": "为什么需要组帧：比特管道、帧、透明性。", "start": "d1" },
+    "s2": { "description": "面向字符的组帧：异步串口、SLIP、PPP。", "start": "d2" },
+    "s3": { "description": "面向比特的组帧：Flag、比特插入、帧的开销。", "start": "d3" },
+    "s4": { "description": "长度计数、三种方法的比较、帧结构回顾。", "start": "d4" },
+    "s5": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

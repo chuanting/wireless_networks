@@ -1,0 +1,49 @@
+<section id="toy-esc" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">转义：给载荷里的特殊字符“加个前缀”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">发送方</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">载荷里的 <b>~</b> 写成 <b>\~</b>；载荷里的 <b>\</b> 写成 <b>\\</b>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">接收方</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">见到 <b>\</b>：丢掉它，下一个字符当普通数据；见到没有 \ 的 <b>~</b>：路标。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:230px;font-size:28px;font-weight:700;color:#4B5A6B">① 原始载荷</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;line-height:72px;text-align:center">
+<p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">A</p><p style="width:72px;height:72px;border-radius:10px;background:#FDEBDD;border:3px dashed #C2410C;color:#9A3412;line-height:66px">~</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">B</p><p style="width:72px;height:72px;border-radius:10px;background:#FDEBDD;border:3px dashed #C2410C;color:#9A3412;line-height:66px">\</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">C</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B">5 个字符，其中 ~ 和 \ 是“特殊字符”</p>
+</div>
+<div data-build-in="fade 1" style="display:flex;align-items:center;gap:20px">
+<p style="width:230px;font-size:28px;font-weight:700;color:#1E40AF">② 线路上</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;line-height:72px;text-align:center">
+<p style="width:72px;height:72px;border-radius:10px;background:#C2410C;color:#FFF6EC;line-height:72px">~</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">A</p><p style="width:72px;height:72px;border-radius:10px;background:#1D4ED8;color:#F4F8FF;line-height:72px">\</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">~</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">B</p><p style="width:72px;height:72px;border-radius:10px;background:#1D4ED8;color:#F4F8FF;line-height:72px">\</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">\</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">C</p><p style="width:72px;height:72px;border-radius:10px;background:#C2410C;color:#FFF6EC;line-height:72px">~</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B">橙：路标；蓝：插入的转义字符</p>
+</div>
+<div data-build-in="fade 2" style="display:flex;align-items:center;gap:20px">
+<p style="width:230px;font-size:28px;font-weight:700;color:#9A3412">③ 接收方还原</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;line-height:72px;text-align:center">
+<p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">A</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">~</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">B</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">\</p><p style="width:72px;height:72px;border-radius:10px;background:#DCE6FB;line-height:72px">C</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B">与原始载荷完全一致 ✓</p>
+</div>
+</div>
+<div data-build-in="fade 2" style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">这样，线路上不带 \ 的 ~ 一定是路标，载荷可以是任意内容——透明传输做到了。</p></div>
+<aside>【3 分钟 · 本节最核心的例子】
+解决办法：转义。引入一个新字符 \（叫“转义字符”）作为前缀。
+发送方的规则：载荷里每遇到一个 ~，就在它前面加一个 \，也就是写成 \~；载荷里每遇到一个 \，也要在它前面加一个 \，也就是写成 \\。
+接收方的规则：遇到 \，就把它丢掉，把紧跟着的那个字符原样当作数据；遇到没有 \ 前缀的 ~，才是路标。
+例子：原始载荷是 A~B\C。
+（点击）发送方处理：A 不变；~ 变成 \~；B 不变；\ 变成 \\；C 不变；再在两端加上路标 ~。线路上是：~ A \~ B \\ C ~，一共 9 个字符。蓝色的是我们插入的转义字符，橙色的是路标。
+（再点击）接收方还原：先看到第一个 ~，是路标，帧开始；A 是普通字符；\ 后面的 ~ 是被转义的数据，保留 ~；B；再看到 \，它后面的 \ 是被转义的数据，保留 \；C；最后看到一个没有 \ 前缀的 ~，是路标，帧结束。还原出来是 A~B\C，与原来完全一致。
+这就是“透明传输”：不管载荷里是什么，接收方都能原样还原。代价是：载荷里每出现一个特殊字符，就要多发一个字符。
+[术语：这种做法，在字符型协议里叫“字符填充”或“字节插入”（byte stuffing / character stuffing）。]</aside>
+</section>

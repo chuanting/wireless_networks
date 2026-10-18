@@ -1,0 +1,48 @@
+<section id="len-1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 长度计数</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">第三种办法：不放路标，帧头写明长度</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">想法</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">在每帧最前面放一个长度字段 <i>L</i>：“后面有 <i>L</i> 个字节”。接收方读完 <i>L</i> 个字节，就知道这一帧结束了。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">好处</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">没有路标，就不会撞车，也<b>不需要转义</b>。载荷可以是任何内容，开销固定（长度字段的大小）。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">例：连续发三条消息（长度字段占 2 个字节）：HELLO、OK、BYE</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">00</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">05</p>
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">48</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">45</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">4C</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">4C</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">4F</p>
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8;margin-left:14px">00</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">02</p>
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">4F</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">4B</p>
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8;margin-left:14px">00</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">03</p>
+<p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">42</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">59</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#DCE6FB">45</p>
+</div>
+<div style="display:flex;gap:6px;font-size:24px;color:#4B5A6B">
+<p style="width:156px;text-align:center;color:#14253D;font-weight:700">L = 5</p><p style="width:366px;text-align:center">“HELLO”（48 45 4C 4C 4F）</p>
+<p style="width:170px;text-align:center;color:#14253D;font-weight:700;margin-left:14px">L = 2</p><p style="width:156px;text-align:center">“OK”</p>
+<p style="width:170px;text-align:center;color:#14253D;font-weight:700;margin-left:14px">L = 3</p><p style="width:236px;text-align:center">“BYE”</p>
+</div>
+</div>
+<div data-build-in="fade 1" style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">接收方的做法</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">① 读 2 字节，得到 <i>L</i>　② 再读 <i>L</i> 个字节，就是载荷　③ 回到 ①</p>
+</div>
+</div>
+<aside>【2.5 分钟】
+第三种办法，完全换了思路：不放路标。在每一帧的最前面加一个“长度字段”，说明后面有多少个字节。接收方读完这么多字节，就知道这一帧结束了。
+好处很明显：没有路标，就不会撞车，也不需要任何转义；载荷可以是任何内容；开销固定，只是长度字段的大小。
+例子：连续发三条消息 HELLO、OK、BYE。长度字段占 2 个字节（深色）。
+第一条：00 05（长度是 5），后面是 5 个字节 48 45 4C 4C 4F，就是 ASCII 的 H E L L O。
+第二条：00 02，后面是 4F 4B，就是 O K。
+第三条：00 03，后面是 42 59 45，就是 B Y E。
+（点击）接收方的做法：先读 2 字节，得到 L；再读 L 个字节，就是载荷；读完回到第一步，等待下一帧的长度。
+是不是很简单？但有一个致命的问题，下一页看。
+[备注：长度字段用 2 个字节，最多能表示 65535 字节；实际使用的协议会规定最大帧长。]</aside>
+</section>

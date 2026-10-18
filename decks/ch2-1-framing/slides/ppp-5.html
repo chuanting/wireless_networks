@@ -1,0 +1,45 @@
+<section id="ppp-5" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · PPP（可略）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">字节插入的代价：取决于数据</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">信息字段 1500 字节，转义后线路上要发多少字节？</p>
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:270px;font-size:28px;font-weight:700;color:#14253D">最好：无特殊字节</p>
+<div style="display:flex;height:48px"><div style="width:450px;background:#1D4ED8;border-radius:8px"></div></div>
+<p style="font-size:28px;color:#14253D">1500 字节（+0）</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:270px;font-size:28px;font-weight:700;color:#14253D">平均：随机数据</p>
+<div style="display:flex;height:48px"><div style="width:450px;background:#1D4ED8;border-radius:8px 0 0 8px"></div><div style="width:4px;background:#C2410C"></div></div>
+<p style="font-size:28px;color:#14253D">约 1512 字节（+11.7，+0.78%）</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px">
+<p style="width:270px;font-size:28px;font-weight:700;color:#14253D">最坏：全是 7E</p>
+<div style="display:flex;height:48px"><div style="width:450px;background:#1D4ED8;border-radius:8px 0 0 8px"></div><div style="width:450px;background:#C2410C;border-radius:0 8px 8px 0"></div></div>
+<p style="font-size:28px;font-weight:700;color:#9A3412">3000 字节（翻倍）</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">平均怎么算</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">每个字节是 7E 或 7D 的概率是 2/256，所以 1500 × 2/256 ≈ 11.7 字节。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">要点</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">开销随载荷内容变化，事先无法预料；最坏情况下带宽被吃掉一半。</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:18px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">对比：串口每字符固定多 2 位（+25%）；PPP 平均只多 0.78%，但没有上限保证。</p></div>
+<aside>【2 分钟 · 可略】
+字节插入的代价是多少？答案是：取决于数据。
+设信息字段 1500 字节。
+最好的情况：里面没有 7E，也没有 7D，不需要转义，仍然是 1500 字节。
+平均的情况：假设数据是随机的，每个字节是 7E 或 7D 的概率是 2/256（256 种取值里有 2 种）。1500 个字节平均要多 1500 × 2/256 = 11.7 个字节，也就是多 0.78%。
+最坏的情况：整个信息字段全是 7E（或者全是 7D）。每个都要写成两个字节，3000 字节，翻倍。
+（这里只计算了 7E 和 7D；如果还转义控制字符，概率还要大一些，但道理一样。）
+关键的一点：开销随载荷内容变化，事先无法预料，最坏情况下带宽被吃掉一半。串口每字符固定多 2 位（相对于 8 位数据多 25%），PPP 平均只多 0.78%，比串口好得多，但没有上限保证。
+下一部分的“比特插入”，会给出一个更精细、可以分析的开销，包括怎么设计才能让开销最小。
+[提示：如果时间紧，这一页可以只讲结论“开销取决于数据，最坏翻倍”。]</aside>
+</section>

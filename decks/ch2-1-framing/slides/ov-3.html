@@ -1,0 +1,55 @@
+<section id="ov-3" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 进阶（可略）· 帧的开销</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">最优的 <i>j</i>：差分一步就能解出来</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① <i>j</i> 增加 1，开销变化多少？</p>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:nowrap">
+<p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">OV(<i>j</i> + 1) − OV(<i>j</i>) = 1 −</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:32px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>k</i></p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><div style="display:flex;align-items:flex-start"><p style="font-size:32px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">2</p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>j</i>+1</p></div></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 什么时候值得继续加大 <i>j</i>？</p>
+<div style="display:flex;align-items:center;gap:12px">
+<p style="font-size:30px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">差值 &lt; 0　⟺　2</p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D;align-self:flex-start"><i>j</i>+1</p><p style="font-size:30px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">&lt; <i>k</i></p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">只要 2 的 <i>j</i>+1 次方还小于 <i>k</i>，加大 <i>j</i> 就更省。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">③ 结论</p>
+<div style="display:flex;align-items:flex-end;flex-wrap:nowrap"><p style="font-size:32px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35"><i>j</i>* ≈ ⌊log</p><p style="font-size:22px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">2</p><p style="font-size:32px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">&nbsp;<i>k</i>⌋，OV</p><p style="font-size:22px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">min</p><p style="font-size:32px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">&nbsp;≈ log</p><p style="font-size:22px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">2</p><p style="font-size:32px;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8;line-height:1.35">&nbsp;<i>k</i> + 2</p></div>
+</div>
+</div>
+<div style="width:700px;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">代入几个帧长</p>
+<div style="display:flex;background:#14253D;border-radius:10px;padding:8px 14px"><p style="width:130px;font-size:24px;font-weight:700;color:#F4F1E8"><i>k</i>（位）</p><p style="width:120px;font-size:24px;font-weight:700;color:#F4F1E8"><i>j</i>*</p><p style="width:200px;font-size:24px;font-weight:700;color:#F4F1E8">最小开销</p><p style="flex:1;font-size:24px;font-weight:700;color:#F4975A">HDLC (<i>j</i>=6)</p></div>
+<div style="display:flex;padding:6px 14px;font-family:'Times New Roman', Georgia, serif"><p style="width:130px;font-size:30px">100</p><p style="width:120px;font-size:30px">6</p><p style="width:200px;font-size:30px">8.6</p><p style="flex:1;font-size:30px;color:#9A3412">8.6</p></div>
+<div style="display:flex;padding:6px 14px;font-family:'Times New Roman', Georgia, serif"><p style="width:130px;font-size:30px">500</p><p style="width:120px;font-size:30px">8</p><p style="width:200px;font-size:30px">10.95</p><p style="flex:1;font-size:30px;color:#9A3412">14.8</p></div>
+<div style="display:flex;padding:6px 14px;font-family:'Times New Roman', Georgia, serif;background:#DCE6FB;border-radius:8px"><p style="width:130px;font-size:30px;font-weight:700">1000</p><p style="width:120px;font-size:30px;font-weight:700">9</p><p style="width:200px;font-size:30px;font-weight:700">11.95</p><p style="flex:1;font-size:30px;font-weight:700;color:#9A3412">22.6</p></div>
+<div style="display:flex;padding:6px 14px;font-family:'Times New Roman', Georgia, serif"><p style="width:130px;font-size:30px">1500</p><p style="width:120px;font-size:30px">10</p><p style="width:200px;font-size:30px">12.5</p><p style="flex:1;font-size:30px;color:#9A3412">30.4</p></div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">帧长翻倍，最小开销只增加约 1 位。</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 26px"><p style="font-size:28px;line-height:1.45;color:#14253D">HDLC 的 <i>j</i> = 6 恰好对几十到一百多位的短帧最优。对 1000 位的帧，最优是 <i>j</i> = 9，能省将近一半的开销。</p></div>
+<div style="flex:1;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 26px"><p style="font-size:28px;line-height:1.45;color:#14253D">理论上更长的 Flag 更好；但 6 已写进标准，所有设备都按它做——兼容性比这十几位更重要。</p></div>
+</div>
+<aside>【3 分钟 · 进阶】
+最优的 j 怎么求？不用求导，差分一步就行。
+① 把 j 加 1，开销变化：OV(j+1) − OV(j) = [k/2^(j+1) + (j+2)] − [k/2^j + (j+1)] = 1 − k/2^(j+1)。（因为 k/2^(j+1) − k/2^j = −k/2^(j+1)。）
+② 差值小于 0，说明加大 j 更省：1 − k/2^(j+1) < 0，等价于 2^(j+1) < k。只要 2 的 j+1 次方还小于 k，就继续加大 j；一旦 2^(j+1) 超过 k，再加 j 反而更费。
+③ 所以最优的 j* 就是 log2 k 的整数部分；此时 2^j* ≈ k，第一项 k/2^j* ≈ 1，总开销 ≈ 1 + (j* + 1) = log2 k + 2。
+代入几个例子：k = 100，j* = 6，开销 8.6；k = 500，j* = 8，开销 10.95；k = 1000，j* = 9，开销 11.95；k = 1500，j* = 10，开销 12.5。最右列是 HDLC 固定用 j = 6 的开销：8.6、14.8、22.6、30.4。
+两个观察：
+（1）帧长翻倍，最小开销只增加约 1 位——对数增长，非常平缓。
+（2）HDLC 的 j = 6 恰好对几十到一百多位的短帧是最优的（k = 100 时两列相等），对长帧就不是了。k = 1000 时，最优是 j = 9，开销 12 位，而 HDLC 的 22.6 位几乎是它的两倍。
+所以，理论上应该让 Flag 更长。但是 6 个 1 的 Flag 早已写进标准，所有设备都按它做——兼容性比这十几位的开销更重要。这是一个典型的工程取舍：不是最优，但足够好，而且人人都能互通。
+[验算：1500/1024 + 12 = 12.46；1500/64 + 7 = 30.44；500/256 + 9 = 10.95；500/64 + 7 = 14.81。]</aside>
+</section>

@@ -1,0 +1,52 @@
+<section id="summary" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#C2410C">为什么组帧</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">物理层只给无边界的比特流；帧 = 头 + 载荷 + 尾；组帧要让接收方找到边界，并保证数据<b>透明</b>传输。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#C2410C">面向字符</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">特殊字节当路标 + 转义字符。SLIP：C0、DB；PPP：7E、7D（异或 20H）。开销随数据，最坏翻倍。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#C2410C">面向比特</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">Flag = 01111110；每 5 个 1 后补 0，接收方删掉；7 个以上的 1 = 中止，15 个以上 = 空闲。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#C2410C">帧的开销</p>
+<div style="flex:1;display:flex;align-items:center;gap:20px">
+<div style="display:flex;align-items:center;gap:8px">
+<p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">OV ≈</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:30px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>k</i></p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><div style="display:flex;align-items:flex-start"><p style="font-size:30px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#14253D">2</p><p style="font-size:20px;line-height:1.1;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>j</i></p></div></div>
+</div>
+<p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">+ <i>j</i> + 1</p>
+</div>
+<p style="flex:1;font-size:28px;color:#14253D">最优 <i>j</i> ≈ log2 <i>k</i>；HDLC 取 6（<i>k</i> = 1000 时约 22.6 位，最优约 12 位）。</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#C2410C">长度计数</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">帧头写长度，没有路标、不用转义；但长度一出错就<b>失步</b>，适合可靠的字节流。</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#14253D;border-radius:16px;padding:12px 28px">
+<p style="width:240px;font-size:30px;font-weight:700;color:#F4975A">怎么选</p>
+<div style="flex:1"><p style="font-size:28px;color:#F4F1E8">看数据形式、链路是否易出错、要不要认证等功能、效率要求；实际协议常常组合使用。</p></div>
+</div>
+</div>
+<aside>【1.5 分钟】
+带着大家快速回顾，每行一句话：
+为什么组帧：物理层只给无边界的比特流；帧 = 头 + 载荷 + 尾；组帧要让接收方找到帧的边界，并保证载荷是任何内容都能原样还原——透明传输。
+面向字符：特殊字节当路标，再加一个转义字符。SLIP 用 C0 和 DB；PPP 用 7E 和 7D，写法是 7D 加上原字节异或 20H。开销随数据变化，最坏翻倍。
+面向比特：Flag 是 01111110；发送方每 5 个 1 后补一个 0，接收方删掉；7 个以上的 1 是中止，15 个以上是空闲。
+帧的开销：OV ≈ k/2^j + j + 1，最优的 j 约等于 log2 k。HDLC 取 6，k = 1000 时开销约 22.6 位，最优的大约 12 位。
+长度计数：帧头写长度，不需要路标和转义；但长度一出错就失步，适合在可靠的字节流上使用。
+怎么选：看数据的形式、链路是否容易出错、要不要认证等功能、效率要求；实际协议常常组合使用。
+今天只做了第一件事：划出一帧。下一节（2.2）解决第二件事：这一帧收对了吗？
+最后留 3 分钟提问，然后布置练习。</aside>
+</section>

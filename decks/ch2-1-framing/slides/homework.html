@@ -1,0 +1,46 @@
+<section id="homework" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">六道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① 比特插入（发送）</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">对数据 <b>1111 1011 1111 0111 1111 11</b> 做比特插入（Flag 为 01111110），写出线路上的数据部分，并说明插入了几个 0。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② 比特还原（接收）</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">接收方在两个 Flag 之间收到 <b>0011 1110 1111 1001</b>，还原出原始数据。</p>
+</div>
+</div>
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 字节插入</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">（a）SLIP 发送载荷 <b>C0 01 DB DC 50</b>，写出整帧。（b）PPP 发送信息字段 <b>7E 7D 7E</b>，写出转义后的结果。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ 串口的效率</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">串口 115200 波特，每字符 1 个起始位、8 个数据位、1 个停止位。每秒能传多少字节？传 1 MB（一百万字节）要多久？</p>
+</div>
+</div>
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">⑤ 帧的开销</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">平均帧长 <i>k</i> = 500 位。用公式 OV ≈ <i>k</i> ÷ 2 的 <i>j</i> 次方 + <i>j</i> + 1，比较 <i>j</i> = 6（HDLC）与最优 <i>j</i> 的开销。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">⑥ 想一想</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">长度计数法的接收方发现失步后，你能想到哪些办法重新对齐？它们各有什么代价？</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① 数据 11111 0 111111 0 111111111（5+1+6+1+9 = 22 位）。第一段 5 个 1：插 0，后面本来的 0 保留，得 11111 0 0；第二段 6 个 1：数到第 5 个插 0，剩下 1 个 1，再接原来的 0，得 11111 0 1 0；第三段 9 个 1：第 5 个后插 0，再接剩下 4 个 1。结果：1111100 11111 0 1 0 11111 0 1111，即 1111100111110101111101111（25 位），插入了 3 个 0。
+② 0011111011111001：从左往右数连续的 1。00 之后是 11111 然后是 0 → 这个 0 是插入的，删；接着 11111 之后又是 0 → 删；最后是 0 1。还原：00 11111 11111 0 1 = 00111111111101（14 位），删掉了 2 个 0。
+③（a）C0 | C0 → DB DC，01，DB → DB DD，DC 原样，50 | C0，整帧：C0 DB DC 01 DB DD DC 50 C0。注意 DC 单独出现不需要转义（只有 C0 和 DB 需要）。（b）7E → 7D 5E，7D → 7D 5D，7E → 7D 5E：7D 5E 7D 5D 7D 5E。
+④ 每个字符 10 位，115200 ÷ 10 = 11520 字节/秒。传 10⁶ 字节需要 10⁶ ÷ 11520 ≈ 86.8 秒，约 1 分 27 秒；效率 80%。
+⑤ j = 6：500/64 + 7 = 7.81 + 7 = 14.8 位。最优 j* = ⌊log2 500⌋ = 8（因为 2⁹ = 512 > 500）：500/256 + 9 = 1.95 + 9 = 10.95 位。j = 9 时 500/512 + 10 = 10.98，略大，确认 j = 8 最优。HDLC 的开销约是最优值的 1.35 倍。
+⑥ 参考答案：a）等线路出现一段空闲（停顿）再重新开始接收，代价是浪费时间；b）在帧头前加一个固定的同步字（如以太网的前导码 + SFD），接收方出错后重新搜索同步字，代价是每帧多发几字节；c）给长度字段也加校验，出错就丢弃，代价是多一个校验域；d）干脆改用路标法。
+可作为拓展题：证明用比特插入后，数据里不可能出现 6 个连续的 1。（因为每数到 5 个 1 就被 0 打断。）</aside>
+</section>

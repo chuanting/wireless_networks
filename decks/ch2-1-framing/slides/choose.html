@@ -1,0 +1,38 @@
+<section id="choose" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 课堂练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">换你来选：下面四个场合，各用哪种方法？</h2>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 单片机 → 电脑</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">单片机每秒用一根串口线，向电脑发 2 字节的温度读数。</p>
+<div data-build-in="fade 1" style="background:#DCE6FB;border-radius:14px;padding:12px 18px"><p style="font-size:26px;line-height:1.45;color:#1E40AF"><b>串口（字符自带起止位）</b>：数据量很小，简单可靠就行，效率不重要。</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">② 家里宽带拨号</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">家里的路由器用宽带账号和密码连接运营商。</p>
+<div data-build-in="fade 2" style="background:#DCE6FB;border-radius:14px;padding:12px 18px"><p style="font-size:26px;line-height:1.45;color:#1E40AF"><b>PPP（PPPoE）</b>：要认证、要分配地址、还要区分协议类型，功能完整的 PPP 最合适。</p></div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">③ 路由器之间的高速专线</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">两台路由器之间有一条高速同步链路，传输的是任意比特流。</p>
+<div data-build-in="fade 3" style="background:#DCE6FB;border-radius:14px;padding:12px 18px"><p style="font-size:26px;line-height:1.45;color:#1E40AF"><b>HDLC（比特插入）</b>：数据是任意比特；最坏开销有上界（20%）；硬件逐位处理很容易。</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ 两个程序之间发消息</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">两个程序通过 TCP 连接互发消息，TCP 已保证字节流无差错、不乱序。</p>
+<div data-build-in="fade 4" style="background:#DCE6FB;border-radius:14px;padding:12px 18px"><p style="font-size:26px;line-height:1.45;color:#1E40AF"><b>长度计数</b>：不会出错，也就不会失步；没有转义，最简单高效。</p></div>
+</div>
+</div>
+<aside>【3 分钟 · 课堂互动】
+四个场合，让学生先想想选哪种，再点击看答案。
+① 单片机每秒发一次 2 字节的温度读数，用串口线。数据量极小，不需要高效率，字符自带起止位的串口方式最简单。
+② 家里宽带拨号。要输入账号密码认证，要分配 IP 地址，要区分协议类型，这些都是 PPP 的功能，所以用 PPP（实际是 PPPoE，PPP 跑在以太网上）。
+③ 路由器之间的高速专线，传的是任意比特流。比特插入最合适：数据可以是任意比特；最坏开销有上界；硬件逐位处理很容易。
+④ 两个程序之间通过 TCP 互发消息。TCP 已经保证了无差错的字节流，长度字段不会出错，长度计数最简单，也没有转义开销。
+选择的依据：数据是什么形式（字节/比特）？链路容易出错吗？要不要功能（认证、协议类型）？效率有多重要？
+[提示：这些答案不唯一，重点是让学生说出理由。比如 ③ 也可以问：如果改用字节插入，最坏情况会怎样？——翻倍，对高速专线来说很不划算。]</aside>
+</section>

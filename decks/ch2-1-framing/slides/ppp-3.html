@@ -1,0 +1,53 @@
+<section id="ppp-3" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · PPP</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例：一次宽带拨号，线路上依次出现哪些帧？</h2>
+</div>
+<div style="display:flex;align-items:stretch;gap:14px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">1</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">建立链路</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">双方用 LCP 帧协商参数：最大帧长、认证方式……</p>
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;background:#DCE6FB;border-radius:8px;padding:4px 12px;color:#1E40AF;align-self:flex-start">协议 C021</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">身份认证</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">验证宽带账号和密码（PAP 或 CHAP）。</p>
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;background:#DCE6FB;border-radius:8px;padding:4px 12px;color:#1E40AF;align-self:flex-start">协议 C023 / C223</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">3</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">配置网络层</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">NCP 帧为你分配 IP 地址。</p>
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;background:#DCE6FB;border-radius:8px;padding:4px 12px;color:#1E40AF;align-self:flex-start">协议 8021</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">4</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">传输数据</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">之后的帧，载荷都是 IP 数据报：网页、视频、微信。</p>
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;background:#FFFEFA;border-radius:8px;padding:4px 12px;color:#9A3412;align-self:flex-start">协议 0021</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">每一步的帧，结构都一样，只有“协议”字段不同</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;line-height:60px;text-align:center">
+<p style="width:76px;height:60px;border-radius:10px;background:#C2410C;color:#FFF6EC;line-height:60px">7E</p><p style="width:76px;height:60px;border-radius:10px;background:#14253D;color:#F4F1E8;line-height:60px">FF</p><p style="width:76px;height:60px;border-radius:10px;background:#14253D;color:#F4F1E8;line-height:60px">03</p>
+<p style="width:76px;height:60px;border-radius:10px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412;line-height:54px">00</p><p style="width:76px;height:60px;border-radius:10px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412;line-height:54px">21</p>
+<p style="flex:1;border-radius:10px;background:#1D4ED8;color:#F4F8FF;font-family:'Noto Sans SC', sans-serif;font-size:28px">IP 数据报……</p>
+<p style="width:76px;height:60px;border-radius:10px;background:#14253D;color:#F4F1E8;line-height:60px">FCS</p><p style="width:76px;height:60px;border-radius:10px;background:#C2410C;color:#FFF6EC;line-height:60px">7E</p>
+</div>
+</div>
+<aside>【3 分钟】
+用一次宽带拨号来看“协议类型”字段怎么起作用。你在家里的路由器或电脑上输入宽带账号和密码，点“连接”，这条 PPP 链路上依次发生：
+1. 建立链路：双方用 LCP（链路控制协议）的帧协商参数，比如最大帧长、用哪种认证方式。这些帧的“协议”字段是 C021。
+2. 身份认证：验证账号和密码，用 PAP 或 CHAP，协议字段分别是 C023 或 C223。
+3. 配置网络层：NCP（网络控制协议）的帧为你分配 IP 地址。对 IP 来说，协议字段是 8021。
+4. 传输数据：之后的帧，载荷都是 IP 数据报，协议字段是 0021。这时你浏览网页、看视频，每个 IP 数据报都被装进这样的帧里。
+下面的结构图：不管哪一步，帧的结构都是一样的：7E FF 03，协议 2 字节，信息，FCS，7E，只有“协议”字段的值和信息的内容不同。接收方看到“协议”字段，就知道交给谁处理。
+所以 PPP 之所以比 SLIP 强，不只是组帧，而是它在组帧的基础上，把“拨号上网的整个过程”也标准化了。
+[提示：这一页的重点是“协议类型字段的作用”，不要陷入 LCP/NCP 的细节。]</aside>
+</section>

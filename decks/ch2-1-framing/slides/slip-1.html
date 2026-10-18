@@ -1,0 +1,46 @@
+<section id="slip-1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · SLIP</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">真实协议 ①：SLIP（串行线路 IP）</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">它是什么</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">早年用电话线和调制解调器拨号上网的数据链路协议（RFC 1055，1988 年），只负责一件事：把 IP 数据报装进帧里发出去。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">和玩具协议的对应</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">路标 “~” → 字节 <b>END = C0</b>；转义字符 “\” → 字节 <b>ESC = DB</b>。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">帧格式：END + IP 数据报 + END</p>
+<div style="display:flex;align-items:stretch;gap:6px;height:96px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace">
+<div style="width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#C2410C;border-radius:14px"><p style="font-size:36px;font-weight:700;color:#FFF6EC">C0</p></div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#1D4ED8;border-radius:14px"><p style="font-family:'Noto Sans SC', sans-serif;font-size:32px;font-weight:700;color:#F4F8FF">IP 数据报（任意个字节）</p></div>
+<div style="width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#C2410C;border-radius:14px"><p style="font-size:36px;font-weight:700;color:#FFF6EC">C0</p></div>
+</div>
+<div style="display:flex;gap:6px">
+<div style="width:180px;text-align:center"><p style="font-size:26px;color:#4B5A6B">END · 1 字节</p></div>
+<div style="flex:1;text-align:center"><p style="font-size:26px;color:#4B5A6B">不定长</p></div>
+<div style="width:180px;text-align:center"><p style="font-size:26px;color:#4B5A6B">END · 1 字节</p></div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">END = C0H（1100 0000）</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">一帧的开始和结束。接收方一见到 C0，就知道到了帧的边界。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">ESC = DBH（1101 1011）</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">转义字符。IP 数据报里如果碰巧出现 C0 或 DB，要用它来“改写”。</p>
+</div>
+</div>
+<aside>【2 分钟】
+前面是玩具，现在看第一个真实的协议：SLIP，全称 Serial Line IP，串行线路上的 IP 协议。20 世纪 80 年代末，大家用电话线加调制解调器拨号上网，用的就是它。它只干一件事：把 IP 数据报装进帧，从串口发出去。
+它和我们的玩具协议一一对应：路标 ~ 换成字节 END，十六进制 C0；转义字符 \ 换成字节 ESC，十六进制 DB。
+帧格式极其简单：一个 END，后面跟着整个 IP 数据报，最后再来一个 END。
+END = C0H，也就是 1100 0000，标出一帧的开始和结束。ESC = DBH，也就是 1101 1011，是转义字符。
+问题和玩具协议一样：IP 数据报是任意字节，里面可能碰巧出现 C0 或 DB。下一页看 SLIP 怎么处理。
+[补充：很多实现会在帧的开头也发一个 END，这样即使线路上有噪声，接收方也能先把噪声“冲掉”。课上可以不展开。]</aside>
+</section>

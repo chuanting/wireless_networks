@@ -1,0 +1,60 @@
+<section id="bit-3" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 面向比特的组帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例：发送方怎样做比特插入</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:24px;align-items:baseline"><p style="font-size:28px;font-weight:700;color:#4B5A6B">① 原始数据（26 位）</p><p style="font-size:26px;color:#9A3412">橙色 = 每组连续 1 里的第 5 个 1</p></div>
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+</div>
+<div data-build-in="fade 1" style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:24px;align-items:baseline"><p style="font-size:28px;font-weight:700;color:#1E40AF">② 插入后（30 位）</p><p style="font-size:26px;color:#1E40AF">蓝色 = 发送方插入的 0</p></div>
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FDEBDD;border:2px solid #C2410C;color:#9A3412">1</p><p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+<p style="width:40px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+</div>
+</div>
+<div data-build-in="fade 2" style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">开头的 01111110</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">正好和 Flag 一样！插入后变成 0111110 10，不再像 Flag。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">恰好 5 个 1 再接 0</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">11111 0：发送方不看后面，照样插，变成 11111 0 0。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">连续 10 个 1</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">每满 5 个插一个：共插 2 个，计数在插入后清零重新开始。</p>
+</div>
+</div>
+<div data-build-in="fade 2" style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">26 位变成 30 位：插入了 4 个 0。线路上，连续的 1 最多只有 5 个。</p></div>
+<aside>【4 分钟 · 请带着学生一位一位地走一遍】
+具体数据（26 位）：0 111111 0 11111 0 1111111111 0 1。
+① 从左往右扫描，数连续的 1。
+第一段：0 之后来了 6 个 1。数到第 5 个 1（橙色）时，立刻在后面插入一个 0（蓝色），然后第 6 个 1 再往后。注意：数据开头这段 0 111111 0 恰好和 Flag 一样，插入之后变成 0 11111 0 1 0，就不再像 Flag 了。
+第二段：恰好是 5 个 1，后面接的是 0。发送方不管后面是什么，数到第 5 个 1 就插，变成 11111 0 0。
+第三段：连续 10 个 1。第 5 个 1 之后插一个 0，计数清零；再数 5 个 1，又插一个 0。一共插了 2 个。
+（点击）② 结果：原来 26 位，变成 30 位，插入了 4 个 0（蓝色）。
+（再点击）下面三个小卡片总结了三种情形：碰上 Flag 的样子、恰好 5 个 1、很长的一串 1。
+关键点：插入之后，线路上的数据里连续的 1 最多只有 5 个，永远不会出现 6 个连续的 1，因此永远不会冒充 Flag。
+[提示：学生常见错误是“只在 6 个 1 的时候才插”。强调：只数 1 的个数，到 5 就插，不管后面是什么。]
+[验算：用程序检查，26 位 01111110 111110 1111111111 01 做比特插入后得 011111010111110011111011111001，共 30 位。]</aside>
+</section>

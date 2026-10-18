@@ -1,0 +1,46 @@
+<section id="len-2" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 长度计数</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">致命弱点：长度出错，后面全部错位</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#4B5A6B">发送方发出的（正确）</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;text-align:center">
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8">00</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8">05</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">48</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">45</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4C</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4C</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4F</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8;margin-left:12px">00</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8">02</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4F</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4B</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8;margin-left:12px">00</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8">03</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">42</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">59</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">45</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">接收方看到的：第一个长度字段中的 1 个比特被噪声翻转（05 → 07）</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;text-align:center">
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#14253D;color:#F4F1E8">00</p><p style="width:68px;height:60px;line-height:56px;border-radius:8px;background:#14253D;color:#FFF6EC;border:3px solid #C2410C">07</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">48</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">45</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4C</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4C</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#DCE6FB">4F</p>
+<p style="width:68px;height:60px;line-height:56px;border-radius:8px;background:#FFFEFA;border:3px solid #C2410C;color:#9A3412;margin-left:0">00</p><p style="width:68px;height:60px;line-height:56px;border-radius:8px;background:#FFFEFA;border:3px solid #C2410C;color:#9A3412">02</p>
+<p style="width:68px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC;margin-left:12px">4F</p><p style="width:68px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">4B</p>
+<p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#E3DDCB;color:#4B5A6B;margin-left:12px">00</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">03</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">42</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">59</p><p style="width:68px;height:60px;line-height:60px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">45</p>
+</div>
+</div>
+<div data-build-in="fade 1" style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px"><p style="font-size:28px;font-weight:700;color:#9A3412">① 第一帧读多了</p><p style="font-size:26px;line-height:1.4;color:#14253D">L = 7，把下一帧的长度 00 02 也吃进了载荷。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px"><p style="font-size:28px;font-weight:700;color:#9A3412">② 把数据当成长度</p><p style="font-size:26px;line-height:1.4;color:#14253D">接下来的 4F 4B（“OK”）被当成长度：0x4F4B = 20299。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px"><p style="font-size:28px;font-weight:700;color:#9A3412">③ 后面全部失步</p><p style="font-size:26px;line-height:1.4;color:#14253D">要等 2 万多字节才算一帧，期间所有帧都被吞掉。</p></div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">对比：路标法出错，最多损坏一两帧，下一个路标就能重新对齐；长度法一旦失步，没有自己恢复的办法。</p></div>
+</div>
+<aside>【3 分钟】
+长度计数的致命弱点：长度字段本身如果出错，后面全部错位。
+上面一行是发送方发出的正确数据。
+下面一行：假设第一帧的长度字段 00 05 在传输中被噪声翻转了 1 个比特，变成了 00 07（05 = 0000 0101，07 = 0000 0111，只差一位）。
+① 接收方以为这一帧有 7 个字节，就读了 7 个字节：HELLO 之后，又把下一帧的长度字段 00 02 吃进了载荷。
+② 然后它把接下来的两个字节 4F 4B 当成“下一帧的长度”。4F 4B 是 “OK” 的 ASCII 码，被当成数字，是 0x4F4B = 20299。
+③ 于是接收方要等 20299 个字节才认为这一帧结束，后面所有的帧全被吞进去了，什么都收不到。
+这就是“失步”（loss of synchronization）。
+对比：路标法，一个比特出错，最多损坏当前一两帧；下一个 Flag（或 7E）一出现，接收方立刻能重新对齐。长度法一旦失步，自己没有办法恢复，需要额外的机制：比如设置超时、让校验码也保护长度字段、或者另外加同步标记。
+所以长度计数更适合用在不容易出错的场合。
+[验算：4F4B 十六进制 = 4×4096 + 15×256 + 4×16 + 11 = 16384 + 3840 + 64 + 11 = 20299。]</aside>
+</section>
