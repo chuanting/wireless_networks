@@ -1,0 +1,45 @@
+<section id="parity-gen" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · 奇偶校验（可略）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一般形式：多个校验位，各查数据的一个子集</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">例：K = 3 个信息位 S1 S2 S3，L = 4 个校验位 C1 C2 C3 C4</p>
+<div style="display:flex;gap:40px;font-family:'Times New Roman', Georgia, serif;font-size:36px;color:#14253D">
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="line-height:1.3"><i>C</i>1 = <i>S</i>1 ⊕ <i>S</i>3</p>
+<p style="line-height:1.3"><i>C</i>2 = <i>S</i>1 ⊕ <i>S</i>2 ⊕ <i>S</i>3</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="line-height:1.3"><i>C</i>3 = <i>S</i>1 ⊕ <i>S</i>2</p>
+<p style="line-height:1.3"><i>C</i>4 = <i>S</i>2 ⊕ <i>S</i>3</p>
+</div>
+</div>
+<p style="font-size:26px;color:#4B5A6B">每个校验位只检查信息位的一部分（⊕ = 异或）。</p>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">发送：信息 100</p>
+<div style="display:flex;flex-direction:column;gap:6px;font-family:'Times New Roman', Georgia, serif;font-size:30px;color:#14253D">
+<p>C1 = 1 ⊕ 0 = 1</p><p>C2 = 1 ⊕ 0 ⊕ 0 = 1</p><p>C3 = 1 ⊕ 0 = 1</p><p>C4 = 0 ⊕ 0 = 0</p>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#14253D">校验位 1110，发出的序列 <b>100 1110</b>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">接收：收到 1011110（第 2 位错了）</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">收到的信息位是 101，重新算校验位：</p>
+<div style="display:flex;flex-direction:column;gap:6px;font-family:'Times New Roman', Georgia, serif;font-size:30px;color:#14253D">
+<p>C1 = 1 ⊕ 1 = 0　　C2 = 1 ⊕ 0 ⊕ 1 = 0</p><p>C3 = 1 ⊕ 0 = 1　　C4 = 0 ⊕ 1 = 1</p>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#14253D">算得 0011，与收到的 1110 <b>不同</b> → 有错。</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">这类“按规则异或”的校验码统称线性分组码。下面要学的 CRC，是其中最重要的一员。</p></div>
+<aside>【2 分钟 · 可略】
+把校验位推广：不止一个，而是 L 个，每个只检查信息位的一个子集。
+例：3 个信息位 S1 S2 S3，4 个校验位：C1 = S1 ⊕ S3；C2 = S1 ⊕ S2 ⊕ S3；C3 = S1 ⊕ S2；C4 = S2 ⊕ S3。
+发送：信息位 100：C1 = 1 ⊕ 0 = 1；C2 = 1 ⊕ 0 ⊕ 0 = 1；C3 = 1 ⊕ 0 = 1；C4 = 0 ⊕ 0 = 0。校验位 1110，发出的序列是 1001110。
+接收：假设第 2 位出错，收到 1011110。收到的信息位是 101，重新算校验位：C1 = 1 ⊕ 1 = 0；C2 = 1 ⊕ 0 ⊕ 1 = 0；C3 = 1 ⊕ 0 = 1；C4 = 0 ⊕ 1 = 1。算得 0011，和收到的 1110 不同，所以有错。
+这类“按规则异或”的校验码统称线性分组码。上一页的二维校验，也是它的特例。下面要学的 CRC，是其中最重要的一员，因为它可以用很简单的硬件实现，而且对突发错误特别有效。
+[提示：这一页是为 CRC 作铺垫，时间紧可以跳过，直接讲 CRC 也不影响理解。]</aside>
+</section>

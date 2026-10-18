@@ -1,0 +1,62 @@
+<section id="sw-sn" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">解决办法：给帧编序号 SN，接收方记住 RN</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:610px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="加上序号后，重复帧会被丢弃" viewBox="0 0 1072 565" width="1072" height="565" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V541" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V541" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,129" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,132 817,140 820,118" fill="#1D4ED8"/>
+<circle cx="840" cy="132" r="9" fill="#1D4ED8"/>
+<path d="M840,132L528,178" stroke="#14253D" stroke-width="5" fill="none"/>
+<path d="M514,164L542,192M514,192L542,164" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
+<path d="M212,44V264M204,44H220M204,264H220" stroke="#C2410C" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+<path d="M240,264L818,349" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,352 817,360 820,338" fill="#C2410C"/>
+<circle cx="840" cy="352" r="9" fill="#C2410C"/>
+<path d="M840,352L262,437" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,440 260,426 263,448" fill="#14253D"/>
+<path d="M240,440L818,525" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,528 817,536 820,514" fill="#1D4ED8"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:436px;top:323px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA SN=0</p>
+<p style="position:absolute;left:992px;top:414px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">交付，RN→1</p>
+<p style="position:absolute;left:700px;top:411px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA">ACK RN=1</p>
+<p style="position:absolute;left:190px;top:438px;width:130px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">定时器</p>
+<p style="position:absolute;left:458px;top:553px;width:300px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DATA SN=0（重发）</p>
+<p style="position:absolute;left:992px;top:634px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#C2410C">SN&lt;RN：丢弃</p>
+<p style="position:absolute;left:700px;top:631px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK RN=1</p>
+<p style="position:absolute;left:436px;top:719px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA SN=1</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">帧里加两个序号</p>
+<div style="display:flex;gap:4px;align-items:stretch;height:56px;text-align:center">
+<div style="width:90px;display:flex;align-items:center;justify-content:center;background:#C2410C;border-radius:10px 0 0 10px"><p style="font-size:26px;font-weight:700;color:#FFF6EC">SN</p></div>
+<div style="width:90px;display:flex;align-items:center;justify-content:center;background:#C2410C"><p style="font-size:26px;font-weight:700;color:#FFF6EC">RN</p></div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#1D4ED8"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组</p></div>
+<div style="width:90px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:0 10px 10px 0"><p style="font-size:26px;font-weight:700;color:#F4F1E8">CRC</p></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">SN：我这一帧的编号</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">RN：我期望收到的<b>下一帧</b>的编号（= 已经正确收到的最大编号 + 1）</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">B 的规则</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">收到 SN = RN 的帧：交付，RN 加 1。收到 SN &lt; RN 的帧：是重复，<b>丢弃</b>，但仍然回 ACK(RN)。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">停等式里，SN 和 RN 只需要 <b>1 位</b>（模 2）：0、1 交替就够了。</p>
+</div>
+</div>
+<aside>【3 分钟 · 重点】
+解决办法：给每一帧编一个序号，叫发送序号 SN；同时，接收方记住“我期望收到的下一帧是第几号”，叫接收序号 RN。每一帧里都带这两个域：SN 是这一帧自己的编号，RN 是“我期望收到的下一帧的编号”，也就等于已经正确收到的最大编号加 1。
+接收方 B 的规则：收到 SN 等于 RN 的帧，是 B 正在等的新帧：交给上层，RN 加 1。收到 SN 小于 RN 的帧，说明是已经收过的重复帧：丢弃，但仍然回 ACK，告诉对方“我期望的是 RN”。
+再看图，重复刚才的情形：A 发 DATA，SN = 0；B 收到，交付，RN 从 0 变成 1，回 ACK，RN = 1；但 ACK 丢了。A 超时，重发 SN = 0（橙色）；B 收到，发现 SN = 0 小于 RN = 1，是重复，丢弃，不再交付，但仍然回 ACK（RN = 1）；A 收到 ACK，RN = 1 大于自己的 SN = 0，说明 B 已经收到了，于是发下一帧，SN = 1。
+一个有趣的问题：序号要多大？停等式里，同时在路上的帧最多只有 1 个（新帧或它的重发），所以序号只需 1 位：0、1 交替就够了。
+[提示：现在 ACK 和数据帧用同一个帧格式（SN、RN、分组、CRC）；没有数据可发时，也可以发一个只有 RN 的短帧。]</aside>
+</section>

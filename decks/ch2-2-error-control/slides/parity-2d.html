@@ -1,0 +1,41 @@
+<section id="parity-2d" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · 奇偶校验</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">加强版：二维奇偶校验，还能定位出错的位</h2>
+</div>
+<div style="display:flex;gap:28px;align-items:flex-start">
+<div style="width:760px;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">把数据排成方阵，每行、每列各加一个偶校验位</p>
+<div style="display:flex;flex-direction:column;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;text-align:center">
+<div style="display:flex;gap:6px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC;margin-left:8px">1</p></div>
+<div style="display:flex;gap:6px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC;margin-left:8px">0</p></div>
+<div style="display:flex;gap:6px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC;margin-left:8px">0</p></div>
+<div style="display:flex;gap:6px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC;margin-left:8px">0</p></div>
+<div style="display:flex;gap:6px;margin-top:8px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#9A3412;border:2px solid #9A3412;color:#FFF6EC;margin-left:8px">1</p></div>
+</div>
+<p style="font-size:26px;color:#4B5A6B">蓝色：4×4 数据；橙色：每行（右）、每列（下）的偶校验位。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">如果第 2 行第 3 列的 1 被翻转成 0</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 第 2 行校验失败（只剩 1 个 1）</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 第 3 列校验失败</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 行与列的交叉点 = 出错的位置！</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">能力</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 任何 1 位错：<b>定位并纠正</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 任何 2 位、3 位错：<b>一定能发现</b></p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">• 代价：5×5 = 25 位里 9 位是冗余</p>
+</div>
+</div>
+</div>
+<aside>【3 分钟】
+把一维奇偶校验加强：把数据排成方阵，每一行、每一列各加一个偶校验位。例：4×4 的数据（蓝色）：
+行：1011 有 3 个 1，校验位 1；0110 有 2 个 1，校验位 0；1100，校验位 0；0011，校验位 0。
+列：第 1 列 1,0,1,0 有 2 个 1，校验位 0；第 2 列 0,1,1,0，校验位 0；第 3 列 1,1,0,1 有 3 个 1，校验位 1；第 4 列 1,0,0,1，校验位 0。右下角是校验位的校验位，等于 1。
+假设第 2 行第 3 列的那个 1 在传输中被翻转成了 0：第 2 行的校验就对不上（变成只有 1 个 1），第 3 列的校验也对不上。行和列交叉的那个位置，就是出错的位置。接收方不仅发现了错误，还能直接把它翻回来——这叫“纠错”。
+能力：任何 1 位错，都能定位并纠正；任何 2 位、3 位错，一定能发现（但 2 位错时无法确定具体位置，不能纠正）。代价：5×5 = 25 位里，有 9 位是冗余，开销较大。
+这种“交叉检查”的思想，很重要：多个校验位，各检查数据的不同子集，合起来检错能力远强于单个校验位。下一页把这个思想推广。
+[验算：行校验 [1,0,0,0]，列校验 [0,0,1,0]，右下角 1（行校验位之和 = 列校验位之和 = 1）。]</aside>
+</section>

@@ -1,0 +1,21 @@
+<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 2 章 · 端到端的传输协议 · 2.2</p>
+<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">链路层的差错控制</h1>
+<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">怎样发现错误，又怎样把它纠正</h2>
+<p style="font-size:32px;color:#B9C4D3">奇偶校验 · CRC · ARQ 协议 · 最佳帧长</p>
+<svg aria-label="装饰图：发送的比特流经过噪声，其中一位被翻转（橙色）" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
+<path fill="#B9C4D3" d="M3 40h22v44h-22zM28 40h22v44h-22zM53 40h22v44h-22zM128 40h22v44h-22zM203 40h22v44h-22zM228 40h22v44h-22zM328 40h22v44h-22zM353 40h22v44h-22zM578 40h22v44h-22zM603 40h22v44h-22zM3 260h22v44h-22zM28 260h22v44h-22zM53 260h22v44h-22zM128 260h22v44h-22zM203 260h22v44h-22zM228 260h22v44h-22zM328 260h22v44h-22zM353 260h22v44h-22zM578 260h22v44h-22zM603 260h22v44h-22z"/>
+<path fill="#3B4E68" d="M78 40h22v44h-22zM103 40h22v44h-22zM153 40h22v44h-22zM178 40h22v44h-22zM253 40h22v44h-22zM278 40h22v44h-22zM303 40h22v44h-22zM378 40h22v44h-22zM403 40h22v44h-22zM428 40h22v44h-22zM453 40h22v44h-22zM478 40h22v44h-22zM503 40h22v44h-22zM528 40h22v44h-22zM553 40h22v44h-22zM78 260h22v44h-22zM103 260h22v44h-22zM153 260h22v44h-22zM178 260h22v44h-22zM253 260h22v44h-22zM278 260h22v44h-22zM378 260h22v44h-22zM403 260h22v44h-22zM428 260h22v44h-22zM453 260h22v44h-22zM478 260h22v44h-22zM503 260h22v44h-22zM528 260h22v44h-22zM553 260h22v44h-22z"/>
+<path fill="#22344E" d="M3 150h22v44h-22zM28 150h22v44h-22zM53 150h22v44h-22zM78 150h22v44h-22zM103 150h22v44h-22zM128 150h22v44h-22zM153 150h22v44h-22zM178 150h22v44h-22zM203 150h22v44h-22zM228 150h22v44h-22zM253 150h22v44h-22zM278 150h22v44h-22zM328 150h22v44h-22zM353 150h22v44h-22zM378 150h22v44h-22zM403 150h22v44h-22zM428 150h22v44h-22zM453 150h22v44h-22zM478 150h22v44h-22zM503 150h22v44h-22zM528 150h22v44h-22zM553 150h22v44h-22zM578 150h22v44h-22zM603 150h22v44h-22z"/>
+<path fill="#F4975A" d="M303 150h22v44h-22zM303 260h22v44h-22z"/>
+</svg>
+<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<aside>【开场 · 1 分钟】
+上一节（2.1）我们解决了第一件事：在比特流里划出一帧。这一节解决第二、第三件事：这一帧收对了吗？收错了怎么办？
+右边的装饰图：最上面一行是发送的比特，中间一行是线路上的噪声，最下面一行是接收到的比特——橙色的那一位被噪声翻转了。接收方怎么发现这件事？这就是差错检测。发现之后怎么补救？这就是 ARQ（自动重传请求）。
+本节三块内容：
+一、差错检测：奇偶校验、二维校验、CRC（循环冗余校验）。
+二、ARQ 协议：停等式、返回 n（Go-Back-N）、选择重发（Selective Repeat），以及它们的效率。
+三、最佳帧长：一帧切多长最划算。
+全程用具体的数字例子，需要的公式都会推出来。时间不做限制，以讲明白为准，全部讲完约 100 分钟，可以分成两到三次。</aside>
+</section>

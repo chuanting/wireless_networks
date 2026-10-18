@@ -1,0 +1,48 @@
+<section id="crc-power" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">CRC 有多厉害？实际用的 g 能保证什么</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 24px">
+<p style="width:620px;font-size:28px;font-weight:700;color:#F4975A">错误类型（校验位 L 位）</p>
+<p style="flex:1;font-size:28px;font-weight:700;color:#F4F1E8">CRC 的检错能力</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 24px">
+<p style="width:620px;font-size:26px;color:#14253D">任意 1 位错</p><p style="flex:1;font-size:26px;font-weight:700;color:#1E40AF">全部发现</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 24px">
+<p style="width:620px;font-size:26px;color:#14253D">任意 2 位错（帧不太长时）</p><p style="flex:1;font-size:26px;font-weight:700;color:#1E40AF">全部发现</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 24px">
+<p style="width:620px;font-size:26px;color:#14253D">奇数个错（CRC-16、CRC-CCITT）</p><p style="flex:1;font-size:26px;font-weight:700;color:#1E40AF">全部发现</p>
+</div>
+<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:11px 24px">
+<p style="width:620px;font-size:26px;font-weight:700;color:#14253D">长度 ≤ L 的突发错误（连续一团）</p><p style="flex:1;font-size:26px;font-weight:700;color:#1E40AF">全部发现</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 24px">
+<p style="width:620px;font-size:26px;color:#14253D">更长的突发错误 / 其他任意错误</p><p style="flex:1;font-size:26px;color:#14253D">漏检概率约 1 / 2<i>L</i>（<i>L</i> 次方）</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">漏检概率有多小</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">L = 16：约 1.5 × 10 的 −5 次方（六万五千分之一）</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">L = 32：约 2.3 × 10 的 −10 次方</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">实际使用的生成多项式</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">CRC-16、CRC-CCITT（16 位）：HDLC、PPP 的 FCS</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">CRC-32（32 位）：以太网、Wi-Fi、ZIP 文件</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">代价：1500 字节的帧只多 2 到 4 字节；硬件用移位寄存器和异或门，一位一位地实时算出来。</p></div>
+<aside>【3 分钟】
+实际用的 CRC，生成多项式经过精心挑选，能保证：
+任意 1 位错，全部发现；任意 2 位错（帧不太长时），全部发现；奇数个错，在 CRC-16 和 CRC-CCITT 里全部发现（因为它们的生成多项式含有 D+1 这个因子）；长度不超过 L 的突发错误——也就是连续的一团错，全部发现，这对前面说的“成团”的突发错误特别有用。
+更长的突发错误，或者其他任意的错误，漏检的概率约为 1/2^L。L = 16 时约是 1.5×10^-5，六万五千分之一；L = 32 时约是 2.3×10^-10。
+也就是说，只用 16 位或 32 位冗余，漏检概率就低到可以忽略。1500 字节的帧，只多 2 到 4 个字节，开销极小。
+实际使用：CRC-16 和 CRC-CCITT 用在 HDLC、PPP 的 FCS（上一节我们看到的帧校验序列）；CRC-32 用在以太网、Wi-Fi、ZIP 文件等等。
+硬件实现：用移位寄存器加异或门，数据一位一位流过，边传输边算，不需要额外时间。
+[补充：CRC 只管“检错”，不能纠错。发现错了之后怎么办？这就是下面的 ARQ。]</aside>
+</section>

@@ -1,0 +1,36 @@
+<section id="crc-idea" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">CRC 的想法：让整串数据“能被 g 整除”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">先用十进制类比：双方约定“除数 g = 7”</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">发送方要发数据 <b>1234</b>。在后面补一位校验数字，使整个数能被 7 整除：</p>
+<div style="display:flex;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:44px;font-weight:700;line-height:1.2"><p style="color:#1D4ED8">1234</p><p style="color:#C2410C">1</p></div>
+<p style="font-size:28px;line-height:1.5;color:#14253D">12341 = 7 × 1763，除得尽。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">接收方：用 7 去除，看余数</p>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#DCE6FB;border-radius:14px;padding:12px 18px"><p style="font-size:26px;color:#1E40AF">收到 12341</p><p style="font-size:26px;line-height:1.4;color:#14253D">余 0 → 无错 ✓</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border-radius:14px;padding:12px 18px"><p style="font-size:26px;color:#9A3412">收到 12741</p><p style="font-size:26px;line-height:1.4;color:#14253D">余 1 → 有错 ✓</p></div>
+</div>
+<div style="background:#FFF3E6;border:2px dashed #C2410C;border-radius:14px;padding:12px 18px"><p style="font-size:26px;line-height:1.45;color:#14253D">收到 12348：差了 7，仍除得尽 → <b>漏检</b>。错误的大小恰好是 7 的倍数时才会漏检。</p></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#14253D;border-radius:22px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">CRC = 同样的想法，换成二进制</p>
+<p style="font-size:28px;line-height:1.5;color:#F4F1E8">• 双方约定一个二进制数 <b>g</b>（叫生成多项式），比如 1011。</p>
+<p style="font-size:28px;line-height:1.5;color:#F4F1E8">• 发送方补上 L 位校验位，使整串比特“被 g 整除”（用<b>模 2</b> 运算，没有进位）。</p>
+<p style="font-size:28px;line-height:1.5;color:#F4F1E8">• 接收方用 g 去除，<b>余数为 0 才认为无错</b>；漏检只发生在错误图样恰好是 g 的倍数时。</p>
+</div>
+<aside>【3 分钟】
+CRC 的名字叫循环冗余校验（Cyclic Redundancy Check），听起来吓人，其实想法很朴素：让整串数据“能被 g 整除”。
+先用十进制类比。双方约定除数 g = 7。发送方要发数据 1234，在后面补一位校验数字，使整个数能被 7 整除：12341 = 7 × 1763，除得尽，所以补 1。
+接收方用 7 去除：收到 12341，余 0，认为无错；收到 12741（中间一位变了），12741 = 7 × 1820 + 1，余 1，不为 0，有错。
+漏检什么时候发生？如果收到 12348，比原来多了 7，仍然除得尽，就看不出来。也就是说，只有错误的大小恰好是 7 的倍数才会漏检。
+CRC 是同样的想法，只是换成二进制：双方约定一个二进制数 g，比如 1011，叫生成多项式；发送方补上 L 位校验位，使整串比特被 g 整除；接收方用 g 去除，余数为 0 才认为无错。
+区别只有一点：二进制的加减法要用“模 2 运算”，没有进位和借位，这样整套运算用异或就能完成，非常适合硬件。下一页讲模 2 运算。
+[验算：12341 ÷ 7 = 1763；12741 = 7×1820 + 1；12348 = 7×1764。]</aside>
+</section>

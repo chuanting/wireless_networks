@@ -1,0 +1,27 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T14:00:00Z" },
+  "lists": "css",
+  "title": "链路层的差错控制：检错、重传与最佳帧长",
+  "order": [
+    "cover", "why", "map", "agenda",
+    "d1", "err-source", "redundancy", "parity-1", "parity-2d", "parity-gen", "crc-idea", "crc-mod2", "crc-div", "crc-send", "crc-check", "crc-power", "crc-poly", "ed-sum",
+    "d2", "arq-idea", "sw-1", "sw-loss", "sw-dup", "sw-sn", "sw-late", "sw-algo", "sw-eff-1", "sw-eff-2", "sw-limit", "win-idea", "gbn-1", "gbn-2", "gbn-eff", "sr-1", "sr-eff", "win-size", "choose-n", "arq-compare", "arpanet", "arq-sum",
+    "d3", "fl-1", "fl-2", "fl-3", "mh-1", "mh-2", "fl-rt", "fl-sum",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：一个比特翻转的后果，本讲的路线。", "start": "cover" },
+    "s1": { "description": "差错检测：奇偶校验、二维校验、CRC。", "start": "d1" },
+    "s2": { "description": "ARQ 协议：停等式、返回 n、选择重发，以及它们的效率。", "start": "d2" },
+    "s3": { "description": "最佳帧长：单条链路与多跳路径。", "start": "d3" },
+    "s4": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

@@ -1,0 +1,40 @@
+<section id="mh-2" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 最佳帧长 · 多跳路径</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">最佳分组长度：<i>K</i>* = √( <i>M V</i> / (<i>j</i> − 1) )</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">推导：把 ⌈<i>M</i>/<i>K</i>⌉ 近似成 <i>M</i>/<i>K</i></p>
+<p style="font-size:30px;line-height:1.5;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>C T</i> ≈ <i>M</i> + <i>M V</i>/<i>K</i> + (<i>j</i> − 1)(<i>K</i> + <i>V</i>)</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">对 <i>K</i> 求导，令其为 0：</p>
+<p style="font-size:30px;line-height:1.5;font-family:'Times New Roman', Georgia, serif;color:#14253D">− <i>M V</i>/<i>K</i>² + (<i>j</i> − 1) = 0</p>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">结果</p>
+<p style="font-size:34px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>K</i>* = √( <i>M V</i> / (<i>j</i> − 1) )</p>
+<p style="font-size:26px;line-height:1.45;color:#D5DCE6">消息越长、头尾越大，分组应越长；跳数越多，分组应越短。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">例：<i>M</i> = 100 KB = 8×10⁵ 位，<i>V</i> = 320 位（40 字节头部），<i>j</i> = 5 条链路</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>K</i>* = √(8×10⁵ × 320 / 4) = 8000 位 = <b>1000 字节</b>。下面是不同 <i>K</i> 的“额外时间”（相对只发 <i>M</i> 位）：</p>
+<div style="display:flex;gap:14px;align-items:flex-end;height:230px;border-bottom:3px solid #5B6B7C;padding:0 10px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">40.6%</p><div style="width:100px;height:203px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">17.2%</p><div style="width:100px;height:86px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">10.2%</p><div style="width:100px;height:51px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:28px;font-weight:700;color:#1E40AF">8.2%</p><div style="width:100px;height:41px;background:#1D4ED8;border-radius:6px 6px 0 0"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">10.2%</p><div style="width:100px;height:51px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">17.2%</p><div style="width:100px;height:86px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
+</div>
+<div style="display:flex;gap:14px;padding:0 10px;text-align:center">
+<p style="flex:1;font-size:26px;color:#4B5A6B"><i>K</i> = 800</p><p style="flex:1;font-size:26px;color:#4B5A6B">2000</p><p style="flex:1;font-size:26px;color:#4B5A6B">4000</p><p style="flex:1;font-size:26px;font-weight:700;color:#1E40AF">8000（最佳）</p><p style="flex:1;font-size:26px;color:#4B5A6B">16000</p><p style="flex:1;font-size:26px;color:#4B5A6B">32000</p>
+</div>
+</div>
+<aside>【3 分钟】
+这一页求最优的分组长度 K。把 ⌈M/K⌉ 近似成 M/K，则 C·T ≈ M + MV/K + (j−1)(K+V)。对 K 求导，令导数为 0：−MV/K² + (j−1) = 0，解得 K* = √[MV/(j−1)]。
+规律：消息越长（M 大）、头尾越大（V 大），分组应该越长；跳数越多（j 大），分组应该越短。
+例：消息 100 KB = 8×10^5 位，头部 40 字节 = 320 位，经过 j = 5 条链路。K* = √(8×10^5 × 320/4) = √(6.4×10^7) = 8000 位 = 1000 字节。这个数和我们实际网络里常见的 1000 多字节的分组长度很接近。
+下面的柱状图是不同 K 对应的“额外时间”，相对只发 M 位而言：K = 800 位（100 字节）时 40.6%；K = 2000 位时 17.2%；4000 位 10.2%；8000 位 8.2%，最小；16000 位 10.2%；32000 位 17.2%。左右对称，最低点正好在 8000。
+[验算：C·T = M + ⌈M/K⌉V + (j−1)(K+V)。K = 8000：8×10^5 + 100×320 + 4×8320 = 865280，额外 8.16%。K = 800：8×10^5 + 1000×320 + 4×1120 = 1124480，额外 40.56%。]</aside>
+</section>

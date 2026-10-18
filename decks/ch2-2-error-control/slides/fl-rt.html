@@ -1,0 +1,44 @@
+<section id="fl-rt" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 最佳帧长 · 实时业务与网络整体</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">语音要“短”，网络要“统一”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">实时语音：打包时延</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">语音一边说一边发：必须先攒够 <i>K</i> 位才能组成一个分组，这段时间叫<b>打包时延</b>。</p>
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:30px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">打包时延 =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch"><div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>K</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>R</i></p></div></div>
+<p style="font-size:26px;color:#4B5A6B;padding-left:10px">（<i>R</i> = 语音的比特速率）</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">例：64 kb/s 数字语音，要求打包时延 &lt; 10 ms</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• <i>K</i> = 500 位：500 / 64000 = 7.8 ms ✓</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• <i>K</i> = 8000 位（1000 字节）：125 ms ✗，通话有明显延迟</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">所以语音分组要<b>很短</b>，通常不到 500 位。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">“慢货车效应”（slow trunk effect）</p>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">各用户选的“最佳帧长”并不相同。如果长短不一的分组共用一条链路，<b>很长的分组会堵住后面的短分组</b>。</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">例：128 kb/s 的链路上，一个 1500 字节的分组要占 12000 ÷ 128000 ≈ <b>94 ms</b>。排在它后面的语音包只能干等。</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:4px;height:44px"><div style="width:64px;background:#C2410C;border-radius:6px"></div><div style="width:48px;background:#1D4ED8;border-radius:6px"></div><div style="width:48px;background:#1D4ED8;border-radius:6px"></div><div style="flex:1;background:#E3DDCB;border-radius:6px"></div></div>
+<div style="display:flex;gap:4px;height:44px"><div style="width:300px;background:#C2410C;border-radius:6px;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;color:#FFF6EC">长分组（货车）</p></div><div style="width:48px;background:#1D4ED8;border-radius:6px"></div><div style="width:48px;background:#1D4ED8;border-radius:6px"></div><div style="flex:1"></div></div>
+<p style="font-size:24px;color:#4B5A6B">橙色长分组在前，蓝色语音短包被堵在后面。</p>
+</div>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">结论：帧长应由网络统一规定（如以太网的 1500 字节），而不是各终端自己随意定。</p></div>
+<aside>【3 分钟】
+前面只关心“消息进入系统后多久到达”。但是对于流型业务，比如语音，要关心的是：某一个比特进入网络，到它离开网络，经过了多久。这时必须算上打包时延：语音是一边说一边产生的，必须先攒够 K 位，才能组成一个分组，这段时间是 K/R，R 是语音的比特速率。
+例：64 kb/s 的数字语音，通常要求打包时延小于 10 ms。K = 500 位，打包时延 500/64000 = 7.8 ms，满足；如果 K = 8000 位（1000 字节），打包时延 125 ms，通话会有明显的延迟。所以语音的分组要很短，通常 500 位甚至更短。
+但是，网络是很多用户共用的。每个用户最佳的帧长各不相同，如果长短不一的分组共用一条链路，很长的分组会堵住后面的短分组，就像单行道上一辆慢速的货车，堵住后面的小汽车，这叫“慢货车效应”（slow trunk effect）。例：128 kb/s 的链路上，一个 1500 字节的分组要占 94 ms，排在它后面的语音包只能干等。
+结论：最佳的帧长度应当由网络来统一规定（比如以太网的 1500 字节），而不是由各终端自行设计。
+[验算：500/64000 = 7.8 ms；8000/64000 = 125 ms；12000/128000 = 93.75 ms。]</aside>
+</section>

@@ -1,0 +1,53 @@
+<section id="crc-poly" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC（进阶，可略）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">多项式视角：为什么叫“生成多项式”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">比特串 ↔ 多项式（每位当系数）</p>
+<div style="display:flex;align-items:flex-start;gap:12px">
+<p style="font-size:34px;line-height:1.3;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D">10110111</p>
+<p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">↔ <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">7</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">5</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">4</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">2</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i> + 1</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B"><i>D</i> 可以看成“延时一位”。第 <i>i</i> 位是 1，就有 <i>D</i> 的 <i>i</i> 次方这一项。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">CRC-16 的生成多项式</p>
+<div style="display:flex;align-items:flex-start">
+<p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>g</i>(<i>D</i>) = <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">16</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">15</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + <i>D</i></p><p style="font-size:22px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D">2</p><p style="font-size:32px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#14253D"> + 1</p>
+</div>
+<p style="font-size:28px;line-height:1.4;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D">1 1000 0000 0000 0101</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">17 位，所以 L = 16。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">公式：校验位多项式 = 余式</p>
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:34px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>C</i>(<i>D</i>) = Remainder [</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 2px"><div style="display:flex;align-items:flex-start"><p style="font-size:30px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>S</i>(<i>D</i>) · <i>D</i></p><p style="font-size:20px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>L</i></p></div></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 8px 0"><p style="font-size:30px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>g</i>(<i>D</i>)</p></div>
+</div>
+<p style="font-size:34px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">]</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#D5DCE6">乘以 <i>D</i> 的 <i>L</i> 次方，就是“后面补 L 个 0”；系数的加减都是模 2。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">参考例：数据 10110111，CRC-16，5 次异或后得余数 0000001110110010</p>
+<div style="display:flex;flex-direction:column;gap:2px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">
+<p>10110111 0000000000000000　（数据 + 16 个 0）</p>
+<p style="color:#4B5A6B">在第 1、2、4、5、7 位各异或一次 g（共 5 次）</p>
+<p style="color:#9A3412">　　　　　 0000001110110010　（余数 = 校验位）</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B">发送序列 10110111 0000001110110010（24 位）。</p>
+</div>
+<aside>【3 分钟 · 进阶，可略】
+这一页说明为什么叫“生成多项式”。
+把比特串的每一位当作多项式的系数：10110111，从左到右对应 D^7、D^6……D^0，为 1 的位有 D^7、D^5、D^4、D^2、D^1、D^0，所以 10110111 ↔ D^7 + D^5 + D^4 + D^2 + D + 1。D 可以看成“延时一位”。
+CRC-16 的生成多项式是 g(D) = D^16 + D^15 + D^2 + 1，写成比特串是 1 1000 0000 0000 0101，一共 17 位，所以校验位 L = 16。
+公式：校验位多项式 C(D) = 余式[ S(D)·D^L / g(D) ]。S(D)·D^L 就是“数据后面补 L 个 0”，除法是模 2 的多项式长除。
+参考例：数据 10110111，CRC-16。数据后补 16 个 0，对 g 做模 2 除法，一共要异或 5 次（数据里第 1、2、4、5、7 位为 1 的位置，依次处理），余数是 0000001110110010，发送序列是 10110111 0000001110110010，共 24 位。
+这个余数我已经用程序核对过。如果时间不够，只需要知道“CRC 其实就是多项式除法的余式”，不必手算这个 16 位的例子。
+[验算：S(D)·D^16 的最左 1 对应 D^23，每次异或后最左的 1 往右移，直到前 8 位全为 0，剩下的低 16 位就是余数。]</aside>
+</section>

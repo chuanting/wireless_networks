@@ -1,0 +1,56 @@
+<section id="sw-late" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么还要 RN？超时太短会出怪事</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:610px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="ACK 来得太慢导致重复确认" viewBox="0 0 1072 560" width="1072" height="560" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V536" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V536" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,160" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,164 816,170 821,149" fill="#1D4ED8"/>
+<path d="M840,164L262,280" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,284 259,269 264,290" fill="#14253D"/>
+<path d="M212,44V244M204,44H220M204,244H220" stroke="#C2410C" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+<circle cx="240" cy="244" r="9" fill="#C2410C"/>
+<path d="M240,244L818,360" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,364 816,370 821,349" fill="#C2410C"/>
+<path d="M240,284L552,346" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<path d="M538,332L566,360M538,360L566,332" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
+<path d="M840,364L262,480" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,484 259,469 264,490" fill="#14253D"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:388px;top:322px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA SN=0</p>
+<p style="position:absolute;left:736px;top:444px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA">ACK RN=1</p>
+<p style="position:absolute;left:230px;top:428px;width:90px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">超时</p>
+<p style="position:absolute;left:560px;top:556px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DATA SN=0（重发）</p>
+<p style="position:absolute;left:388px;top:562px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA SN=1</p>
+<p style="position:absolute;left:736px;top:644px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK RN=1</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">经过</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">① 定时器设得太短：A 在 ACK 回到之前就超时，重发 SN=0。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">② 第一个 ACK(RN=1) 到达，A 发 SN=1，这一帧在链路上丢了。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">③ B 对重复的 SN=0 又回一个 ACK(RN=1)，此时才到达 A。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">没有 RN 的 ACK</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 无法分辨“这是对哪一帧的确认”，会误以为 SN=1 已收到，直接发 SN=2。<b>SN=1 永远丢失</b>。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">有 RN 就没事</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 要求 RN &gt; SN 才算新的确认。这里 RN=1 不大于 SN=1，忽略；超时后重发 SN=1。</p>
+</div>
+</div>
+<aside>【3 分钟 · 可略（较难）】
+再看一个更隐蔽的问题：如果定时器设得太短，会怎样？
+图：A 发 SN = 0；B 收到，回 ACK（RN = 1），但这个 ACK 路上比较慢；A 的定时器太短，在 ACK 回来之前就超时了，重发 SN = 0（橙色）。
+接着，第一个 ACK(RN = 1) 到达，A 以为 SN = 0 被确认了，发下一帧 SN = 1；这一帧在链路上丢了（红叉）。
+与此同时，B 收到了那个重复的 SN = 0，丢弃，但仍然回了一个 ACK(RN = 1)，这个 ACK 此时才到达 A。
+如果 ACK 里没有 RN：A 看到一个 ACK，只能以为它是对刚发出的 SN = 1 的确认，于是发 SN = 2。结果：SN = 1 永远丢了！
+如果 ACK 里有 RN：A 的规则是，只有收到 RN 大于自己的 SN 的确认才算有效。现在 A 的 SN = 1，这个 ACK 的 RN = 1，不大于 SN，所以忽略。A 超时后重发 SN = 1，一切正常。
+所以：SN 保证 B 不重复交付；RN 保证 A 不会被迟到的旧确认骗了。这就是等待式 ARQ 要求双向都带序号的原因。
+[提示：这一页较难，时间紧可以只讲结论：“序号不是可有可无的，SN 防重复，RN 防误确认”。]</aside>
+</section>

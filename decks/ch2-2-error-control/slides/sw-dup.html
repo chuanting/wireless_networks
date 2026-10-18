@@ -1,0 +1,52 @@
+<section id="sw-dup" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">情形二：ACK 丢了 → B 把同一帧收了两遍</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:520px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="ACK 丢失导致重复交付" viewBox="0 0 1072 477" width="1072" height="477" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V453" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V453" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,129" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,132 817,140 820,118" fill="#1D4ED8"/>
+<circle cx="840" cy="132" r="9" fill="#1D4ED8"/>
+<path d="M840,132L528,178" stroke="#14253D" stroke-width="5" fill="none"/>
+<path d="M514,164L542,192M514,192L542,164" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
+<path d="M212,44V264M204,44H220M204,264H220" stroke="#C2410C" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+<path d="M240,264L818,349" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,352 817,360 820,338" fill="#C2410C"/>
+<circle cx="840" cy="352" r="9" fill="#C2410C"/>
+<path d="M840,352L262,437" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,440 260,426 263,448" fill="#14253D"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:413px;top:316px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA</p>
+<p style="position:absolute;left:992px;top:414px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">交给上层</p>
+<p style="position:absolute;left:773px;top:404px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D;background:#FFFEFA">ACK</p>
+<p style="position:absolute;left:190px;top:438px;width:130px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">定时器</p>
+<p style="position:absolute;left:473px;top:549px;width:210px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DATA（重发）</p>
+<p style="position:absolute;left:992px;top:634px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#C2410C">又交给上层！</p>
+<p style="position:absolute;left:773px;top:624px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">发生了什么</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">第一份 DATA 被正确收到，B 已经把它交给上层，ACK 却在回来的路上丢了。A 以为没送到，超时后重发。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">问题</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">B 收到第二份 DATA，<b>分不清</b>它是新的一帧，还是刚才那帧的重复，只好又交给上层一次。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">后果</p>
+<p style="font-size:28px;line-height:1.45;color:#F4F1E8">上层收到重复的数据：转账扣了两次钱。必须能识别重复帧。</p>
+</div>
+</div>
+<aside>【2 分钟】
+第二种异常更微妙：数据帧是好的，ACK 丢了。
+A 发的第一份 DATA 被 B 正确收到了，B 把它交给了上层（图中右侧蓝点），然后回 ACK；但这个 ACK 在回来的路上丢了（红叉）。
+A 不知道 B 已经收到了，只看到定时器到期，于是重发同一帧（橙色）。B 收到第二份 DATA：它能做的只有一件事——当作新帧再交给上层一次（右侧橙色点）。
+后果：上层收到重复的数据。转账的例子：扣了两次钱！
+问题的根源：B 没办法区分“新的一帧”和“刚才那一帧的重复”。解决办法：给每一帧编上序号。
+[提示：这个例子很有说服力——“可靠传输”不只是“不丢”，还包括“不重复”。]</aside>
+</section>

@@ -1,0 +1,58 @@
+<section id="crc-send" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">发送方：四步算出校验位</h2>
+</div>
+<div style="display:flex;align-items:stretch;gap:14px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">1</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">补 0</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">数据后面补 L 个 0。L = g 的位数 − 1。</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:36px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">做除法</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">用 g 做模 2 长除法（只有异或）。</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:36px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">3</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">取余数</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">余数是 L 位，就是校验位。</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:36px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 22px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">4</p>
+<p style="font-size:28px;font-weight:700;color:#14253D">接在后面</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">把余数放到数据后面，替换补的 0。</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">上一页的例子：数据 1101，g = 1011</p>
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;text-align:center">
+<p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">0</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC;margin-left:10px">0</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:56px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">蓝：数据；橙：校验位（余数 001）。共 7 位。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">再算一个：数据 1010001，g = 1011</p>
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;text-align:center">
+<p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">0</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">0</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">0</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">0</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#DCE6FB">1</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC;margin-left:10px">1</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:50px;height:62px;line-height:62px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">被除数 1010001000，余数 110。碰到 0 就不异或，跳到下一位。</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">性质：发送出去的整串（数据 + 校验位）一定能被 g 整除——接收方就用这一点检错。</p></div>
+<aside>【2 分钟】
+发送方算校验位，四步：
+一，在数据后面补 L 个 0，L 等于 g 的位数减 1。
+二，用 g 做模 2 长除法，只有异或。
+三，取余数，余数是 L 位，就是校验位。
+四，把余数放到数据后面，替换原来补的 0。
+上一页的例子：数据 1101，g = 1011，余数 001，发送 1101001，共 7 位。
+再算一个例子：数据 1010001，g = 1011，被除数是 1010001000。第 1 位是 1，异或，得 0001001000；这时前面 3 位都是 0，不用做，看第 4 位，它是 1，再异或，得 0000010000；第 5 位是 0，不用异或，看第 6 位，它是 1，再异或，得 0000000110。余数是 110，发送 1010001110。
+性质：发送出去的整串（数据加校验位）一定能被 g 整除。这个性质，就是接收方检错的依据。
+[验算：1010001110 ÷ 1011：1010 ⊕ 1011 = 0001，… 可以让学生自己除一遍，余数应为 000。]</aside>
+</section>

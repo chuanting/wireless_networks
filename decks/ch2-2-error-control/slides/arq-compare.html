@@ -1,0 +1,46 @@
+<section id="arq-compare" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 比较</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种 ARQ 放在一起比较</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#F4975A"></p>
+<p style="width:430px;font-size:28px;font-weight:700;color:#F4F1E8">停等式</p>
+<p style="width:470px;font-size:28px;font-weight:700;color:#F4F1E8">返回 n</p>
+<p style="flex:1;font-size:28px;font-weight:700;color:#F4F1E8">选择重发</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#C2410C">发送窗口</p><p style="width:430px;font-size:26px;color:#14253D">1</p><p style="width:470px;font-size:26px;color:#14253D"><i>n</i></p><p style="flex:1;font-size:26px;color:#14253D"><i>n</i></p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#C2410C">接收方缓存</p><p style="width:430px;font-size:26px;color:#14253D">1 帧</p><p style="width:470px;font-size:26px;color:#14253D">1 帧（乱序的丢掉）</p><p style="flex:1;font-size:26px;color:#14253D"><i>n</i> 帧（要排序）</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#C2410C">出错后重发</p><p style="width:430px;font-size:26px;color:#14253D">这一帧</p><p style="width:470px;font-size:26px;color:#14253D">这一帧及其后的全部</p><p style="flex:1;font-size:26px;color:#14253D">只重发这一帧</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#C2410C">序号（模 <i>m</i>）</p><p style="width:430px;font-size:26px;color:#14253D">1 位（<i>m</i> = 2）</p><p style="width:470px;font-size:26px;color:#14253D"><i>n</i> ≤ <i>m</i> − 1</p><p style="flex:1;font-size:26px;color:#14253D"><i>n</i> ≤ <i>m</i> / 2</p>
+</div>
+<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#1E40AF">利用率（窗口足够大）</p>
+<div style="width:430px;display:flex;flex-direction:column;align-items:stretch;padding-right:200px"><div style="display:flex;justify-content:center;padding:0 4px 2px"><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 4px 0"><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 + 2<i>a</i></p></div></div>
+<div style="width:470px;display:flex;flex-direction:column;align-items:stretch;padding-right:230px"><div style="display:flex;justify-content:center;padding:0 4px 2px"><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 4px 0"><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 + (<i>n</i>−1)<i>p</i></p></div></div>
+<p style="flex:1;font-size:28px;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p>
+</div>
+<div style="display:flex;align-items:center;background:#FDEBDD;border:2px solid #C2410C;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#9A3412">卫星例子<br>（<i>a</i>=20，<i>p</i>=0.1）</p><p style="width:430px;font-size:30px;font-weight:700;color:#14253D">2.2%</p><p style="width:470px;font-size:30px;font-weight:700;color:#14253D">18%</p><p style="flex:1;font-size:30px;font-weight:700;color:#14253D">90%</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:11px 22px">
+<p style="width:260px;font-size:26px;font-weight:700;color:#C2410C">用在哪里</p><p style="width:430px;font-size:26px;color:#14253D">Wi-Fi（每帧确认）</p><p style="width:470px;font-size:26px;color:#14253D">HDLC、PPP 的可靠模式</p><p style="flex:1;font-size:26px;color:#14253D">TCP 的 SACK、5G 的 RLC</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">共同点：CRC 检错 + 序号 + 定时器；区别只在“怎么重发”。</p></div>
+<aside>【2 分钟】
+三种 ARQ 放在一起比较。
+发送窗口：停等式是 1，另外两种是 n。接收方缓存：停等式 1 帧；返回 n 也是 1 帧，乱序的直接丢掉；选择重发要 n 帧，还要排序。出错后重发：停等式重发这一帧；返回 n 重发这一帧和后面的全部；选择重发只重发这一帧。序号：停等式 1 位；返回 n 要求 n ≤ m−1；选择重发要求 n ≤ m/2。
+利用率（窗口足够大时）：三个公式。卫星例子：2.2%、18%、90%。
+用在哪里：Wi-Fi（802.11）对每个单播帧都要确认，本质是停等式；HDLC 的可靠模式用的是返回 n；TCP 的选择确认（SACK）和 5G 的 RLC 层用的是选择重发的思想。
+共同点：都是 CRC 检错、序号、定时器这三样东西，区别只在“怎么重发”。
+[提示：这张表可以让学生拍照留着复习。]</aside>
+</section>

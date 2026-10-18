@@ -1,0 +1,46 @@
+<section id="arpanet" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 并行等待式（了解，可略）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">另一种思路：并行跑 8 个停等式（ARPANET）</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;align-items:center;gap:20px">
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#14253D;border-radius:16px;padding:18px 0"><p style="font-size:28px;font-weight:700;color:#F4F1E8">输入分组</p><p style="font-size:24px;color:#B9C4D3">任意分给空闲信道</p></div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;gap:8px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">A</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#9A3412">B</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">C</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">D</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#9A3412">E</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">F</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">G</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">H</p></div>
+</div>
+<p style="font-size:24px;color:#4B5A6B">8 条独立的停等式“虚信道”（橙色 = 正在等确认，蓝色 = 空闲）</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#14253D;border-radius:16px;padding:18px 0"><p style="font-size:28px;font-weight:700;color:#F4F1E8">比特管道</p><p style="font-size:24px;color:#B9C4D3">复接发送</p></div>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">怎么工作</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• 每条虚信道自己是停等式：1 位 SN、1 位 RN。</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• 输入分组分到空闲的信道上；忙的信道<b>轮流</b>把分组再发一遍，直到收到确认——不需要定时器。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">特点</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• 管道里同时有最多 8 帧，效率约为停等式的 8 倍。</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">• 各信道速度不同，分组<b>可能乱序</b>到达，链路层不负责排序，要由上层来排。</p>
+</div>
+</div>
+<aside>【2 分钟 · 可略】
+最后看一种思路不同的方案：并行等待式，早期 ARPANET 用过。不是把窗口做大，而是并行跑 8 个独立的停等式，叫 8 条“虚信道”，编号 A 到 H。
+输入的分组可以任意分配给一个空闲的虚信道（蓝色）；忙的信道（橙色）正在等确认。8 条虚信道的帧复接到同一根比特管道上发送，采用轮询的方式：轮到某个忙信道时，如果确认还没到，就把它的分组再发一遍，所以不需要定时器。
+每条虚信道自己是停等式：1 位 SN、1 位 RN。
+特点：管道里同时最多有 8 帧在飞，效率约为停等式的 8 倍；但是各条信道速度不一样，分组可能乱序到达，链路层不负责排序，上层必须有排序能力。
+今天不细讲，了解一个思路：想提高效率，不一定要把窗口做大，并行也是一条路。
+[提示：这也是后面“多路复用”思想的一个雏形。]</aside>
+</section>

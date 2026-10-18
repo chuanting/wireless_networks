@@ -1,0 +1,50 @@
+<section id="win-size" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 序号的取值范围</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">序号不能无限增长：模 m 之后，窗口不能太大</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">序号域只有几个比特</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">序号用模 <i>m</i> 表示，例如 3 位序号：0、1、…、7、0、1、……（<i>m</i> = 8）。</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">窗口 <i>n</i> 不能太接近 <i>m</i>，否则接收方分不清<b>新帧</b>还是<b>旧帧的重发</b>。</p>
+</div>
+<div style="width:700px;display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">结论</p>
+<p style="font-size:30px;line-height:1.5;color:#F4F1E8">返回 n：<b><i>n</i> ≤ <i>m</i> − 1</b></p>
+<p style="font-size:30px;line-height:1.5;color:#F4F1E8">选择重发：<b><i>n</i> ≤ <i>m</i> / 2</b></p>
+<p style="font-size:26px;line-height:1.4;color:#D5DCE6">HDLC：<i>m</i> = 8（3 位序号），返回 n 的窗口最大 7。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">反例：返回 n，<i>m</i> = 8，窗口 <i>n</i> = 8（太大）</p>
+<div style="display:flex;align-items:center;gap:16px">
+<p style="width:190px;font-size:26px;font-weight:700;color:#4B5A6B">第一轮发 8 帧</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">0</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">1</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">2</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">3</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">4</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">5</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">6</p><p style="width:56px;height:52px;line-height:48px;border-radius:8px;background:#DCE6FB;border:2px solid #1D4ED8">7</p>
+</div>
+<p style="font-size:26px;color:#4B5A6B">全部被 B 收到，B 的 RN 回到 0</p>
+</div>
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border-radius:16px;padding:14px 20px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">情形 A：ACK 全部到达</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 发新的 8 帧，序号还是 0–7。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border-radius:16px;padding:14px 20px">
+<p style="font-size:26px;font-weight:700;color:#9A3412">情形 B：ACK 全部丢失</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 超时，重发同样的 8 帧，序号也是 0–7。</p>
+</div>
+</div>
+<p style="font-size:28px;font-weight:700;color:#14253D">两种情形下，B 收到的序号完全一样 → 无法区分，只能出错。<b>所以 n = m 不行。</b></p>
+</div>
+<aside>【3 分钟】
+实际协议里，序号域只有几个比特，所以序号是模 m 循环的：3 位序号，就是 0 到 7，再回到 0。这就带来一个问题：窗口 n 不能太大，否则接收方会分不清“新帧”和“旧帧的重发”。
+看反例：返回 n，序号模 8（m = 8），窗口也取 8。
+第一轮 A 发 8 帧，序号 0 到 7，全部被 B 正确收到，B 的 RN 回到 0（因为 8 取模是 0）。
+情形 A：ACK 全部到达，A 发新的 8 帧，序号还是 0 到 7。
+情形 B：ACK 全部丢失，A 超时，重发同样的 8 帧，序号也是 0 到 7。
+B 收到的序号完全一样，但意义完全不同：一个是新帧，一个是重发。B 没法区分，必然出错。所以返回 n 的窗口必须小于 m，n ≤ m−1。
+选择重发更严格：B 也有一个窗口，要避免新旧窗口的序号重叠，所以 n ≤ m/2。
+HDLC：序号 3 位，m = 8，返回 n 的窗口最大是 7；扩展格式用 7 位序号，窗口最大 127。
+[提示：这个结论下节（2.3）讲 HDLC 时还会用到，“模 8”和“窗口最大 7”要记住。]</aside>
+</section>

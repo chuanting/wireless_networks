@@ -1,0 +1,50 @@
+<section id="map" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第 2 章 · 端到端的传输协议</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">这一节在整章里的位置</h2>
+</div>
+<div style="display:flex;align-items:stretch;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#E3DDCB;border-radius:22px;padding:24px 26px">
+<p style="font-size:28px;font-weight:700;color:#4B5A6B">2.1 组帧 ✓</p>
+<p style="font-size:28px;line-height:1.45;color:#4B5A6B">已经能在比特流里划出一帧、还原一帧。</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#C2410C;border-radius:22px;padding:24px 26px">
+<p style="font-size:32px;font-weight:700;color:#FFF6EC">2.2.1 差错检测</p>
+<p style="font-size:28px;line-height:1.45;color:#FFE9D6">这一帧收对了吗？</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#C2410C;border-radius:22px;padding:24px 26px">
+<p style="font-size:32px;font-weight:700;color:#FFF6EC">2.2.2 ARQ 协议</p>
+<p style="font-size:28px;line-height:1.45;color:#FFE9D6">收错了，怎样让对方重发？</p>
+</div>
+<div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#C2410C;border-radius:22px;padding:24px 26px">
+<p style="font-size:32px;font-weight:700;color:#FFF6EC">2.2.3 最佳帧长</p>
+<p style="font-size:28px;line-height:1.45;color:#FFE9D6">一帧切多长最划算？</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">检错的基本思路</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">在数据后面加几位“校验位”，接收方重新算一遍，对不上就说明有错。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">ARQ 的基本思路</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">接收方告诉发送方“收到了”或“没收到”，没收到就再发一遍。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">最佳帧长的思路</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">帧太短，头尾占的比例大；帧太长，出错重发的代价大。取个折中。</p>
+</div>
+</div>
+<div style="background:#14253D;border-radius:20px;padding:18px 32px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">本节的核心问题：怎样用最小的代价，让一条会出错的链路变得可靠？</p></div>
+<aside>【2 分钟】
+先看这一节在整章里的位置。
+上一节解决了“划边界”：能在比特流里划出一帧、还原一帧。
+这一节分三块：
+2.2.1 差错检测：这一帧收对了吗？基本思路是在数据后面加几位校验位，接收方重新算一遍，对不上就说明有错。
+2.2.2 ARQ 协议：收错了怎么办？让对方重发。接收方告诉发送方“收到了”或“没收到”，没收到就再发一遍。重点是“怎样重发才有效率”，这里有三种方案。
+2.2.3 最佳帧长：一帧切多长最划算？帧太短，头尾占的比例太大；帧太长，一出错就要重发很多。需要取一个折中。
+核心问题：怎样用最小的代价，让一条会出错的链路变得可靠？这里的“代价”有两种：额外加的校验位，以及重传浪费的时间。</aside>
+</section>

@@ -1,0 +1,41 @@
+<section id="mh-1" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 最佳帧长 · 多跳路径</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">经过多条链路：分组切多大，时延最小？</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">一条消息（<i>M</i> 位）切成多个分组，经 <i>j</i> = 3 条链路“存储-转发”（分组收齐了才能转发）</p>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:110px;font-size:26px;font-weight:700;color:#14253D">链路 1</p>
+<div style="display:flex;gap:4px"><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 1</p></div><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 2</p></div><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 3</p></div></div></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:110px;font-size:26px;font-weight:700;color:#14253D">链路 2</p>
+<div style="display:flex;gap:4px"><div style="width:194px"></div><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 1</p></div><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 2</p></div><div style="width:190px;height:50px;background:#1D4ED8;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#F4F8FF">分组 3</p></div></div></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:110px;font-size:26px;font-weight:700;color:#14253D">链路 3</p>
+<div style="display:flex;gap:4px"><div style="width:388px"></div><div style="width:190px;height:50px;background:#C2410C;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#FFF6EC">分组 1</p></div><div style="width:190px;height:50px;background:#C2410C;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#FFF6EC">分组 2</p></div><div style="width:190px;height:50px;background:#C2410C;border-radius:8px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:700;color:#FFF6EC">分组 3</p></div></div></div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">每个分组要走完一整条链路，才能开始下一条：像“传送带”一样错开，叫流水线。</p>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">设：消息 <i>M</i> 位；每个分组负荷 <i>K</i> 位；每帧头尾 <i>V</i> 位；每条链路速率 <i>C</i></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 分组个数：⌈<i>M</i>/<i>K</i>⌉</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 最后一条链路要发完的总位数：<i>M</i> + ⌈<i>M</i>/<i>K</i>⌉<i>V</i></p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 流水线“填充”：前 <i>j</i> − 1 条链路各延迟一个分组的时间 (<i>K</i> + <i>V</i>)/<i>C</i></p>
+</div>
+<div style="width:720px;display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">总时延</p>
+<div style="display:flex;align-items:center;gap:10px">
+<p style="font-size:34px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>T</i> =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch"><div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>M</i> + ⌈<i>M</i>/<i>K</i>⌉<i>V</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 6px 0"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>C</i></p></div></div>
+<p style="font-size:34px;line-height:1.3;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">+ (<i>j</i> − 1)</p>
+<div style="display:flex;flex-direction:column;align-items:stretch"><div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>K</i> + <i>V</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 6px 0"><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>C</i></p></div></div>
+</div>
+<p style="font-size:26px;line-height:1.4;color:#D5DCE6"><i>K</i> 小：分组多，头尾总开销大；<i>K</i> 大：流水线填充时间长。</p>
+</div>
+</div>
+<aside>【4 分钟】
+前面讨论的是一条链路。现在看一条消息要经过多条链路（比如 j = 3 条）才能到达目的节点，每个中间节点“存储-转发”：整个分组收齐了才能转发。
+为了降低时延，把消息切成多个分组，像流水线一样错开传送（图）：链路 1 在发分组 2 的时候，链路 2 已经在发分组 1 了，链路 3 又晚了一拍。
+设消息 M 位，切成每个负荷 K 位的分组，每帧头尾 V 位，每条链路速率 C。分组个数 ⌈M/K⌉。
+总时延：最后一条链路要发完全部位数：M + ⌈M/K⌉V，需要的时间是除以 C；另外，流水线有“填充”时间：前 j−1 条链路，每一条都要多等一个分组的时间 (K+V)/C。所以 T = [M + ⌈M/K⌉V]/C + (j−1)(K+V)/C。
+两个因素：K 小，分组多，头尾总开销 ⌈M/K⌉V 大；K 大，流水线填充时间 (j−1)(K+V)/C 长。又是一个折中。
+[提示：图里三条链路上分组的位置是错开的，橙色是最后一条链路，它决定了总时延。]</aside>
+</section>

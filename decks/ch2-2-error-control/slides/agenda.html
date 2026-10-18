@@ -1,0 +1,48 @@
+<section id="agenda" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">本讲安排 · 约 100 分钟（可分两到三次讲）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">今天的路线图</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:28px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 32px">
+<p style="width:80px;font-size:40px;font-weight:700;color:#C2410C">01</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700;color:#14253D">差错检测</p>
+<p style="font-size:28px;color:#4B5A6B">奇偶校验 · 二维校验 · CRC（带手算例子）</p>
+</div>
+<div style="width:520px;display:flex;align-items:center;gap:16px"><div style="width:160px;height:28px;background:#C2410C;border-radius:14px"></div><p style="font-size:28px;font-weight:700;color:#9A3412">约 25 分钟</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 32px">
+<p style="width:80px;font-size:40px;font-weight:700;color:#C2410C">02</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700;color:#14253D">ARQ 协议（重点）</p>
+<p style="font-size:28px;color:#4B5A6B">停等式 · 返回 n · 选择重发 · 效率公式</p>
+</div>
+<div style="width:520px;display:flex;align-items:center;gap:16px"><div style="width:320px;height:28px;background:#C2410C;border-radius:14px"></div><p style="font-size:28px;font-weight:700;color:#9A3412">约 55 分钟</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 32px">
+<p style="width:80px;font-size:40px;font-weight:700;color:#C2410C">03</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700;color:#14253D">最佳帧长</p>
+<p style="font-size:28px;color:#4B5A6B">单条链路 · 多跳路径 · 语音与“慢货车效应”</p>
+</div>
+<div style="width:520px;display:flex;align-items:center;gap:16px"><div style="width:100px;height:28px;background:#14253D;border-radius:14px"></div><p style="font-size:28px;color:#4B5A6B">约 15 分钟</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 32px">
+<p style="width:80px;font-size:40px;font-weight:700;color:#C2410C">04</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700;color:#14253D">总结与练习</p>
+<p style="font-size:28px;color:#4B5A6B">一页回顾 · 课后练习</p>
+</div>
+<div style="width:520px;display:flex;align-items:center;gap:16px"><div style="width:48px;height:28px;background:#14253D;border-radius:14px"></div><p style="font-size:28px;color:#4B5A6B">约 5 分钟</p></div>
+</div>
+</div>
+<p style="font-size:28px;font-weight:700;background:#DCE6FB;color:#1E40AF;border-radius:12px;padding:12px 20px">前置知识：二进制异或，概率里的“几何分布”（1.2 节出现过）；其余课上补。</p>
+<aside>【1 分钟】
+本节分四块。重点是第二块：ARQ 协议，包括三种重传方案和它们的效率公式。
+第一块差错检测，重点是 CRC，一定要自己动手算一遍。
+第三块最佳帧长，是一个很实用的优化问题，需要用到一点微积分（求最大值）。
+前置知识很少：二进制异或——两位相同得 0，不同得 1；以及概率里的几何分布，第 1 章学随机过程时已经出现过：一件事每次成功的概率是 q，第一次成功需要的次数就服从几何分布。
+时间：全部讲完约 100 分钟，可以分两到三次。带“进阶”或“可略”字样的页，时间紧可以跳过：CRC 的多项式表示、停等式的正确性说明、并行等待式 ARQ。
+[可压缩的页：parity-gen、crc-poly、sw-late 之外的证明性内容、arpanet。]</aside>
+</section>

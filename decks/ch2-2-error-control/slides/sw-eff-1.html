@@ -1,0 +1,54 @@
+<section id="sw-eff-1" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式的效率</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">停等式到底有多慢？先算无差错的情形</h2>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>D</i></p><p style="font-size:28px;line-height:1.4;color:#14253D;padding-left:10px">= 帧长 ÷ 速率（发出一帧要多久）</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>p</i></p><p style="font-size:28px;line-height:1.4;color:#14253D;padding-left:10px">= 单程传播时延（信号走一趟）</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<div style="display:flex;align-items:flex-end"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>a</i> = <i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>p</i></p><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"> / <i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>D</i></p><p style="font-size:28px;line-height:1.4;color:#14253D;padding-left:10px">（相对时延）</p></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:20px 30px">
+<p style="font-size:28px;font-weight:700;color:#F4975A">一个周期：发 <i>T</i><i>D</i>，再空等一个来回 2<i>T</i><i>p</i>（忽略 ACK 的发送时间）</p>
+<div style="display:flex;align-items:center;gap:12px">
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>U</i> =</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 2px"><div style="display:flex;align-items:flex-end"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>D</i></p></div></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 8px 0"><div style="display:flex;align-items:flex-end"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>D</i></p><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"> + 2<i>T</i></p><p style="font-size:22px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>p</i></p></div></div>
+</div>
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">=</p>
+<div style="display:flex;flex-direction:column;align-items:stretch">
+<div style="display:flex;justify-content:center;padding:0 8px 2px"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1</p></div>
+<div style="display:flex;justify-content:center;border-top:3px solid #F4F1E8;padding:2px 8px 0"><p style="font-size:34px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">1 + 2<i>a</i></p></div>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">例 ①：两栋楼之间 1 km 光纤，100 Mb/s，帧长 1500 字节</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>D = 12000 ÷ 10⁸ = 120 μs；<i>T</i>p = 1000 m ÷ 2×10⁸ m/s = 5 μs；<i>a</i> ≈ 0.042</p>
+<div style="display:flex;height:40px;border-radius:8px;overflow:hidden"><div style="width:92%;background:#1D4ED8;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;color:#F4F8FF">发送 92%</p></div><div style="flex:1;background:#B9C4D3"></div></div>
+<p style="font-size:30px;font-weight:700;color:#1E40AF"><i>U</i> = 1 / (1 + 0.083) ≈ 92%</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:18px 24px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">例 ②：卫星链路，1 Mb/s，帧长 1500 字节</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>D = 12000 ÷ 10⁶ = 12 ms；<i>T</i>p ≈ 240 ms；<i>a</i> = 20</p>
+<div style="display:flex;height:40px;border-radius:8px;overflow:hidden"><div style="width:2.4%;background:#C2410C"></div><div style="flex:1;background:#E3DDCB;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;color:#4B5A6B">在等 ACK……</p></div></div>
+<p style="font-size:30px;font-weight:700;color:#9A3412"><i>U</i> = 1 / (1 + 40) ≈ 2.4%</p>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+停等式到底有多慢？先算没有差错的情形。
+先定义三个量：TD 是发出一帧要多久，等于帧长除以速率；Tp 是单程传播时延，信号走一趟要多久；a 等于 Tp 除以 TD，是相对时延。
+停等式每个周期：发 TD，然后空等一个来回 2Tp（假设 ACK 很短，它的发送时间忽略）。真正在发送的只有 TD，所以链路利用率 U = TD / (TD + 2Tp) = 1 / (1 + 2a)。
+例 ①：两栋楼之间 1 km 光纤，100 Mb/s，1500 字节。TD = 12000 位 ÷ 10^8 b/s = 120 微秒；信号在光纤里约 2×10^8 米/秒，Tp = 1000 ÷ (2×10^8) = 5 微秒；a ≈ 0.042。U = 1/(1 + 0.083) ≈ 92%。很高！
+例 ②：卫星链路，1 Mb/s，1500 字节。TD = 12 毫秒；卫星来回时延很长，单程 Tp 约 240 毫秒；a = 20。U = 1/(1 + 40) ≈ 2.4%。链路 97.6% 的时间都在空等 ACK！
+结论：a 越大，停等式越糟。传播时延比发送时间大得多的链路（卫星、跨洋光缆），停等式几乎没法用。
+[验算：12000/10^8 = 1.2×10^-4 s = 120 μs；1/(1+2×0.0417) = 0.923；1/(1+40) = 0.0244。]</aside>
+</section>

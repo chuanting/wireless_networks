@@ -39,7 +39,11 @@ window.COURSE = {
           desc: "为什么组帧 · 字符组帧（SLIP、PPP）· 比特插入（HDLC）· 帧的开销 · 长度计数",
           deck: "ch2-1-framing", slides: 51, minutes: 90
         },
-        { no: "2.2", title: "链路层的差错控制技术", status: "todo" },
+        {
+          no: "2.2", title: "链路层的差错控制技术", status: "ready",
+          desc: "差错检测（奇偶校验、CRC）· ARQ 协议（停等、返回 n、选择重发）· 最佳帧长",
+          deck: "ch2-2-error-control", slides: 50, minutes: 100
+        },
         { no: "2.3", title: "标准数据链路控制协议及其初始化", status: "todo" },
         { no: "2.4", title: "网络层和运输层的点对点传输协议", status: "todo" }
       ]

@@ -1,0 +1,38 @@
+<section id="sw-algo" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">把规则写完整：停等式 ARQ 的算法</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:32px;font-weight:700;color:#1E40AF">A（发送方）</p>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">①</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">置 SN = 0。</p></div>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">②</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">从上层取一个分组，编号为 SN；没有就等。</p></div>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">③</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">把带 SN 的帧发给 B，启动定时器。</p></div>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#1E40AF">④</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">收到 B 的帧，若 <b>RN &gt; SN</b>：SN 加 1，回到 ②。超时仍没有：回到 ③ 重发。</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 28px">
+<p style="font-size:32px;font-weight:700;color:#9A3412">B（接收方）</p>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">①</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">置 RN = 0。</p></div>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">②</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">每收到一个正确的帧：若 <b>SN = RN</b>，把分组交给上层，RN 加 1；否则（重复帧）直接丢弃。</p></div>
+<div style="display:flex;gap:14px;align-items:baseline"><p style="font-size:30px;font-weight:700;color:#9A3412">③</p><p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">无论是不是新帧，都在有限的时间内把当前的 RN 放进一个帧里，发回给 A。</p></div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么这个协议是对的</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">① <b>不重复、不乱序</b>：B 只交付 SN = RN 的帧，交付一次 RN 就加 1，旧帧的 SN 一定小于 RN，不可能再被交付。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">&nbsp;</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">② <b>不会卡死</b>：只要每次传输成功的概率大于 0，重发有限次后，帧一定能到，ACK 也一定能回来。</p>
+</div>
+</div>
+<aside>【3 分钟】
+现在把规则完整地写一遍，这就是停等式 ARQ 的算法。
+A 的算法：① 置 SN = 0。② 从上层取一个分组，编号为 SN，没有就等。③ 把这个分组装进带 SN 的帧里发给 B，启动定时器。④ 收到 B 的帧，如果其中的 RN 大于 SN，说明 B 已经收到了，于是 SN 加 1，回到 ②；如果超时仍没有收到，就回到 ③ 重发。
+B 的算法：① 置 RN = 0。② 每收到一个正确的帧，如果 SN 等于 RN，把分组交给上层，RN 加 1；否则是重复帧，直接丢弃。③ 无论是不是新帧，都在有限的时间内把当前的 RN 放进一个帧里发回给 A。
+为什么这个协议是对的？有两层意思：一、不重复、不乱序（专业上叫“稳妥性”）：B 只交付 SN 等于 RN 的帧，交付一次 RN 就加 1，旧帧的序号一定小于 RN，不可能再被交付。二、不会卡死（叫“活动性”）：只要每次传输成功的概率大于 0，重发有限次后，帧一定能到达，ACK 也一定能回来。
+实际协议里，序号用模 2 表示：SN、RN 都只用 1 位，“RN 大于 SN”变成“RN 不等于 SN”。
+[提示：这是一个很好的“协议设计”样板：先写算法，再论证它为什么正确。感兴趣的同学可以课后用程序模拟，故意丢包，看看会不会出错。]</aside>
+</section>

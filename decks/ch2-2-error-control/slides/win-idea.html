@@ -1,0 +1,51 @@
+<section id="win-idea" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 滑动窗口</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">滑动窗口：同时允许 n 帧“在路上”（例：n = 5）</h2>
+</div>
+<div style="display:flex;gap:20px;align-items:center;flex-wrap:nowrap">
+<div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:6px;background:#E3DDCB"></div><p style="font-size:24px;color:#4B5A6B">已确认</p></div>
+<div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:6px;background:#FDEBDD;border:3px solid #C2410C"></div><p style="font-size:24px;color:#4B5A6B">已发出，等确认</p></div>
+<div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:6px;background:#FFFEFA;border:3px solid #1D4ED8"></div><p style="font-size:24px;color:#4B5A6B">窗口内，还没发</p></div>
+<div style="display:flex;align-items:center;gap:8px"><div style="width:30px;height:30px;border-radius:6px;background:#FFFEFA;border:3px solid #C9C1AA"></div><p style="font-size:24px;color:#4B5A6B">窗口外，不能发</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">① 开始：窗口 [0, 4]</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">0</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">1</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">2</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">3</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">4</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">5</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">6</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">7</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">8</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">9</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">10</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">11</p>
+</div>
+</div>
+<div data-build-in="fade 1" style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#C2410C">② 连续发出 0–4（窗口满了，不能再发 5）</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">0</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">1</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">2</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">3</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">4</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">5</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">6</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">7</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">8</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">9</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">10</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">11</p>
+</div>
+</div>
+<div data-build-in="fade 2" style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:26px;font-weight:700;color:#1E40AF">③ 收到 0、1 的确认：窗口右滑到 [2, 6]，可以再发 5、6</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
+<p style="width:62px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">0</p><p style="width:62px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">2</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">3</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FDEBDD;border:3px solid #C2410C;color:#9A3412">4</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">5</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #1D4ED8;color:#1E40AF">6</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">7</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">8</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">9</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">10</p><p style="width:62px;height:56px;line-height:50px;border-radius:8px;background:#FFFEFA;border:3px solid #C9C1AA;color:#4B5A6B">11</p>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 24px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">窗口宽度 n</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">“已发未确认”的帧最多 n 个。停等式 = 窗口为 1 的特例。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 24px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">顺便得到“流量控制”</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方放慢 ACK 的返回，发送方就被窗口卡住，自然慢下来。</p>
+</div>
+</div>
+<aside>【3 分钟】
+滑动窗口的想法：发送方可以连续发多个帧，但“已经发出、还没有收到确认”的帧不能超过 n 个，n 叫窗口宽度。
+看图（点击逐步演示）。12 个帧，编号 0 到 11，n = 5。
+① 开始：窗口是 [0, 4]，蓝色边框表示窗口内、可以发。窗口外的 5 到 11 暂时不能发。
+② 发送方连续发出 0 到 4（橙色）：窗口满了，不能再发 5，必须等确认。
+③ 收到 0 和 1 的确认（灰色表示已确认）：窗口的左边界右移到 2，窗口变成 [2, 6]，于是 5、6 可以发了。窗口就这样随着确认的到达，向右“滑动”。
+窗口宽度 n 的含义：“已发未确认”的帧最多 n 个。停等式就是 n = 1 的特例。
+顺便得到“流量控制”：如果接收方放慢确认的返回，发送方就会被窗口卡住，发送速度自然降下来。第 6 章会再回到这个话题。
+[提示：n 应该多大？这要看管道能装多少帧，也就是 1 + 2a，后面“窗口取多大”一页会讲。]</aside>
+</section>

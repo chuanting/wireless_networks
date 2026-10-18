@@ -1,0 +1,81 @@
+<section id="sr-1" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 选择重发（Selective Repeat）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">选择重发：错了哪一帧，就只重发哪一帧</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="选择重发 ARQ：只重发丢失的那一帧" viewBox="0 0 1072 580" width="1072" height="580" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V556" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V556" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,140" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,144 816,151 820,130" fill="#1D4ED8"/>
+<path d="M240,84L552,136" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<path d="M538,122L566,150M538,150L566,122" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
+<path d="M240,124L818,220" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,224 816,231 820,210" fill="#1D4ED8"/>
+<path d="M240,164L818,260" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,264 816,271 820,250" fill="#1D4ED8"/>
+<path d="M240,244L818,340" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,344 816,351 820,330" fill="#1D4ED8"/>
+<path d="M840,144L262,240" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,244 260,230 264,251" fill="#14253D"/>
+<path d="M840,224L262,320" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,324 260,310 264,331" fill="#14253D"/>
+<path d="M840,264L262,360" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,364 260,350 264,371" fill="#14253D"/>
+<path d="M840,344L262,440" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,444 260,430 264,451" fill="#14253D"/>
+<path d="M212,84V324M204,84H220M204,324H220" stroke="#C2410C" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+<circle cx="240" cy="324" r="9" fill="#C2410C"/>
+<path d="M240,324L818,420" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,424 816,431 820,410" fill="#C2410C"/>
+<path d="M840,424L262,520" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,524 260,510 264,531" fill="#14253D"/>
+<circle cx="840" cy="224" r="8" fill="#8A97A6"/>
+<circle cx="840" cy="264" r="8" fill="#8A97A6"/>
+<circle cx="840" cy="344" r="8" fill="#8A97A6"/>
+<circle cx="840" cy="424" r="8" fill="#1D4ED8"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
+<p style="position:absolute;left:410px;top:320px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">0</p>
+<p style="position:absolute;left:410px;top:360px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">1</p>
+<p style="position:absolute;left:410px;top:400px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">2</p>
+<p style="position:absolute;left:410px;top:440px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">3</p>
+<p style="position:absolute;left:410px;top:520px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">4</p>
+<p style="position:absolute;left:841px;top:420px;width:110px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK 0</p>
+<p style="position:absolute;left:841px;top:500px;width:110px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK 2</p>
+<p style="position:absolute;left:841px;top:540px;width:110px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK 3</p>
+<p style="position:absolute;left:841px;top:620px;width:110px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK 4</p>
+<p style="position:absolute;left:230px;top:488px;width:90px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">超时</p>
+<p style="position:absolute;left:410px;top:600px;width:60px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">1</p>
+<p style="position:absolute;left:841px;top:700px;width:110px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK 1</p>
+<p style="position:absolute;left:990px;top:508px;width:80px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">缓存</p>
+<p style="position:absolute;left:990px;top:548px;width:80px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">缓存</p>
+<p style="position:absolute;left:990px;top:628px;width:80px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">缓存</p>
+<p style="position:absolute;left:990px;top:708px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">按序交付 1~4</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">和返回 n 的区别</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">• B 把乱序到达的帧<b>缓存</b>下来（灰点），并对每一帧单独确认。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">• A 只重发<b>没有被确认</b>的帧（这里只有 1）。</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">• 1 一到，B 把 1、2、3、4 按序一起交给上层。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">代价</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">接收方要有<b>缓存</b>和<b>排序</b>能力；确认信息更复杂（每帧一个，或位图）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">好处</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">没有出错的帧不用重发，特别适合时延大的链路（卫星）。</p>
+</div>
+</div>
+<aside>【3 分钟】
+选择重发（Selective Repeat）：错了哪一帧，只重发哪一帧。
+同样的场景：A 连续发 0、1、2、3，帧 1 丢了。
+和返回 n 的区别：B 不再丢弃乱序到达的帧，而是缓存下来（灰点），并且对每一帧单独确认（ACK 0、ACK 2、ACK 3、……）。A 看到哪些帧已经确认了，哪些没有，只重发没有被确认的——这里只有帧 1（橙色）。
+帧 1 到达后，B 手里有 1、2、3、4，于是一起按顺序交给上层。
+代价：B 要有缓存，要有排序的能力；确认信息也更复杂：每帧一个 ACK，或者用一个位图表示窗口内哪些帧已经收到。
+好处：没有出错的帧不用重发。对时延大、窗口大的链路（比如卫星）特别重要，因为返回 n 在这种链路上每错一帧就要重发上百帧。
+[提示：现代的 TCP 就采用了“选择确认”（SACK）的思想，和选择重发很接近。]</aside>
+</section>

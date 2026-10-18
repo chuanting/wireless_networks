@@ -1,0 +1,56 @@
+<section id="ed-sum" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">差错检测：四种校验码放在一起比较</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 22px">
+<p style="width:250px;font-size:26px;font-weight:700;color:#F4975A"></p>
+<p style="width:290px;font-size:26px;font-weight:700;color:#F4F1E8">冗余位数</p>
+<p style="width:500px;font-size:26px;font-weight:700;color:#F4F1E8">能发现什么</p>
+<p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">典型用途</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px">
+<p style="width:250px;font-size:26px;font-weight:700;color:#C2410C">1 位奇偶校验</p>
+<p style="width:290px;font-size:26px;color:#14253D">1 位</p>
+<p style="width:500px;font-size:26px;color:#14253D">所有奇数个错；漏掉偶数个错</p>
+<p style="flex:1;font-size:26px;color:#14253D">串口字符</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px">
+<p style="width:250px;font-size:26px;font-weight:700;color:#C2410C">二维奇偶校验</p>
+<p style="width:290px;font-size:26px;color:#14253D">行 + 列（K = 16 时 9 位）</p>
+<p style="width:500px;font-size:26px;color:#14253D">≤ 3 位错必发现；1 位错可纠正</p>
+<p style="flex:1;font-size:26px;color:#14253D">磁带、存储</p>
+</div>
+<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:12px 22px">
+<p style="width:250px;font-size:26px;font-weight:700;color:#1E40AF">CRC-16</p>
+<p style="width:290px;font-size:26px;color:#14253D">16 位</p>
+<p style="width:500px;font-size:26px;color:#14253D">1、2、奇数个错；≤ 16 位突发；漏检约 1/65536</p>
+<p style="flex:1;font-size:26px;color:#14253D">HDLC、PPP</p>
+</div>
+<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:12px 22px">
+<p style="width:250px;font-size:26px;font-weight:700;color:#1E40AF">CRC-32</p>
+<p style="width:290px;font-size:26px;color:#14253D">32 位</p>
+<p style="width:500px;font-size:26px;color:#14253D">≤ 32 位突发；漏检约 2.3×10 的 −10 次方</p>
+<p style="flex:1;font-size:26px;color:#14253D">以太网、Wi-Fi</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">检错 vs 纠错</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">检错码只告诉你“错了”，要靠重传（ARQ）补救；纠错码（FEC）能自己改正，但冗余多，常用于无线、卫星等重传代价大的场合。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">下一步</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">现在接收方已经能可靠地发现一帧出了错。发现之后呢？—— 让发送方重发，这就是 ARQ。</p>
+</div>
+</div>
+<aside>【2 分钟】
+把差错检测小结一下。
+1 位奇偶校验：冗余 1 位，能发现所有奇数个错，漏掉偶数个错，用在串口字符。
+二维奇偶校验：行加列的校验位，任何 3 位以内的错一定能发现，1 位错还能纠正；代价是冗余较多，用在磁带、存储。
+CRC-16：冗余 16 位，能发现 1 位、2 位、奇数个错，以及长度不超过 16 的突发错误，漏检概率约 1/65536；HDLC、PPP 用它。
+CRC-32：冗余 32 位，能发现不超过 32 位的突发错误，漏检概率约 2.3×10^-10；以太网、Wi-Fi 用它。
+检错和纠错的区别：检错码只告诉你“错了”，要靠重传来补救（ARQ）；纠错码（叫前向纠错，FEC）能自己改正，但冗余更多，常用在无线、卫星等重传代价很大的场合。我们的重点是链路层最常用的“检错加重传”。
+下一步：现在接收方已经能可靠地发现一帧出了错。发现之后呢？让发送方重发，这就是 ARQ。</aside>
+</section>

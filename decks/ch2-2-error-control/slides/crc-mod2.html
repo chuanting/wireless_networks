@@ -1,0 +1,42 @@
+<section id="crc-mod2" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先学一个小工具：模 2 运算</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="width:560px;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">加法 = 减法 = 异或（⊕）</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;color:#14253D">
+<p>0 ⊕ 0 = 0</p><p>0 ⊕ 1 = 1</p><p>1 ⊕ 0 = 1</p><p style="color:#C2410C">1 ⊕ 1 = 0</p>
+</div>
+<p style="font-size:28px;line-height:1.5;color:#14253D">相同得 0，不同得 1。<b>没有进位，也没有借位</b>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">整串比特：逐位异或</p>
+<div style="display:flex;flex-direction:column;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;text-align:center">
+<div style="display:flex;gap:6px;align-items:center"><p style="width:60px;font-family:'Noto Sans SC', sans-serif;font-size:26px;font-weight:400;color:#4B5A6B;text-align:left"></p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">0</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p></div>
+<div style="display:flex;gap:6px;align-items:center"><p style="width:60px;font-size:34px;color:#C2410C;text-align:left">⊕</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#E3DDCB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#E3DDCB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#E3DDCB">1</p></div>
+<div style="height:4px;background:#14253D;width:306px;margin:2px 0"></div>
+<div style="display:flex;gap:6px;align-items:center"><p style="width:60px"></p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p></div>
+</div>
+<p style="font-size:28px;line-height:1.5;color:#14253D">1101 ⊕ 1011 = 0110</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">除法：和笔算长除法一样</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">每一步：对齐 → 被除数的首位是 1，就<b>减去（异或）除数</b>；是 0 就不减。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么这样规定</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">异或在硬件里就是一个门电路，没有进位链，速度极快。</p>
+</div>
+</div>
+<aside>【2 分钟】
+CRC 用的是“模 2 运算”。规则极其简单：加法和减法是同一回事，都是异或，记作 ⊕。0⊕0 = 0，0⊕1 = 1，1⊕0 = 1，1⊕1 = 0。相同得 0，不同得 1。没有进位，也没有借位。
+整串比特就逐位异或。例：1101 ⊕ 1011：第 1 位 1⊕1 = 0；第 2 位 1⊕0 = 1；第 3 位 0⊕1 = 1；第 4 位 1⊕1 = 0。结果 0110。
+除法和笔算长除法一样：对齐，被除数当前的首位是 1，就减去（异或）除数；首位是 0，就不减，往下移一位。最后剩下的部分就是余数。
+为什么这样规定？因为异或在硬件里就是一个简单的门电路，没有进位链，速度极快。这也是 CRC 能在高速链路上实时计算的原因。
+下一页用一个具体的例子，把长除法一步一步做一遍。
+[提示：请同学动笔做两个异或：1010 ⊕ 0110 = 1100；1111 ⊕ 1111 = 0000。]</aside>
+</section>

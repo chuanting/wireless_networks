@@ -1,0 +1,46 @@
+<section id="homework" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">六道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">① 二维奇偶校验</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">3×3 数据 110 / 101 / 100，写出每行、每列的偶校验位。若第 2 行第 2 列的比特被翻转，接收方怎样定位？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">② CRC 计算</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">数据 11001，生成多项式 g = 1101（L = 3），求校验位和发送序列。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ CRC 检错</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">g = 1011。接收方收到 1010001110 和 1010011110，哪一个有错？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">④ 停等式的效率</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">链路 2 Mb/s，帧长 1000 字节，单程传播时延 10 ms。求 <i>a</i>、停等式利用率（无差错，以及 <i>p</i> = 0.05）。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">⑤ 窗口与序号</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">同一条链路，<i>p</i> = 0.05。要填满管道，窗口 <i>n</i> 至少多大？返回 n 与选择重发的利用率各是多少？序号至少几位？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">⑥ 最佳帧长</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">头尾 <i>l</i>h = 100 位，误比特率 <i>p</i>b = 10 的 −5 次方。求最佳负荷长度的近似值，并说明 2000 位和 10000 位的负荷哪个效率更高。</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① 行校验位：110 有 2 个 1 → 0；101 → 0；100 有 1 个 1 → 1。列校验位：第 1 列 1,1,1 有 3 个 1 → 1；第 2 列 1,0,0 → 1；第 3 列 0,1,0 → 1。右下角 1。若第 2 行第 2 列（0）被翻转成 1：第 2 行变成 111（奇数个 1，加校验位 0 仍是奇数），校验失败；第 2 列变成 1,1,0，加校验位 1，共 3 个 1，校验失败。行与列的交叉点就是第 2 行第 2 列，翻回来即可纠正。
+② 被除数 11001000，除数 1101。第 1 位是 1：1100 ⊕ 1101 = 0001，得 00011000；第 4 位是 1：（从第 4 位起）1100 ⊕ 1101 = 0001，得 00000010；前 5 位已全为 0，余数是最后 3 位 010。发送序列 11001 010 = 11001010。（验算：11001010 ÷ 1101，余数 000。）
+③ 1010001110 ÷ 1011，余数 000 → 无错；1010011110 ÷ 1011，余数 110 ≠ 0 → 有错（第 6 位被翻转）。
+④ TD = 8000 位 ÷ 2×10^6 = 4 ms；a = 10/4 = 2.5；U = 1/(1+2×2.5) = 1/6 ≈ 16.7%；p = 0.05 时 U = 0.95/6 ≈ 15.8%。
+⑤ 管道能装 1 + 2a = 6 帧，窗口 n = 6。返回 n：U = 0.95/(1+5×0.05) = 0.95/1.25 = 76%；选择重发：U = 1−p = 95%。序号：返回 n 要 m ≥ n+1 = 7，3 位（m = 8）；选择重发要 m ≥ 2n = 12，4 位（m = 16）。
+⑥ l_d* ≈ √(l_h/p_b) = √(100/10^-5) = √10^7 ≈ 3162 位（精确值约 3113 位）。U(2000) = 2000/2100 × (1−10^-5)^2100 ≈ 0.952 × 0.979 = 0.933；U(10000) = 10000/10100 × (1−10^-5)^10100 ≈ 0.990 × 0.904 = 0.895。所以 2000 位的负荷效率更高（更接近最佳点 3000 多位）。
+[验算：③ 1010011110 与 1010001110 只差第 6 位；⑥ U(3113) ≈ 0.938。]</aside>
+</section>
