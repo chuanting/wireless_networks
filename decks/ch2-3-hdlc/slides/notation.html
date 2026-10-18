@@ -1,0 +1,39 @@
+<section id="notation" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · HDLC 的工作过程</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">读图之前：帧的简写和颜色</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">帧的简写</p>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:26px;color:#14253D">
+<div style="display:flex;gap:14px;align-items:center"><p style="width:230px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#1D4ED8">I(2,5)</p><p style="flex:1;line-height:1.4">I 帧，<b>SN = 2，RN = 5</b></p></div>
+<div style="display:flex;gap:14px;align-items:center"><p style="width:230px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">RR(3)</p><p style="flex:1;line-height:1.4">RR 帧，RN = 3：“3 之前的都收到了”</p></div>
+<div style="display:flex;gap:14px;align-items:center"><p style="width:230px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">REJ(1)、RNR(3)</p><p style="flex:1;line-height:1.4">同理，括号里是 RN</p></div>
+<div style="display:flex;gap:14px;align-items:center"><p style="width:230px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#C2410C">SABM P、UA F</p><p style="flex:1;line-height:1.4">U 帧；后面的 P 或 F 表示该位置 1</p></div>
+</div>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">图中的颜色</p>
+<div style="display:flex;align-items:center;gap:14px"><div style="width:60px;height:8px;background:#1D4ED8;border-radius:4px"></div><p style="font-size:26px;color:#14253D">蓝：I 帧（数据）</p></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="width:60px;height:8px;background:#14253D;border-radius:4px"></div><p style="font-size:26px;color:#14253D">深色：S 帧（监控）</p></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="width:60px;height:8px;background:#C2410C;border-radius:4px"></div><p style="font-size:26px;color:#14253D">橙：U 帧（建立/拆除）；重传的帧</p></div>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">红叉 = 帧丢失；灰点 = B 丢弃了这一帧。</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">默认约定</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">每次 U 帧交换后，双方的 SN、RN 都从 0 重新开始。传播时延约两个时间单位。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">读图方法</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">时间从上往下；每条斜线是一帧；标签在发出的一端。和 2.2 的时序图完全一样。</p>
+</div>
+</div>
+<aside>【1.5 分钟】
+读图之前，先约定帧的简写，和图里的颜色。
+I(2,5)：I 帧，SN = 2，RN = 5。RR(3)：RR 帧，RN = 3，意思是“3 之前的都收到了”。REJ(1)、RNR(3)：同理，括号里是 RN。SABM P、UA F：U 帧，后面的 P 或 F 表示这个位置 1。
+颜色：蓝色是 I 帧，深色是 S 帧，橙色是 U 帧（建立和拆除），在重传的场景里橙色也表示重传的帧。红叉表示帧丢失；灰点表示 B 收到之后丢弃了这一帧。
+默认约定：每次 U 帧交换后，双方的 SN、RN 都从 0 重新开始；传播时延约两个时间单位。读图方法和上一节的时序图一样：时间从上往下，每条斜线是一帧，标签写在发出的一端。</aside>
+</section>

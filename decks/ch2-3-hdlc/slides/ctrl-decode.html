@@ -1,0 +1,45 @@
+<section id="ctrl-decode" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 课堂练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">动手读一读：下面的控制域是什么帧？</h2>
+</div>
+<p style="font-size:26px;color:#4B5A6B">（为便于阅读，SN、RN 按“左高右低”的二进制数读；实际传输时低位在前。）</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<p style="width:60px;font-size:34px;font-weight:700;color:#C2410C">①</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+<div data-build-in="fade 1" style="flex:1;background:#DCE6FB;border-radius:14px;padding:10px 18px"><p style="font-size:26px;line-height:1.4;color:#14253D"><b>I 帧</b>：SN = 2，P/F = 1，RN = 3</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<p style="width:60px;font-size:34px;font-weight:700;color:#C2410C">②</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+<div data-build-in="fade 2" style="flex:1;background:#DCE6FB;border-radius:14px;padding:10px 18px"><p style="font-size:26px;line-height:1.4;color:#14253D"><b>S 帧</b>，类型 00 = <b>RR</b>，P/F = 0，RN = 5</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<p style="width:60px;font-size:34px;font-weight:700;color:#C2410C">③</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p>
+</div>
+<div data-build-in="fade 3" style="flex:1;background:#DCE6FB;border-radius:14px;padding:10px 18px"><p style="font-size:26px;line-height:1.4;color:#14253D"><b>S 帧</b>，类型 01 = <b>REJ</b>，P/F = 1，RN = 1</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<p style="width:60px;font-size:34px;font-weight:700;color:#C2410C">④</p>
+<div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">0</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;margin-left:8px">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:56px;line-height:52px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p>
+</div>
+<div data-build-in="fade 4" style="flex:1;background:#DCE6FB;border-radius:14px;padding:10px 18px"><p style="font-size:26px;line-height:1.4;color:#14253D"><b>S 帧</b>，类型 10 = <b>RNR</b>，P/F = 0，RN = 6</p></div>
+</div>
+</div>
+<aside>【3 分钟 · 课堂练习】
+让学生先自己读，再点击看答案。读法：先看前两位判断类型，再按格式拆开。
+① 0 010 1 011，也就是 0 | 010 | 1 | 011：第 1 位是 0，I 帧。SN 是 010，十进制 2；P/F 位是 1；RN 是 011，十进制 3。意思：这是我发的第 2 号数据帧；并且我告诉你，你的 0 到 2 号我都收到了，我期望的是你的第 3 号。
+② 1 0 | 00 | 0 | 101：前两位 10，S 帧；类型 00，是 RR（接收准备好）；P/F = 0；RN = 5。意思：你的 4 号及以前的帧我都收到了，我期望第 5 号，请继续发。
+③ 1 0 | 01 | 1 | 001：S 帧；类型 01，是 REJ（拒绝）；P/F = 1；RN = 1。意思：我从 1 号起有问题，请从第 1 号开始重发。
+④ 1 0 | 10 | 0 | 110：S 帧；类型 10，是 RNR（接收未准备好）；P/F = 0；RN = 6。意思：我收到了 5 号及以前的，但是我现在忙，暂时不要再发了。
+类型位的取值（下一页详述）：RR = 00，REJ = 01，RNR = 10，SREJ = 11。
+[提示：这类题以后在课后练习里还会出现。]</aside>
+</section>

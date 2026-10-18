@@ -1,0 +1,29 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T16:00:00Z" },
+  "lists": "css",
+  "title": "标准数据链路控制协议 HDLC 及其初始化",
+  "order": [
+    "cover", "why", "assemble", "agenda",
+    "d1", "family", "orgs", "duplex", "modes", "topo",
+    "d2", "frame-1", "frame-2", "addr", "ctrl-1", "ctrl-decode", "iframe", "sframe", "uframe", "pf", "fs-sum",
+    "d3", "notation", "ex-setup", "ex-abm", "ex-nrm", "ex-rej", "ex-rnr", "ex-sum",
+    "d4", "init-why", "init-updown", "init-simple", "init-hdlc", "init-fail", "init-fix", "init-sum",
+    "summary", "project", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：为什么需要标准，HDLC 是怎样把前面学的东西装配起来的。", "start": "cover" },
+    "s1": { "description": "标准 DLC 协议家族、单工/半双工/全双工，以及 HDLC 的三种工作模式。", "start": "d1" },
+    "s2": { "description": "HDLC 帧格式：地址域、控制域（I、S、U 三类帧）与 P/F 位。", "start": "d2" },
+    "s3": { "description": "HDLC 的工作过程：建立、数据传输、出错重传、流量控制、拆除。", "start": "d3" },
+    "s4": { "description": "链路协议的初始化：UP/DOWN 状态、节点故障与三种解决办法。", "start": "d4" },
+    "s5": { "description": "总结、拓展实践与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

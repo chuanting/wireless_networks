@@ -1,0 +1,41 @@
+<section id="uframe" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式 · U 帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">U 帧：建立连接、拆除连接、其他控制</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">“无编号”是什么意思</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">U 帧的控制域里<b>没有 SN、RN</b>：它不参加 ARQ 的序号，只用来<b>管理链路</b>。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">用其中 5 位类型位区分，目前定义了 <b>15 种</b>。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">两条重要规则</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">① 发出或收到 U 帧之后，双方都把 <b>SN、RN 置 0</b>（重新开始编号）。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">② 收到 U 帧命令，必须用 <b>U 帧应答</b>。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 22px">
+<p style="width:170px;font-size:26px;font-weight:700;color:#F4975A">名称</p>
+<p style="width:700px;font-size:26px;font-weight:700;color:#F4F1E8">全称与含义</p>
+<p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">发给谁</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:170px;font-size:28px;font-weight:700;color:#9A3412">SNRM</p><p style="width:680px;padding-right:20px;font-size:26px;color:#14253D">Set Normal Response Mode：置正常响应模式</p><p style="flex:1;font-size:26px;color:#14253D">主站 → 从站（命令）</p></div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:170px;font-size:28px;font-weight:700;color:#9A3412">SABM</p><p style="width:680px;padding-right:20px;font-size:26px;color:#14253D">Set Asynchronous Balanced Mode：置异步平衡模式</p><p style="flex:1;font-size:26px;color:#14253D">任一方 → 对方（命令）</p></div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:170px;font-size:28px;font-weight:700;color:#9A3412">DISC</p><p style="width:680px;padding-right:20px;font-size:26px;color:#14253D">Disconnect：拆线</p><p style="flex:1;font-size:26px;color:#14253D">任一方 → 对方（命令）</p></div>
+<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:12px 22px"><p style="width:170px;font-size:28px;font-weight:700;color:#1E40AF">UA</p><p style="width:680px;padding-right:20px;font-size:26px;color:#14253D">Unnumbered Acknowledgment：无编号确认</p><p style="flex:1;font-size:26px;color:#14253D">对以上命令的响应</p></div>
+</div>
+<p style="font-size:26px;color:#4B5A6B">此外还有 DM（断开模式）、FRMR（帧拒绝）等，了解即可。</p>
+<aside>【2.5 分钟】
+U 帧，无编号帧。“无编号”是指它的控制域里没有 SN 和 RN，不参加 ARQ 的序号，只用来管理链路：建立、拆除和一些特殊的控制。用其中 5 位类型位来区分，目前定义了 15 种。
+两条重要规则：一，发出或收到 U 帧之后，双方都把 SN 和 RN 置 0，也就是重新开始编号；二，收到 U 帧命令，必须用 U 帧应答。
+最常用的四个：
+SNRM：置正常响应模式，主站发给从站的命令。
+SABM：置异步平衡模式，任何一方发给对方的命令。
+DISC：拆线，任何一方发给对方的命令。
+UA：无编号确认，是对以上命令的响应。
+此外还有 DM（Disconnected Mode，断开模式）、FRMR（帧拒绝）等，了解即可。
+下面看这些 U 帧怎么配合使用，先看 P/F 位，再看完整的工作过程。
+[提示：U 帧的具体 5 位编码不要求记忆，记住名字和作用即可。]</aside>
+</section>

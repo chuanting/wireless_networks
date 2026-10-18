@@ -1,0 +1,48 @@
+<section id="topo" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · HDLC 是什么（可略）</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">两种典型拓扑：多点主从（NRM）与点到点平衡（ABM）</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 26px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">NRM：一个主站，多个从站</p>
+<div style="position:relative;width:760px;height:340px">
+<svg style="position:absolute;left:0px;top:0px" aria-label="多点链路：主站通过一条共享线连接三个从站" viewBox="0 0 760 340" width="760" height="340">
+<rect x="20" y="130" width="190" height="80" rx="14" fill="#14253D"/>
+<path d="M210,170H400M400,40V300" stroke="#5B6B7C" stroke-width="6" fill="none"/>
+<path d="M400,40H540M400,170H540M400,300H540" stroke="#5B6B7C" stroke-width="6" fill="none"/>
+<rect x="540" y="10" width="200" height="60" rx="12" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="4"/>
+<rect x="540" y="140" width="200" height="60" rx="12" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="4"/>
+<rect x="540" y="270" width="200" height="60" rx="12" fill="#DCE6FB" stroke="#1D4ED8" stroke-width="4"/>
+</svg>
+<p style="position:absolute;left:20px;top:156px;width:190px;font-size:28px;font-weight:700;text-align:center;color:#F4F1E8">主站 A</p>
+<p style="position:absolute;left:540px;top:28px;width:200px;font-size:26px;font-weight:700;text-align:center;color:#1E40AF">B1（地址 1）</p>
+<p style="position:absolute;left:540px;top:158px;width:200px;font-size:26px;font-weight:700;text-align:center;color:#1E40AF">B2（地址 2）</p>
+<p style="position:absolute;left:540px;top:288px;width:200px;font-size:26px;font-weight:700;text-align:center;color:#1E40AF">B3（地址 3）</p>
+</div>
+<p style="font-size:26px;line-height:1.45;color:#14253D">A 点名“B2，请发”（轮询）→ B2 把数据发来；B1、B3 只能等。地址域区分是谁。</p>
+</div>
+<div style="width:700px;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 26px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">ABM：两个平等的组合站</p>
+<div style="position:relative;width:660px;height:340px">
+<svg style="position:absolute;left:0px;top:0px" aria-label="点到点全双工链路：两个组合站之间同时有两个方向的数据" viewBox="0 0 660 340" width="660" height="340">
+<rect x="10" y="110" width="160" height="120" rx="14" fill="#14253D"/>
+<rect x="490" y="110" width="160" height="120" rx="14" fill="#14253D"/>
+<path d="M170,145H470" stroke="#1D4ED8" stroke-width="6" fill="none"/><polygon points="490,145 466,134 466,156" fill="#1D4ED8"/>
+<path d="M490,200H190" stroke="#C2410C" stroke-width="6" fill="none"/><polygon points="170,200 194,189 194,211" fill="#C2410C"/>
+</svg>
+<p style="position:absolute;left:10px;top:154px;width:160px;font-size:30px;font-weight:700;text-align:center;color:#F4F1E8">站 A</p>
+<p style="position:absolute;left:490px;top:154px;width:160px;font-size:30px;font-weight:700;text-align:center;color:#F4F1E8">站 B</p>
+<p style="position:absolute;left:150px;top:96px;width:360px;font-size:24px;font-weight:700;text-align:center;color:#1D4ED8">A → B：数据 + 确认</p>
+<p style="position:absolute;left:150px;top:212px;width:360px;font-size:24px;font-weight:700;text-align:center;color:#C2410C">B → A：数据 + 确认</p>
+</div>
+<p style="font-size:26px;line-height:1.45;color:#14253D">两个方向同时传数据，每个方向的确认“顺便”放在反方向的数据帧里。</p>
+</div>
+</div>
+<aside>【2 分钟 · 可略】
+看图理解两种拓扑。
+左边是 NRM：一个主站 A，三个从站 B1、B2、B3，共用一条线（叫多点链路）。A 想收数据时，会点名：“B2，请发”，这叫轮询。B2 把数据发过来，B1、B3 只能等，不会冲突。主站发出的帧里，地址域写的是被点名的从站地址，比如 2。
+右边是 ABM：两个平等的组合站，点到点连接。两个方向同时传数据（蓝色箭头和橙色箭头），每个方向的确认“顺便”放在反方向的数据帧里。这就是后面要讲的“捎带确认”。
+对比：NRM 里，从站不会冲突，因为谁发由主站说了算，但主站是瓶颈；ABM 里，没有主从之分，更灵活，应用也更广。
+[提示：想想看，NRM 的“点名”机制，在后面第 4 章“多址接入协议”里会以“轮询”的名字再次出现。]</aside>
+</section>

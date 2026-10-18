@@ -1,0 +1,35 @@
+<section id="init-sum" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 小结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">初始化：五句话</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:22px 30px">
+<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">为什么</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">SN、RN 是两端共同的计数器，每个 UP 周期开始前必须<b>清零对齐</b>。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:22px 30px">
+<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">做什么</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">INIT / ACKI 建立，DISC / ACKD 拆除；两端对 UP / DOWN 的看法要一致。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:22px 30px">
+<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">HDLC</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">SNRM / SABM 建立，DISC 拆除，都用 <b>UA</b> 回答；UA 无编号，分不清回答谁。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:22px 30px">
+<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">问题</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">节点故障重启、忘了一切，迟到的<b>旧 ACKI</b> 被当作新 INIT 的回答，旧数据混进新的一轮。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:22px 30px">
+<p style="width:210px;font-size:34px;font-weight:700;color:#F4975A">办法</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#F4F1E8">非易失存储器 · 长定时器 · 随机数；核心：让新旧握手<b>可区分</b>。</p>
+</div>
+</div>
+<aside>【1.5 分钟】
+本部分小结，五句话。
+为什么初始化：SN、RN 是两端共同的计数器，每个 UP 周期开始前必须清零对齐。
+做什么：INIT 与 ACKI 建立，DISC 与 ACKD 拆除；要让两端对 UP、DOWN 的看法一致。
+在 HDLC 里：SNRM 或 SABM 建立，DISC 拆除，都用 UA 回答；UA 没有编号，分不清回答的是哪个命令。
+问题：节点故障重启、忘了一切之后，迟到的旧 ACKI 被当作新 INIT 的回答，旧的数据混进了新的一轮，造成重复或错乱。
+办法：非易失存储器、长定时器、随机数。核心思想：让新的握手和旧的握手可区分。这个思想后面讲 TCP 三次握手的时候还会用到。</aside>
+</section>

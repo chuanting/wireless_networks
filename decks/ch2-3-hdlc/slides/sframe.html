@@ -1,0 +1,50 @@
+<section id="sframe" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式 · S 帧</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">S 帧：只管确认和流量控制，四种类型</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 22px">
+<p style="width:170px;font-size:26px;font-weight:700;color:#F4975A">名称</p>
+<p style="width:150px;font-size:26px;font-weight:700;color:#F4F1E8">类型位</p>
+<p style="width:448px;font-size:26px;font-weight:700;color:#F4F1E8">含义</p>
+<p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">什么时候用</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 22px">
+<p style="width:170px;font-size:30px;font-weight:700;color:#1E40AF">RR</p>
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">00</p>
+<p style="width:420px;padding-right:28px;font-size:26px;line-height:1.4;color:#14253D">Receive Ready：接收准备好，RN 前的帧都收到</p>
+<p style="flex:1;font-size:26px;line-height:1.4;color:#14253D">反方向没有数据可捎带时，单独回确认</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 22px">
+<p style="width:170px;font-size:30px;font-weight:700;color:#9A3412">REJ</p>
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">01</p>
+<p style="width:420px;padding-right:28px;font-size:26px;line-height:1.4;color:#14253D">Reject：拒绝，请从 RN 起重发（RN 前的已收到）</p>
+<p style="flex:1;font-size:26px;line-height:1.4;color:#14253D">收到的帧出错或序号不对，<b>立刻</b>通知，不等超时（加速返回 n）</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 22px">
+<p style="width:170px;font-size:30px;font-weight:700;color:#1E40AF">RNR</p>
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">10</p>
+<p style="width:420px;padding-right:28px;font-size:26px;line-height:1.4;color:#14253D">Receive Not Ready：接收未准备好，RN 前的已收到</p>
+<p style="flex:1;font-size:26px;line-height:1.4;color:#14253D">缓冲区满了，请对方<b>暂停发送</b>：流量控制</p>
+</div>
+<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:14px 22px">
+<p style="width:170px;font-size:30px;font-weight:700;color:#14253D">SREJ</p>
+<p style="width:150px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:28px;font-weight:700;color:#14253D">11</p>
+<p style="width:420px;padding-right:28px;font-size:26px;line-height:1.4;color:#14253D">Selective Reject：选择拒绝，只重发序号为 RN 的帧</p>
+<p style="flex:1;font-size:26px;line-height:1.4;color:#14253D">选择重发的简单形式</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 26px"><p style="font-size:26px;line-height:1.45;color:#14253D"><b>共同点</b>：S 帧没有信息域，只有 48 位，RN 总是表示“RN 之前的帧都收到了”（SREJ 例外，只指 RN 本身）。</p></div>
+<div style="flex:1;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px"><p style="font-size:26px;line-height:1.45;color:#14253D"><b>REJ 的价值</b>：2.2 的返回 n 靠超时发现丢帧，REJ 让接收方一看见序号不对就能报告，省掉等待。</p></div>
+</div>
+<aside>【3 分钟】
+S 帧，监控帧，没有信息域，只有 48 位，用来做确认和流量控制。四种类型，由类型位区分：
+RR（Receive Ready，00）：接收准备好。反方向没有数据可以捎带确认时，单独回一个 RR，RN 表示 RN 之前的帧都收到了。
+REJ（Reject，01）：拒绝。收到的帧出错或者序号不对，立刻通知对方：“请从 RN 起重发”。2.2 的返回 n 靠超时发现丢帧，REJ 让接收方一看到序号不对就能报告，省掉等待，加速重发。
+RNR（Receive Not Ready，10）：接收未准备好。缓冲区满了，请对方暂停发送，RN 之前的帧已经收到。这就是流量控制：接收方“踩刹车”。
+SREJ（Selective Reject，11）：选择拒绝。只要求重发序号为 RN 的那一个帧，是选择重发的简单形式。
+共同点：S 帧只有 48 位。RN 对 RR、RNR、REJ 总是表示“RN 之前的帧都收到了”，SREJ 例外，指的是 RN 这一个帧。
+[提示：REJ 是学生最容易和 2.2 里“返回 n”联系起来的帧——返回 n 的“返回”动作，就是由它触发的。]</aside>
+</section>

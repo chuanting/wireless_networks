@@ -44,7 +44,11 @@ window.COURSE = {
           desc: "差错检测（奇偶校验、CRC）· ARQ 协议（停等、返回 n、选择重发）· 最佳帧长",
           deck: "ch2-2-error-control", slides: 50, minutes: 100
         },
-        { no: "2.3", title: "标准数据链路控制协议及其初始化", status: "todo" },
+        {
+          no: "2.3", title: "标准数据链路控制协议及其初始化", status: "ready",
+          desc: "HDLC 家族与工作模式 · 帧格式（I、S、U 帧）· 工作过程（建立、捎带确认、REJ、RNR）· 链路初始化与节点故障",
+          deck: "ch2-3-hdlc", slides: 40, minutes: 90
+        },
         { no: "2.4", title: "网络层和运输层的点对点传输协议", status: "todo" }
       ]
     },

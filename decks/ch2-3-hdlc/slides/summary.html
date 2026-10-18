@@ -1,0 +1,38 @@
+<section id="summary" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">家族与模式</p>
+<p style="flex:1;font-size:28px;color:#14253D">HDLC、ADCCP、SDLC、LAPB 是一家；<b>NRM</b>（主从轮询）与 <b>ABM</b>（双方平等，应用最广）。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">帧格式</p>
+<p style="flex:1;font-size:28px;color:#14253D">Flag | 地址 | 控制 | 信息 | FCS | Flag；Flag 靠比特插入保证透明，FCS 是 16 位 CRC。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">三类帧</p>
+<p style="flex:1;font-size:28px;color:#14253D"><b>I</b> 帧（0 | SN | P/F | RN）带数据并捎带确认；<b>S</b> 帧（10）：RR、REJ、RNR、SREJ；<b>U</b> 帧（11）：建立与拆除。模 8，窗口最大 7。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">工作过程</p>
+<p style="flex:1;font-size:28px;color:#14253D">SABM / UA 建立 → I 帧 + 捎带确认 → 出错用 REJ 回退重发、忙用 RNR 刹车 → DISC / UA 拆除。</p>
+</div>
+<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:12px 26px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#F4975A">初始化</p>
+<p style="flex:1;font-size:28px;color:#F4F1E8">两端对 UP / DOWN 的看法要一致；节点故障时旧 ACKI 会引起混乱；办法：<b>非易失存储器、长定时器、随机数</b>。</p>
+</div>
+</div>
+<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 28px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一节（2.4）：从一条链路到端到端——网络层和运输层的点对点传输协议。</p></div>
+<aside>【2 分钟】
+带着大家快速回顾，每行一句话：
+家族与模式：HDLC、ADCCP、SDLC、LAPB 是一家；两个主要模式，NRM 主从轮询，ABM 双方平等，应用最广。
+帧格式：Flag、地址、控制、信息、FCS、Flag；Flag 靠比特插入保证透明传输，FCS 是 16 位的 CRC。
+三类帧：I 帧，第一位是 0，后面是 SN、P/F 位、RN，带数据并且捎带确认；S 帧，前两位 10，有 RR、REJ、RNR、SREJ 四种；U 帧，前两位 11，负责建立和拆除。序号模 8，窗口最大 7。
+工作过程：SABM 与 UA 建立；I 帧传数据、捎带确认；出错用 REJ 退回重发，接收方忙用 RNR 踩刹车；DISC 与 UA 拆除。
+初始化：两端对 UP、DOWN 的看法要一致；节点故障时，旧的 ACKI 会引起混乱；解决办法是非易失存储器、长定时器、随机数。
+把 2.1 到 2.3 连起来：组帧划出一帧，CRC 检错，ARQ 补救，HDLC 把它们装配成一个标准协议。下一节我们走出一条链路，看看网络层和运输层怎样把这种“可靠传输”的思想推广到端到端。
+最后留 3 分钟提问，然后布置练习。</aside>
+</section>

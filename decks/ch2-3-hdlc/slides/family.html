@@ -1,0 +1,47 @@
+<section id="family" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · HDLC 是什么</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一个协议家族：HDLC 及其“亲戚”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:20px;background:#C2410C;border-radius:20px;padding:18px 26px">
+<p style="width:150px;font-size:36px;font-weight:700;color:#FFF6EC">HDLC</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#FFF6EC">国际标准化组织 ISO</p><p style="font-size:26px;color:#FFE9D6">High-level Data Link Control（高级数据链路控制）</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="width:150px;font-size:34px;font-weight:700;color:#14253D">ADCCP</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#14253D">美国国家标准学会 ANSI</p><p style="font-size:26px;color:#4B5A6B">功能与 HDLC <b>相同</b></p></div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="width:150px;font-size:34px;font-weight:700;color:#14253D">SDLC</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#14253D">IBM 公司</p><p style="font-size:26px;color:#4B5A6B">HDLC 的<b>功能子集</b></p></div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="width:150px;font-size:34px;font-weight:700;color:#14253D">LAPB</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#14253D">国际电信联盟 ITU-T（原 CCITT）</p><p style="font-size:26px;color:#4B5A6B">X.25 网络的链路层，HDLC 的<b>子集</b>（只用平衡模式）</p></div>
+</div>
+</div>
+<div style="width:620px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">HDLC 的后代</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• <b>PPP</b>：帧格式借自 HDLC（上一节看到的 7E FF 03）</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• <b>LAPD</b>：ISDN 的 D 信道</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 以太网上层的 LLC 子层</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">适用范围广</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">HDLC 是为多种链路设计的：多点链路、点到点链路，全双工和半双工链路。</p>
+</div>
+</div>
+</div>
+<aside>【2 分钟】
+HDLC 不是一个孤立的协议，而是一个家族。
+HDLC：ISO（国际标准化组织）制定，全称 High-level Data Link Control，高级数据链路控制。
+ADCCP：美国国家标准学会 ANSI 制定的，和 HDLC 功能相同，可以看成是同一个东西的美国版本。
+SDLC：IBM 公司早期为自己的网络体系结构设计的，是 HDLC 的一个功能子集。
+LAPB：国际电信联盟 ITU-T（它的前身叫 CCITT）制定的，用在 X.25 公用分组网络的链路层，也是 HDLC 的子集，只使用“平衡模式”。
+HDLC 还有很多“后代”：PPP 的帧格式就借自 HDLC，这正是上一节看到的 7E FF 03；ISDN 的 D 信道用 LAPD；以太网上层的 LLC 子层也借鉴了它。
+HDLC 适用范围很广：多点链路、点到点链路，全双工、半双工，它都能用。所以先学会它，再看其他协议都轻松了。
+[提示：不需要背这些缩写，记住“HDLC 是祖先”就可以了。]</aside>
+</section>

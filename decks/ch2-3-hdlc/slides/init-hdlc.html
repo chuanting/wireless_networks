@@ -1,0 +1,55 @@
+<section id="init-hdlc" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · HDLC 里怎么做</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">HDLC：用 U 帧完成，但 UA 有点含糊</h2>
+</div>
+<div style="display:flex;gap:26px;align-items:flex-start">
+<div style="width:830px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:14px;padding:0 20px"><p style="width:140px;font-size:24px;font-weight:700;color:#4B5A6B">通用叫法</p><p style="width:250px;font-size:24px;font-weight:700;color:#4B5A6B">HDLC 帧</p><p style="flex:1;font-size:24px;font-weight:700;color:#4B5A6B">作用</p></div>
+<div style="display:flex;align-items:center;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 20px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">INIT</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">SNRM / SABM</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">请求建立：双方 SN、RN 置 0</p>
+</div>
+<div style="display:flex;align-items:center;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 20px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">ACKI</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">UA</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">同意建立</p>
+</div>
+<div style="display:flex;align-items:center;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 20px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">DISC</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">DISC</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">请求拆除</p>
+</div>
+<div style="display:flex;align-items:center;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:14px 20px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">ACKD</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">UA</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">同意拆除</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8"><b>建立和拆除的回答是同一种帧 UA</b>，而且 UA 里没有编号。收到一个 UA，分不清它回答的是哪个命令。</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:20px 26px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">一个例子：A 超时太早</p>
+<p style="font-size:24px;line-height:1.35;color:#4B5A6B">设单程时延为 3，A 只等 2 就重发。</p>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 0</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 发 SABM。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 2</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 没等到回答，超时，又发一个 SABM。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 3, 5</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">B 收到两个 SABM，各回一个 UA：第 1 个、第 2 个。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 6</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 收到第 1 个 UA，变 UP。没有数据，立刻发 DISC。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 8</p><p style="flex:1;font-size:26px;line-height:1.35;color:#9A3412;font-weight:700">A 收到第 2 个 UA——它其实是 SABM 的回答，A 却当作 DISC 的：A 变 DOWN。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 9</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">B 才收到 DISC。8 到 9 之间，A 认为 DOWN、B 还是 UP。</p></div>
+</div>
+</div>
+<aside>【3 分钟】
+HDLC 里，上一页的四种消息就是 U 帧：INIT 对应 SNRM（主从模式）或者 SABM（平衡模式），DISC 对应 DISC，ACKI 和 ACKD 都对应 UA。这四行里，请注意橙色的两行——ACKI 和 ACKD 用的是同一种帧 UA，而且 UA 里没有编号。收到一个 UA，你分不清它是在回答“建立”还是在回答“拆除”。
+右边用一个例子说明这会带来什么。假设单程传输时延是 3 个时间单位，A 的超时设得偏短，只等 2 个单位就重发。
+t = 0，A 发 SABM。
+t = 2，A 没等到回答，超时，再发一个 SABM。
+B 在 t = 3 和 t = 5 分别收到两个 SABM，各回一个 UA。
+t = 6，A 收到第 1 个 UA，变 UP；假设它没有数据要发，立刻发 DISC。
+t = 8，A 收到第 2 个 UA——这其实是回答 SABM 的，A 却以为是回答 DISC 的，于是变成 DOWN。
+t = 9，B 才收到 DISC。所以在 8 到 9 之间，A 认为 DOWN，B 还认为 UP：两端看法不一致。
+老实说一下：在先进先出的链路上，只要两个节点都不出故障，这种错位很短暂，一般没有大碍。真正麻烦的是节点还会出故障、忘记一切的时候。这就是下一页。
+[可压缩：时间紧时，这页只讲“UA 不带编号，分不清回答谁”，例子可以略。]</aside>
+</section>

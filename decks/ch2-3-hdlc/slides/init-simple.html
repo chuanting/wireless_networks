@@ -1,0 +1,65 @@
+<section id="init-simple" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 一个最简单的办法</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">INIT / ACKI 建立，DISC / ACKD 拆除</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="简化的初始化协议：INIT/ACKI 建立，DISC/ACKD 拆除" viewBox="0 0 1072 571" width="1072" height="571" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V547" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V547" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,110" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,112 817,120 819,99" fill="#C2410C"/>
+<path d="M840,112L262,178" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,180 261,167 263,188" fill="#C2410C"/>
+<path d="M240,214L818,280" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,282 817,290 819,269" fill="#1D4ED8"/>
+<path d="M840,282L262,348" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,350 261,337 263,358" fill="#14253D"/>
+<path d="M240,384L818,450" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="840,452 817,460 819,439" fill="#C2410C"/>
+<path d="M840,452L262,518" stroke="#C2410C" stroke-width="5" fill="none"/>
+<polygon points="240,520 261,507 263,528" fill="#C2410C"/>
+<path d="M214,180V520M206,180H222M206,520H222" stroke="#1D4ED8" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+<path d="M866,112V452M858,112H874M858,452H874" stroke="#1D4ED8" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B</p>
+<p style="position:absolute;left:152px;top:636px;width:180px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#1D4ED8">A：UP</p>
+<p style="position:absolute;left:1008px;top:568px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">B：UP</p>
+<p style="position:absolute;left:1008px;top:354px;width:150px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">B：DOWN</p>
+<p style="position:absolute;left:152px;top:354px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">A：DOWN</p>
+<p style="position:absolute;left:1008px;top:772px;width:150px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">B：DOWN</p>
+<p style="position:absolute;left:152px;top:827px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">A：DOWN</p>
+<p style="position:absolute;left:627px;top:336px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">INIT</p>
+<p style="position:absolute;left:627px;top:404px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACKI</p>
+<p style="position:absolute;left:621px;top:505px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(0,0)</p>
+<p style="position:absolute;left:626px;top:574px;width:84px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR(1)</p>
+<p style="position:absolute;left:627px;top:676px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DISC</p>
+<p style="position:absolute;left:627px;top:744px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACKD</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">① 建立：INIT / ACKI</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 发 <b>INIT</b>：“请重置”。B 把 SN、RN 置 0，变 UP，回 <b>ACKI</b>。A 收到后也置 0，变 UP。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">② 传输</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">两端都是 UP 时，照常用 I 帧和 RR（第三部分的内容）。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#9A3412">③ 拆除：DISC / ACKD</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">A 发 <b>DISC</b>，B 变 DOWN，回 <b>ACKD</b>。A 收到后变 DOWN。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">如果 INIT 或 ACKI 丢了？和 ARQ 一样：<b>定时器 + 重发</b>。</p>
+</div>
+</div>
+<aside>【3 分钟 · 重点】
+先看一个最简单的初始化协议。为了好讲，假设是主从式：A 是发起方。图里 A、B 一开始都是 DOWN。
+第一步：A 发一个 INIT，意思是“请重置，开始一轮新的通信”。B 收到后，把自己的 SN、RN 置 0，变成 UP，然后回一个 ACKI，Ack of Init。A 收到 ACKI，也把 SN、RN 置 0，变成 UP。
+第二步：两边都 UP 了，才开始传数据。图中 A 发 I(0,0)，B 回 RR(1)。
+第三步：数据传完，拆除。A 发 DISC，B 变成 DOWN，回 ACKD；A 收到 ACKD，变成 DOWN。
+注意图中左右两条蓝色虚线，就是 A 和 B 各自的 UP 周期，两端不是同一时刻变 UP 的：B 先、A 后；拆除时 B 先 DOWN、A 后。
+另外，INIT、ACKI 这些控制消息本身也会丢，怎么办？和我们学过的 ARQ 一样：发出去就启动定时器，超时没收到回答就重发。
+这里 INIT、ACKI、DISC、ACKD 是通用的叫法。下一页看 HDLC 里它们对应什么帧。
+[提示：这里的控制消息本身也要“可靠传输”，这是协议设计中常见的“递归”问题。]</aside>
+</section>

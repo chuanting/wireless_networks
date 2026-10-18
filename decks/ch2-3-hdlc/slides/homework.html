@@ -1,0 +1,46 @@
+<section id="homework" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">课后练习</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">六道小题，检验一下</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">① 读控制域</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">下面三个控制域（按“左高右低”书写）各是什么帧？写出能读出的字段：(a) 0 101 0 010　(b) 1 0 11 1 100　(c) 1 1 00 1 000。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">② 开销</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">一个 I 帧，信息域 100 字节，只算 Flag、地址、控制、FCS（每个 Flag 8 位，地址 8 位，控制 8 位，FCS 16 位），求固定开销位数和信息位占的比例。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">③ REJ 的过程</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">A 连续发 I(0,0) 到 I(4,0)，其中 I(2,0) 丢了。写出 B 发出的帧和 A 此后重发的帧。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">④ 窗口与扩展模式</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">卫星链路：速率 64 kb/s，帧长 1000 位，单程传播 270 ms。求 <i>a</i>、填满管道所需窗口，模 8（窗口 7）与模 128（窗口 127）时的利用率（无差错）。</p>
+</div>
+</div>
+<div style="display:flex;gap:18px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#C2410C">⑤ 随机数</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">INIT 带一个 8 位随机数，旧 ACKI 的随机数碰巧与新的相同的概率是多少？改成 32 位呢？</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:26px 30px">
+<p style="font-size:34px;font-weight:700;color:#9A3412">⑥ 长定时器</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">帧在链路上最长能存活 2 秒。节点重启后，至少应静默多久再发 INIT？为什么不是 2 秒？</p>
+</div>
+</div>
+</div>
+<aside>【0.5 分钟 · 参考答案，课上不必讲】
+① (a) 第 1 位是 0：I 帧，SN = 101 = 5，P/F = 0，RN = 010 = 2。(b) 前两位 10：S 帧，类型 11 = SREJ，P/F = 1，RN = 100 = 4。(c) 前两位 11：U 帧，没有 SN、RN；P/F = 1；具体是哪种 U 帧由其余 5 位决定，查表可知。
+② 固定开销 = 8 + 8 + 8 + 16 + 8 = 48 位（两个 Flag 都算；相邻帧共用一个 Flag 时是 40 位）。信息位 800：800 / (800 + 48) = 94.3%。
+③ B 收到 0、1 号，正常（回 RR，或者捎带确认）；收到 3 号：期待的是 2，序号不对，丢弃并发 REJ(2)；收到 4 号：同样丢弃，不再发 REJ。A 收到 REJ(2)，退回，重发 I(2,0)、I(3,0)、I(4,0)；B 依次收下，最后回 RR(5)。
+④ TD = 1000 / 64000 = 15.6 ms；a = 270 / 15.625 = 17.3；管道能装 1 + 2a = 35.6 帧，窗口至少 36。模 8：U = 7 / 35.6 = 19.7%；模 128：窗口 127 ≥ 36，U 可达 100%。这就是需要扩展模式（模 128）的原因。
+⑤ 8 位：1 / 256 ≈ 0.39%；32 位：2 的 32 次方分之一，约 43 亿分之一，约 2.3 乘以 10 的 −10 次方。
+⑥ 至少 4 秒：旧 INIT 最多可能在路上 2 秒才到达对方，对方回的旧 ACKI 又可能在路上 2 秒，两个方向加起来 4 秒（2 倍的最长存活时间）；只等 2 秒，对方回的旧 ACKI 可能还在路上。TCP 的 2MSL 就是这个道理。
+[验算：④ 7 / 35.56 = 0.1969；② 800 / 848 = 0.9434。]</aside>
+</section>

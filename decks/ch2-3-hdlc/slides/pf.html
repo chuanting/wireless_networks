@@ -1,0 +1,40 @@
+<section id="pf" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式 · P/F 位</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">P/F 位：“请回答”和“这是最后一帧”</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">同一个位，两种叫法</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 在<b>命令</b>帧里叫 <b>P</b>（Poll，询问）：置 1 = “请立即回答我”。</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">• 在<b>响应</b>帧里叫 <b>F</b>（Final，结束）：置 1 = “这是我这次回答的最后一帧”。</p>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<p style="font-size:30px;font-weight:700;color:#1E40AF">NRM：主站点名，从站答完</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:26px;color:#14253D">
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">A → B</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412;background:#FFFEFA;border-radius:8px;padding:2px 10px">RR，P = 1</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D;background:#FFFEFA;border-radius:8px;padding:2px 10px">I 帧，F = 0</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D;background:#FFFEFA;border-radius:8px;padding:2px 10px">I 帧，F = 0</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412;background:#FFFEFA;border-radius:8px;padding:2px 10px">I 帧，F = 1（最后一帧）</p></div>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么要有 F 位</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">从站一次可能回好几帧。F = 1 告诉主站：“我答完了，下一个从站可以被点名了。”</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">ABM 里怎么用</p>
+<p style="font-size:26px;line-height:1.45;color:#14253D">任一站发出 P = 1 的帧（如 U 帧或 I 帧），对方收到后必须立即回 F = 1 的响应，常用来<b>检查对方是否在线</b>、确认命令已被接收。</p>
+</div>
+</div>
+<aside>【3 分钟】
+控制域里第 5 位有一个小小的标志，叫 P/F 位，同一个位，在命令和响应里有不同的叫法。
+在命令帧里叫 P（Poll，询问）：置 1，意思是“请立即回答我”。
+在响应帧里叫 F（Final，结束）：置 1，意思是“这是我这次回答的最后一帧”。
+NRM 的例子：主站 A 想听从站 B 的话，发一个 RR 帧，P = 1，这就是“点名，请回答”。B 有两个 I 帧要发：第一个 F = 0，意思是“还有”；第二个 F = 1，意思是“我答完了”。
+为什么要 F 位？从站一次可能回好几帧，主站要知道什么时候这个从站说完了，才能去点下一个从站。
+ABM 里怎么用？任一站发出 P = 1 的帧，比如一个 U 帧或者 I 帧，对方收到后必须立即回一个 F = 1 的响应。常用来检查对方是否还在线，或者确认命令已经被接收。
+[提示：这里看到的“点名”机制，在第 4 章的轮询式多址接入里还会再次出现。]</aside>
+</section>

@@ -1,0 +1,59 @@
+<section id="ex-abm" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 工作过程 · 场景二</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">全双工：双方同时发数据，确认“顺路”带着</h2>
+</div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:516px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<svg aria-label="异步平衡模式：双方同时发送数据并捎带确认" viewBox="0 0 1072 446" width="1072" height="446" style="position:absolute;left:128px;top:300px">
+<path d="M240,44V422" stroke="#8A97A6" stroke-width="4"/>
+<path d="M840,44V422" stroke="#8A97A6" stroke-width="4"/>
+<path d="M240,44L818,125" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,128 817,136 820,114" fill="#1D4ED8"/>
+<path d="M240,86L818,167" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,170 817,178 820,156" fill="#1D4ED8"/>
+<path d="M840,128L262,209" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="240,212 260,198 263,220" fill="#1D4ED8"/>
+<path d="M840,212L262,293" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="240,296 260,282 263,304" fill="#1D4ED8"/>
+<path d="M240,212L818,293" stroke="#1D4ED8" stroke-width="5" fill="none"/>
+<polygon points="840,296 817,304 820,282" fill="#1D4ED8"/>
+<path d="M840,296L262,377" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="240,380 260,366 263,388" fill="#14253D"/>
+<path d="M240,296L818,377" stroke="#14253D" stroke-width="5" fill="none"/>
+<polygon points="840,380 817,388 820,366" fill="#14253D"/>
+</svg>
+<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A</p>
+<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B</p>
+<p style="position:absolute;left:621px;top:342px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(0,0)</p>
+<p style="position:absolute;left:561px;top:433px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(1,0)</p>
+<p style="position:absolute;left:453px;top:450px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(0,1)</p>
+<p style="position:absolute;left:621px;top:510px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(1,2)</p>
+<p style="position:absolute;left:837px;top:541px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(2,1)</p>
+<p style="position:absolute;left:626px;top:595px;width:84px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR(3)</p>
+<p style="position:absolute;left:842px;top:625px;width:84px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR(2)</p>
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">看 B 发的 I(0,1)</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">SN = 0：这是 B 的第 0 号数据；RN = 1：顺便告诉 A，“你的 0 号我收到了”。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">看 A 发的 I(2,1)</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">SN = 2：A 的第 2 号数据；RN = 1：已收到 B 的 0 号，期望 1 号。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">最后各发一个 RR</p>
+<p style="font-size:26px;line-height:1.4;color:#14253D">双方都没有新数据要发了，就用 RR 补上最后的确认：RR(3) 确认 A 的 0–2，RR(2) 确认 B 的 0–1。</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
+<p style="font-size:26px;line-height:1.45;color:#F4F1E8">中间<b>没有一个单独的确认帧</b>：确认都搭了数据帧的便车，链路用得更充分。</p>
+</div>
+</div>
+<aside>【4 分钟 · 重点】
+第二个场景：全双工、平衡模式下，双方同时发数据，确认顺路带着。
+时间 0 和 1：A 连续发 I(0,0)、I(1,0)。
+时间 2：B 收到了 A 的 0 号帧，所以 B 自己的 RN = 1。这时 B 恰好有数据要发，就发 I(0,1)：SN = 0，是 B 自己的第 0 号数据；RN = 1，顺便告诉 A：“你的 0 号我收到了。”——这就是捎带确认。
+时间 4：A 收到了 B 的第 0 号帧，A 的 RN = 1；这时 A 发出第 3 个数据帧 I(2,1)：SN = 2，RN = 1。同时，B 收到了 A 的 0 和 1 两帧，B 的 RN = 2，所以 B 发 I(1,2)：SN = 1，RN = 2。
+时间 6：双方都没有新数据要发了，用 RR 补上最后的确认：B 收到了 A 的 2 号，发 RR(3)，意思是 A 的 0 到 2 号都收到了；A 收到了 B 的 1 号，发 RR(2)，意思是 B 的 0 和 1 号都收到了。
+注意中间没有一个单独的确认帧：确认都搭了数据帧的便车。这就是全双工平衡模式效率高的原因。
+[验算：每个帧的 RN 都等于“已经收到的对方帧数”，SN 从 0 起依次递增。]</aside>
+</section>
