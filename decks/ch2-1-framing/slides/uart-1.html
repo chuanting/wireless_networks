@@ -27,7 +27,7 @@
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:22px 28px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">② 起始位“0”：开始了</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">线路从 1 跳到 0，接收方就知道：一个字符来了。</p>
+<p style="font-size:28px;line-height:1.45;color:#14253D">线路空闲时从 1 跳到 0，接收方就知道：一个字符来了。</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:22px 28px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">③ 停止位“1”：结束了</p>
@@ -38,7 +38,7 @@
 我们从最简单、最古老的例子开始：计算机的串口（RS-232，现在常见的叫 UART）。比如单片机往电脑发传感器读数、老式的调制解调器，都用它。
 它的组帧方法非常直接：每个字符自己带路标。
 一个字符 8 位（D0 到 D7，D0 是最低位，先发）。发送前先发一个“起始位”0，发完 8 位再发一个“停止位”1。
-线路平时（没有数据时）一直保持高电平 1。所以当线路突然从 1 变成 0，接收方就知道：起始位来了，一个字符要开始了。然后每隔一个固定的时间读一位，读够 8 位，再读到停止位 1，一个字符结束，线路又回到 1，等下一个字符。
+线路平时（没有数据时）一直保持高电平 1。所以当空闲的线路突然从 1 变成 0，接收方就知道：起始位来了，一个字符要开始了。然后每隔一个固定的时间读一位，读够 8 位，再读到停止位 1，一个字符结束，线路又回到 1，等下一个字符。注意：接收方只在空闲时才找这个 1 到 0 的跳变；开始读数据之后它就不再找边沿，数据位中间出现的 1 到 0 只是数据。
 这里每个“帧”只有一个字符，路标就是 1 个起始位和 1 个停止位。这是字符组帧的“最小版本”。
 [提示：为什么叫“异步”？因为发送方和接收方的时钟并不是严格同步的，靠每个字符开头的起始位来重新对齐——下一页的例子里会看到。]</aside>
 </section>
