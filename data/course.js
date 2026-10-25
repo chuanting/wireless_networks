@@ -94,7 +94,11 @@ window.COURSE = {
           desc: "ALOHA 的规则与模型 · 纯 ALOHA 与时隙 ALOHA 的通过率（1/2e 与 1/e）· 平衡点、马尔可夫链与漂移 · 为什么会堵死 · 伪贝叶斯算法",
           deck: "ch4-2-aloha", slides: 37, minutes: 100
         },
-        { no: "4.3", title: "载波侦听多址接入：CSMA", status: "todo" },
+        {
+          no: "4.3", title: "载波侦听多址接入：CSMA", status: "ready",
+          desc: "为什么还会碰撞与检测时延 β · 三种坚持策略 · 非时隙 CSMA 的通过率推导 · 时隙 CSMA 的漂移与稳定算法 · CSMA/CD、最短帧长、以太网与 CSMA/CA",
+          deck: "ch4-3-csma", slides: 35, minutes: 100
+        },
         { no: "4.4", title: "冲突分解算法", status: "todo" }
       ]
     },

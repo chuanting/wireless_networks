@@ -1,0 +1,29 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-25T10:30:00Z" },
+  "lists": "css",
+  "title": "载波侦听多址接入：CSMA 与 CSMA/CD",
+  "order": [
+    "cover", "why", "agenda",
+    "d1", "p1-idea", "p1-delay", "p1-beta", "p1-policies", "p1-compare", "p1-sum",
+    "d2", "p2-cycle", "p2-derive", "p2-check", "p2-curve", "p2-persist", "p2-beta", "p2-sum",
+    "d3", "p3-model", "p3-drift", "p3-max", "p3-stable", "p3-sim", "p3-sum",
+    "d4", "p4-idea", "p4-minframe", "p4-throughput", "p4-ethernet", "p4-wireless", "p4-compare", "p4-sum",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：从 ALOHA 的 1/e 出发，先听后说能好多少。", "start": "cover" },
+    "s1": { "description": "CSMA 的思想：检测时延 β 与三种坚持策略。", "start": "d1" },
+    "s2": { "description": "非时隙 CSMA 的通过率：忙闲周期的推导与比较。", "start": "d2" },
+    "s3": { "description": "时隙 CSMA：漂移、最大通过率与稳定算法。", "start": "d3" },
+    "s4": { "description": "CSMA/CD：边发边听、最短帧长、以太网与无线局域网。", "start": "d4" },
+    "s5": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}
