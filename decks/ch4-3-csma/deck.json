@@ -22,7 +22,11 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&display=swap"
     }
   },
   "designSystems": []

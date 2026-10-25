@@ -18,6 +18,7 @@ export async function loadDeck(deckId, onProgress) {
   const r = await fetch(base + 'deck.json');
   if (!r.ok) throw new Error('找不到课件 ' + deckId + '（' + r.status + '）');
   const meta = await r.json();
+  loadFaces(meta.faces);
   let done = 0;
   const htmls = await Promise.all(meta.order.map(async (id) => {
     const res = await fetch(base + 'slides/' + id + '.html');
@@ -32,6 +33,19 @@ export async function loadDeck(deckId, onProgress) {
     .map(([key, s]) => ({ key, description: s.description, start: idxOf.has(s.start) ? idxOf.get(s.start) : 0 }))
     .sort((a, b) => a.start - b.start);
   return { id: deckId, meta, slides, sections };
+}
+
+/* 课件在 deck.json 的 faces 里声明自己用到的字体（如宋体、粗黑体），这里按需加载 */
+function loadFaces(faces) {
+  Object.values(faces || {}).forEach((f) => {
+    const href = f && f.href;
+    if (!href || !/^https:\/\/fonts\.googleapis\.com\//.test(href)) return;
+    if (Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some((l) => l.href === href)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  });
 }
 
 export function sectionAt(deck, idx) {
