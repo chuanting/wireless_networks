@@ -15,7 +15,7 @@
 <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 24px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">② 错了 1 位</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
-<p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p>
+<p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">0</p><p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA">1</p>
 </div>
 <p style="font-size:28px;line-height:1.4;color:#14253D">1100001 ÷ 1011：余数 <b>011</b></p>
 <p style="font-size:30px;font-weight:700;color:#9A3412">→ 有错，丢弃 ✓</p>
@@ -23,10 +23,10 @@
 <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 24px">
 <p style="font-size:28px;font-weight:700;color:#14253D">③ 错得“刚好”：漏检</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
-<p style="width:52px;height:58px;line-height:58px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;line-height:54px">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p>
+<p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">1</p><p style="width:52px;height:58px;line-height:54px;border-radius:8px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC">0</p>
 </div>
 <p style="font-size:28px;line-height:1.4;color:#14253D">1100010 ÷ 1011：余数 <b>000</b></p>
-<p style="font-size:30px;font-weight:700;color:#9A3412">→ 错了 4 位，却放行了 ✗</p>
+<p style="font-size:30px;font-weight:700;color:#9A3412">→ 错了 3 位，却放行了 ✗</p>
 </div>
 </div>
 <div style="display:flex;gap:24px">
@@ -42,9 +42,9 @@
 <aside>【3 分钟】
 接收方的做法：对收到的整串比特（数据加校验位），用 g 去除，看余数。余数为 0 就放行，不为 0 就丢弃。
 情形一：没出错。收到 1101001，÷ 1011，余数 000，接收。
-情形二：错了 1 位（图中橙色）。收到 1100001，÷ 1011，余数 011，不为 0，有错，丢弃。
-情形三：漏检。错误图样是 0001011（恰好等于 g），收到的变成 1100010，÷ 1011，余数是 000，接收方以为没出错，实际上错了 4 位。
+情形二：错了 1 位（图中橙色，第 4 位由 1 变成 0）。收到 1100001，÷ 1011，余数 011，不为 0，有错，丢弃。
+情形三：漏检。错误图样是 0001011（恰好等于 g），收到的变成 1100010，÷ 1011，余数是 000，接收方以为没出错，实际上第 4、6、7 位共错了 3 位（图中橙色）。
 为什么？收到的 = 发送的 ⊕ 错误图样。发送的是 g 的倍数；如果错误图样也恰好是 g 的倍数，那么两者的和也是 g 的倍数，余数为 0——漏检。反过来，只要错误图样不是 g 的倍数，一定能发现。
 所以漏检的条件是：错误图样是 g 的倍数。g 取得好，这样的错误图样既少、又不容易碰上。这就是下一页要说的：怎么选 g，CRC 能发现什么。
-[验算：1100001 ⊕ 1101001 = 0001000（错 1 位）；1100010 ⊕ 1101001 = 0001011（错 4 位，恰好 = g）。]</aside>
+[验算：1100001 ⊕ 1101001 = 0001000（错 1 位）；1100010 ⊕ 1101001 = 0001011（错 3 位，恰好 = g）。]</aside>
 </section>
