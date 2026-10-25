@@ -89,7 +89,11 @@ window.COURSE = {
           desc: "共享信道与碰撞 · MAC 子层与三类协议 · 多址信道的排队模型与评价指标 · FDMA / TDMA / CDMA / SDMA · 固定分配的时延代价",
           deck: "ch4-1-multiple-access", slides: 36, minutes: 100
         },
-        { no: "4.2", title: "随机多址接入：ALOHA", status: "todo" },
+        {
+          no: "4.2", title: "随机多址接入：ALOHA", status: "ready",
+          desc: "ALOHA 的规则与模型 · 纯 ALOHA 与时隙 ALOHA 的通过率（1/2e 与 1/e）· 平衡点、马尔可夫链与漂移 · 为什么会堵死 · 伪贝叶斯算法",
+          deck: "ch4-2-aloha", slides: 37, minutes: 100
+        },
         { no: "4.3", title: "载波侦听多址接入：CSMA", status: "todo" },
         { no: "4.4", title: "冲突分解算法", status: "todo" }
       ]

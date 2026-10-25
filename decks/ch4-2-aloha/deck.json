@@ -1,0 +1,29 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-25T09:00:00Z" },
+  "lists": "css",
+  "title": "随机接入：ALOHA 协议与稳定性",
+  "order": [
+    "cover", "why", "agenda",
+    "d1", "p1-history", "p1-rule", "p1-model", "p1-AB", "p1-G", "p1-sum",
+    "d2", "p2-pure-vuln", "p2-pure-S", "p2-slot-idea", "p2-slot-S", "p2-curve", "p2-read", "p2-example", "p2-sum",
+    "d3", "p3-balance", "p3-mc-setup", "p3-mc-trans", "p3-drift", "p3-three-eq", "p3-qr", "p3-sim", "p3-sum",
+    "d4", "p4-idea", "p4-algo", "p4-why", "p4-stable", "p4-sim", "p4-sum",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：从固定分配到随机接入，本讲的三个问题。", "start": "cover" },
+    "s1": { "description": "ALOHA 的规则与分析模型：积压节点、两种简化假设、尝试率与通过率。", "start": "d1" },
+    "s2": { "description": "通过率：纯 ALOHA 最多 1/(2e)，时隙 ALOHA 最多 1/e。", "start": "d2" },
+    "s3": { "description": "稳定性：平衡点、马尔可夫链与漂移、重传概率的两难、仿真。", "start": "d3" },
+    "s4": { "description": "伪贝叶斯算法：用反馈估计积压数，让系统稳定。", "start": "d4" },
+    "s5": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}
