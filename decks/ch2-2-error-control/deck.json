@@ -5,7 +5,7 @@
   "title": "链路层的差错控制：检错、重传与最佳帧长",
   "order": [
     "cover", "why", "map", "agenda",
-    "d1", "err-source", "redundancy", "parity-1", "parity-2d", "parity-gen", "crc-idea", "crc-mod2", "crc-div", "crc-send", "crc-check", "crc-power", "crc-poly", "ed-sum",
+    "d1", "err-source", "redundancy", "parity-1", "parity-2d", "parity-gen", "crc-idea", "crc-mod2", "crc-len", "crc-pad", "crc-div", "crc-send", "crc-check", "crc-power", "crc-poly", "ed-sum",
     "d2", "arq-idea", "sw-1", "sw-loss", "sw-dup", "sw-sn", "sw-late", "sw-algo", "sw-eff-1", "sw-eff-2", "sw-limit", "win-idea", "gbn-1", "gbn-2", "gbn-eff", "sr-1", "sr-eff", "win-size", "choose-n", "arq-compare", "arpanet", "arq-sum",
     "d3", "fl-1", "fl-2", "fl-3", "mh-1", "mh-2", "fl-rt", "fl-sum",
     "summary", "homework"

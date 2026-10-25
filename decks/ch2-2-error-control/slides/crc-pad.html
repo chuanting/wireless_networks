@@ -1,0 +1,75 @@
+<section id="crc-pad" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么先补 L 个 0，再填入余数</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:20px;align-items:center">
+<p style="width:330px"></p>
+<p style="flex:1;font-size:28px;font-weight:700;color:#1E40AF">十进制 · 除数 g = 7</p>
+<p style="flex:1;font-size:28px;font-weight:700;color:#1E40AF">二进制 · 除数 g = 1011</p>
+</div>
+<div data-build-in="fade 1" style="display:flex;gap:20px;align-items:stretch">
+<div style="width:330px;display:flex;flex-direction:column;justify-content:center;gap:4px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">① 补 L 个 0</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">给校验位留好位置</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#1D4ED8">1234 → 1234<span style="color:#9AA3AE">0</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">L = 1，补 1 个 0</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#1D4ED8">1101 → 1101<span style="color:#9AA3AE">000</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">L = 3，补 3 个 0</p>
+</div>
+</div>
+<div data-build-in="fade 2" style="display:flex;gap:20px;align-items:stretch">
+<div style="width:330px;display:flex;flex-direction:column;justify-content:center;gap:4px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">② 用 g 去除，看余数</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">余数一定能放进这 L 位</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#14253D">12340 = 7×1762 + <span style="color:#C2410C">6</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">余数 6</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#14253D">1101000 ÷ 1011 → <span style="color:#C2410C">001</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">余数 001（下一页手算）</p>
+</div>
+</div>
+<div data-build-in="fade 3" style="display:flex;gap:20px;align-items:stretch">
+<div style="width:330px;display:flex;flex-direction:column;justify-content:center;gap:4px">
+<p style="font-size:30px;font-weight:700;color:#C2410C">③ 补上余数</p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">凑成能被 g 整除</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#14253D">12340 + (7−6) = 1234<span style="color:#C2410C">1</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">12341 = 7 × 1763，除得尽 ✓</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:14px 24px">
+<p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:36px;font-weight:700;color:#14253D">1101000 ⊕ 001 = 1101<span style="color:#C2410C">001</span></p>
+<p style="font-size:26px;line-height:1.4;color:#4B5A6B">模 2 里减余数 = 加余数，能被 1011 整除 ✓</p>
+</div>
+</div>
+</div>
+<div data-build-in="fade 4" style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#1E40AF">为什么补的是 0，而且正好 L 个</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">0 不带信息：余数写进去，只是把 000 换成 001，数据一位不动。余数最长 L 位，少补一个装不下，多补一个白白浪费。</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">为什么这样一定能整除</p>
+<p style="font-size:26px;line-height:1.5;color:#14253D">补 0 后的数 = g 的若干倍 + 余数。去掉余数，剩下的就是 g 的倍数；模 2 里“去掉”和“加上”都是异或，所以异或上余数即可。</p>
+</div>
+</div>
+<aside>【4 分钟】
+再回答第二个问题：为什么要先在数据后面补 L 个 0？
+用十进制的例子对照，一共三步。
+第一步，补 L 个 0。1234 补 1 个 0 变成 12340，末位是个空位，留给校验数字。二进制：1101 补 3 个 0，变成 1101000，末尾 3 位是空位，留给校验位。
+第二步，用 g 去除，看余数。12340 = 7 × 1762 + 6，余数 6；1101000 ÷ 1011，余数是 001（下一页手算）。上一页说过，余数一定能放进这 L 位。
+第三步，把余数补上，凑成能整除。十进制要加上 7 − 6 = 1，得 12341 = 7 × 1763，除得尽。二进制里，减去余数和加上余数是同一回事（模 2 里加法就是减法），所以直接异或 001：1101000 ⊕ 001 = 1101001，就能被 1011 整除。
+为什么补的是 0？0 不带信息。最后把余数写进这 L 个位置，只是把 000 换成 001（0 ⊕ r = r），前面的数据一位都没有动。为什么正好补 L 个？余数最长 L 位，少补一个装不下，多补一个浪费带宽。
+为什么一定能整除？补 0 后的数 = g 的若干倍 + 余数。把余数去掉，剩下的就是 g 的倍数；而模 2 里“去掉”和“加上”是同一个异或，所以异或上余数即可。
+下一页把第二步“求余数”的长除法一步一步算出来。
+[验算：12340 = 7×1762 + 6；12341 = 7×1763；1101000 ÷ 1011 余 001；1101001 ÷ 1011 余 000。已用程序对全部 8 位数据核对：补 3 个 0 后的余数都小于 8，且异或上余数后都能被 1011 整除。]</aside>
+</section>

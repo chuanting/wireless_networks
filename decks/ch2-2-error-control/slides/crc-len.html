@@ -1,0 +1,37 @@
+<section id="crc-len" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
+<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">校验位要几位？看除法的余数有多长</h2>
+</div>
+<div style="display:flex;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">十进制：除以 g = 7</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">余数只可能是 0 到 6 这 7 种，<b>一位数字就装得下</b>：</p>
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">2</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">3</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">4</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">5</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">6</p>
+</div>
+<p style="font-size:28px;line-height:1.5;color:#14253D">所以前面的例子只补 1 位校验数字。<br>道理很简单：<b>余数一定比除数小</b>。</p>
+</div>
+<div style="flex:1.25;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">二进制：除以 g = 1011（4 位）</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">长除法每异或一次 g，就<b>消掉最左边的一个 1</b>。一直消到剩下的部分比 g 短、放不下 g，就停：剩下的就是余数。</p>
+<div style="display:flex;align-items:center;gap:16px">
+<div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
+<p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;color:#9AA3AE">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;color:#9AA3AE">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;color:#9AA3AE">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#FFFEFA;border:2px solid #C9C1AA;color:#9AA3AE">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC;margin-left:10px">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p>
+</div>
+<p style="flex:1;font-size:26px;line-height:1.4;color:#4B5A6B">1101000 除到最后：<br>前 4 位清零，只剩末尾 3 位。</p>
+</div>
+<p style="font-size:28px;line-height:1.5;color:#14253D">余数最长 3 位：000 到 111，共 8 种可能，<b>3 位装得下</b>。</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:20px;padding:20px 30px">
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">g 有 L + 1 位 → 余数至多 L 位 → 校验位就取 L 位。</p>
+<p style="font-size:28px;line-height:1.4;color:#D9DEE6">L 由 g 决定，不是另外选的。g = 1011 是 4 位，所以 L = 3；CRC-16 的 g 是 17 位，所以 L = 16。</p>
+</div>
+<aside>【3 分钟】
+上一页学了模 2 运算。现在先回答一个问题：校验位到底要补几位？
+先看十进制。除数是 7，除完的余数只可能是 0、1、2、3、4、5、6，一共 7 种，一位数字就装得下。所以前面的例子只补了 1 位校验数字。道理很简单：余数一定比除数小。
+二进制同理。除数 g = 1011，有 4 位。长除法里，每异或一次 g，就把当前最左边的 1 消掉；一直做到剩下的部分不足 4 位、放不下 g，就停下来，剩下的就是余数。所以余数最多 3 位，取值从 000 到 111，共 8 种可能。例如后面要手算的 1101000，除到最后，前 4 位全是 0，只剩末尾 3 位 001。
+结论：g 有 L + 1 位，余数至多 L 位，校验位就取 L 位。L 不是另外选的，而是由 g 决定的。g = 1011 是 4 位，L = 3；CRC-16 的 g 有 17 位，L = 16。
+[提示：可以问同学：如果 g 是 5 位，校验位要几位？答：4 位。已用程序核对：g = 10011 时余数最长 4 位。]</aside>
+</section>

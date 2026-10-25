@@ -6,10 +6,10 @@
 <div style="display:flex;gap:20px;align-items:stretch">
 <div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">已知</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">数据 K = 4 位：<b>1101</b>；除数 <b>g = 1011</b>（共 L + 1 = 4 位，所以校验位 L = 3）</p>
+<p style="font-size:28px;line-height:1.4;color:#14253D">数据 K = 4 位：<b>1101</b>；除数 <b>g = 1011</b>（4 位）<br>校验位 L = g 的位数 − 1 = <b>3</b></p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">第 0 步：在数据后面补 L = 3 个 0</p>
+<p style="font-size:28px;font-weight:700;color:#C2410C">第 0 步：在数据后面补 L = 3 个 0（占位）</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
 <p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p>
 </div>
@@ -62,16 +62,16 @@
 </div>
 </div>
 <div data-build-in="fade 5" style="display:flex;align-items:center;gap:24px;background:#14253D;border-radius:20px;padding:16px 30px">
-<p style="font-size:32px;font-weight:700;color:#F4F1E8">余数 = 最后 3 位 = <b>001</b>，这就是校验位 → 发送 1101 <b>001</b></p>
+<p style="font-size:32px;font-weight:700;color:#F4F1E8">余数 = 最后 3 位 = <b>001</b>，这就是校验位 → 把补的 000 换成 001，发送 1101 <b>001</b></p>
 </div>
 <aside>【4 分钟 · 请带着学生一步一步算】
-例：数据 1101（K = 4），除数 g = 1011。g 一共 4 位，所以校验位的个数 L = 3（等于 g 的位数减 1）。
-第 0 步：在数据后面补 L = 3 个 0，得被除数 1101000。
+例：数据 1101（K = 4），除数 g = 1011。g 一共 4 位，所以校验位的个数 L = 3（等于 g 的位数减 1，原因见前两页：余数最长 L 位）。
+第 0 步：在数据后面补 L = 3 个 0，给校验位占好位置，得被除数 1101000。
 （点击 ①）看第 1 位（最左边）：是 1，从这里起，把 g = 1011 对齐，异或。窗口里的 1101 ⊕ 1011 = 0110，所以整串变成 0110000。
 （点击 ②）现在最左边的 0 已经“消掉”，看下一位（第 2 位）：是 1，把 g 对齐到第 2 位起，窗口 1100 ⊕ 1011 = 0111，整串变成 0011100。
 （点击 ③）第 3 位是 1：窗口 1110 ⊕ 1011 = 0101，整串变成 0001010。
 （点击 ④）第 4 位是 1：窗口 1010 ⊕ 1011 = 0001，整串变成 0000001。前 4 位已全是 0，除完了。
-（点击）余数是最后 3 位：001。这就是校验位。发送的序列：数据 1101 + 校验位 001 = 1101001。
+（点击）余数是最后 3 位：001。这就是校验位。把补的 000 换成 001，发送的序列：数据 1101 + 校验位 001 = 1101001。
 关键：每一步都只做一件事——看当前最左的 1，对齐、异或 g。全是异或，没有进位。
 [遇到某一位是 0 怎么办？不做异或，直接看下一位。本例每一步都是 1，所以一直在做异或。第二个例子见课后练习。]</aside>
 </section>
