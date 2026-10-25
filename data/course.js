@@ -42,7 +42,7 @@ window.COURSE = {
         {
           no: "2.2", title: "链路层的差错控制技术", status: "ready",
           desc: "差错检测（奇偶校验、CRC）· ARQ 协议（停等、返回 n、选择重发）· 最佳帧长",
-          deck: "ch2-2-error-control", slides: 52, minutes: 100
+          deck: "ch2-2-error-control", slides: 55, minutes: 100
         },
         {
           no: "2.3", title: "标准数据链路控制协议及其初始化", status: "ready",
