@@ -24,6 +24,7 @@ data/course.js             课程目录：主页的菜单完全由它生成
 viewer/index.html          课件放映页   viewer/?deck=<deck-id>#<页码>
 viewer/notes.html          讲者视图（由放映页按 S 打开）
 assets/css, assets/js      主页与放映器的样式/脚本（无第三方依赖；仅加载 Google Fonts）
+assets/fonts               课件用的宋体与手写体（精简字库，woff2）
 decks/<deck-id>/           每一讲课件
   deck.json                页序、分部、标题、该讲用到的字体（faces，放映器按需加载）
   slides/<slide-id>.html   一页一个文件（1920×1080 画布，行内样式）
@@ -59,4 +60,5 @@ python3 -m http.server 8000
 ## 说明
 
 - 页面使用 Google Fonts（Noto Serif SC、Noto Sans SC）；离线时回退到系统字体。每讲课件额外需要的字重或字体写在它的 `deck.json` 的 `faces` 里，放映器打开课件时自动加载。
+- 课件里的宋体（Noto Serif SC 400/900）和黑板页的手写体（ZCOOL KuaiLe）放在 `assets/fonts/`，放映器直接用本站的文件，不依赖 Google Fonts。字库已精简为“所有课件里出现的字 + GB2312 一级常用字”；以后新课件如果用到不常见的字，个别字会回退到系统字体。字体许可见 `assets/fonts/OFL.txt`。
 - 演讲备注（含练习题参考答案）保存在每页的 `<aside>` 里，随站点公开可见；如需保密，请在发布前删除对应内容。
