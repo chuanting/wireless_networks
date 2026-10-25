@@ -1,0 +1,29 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-25T07:30:00Z" },
+  "lists": "css",
+  "title": "多址接入协议：概述与固定分配",
+  "order": [
+    "cover", "why", "map", "recap", "agenda",
+    "d1", "p1-shared", "p1-collide", "p1-def", "p1-layer", "p1-extreme", "p1-classes", "p1-sum",
+    "d2", "p2-queue", "p2-ideal", "p2-assume-1", "p2-assume-2", "p2-metrics", "p2-sum",
+    "d3", "p3-idea", "p3-fdma", "p3-tdma", "p3-waste", "p3-cdma-1", "p3-cdma-2", "p3-sdma", "p3-table", "p3-sum",
+    "d4", "p4-recall", "p4-chart", "p4-insight",
+    "summary", "homework"
+  ],
+  "sections": {
+    "s0": { "description": "开场：共享信道的问题、本章路线、要用的结论。", "start": "cover" },
+    "s1": { "description": "共享信道与多址接入协议：碰撞、MAC 子层、三大类。", "start": "d1" },
+    "s2": { "description": "怎样分析多址协议：排队模型、理想总队列、四个约定、三个指标。", "start": "d2" },
+    "s3": { "description": "固定分配：FDMA、TDMA、CDMA、SDMA。", "start": "d3" },
+    "s4": { "description": "固定分配的代价：与理想总队列的时延差距。", "start": "d4" },
+    "s5": { "description": "总结与课后练习。", "start": "summary" }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

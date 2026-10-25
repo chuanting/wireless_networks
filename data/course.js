@@ -81,7 +81,19 @@ window.COURSE = {
         }
       ]
     },
-    { id: "ch4", no: 4, icon: "mac", title: "多址接入协议", en: "Multiple Access Protocols", sections: [] },
+    {
+      id: "ch4", no: 4, icon: "mac", title: "多址接入协议", en: "Multiple Access Protocols",
+      sections: [
+        {
+          no: "4.1", title: "概述与固定多址接入", status: "ready",
+          desc: "共享信道与碰撞 · MAC 子层与三类协议 · 多址信道的排队模型与评价指标 · FDMA / TDMA / CDMA / SDMA · 固定分配的时延代价",
+          deck: "ch4-1-multiple-access", slides: 36, minutes: 100
+        },
+        { no: "4.2", title: "随机多址接入：ALOHA", status: "todo" },
+        { no: "4.3", title: "载波侦听多址接入：CSMA", status: "todo" },
+        { no: "4.4", title: "冲突分解算法", status: "todo" }
+      ]
+    },
     { id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms", sections: [] },
     { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [] },
     { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [] }
