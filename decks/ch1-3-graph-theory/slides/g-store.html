@@ -4,22 +4,22 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">怎样把图交给计算机</h2>
 </div>
 <p style="position:absolute;left:128px;top:252px;width:800px;font-size:40px;font-weight:700;color:#14253D">邻接矩阵：一张表</p>
-<table style="position:absolute;left:128px;top:320px;width:800px;font-size:32px;color:#14253D">
-<tr style="background:#14253D"><th style="width:20%;text-align:center;color:#F4F1E8"></th><th style="width:16%;text-align:center;color:#F4F1E8">小明</th><th style="width:16%;text-align:center;color:#F4F1E8">小红</th><th style="width:16%;text-align:center;color:#F4F1E8">小刚</th><th style="width:16%;text-align:center;color:#F4F1E8">小丽</th><th style="width:16%;text-align:center;color:#F4F1E8">小华</th></tr>
+<table style="position:absolute;left:128px;top:320px;width:800px;font-size:32px;color:#14253D;border-top:3px solid #14253D;border-bottom:2px solid #14253D">
+<tr><th style="width:20%;text-align:center;color:#14253D"></th><th style="width:16%;text-align:center;color:#14253D">小明</th><th style="width:16%;text-align:center;color:#14253D">小红</th><th style="width:16%;text-align:center;color:#14253D">小刚</th><th style="width:16%;text-align:center;color:#14253D">小丽</th><th style="width:16%;text-align:center;color:#14253D">小华</th></tr>
 <tr><td style="text-align:center"><b>小明</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
-<tr style="background:#F0ECE0"><td style="text-align:center"><b>小红</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
+<tr><td style="text-align:center"><b>小红</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr>
 <tr><td style="text-align:center"><b>小刚</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td></tr>
-<tr style="background:#F0ECE0"><td style="text-align:center"><b>小丽</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td></tr>
+<tr><td style="text-align:center"><b>小丽</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td></tr>
 <tr><td style="text-align:center"><b>小华</b></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center;color:#C2410C"><b>1</b></td><td style="text-align:center">0</td></tr>
 </table>
 <p style="position:absolute;left:128px;top:760px;width:800px;font-size:28px;color:#4B5A6B">第 i 行第 j 列是 1，表示 i 和 j 是好友。想知道“两人是不是好友”，查一格就行。</p>
 <p style="position:absolute;left:1008px;top:252px;width:784px;font-size:40px;font-weight:700;color:#14253D">邻接表：每人一份邻居名单</p>
-<table style="position:absolute;left:1008px;top:320px;width:784px;font-size:32px;color:#14253D">
-<tr style="background:#14253D"><th style="width:28%;text-align:center;color:#F4F1E8">点</th><th style="width:72%;text-align:left;color:#F4F1E8">邻居</th></tr>
+<table style="position:absolute;left:1008px;top:320px;width:784px;font-size:32px;color:#14253D;border-top:3px solid #14253D;border-bottom:2px solid #14253D">
+<tr><th style="width:28%;text-align:center;color:#14253D">点</th><th style="width:72%;text-align:left;color:#14253D">邻居</th></tr>
 <tr><td style="text-align:center"><b>小明</b></td><td style="text-align:left">小红、小刚</td></tr>
-<tr style="background:#F0ECE0"><td style="text-align:center"><b>小红</b></td><td style="text-align:left">小明、小刚</td></tr>
+<tr><td style="text-align:center"><b>小红</b></td><td style="text-align:left">小明、小刚</td></tr>
 <tr><td style="text-align:center"><b>小刚</b></td><td style="text-align:left">小明、小红、小丽</td></tr>
-<tr style="background:#F0ECE0"><td style="text-align:center"><b>小丽</b></td><td style="text-align:left">小刚、小华</td></tr>
+<tr><td style="text-align:center"><b>小丽</b></td><td style="text-align:left">小刚、小华</td></tr>
 <tr><td style="text-align:center"><b>小华</b></td><td style="text-align:left">小丽</td></tr>
 </table>
 <p style="position:absolute;left:1008px;top:760px;width:784px;font-size:28px;color:#4B5A6B">只记录存在的边，边很少的图用它更省空间。</p>

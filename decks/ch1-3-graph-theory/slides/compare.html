@@ -3,12 +3,12 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种算法对比</h2>
 </div>
-<table style="width:1664px;font-size:28px;color:#14253D">
-<tr style="background:#14253D"><th style="width:16%;text-align:left;color:#F4F1E8"></th><th style="width:24%;text-align:left;color:#F4F1E8">Prim</th><th style="width:26%;text-align:left;color:#F4F1E8">Kruskal</th><th style="width:34%;text-align:left;color:#F4F1E8">分布式（GHS）</th></tr>
+<table style="width:1664px;font-size:28px;color:#14253D;border-top:3px solid #14253D;border-bottom:2px solid #14253D">
+<tr><th style="width:16%;text-align:left;color:#14253D"></th><th style="width:24%;text-align:left;color:#14253D">Prim</th><th style="width:26%;text-align:left;color:#14253D">Kruskal</th><th style="width:34%;text-align:left;color:#14253D">分布式（GHS）</th></tr>
 <tr><td style="text-align:left"><b>比喻</b></td><td style="text-align:left">滚雪球</td><td style="text-align:left">先抢便宜货</td><td style="text-align:left">小团体并行合并</td></tr>
-<tr style="background:#FFFEFA"><td style="text-align:left"><b>谁来算</b></td><td style="text-align:left">一个“总指挥”</td><td style="text-align:left">一个“总指挥”</td><td style="text-align:left">每个节点各自行动，互发消息</td></tr>
+<tr><td style="text-align:left"><b>谁来算</b></td><td style="text-align:left">一个“总指挥”</td><td style="text-align:left">一个“总指挥”</td><td style="text-align:left">每个节点各自行动，互发消息</td></tr>
 <tr><td style="text-align:left"><b>需要知道</b></td><td style="text-align:left">整张图</td><td style="text-align:left">所有边的造价排序</td><td style="text-align:left">只知道邻居和相连线路的造价</td></tr>
-<tr style="background:#FFFEFA"><td style="text-align:left"><b>适合</b></td><td style="text-align:left">边很多的图</td><td style="text-align:left">边较少的图</td><td style="text-align:left">路由器、传感器等网络自组织</td></tr>
+<tr><td style="text-align:left"><b>适合</b></td><td style="text-align:left">边很多的图</td><td style="text-align:left">边较少的图</td><td style="text-align:left">路由器、传感器等网络自组织</td></tr>
 <tr><td style="text-align:left"><b>复杂度</b></td><td style="text-align:left">O(E log V)（用堆）</td><td style="text-align:left">O(E log E)（排序）</td><td style="text-align:left">消息 O(E + V log V)</td></tr>
 </table>
 <div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
