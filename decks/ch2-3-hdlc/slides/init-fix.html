@@ -1,53 +1,53 @@
-<section id="init-fix" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 解决办法</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种办法：记住、等待、给每次握手一个“暗号”</h2>
+<section data-transition="fade" id="init-fix" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">三种办法：记住、等待、给每次握手一个“暗号”</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:620px"></div>
-<svg aria-label="随机数使迟到的旧 ACKI 被识别并丢弃" viewBox="0 0 1072 477" width="1072" height="477" style="position:absolute;left:128px;top:300px">
-<path d="M240,44V453" stroke="#8A97A6" stroke-width="4"/>
-<path d="M840,44V453" stroke="#8A97A6" stroke-width="4"/>
-<path d="M240,44L819,177" stroke="#C2410C" stroke-width="5" fill="none"/>
-<polygon points="840,182 816,188 821,166" fill="#C2410C"/>
-<circle cx="240" cy="90" r="11" fill="#B91C1C"/>
-<path d="M240,136L819,269" stroke="#1D4ED8" stroke-width="5" fill="none"/>
-<polygon points="840,274 816,280 821,258" fill="#1D4ED8"/>
-<path d="M840,182L261,315" stroke="#C2410C" stroke-width="5" fill="none"/>
-<polygon points="240,320 259,304 264,326" fill="#C2410C"/>
-<path d="M840,228L261,361" stroke="#C2410C" stroke-width="5" fill="none"/>
-<polygon points="240,366 259,350 264,372" fill="#C2410C"/>
-<path d="M840,274L261,407" stroke="#1D4ED8" stroke-width="5" fill="none"/>
-<polygon points="240,412 259,396 264,418" fill="#1D4ED8"/>
-<circle cx="240" cy="320" r="9" fill="#8A97A6"/>
-<circle cx="240" cy="366" r="9" fill="#8A97A6"/>
-<circle cx="240" cy="412" r="10" fill="#1D4ED8"/>
+<div style="position:absolute;left:128px;top:232px;width:1072px;height:620px"></div>
+<svg aria-label="随机数使迟到的旧 ACKI 被识别并丢弃" viewBox="0 0 1072 477" width="1072" height="477" style="position:absolute;left:128px;top:260px">
+<path d="M240,44V453" stroke="#8C8170" stroke-width="4"/>
+<path d="M840,44V453" stroke="#8C8170" stroke-width="4"/>
+<path d="M240,44L819,177" stroke="#B4381F" stroke-width="5" fill="none"/>
+<polygon points="840,182 816,188 821,166" fill="#B4381F"/>
+<circle cx="240" cy="90" r="11" fill="#B4381F"/>
+<path d="M240,136L819,269" stroke="#2F5D8A" stroke-width="5" fill="none"/>
+<polygon points="840,274 816,280 821,258" fill="#2F5D8A"/>
+<path d="M840,182L261,315" stroke="#B4381F" stroke-width="5" fill="none"/>
+<polygon points="240,320 259,304 264,326" fill="#B4381F"/>
+<path d="M840,228L261,361" stroke="#B4381F" stroke-width="5" fill="none"/>
+<polygon points="240,366 259,350 264,372" fill="#B4381F"/>
+<path d="M840,274L261,407" stroke="#2F5D8A" stroke-width="5" fill="none"/>
+<polygon points="240,412 259,396 264,418" fill="#2F5D8A"/>
+<circle cx="240" cy="320" r="9" fill="#8C8170"/>
+<circle cx="240" cy="366" r="9" fill="#8C8170"/>
+<circle cx="240" cy="412" r="10" fill="#2F5D8A"/>
 </svg>
-<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A</p>
-<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B</p>
-<p style="position:absolute;left:132px;top:358px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">A 重启，状态全丢</p>
-<p style="position:absolute;left:132px;top:590px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">31 ≠ 57：丢弃</p>
-<p style="position:absolute;left:132px;top:636px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8A97A6">A 仍 DOWN：丢弃</p>
-<p style="position:absolute;left:132px;top:682px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#1D4ED8">57 = 57：变 UP</p>
-<p style="position:absolute;left:589px;top:358px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">INIT(r=31)</p>
-<p style="position:absolute;left:589px;top:450px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">INIT(r=57)</p>
-<p style="position:absolute;left:469px;top:524px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACKI(r=31)</p>
-<p style="position:absolute;left:584px;top:582px;width:168px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;background:#FFFEFA;border-radius:6px">I(0,0)（旧）</p>
-<p style="position:absolute;left:589px;top:668px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">ACKI(r=57)</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">① 非易失存储器</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">掉电不丢的存储里记下链路状态，重启后“记得”出过故障。（要额外硬件）</p>
+<p style="position:absolute;left:278px;top:254px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">A</p>
+<p style="position:absolute;left:878px;top:254px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">B</p>
+<p style="position:absolute;left:132px;top:318px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#B4381F">A 重启，状态全丢</p>
+<p style="position:absolute;left:132px;top:550px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8C8170">31 ≠ 57：丢弃</p>
+<p style="position:absolute;left:132px;top:596px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#8C8170">A 仍 DOWN：丢弃</p>
+<p style="position:absolute;left:132px;top:642px;width:215px;font-size:24px;font-weight:700;line-height:1.2;text-align:right;color:#2F5D8A">57 = 57：变 UP</p>
+<p style="position:absolute;left:589px;top:318px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#B4381F">INIT(r=31)</p>
+<p style="position:absolute;left:589px;top:410px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#2F5D8A">INIT(r=57)</p>
+<p style="position:absolute;left:469px;top:484px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#B4381F">ACKI(r=31)</p>
+<p style="position:absolute;left:584px;top:542px;width:168px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#B4381F;background:#F6F1E7;border-radius:6px">I(0,0)（旧）</p>
+<p style="position:absolute;left:589px;top:628px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#2F5D8A">ACKI(r=57)</p>
+<div style="position:absolute;left:1230px;top:232px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>① 非易失存储器：</b></span>掉电不丢的存储里记下链路状态，重启后“记得”出过故障。（要额外硬件）</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">② 长定时器</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">重启后先静默一段时间，长于帧在链路上能活的最长时间，让旧帧消失，再发 INIT。（要等很久）</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>② 长定时器：</b></span>重启后先静默一段时间，长于帧在链路上能活的最长时间，让旧帧消失，再发 INIT。（要等很久）</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">③ 随机数（图中）</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">INIT 带随机数 <i>r</i>，ACKI 原样带回；A 只认与最新 INIT 相同的 <i>r</i>。图中 31 ≠ 57，旧 ACKI 被丢弃。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>③ 随机数（图中）：</b></span>INIT 带随机数 <i>r</i>，ACKI 原样带回；A 只认与最新 INIT 相同的 <i>r</i>。图中 31 ≠ 57，旧 ACKI 被丢弃。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:25px;line-height:1.45;color:#14253D">TCP 的 2MSL 等待与初始序号 ISN，就是②和③的思想。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-family:'Noto Serif SC', serif;font-size:30px;font-weight:400;line-height:1.55;color:#1E1A16">TCP 的 2MSL 等待与初始序号 ISN，就是②和③的思想。</p>
 </div>
 </div>
 <aside>【3.5 分钟 · 重点】

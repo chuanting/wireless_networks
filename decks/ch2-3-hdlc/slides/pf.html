@@ -1,32 +1,32 @@
-<section id="pf" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式 · P/F 位</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">P/F 位：“请回答”和“这是最后一帧”</h2>
+<section data-transition="fade" id="pf" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">P/F 位：“请回答”和“这是最后一帧”</h2>
 </div>
 <div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">同一个位，两种叫法</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 在<b>命令</b>帧里叫 <b>P</b>（Poll，询问）：置 1 = “请立即回答我”。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 在<b>响应</b>帧里叫 <b>F</b>（Final，结束）：置 1 = “这是我这次回答的最后一帧”。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:30px;font-weight:700;line-height:1.35;color:#1E1A16">同一个位，两种叫法</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 在<b>命令</b>帧里叫 <b>P</b>（Poll，询问）：置 1 = “请立即回答我”。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 在<b>响应</b>帧里叫 <b>F</b>（Final，结束）：置 1 = “这是我这次回答的最后一帧”。</p>
 </div>
-<div style="width:640px;display:flex;flex-direction:column;gap:10px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#1E40AF">NRM：主站点名，从站答完</p>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:26px;color:#14253D">
-<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">A → B</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412">RR，P = 1</p></div>
-<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D">I 帧，F = 0</p></div>
-<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#14253D">I 帧，F = 0</p></div>
-<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412">I 帧，F = 1（最后一帧）</p></div>
+<div style="width:640px;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:30px;font-weight:700;color:#2F5D8A">NRM：主站点名，从站答完</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:26px;color:#1E1A16">
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">A → B</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#A3301A">RR，P = 1</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#1E1A16">I 帧，F = 0</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#1E1A16">I 帧，F = 0</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:190px;font-weight:700">B → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#A3301A">I 帧，F = 1（最后一帧）</p></div>
 </div>
 </div>
 </div>
 <div style="display:flex;gap:48px">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">为什么要有 F 位</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D">从站一次可能回好几帧。F = 1 告诉主站：“我答完了，下一个从站可以被点名了。”</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+
+<p style="font-size:30px;line-height:1.5;color:#5E554B"><span style="color:#1E1A16"><b>为什么要有 F 位：</b></span>从站一次可能回好几帧。F = 1 告诉主站：“我答完了，下一个从站可以被点名了。”</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">ABM 里怎么用</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D">任一站发出 P = 1 的帧（如 U 帧或 I 帧），对方收到后必须立即回 F = 1 的响应，常用来<b>检查对方是否在线</b>、确认命令已被接收。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+
+<p style="font-size:30px;line-height:1.5;color:#5E554B"><span style="color:#1E1A16"><b>ABM 里怎么用：</b></span>任一站发出 P = 1 的帧（如 U 帧或 I 帧），对方收到后必须立即回 F = 1 的响应，常用来<b>检查对方是否在线</b>、确认命令已被接收。</p>
 </div>
 </div>
 <aside>【3 分钟】

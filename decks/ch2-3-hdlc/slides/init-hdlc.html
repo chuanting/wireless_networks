@@ -1,44 +1,44 @@
-<section id="init-hdlc" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · HDLC 里怎么做</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">HDLC：用 U 帧完成，但 UA 有点含糊</h2>
+<section data-transition="fade" id="init-hdlc" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">HDLC：用 U 帧完成，但 UA 有点含糊</h2>
 </div>
 <div style="display:flex;gap:48px;align-items:flex-start">
 <div style="width:830px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;gap:14px;padding:0 20px"><p style="width:140px;font-size:24px;font-weight:700;color:#4B5A6B">通用叫法</p><p style="width:250px;font-size:24px;font-weight:700;color:#4B5A6B">HDLC 帧</p><p style="flex:1;font-size:24px;font-weight:700;color:#4B5A6B">作用</p></div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
-<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">INIT</p>
-<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">SNRM / SABM</p>
-<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">请求建立：双方 SN、RN 置 0</p>
+<div style="display:flex;gap:14px;padding:0 20px"><p style="width:140px;font-size:24px;font-weight:700;color:#5E554B">通用叫法</p><p style="width:250px;font-size:24px;font-weight:700;color:#5E554B">HDLC 帧</p><p style="flex:1;font-size:24px;font-weight:700;color:#5E554B">作用</p></div>
+<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #CFC5B4;padding:14px 0px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#B4381F">INIT</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#1E1A16">SNRM / SABM</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16">请求建立：双方 SN、RN 置 0</p>
 </div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
-<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">ACKI</p>
-<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">UA</p>
-<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">同意建立</p>
+<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #CFC5B4;padding:14px 0px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#B4381F">ACKI</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#1E1A16">UA</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16">同意建立</p>
 </div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
-<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">DISC</p>
-<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">DISC</p>
-<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">请求拆除</p>
+<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #CFC5B4;padding:14px 0px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#B4381F">DISC</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#1E1A16">DISC</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16">请求拆除</p>
 </div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
-<p style="width:140px;font-size:30px;font-weight:700;color:#C2410C">ACKD</p>
-<p style="width:250px;font-size:28px;font-weight:700;color:#14253D">UA</p>
-<p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">同意拆除</p>
+<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #CFC5B4;padding:14px 0px">
+<p style="width:140px;font-size:30px;font-weight:700;color:#B4381F">ACKD</p>
+<p style="width:250px;font-size:28px;font-weight:700;color:#1E1A16">UA</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16">同意拆除</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:26px;line-height:1.45;color:#14253D"><b>建立和拆除的回答是同一种帧 UA</b>，而且 UA 里没有编号。收到一个 UA，分不清它回答的是哪个命令。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-family:'Noto Serif SC', serif;font-size:32px;font-weight:400;line-height:1.55;color:#1E1A16"><b>建立和拆除的回答是同一种帧 UA</b>，而且 UA 里没有编号。收到一个 UA，分不清它回答的是哪个命令。</p>
 </div>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">一个例子：A 超时太早</p>
-<p style="font-size:24px;line-height:1.35;color:#4B5A6B">设单程时延为 3，A 只等 2 就重发。</p>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 0</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 发 SABM。</p></div>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 2</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 没等到回答，超时，又发一个 SABM。</p></div>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 3, 5</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">B 收到两个 SABM，各回一个 UA：第 1 个、第 2 个。</p></div>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 6</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">A 收到第 1 个 UA，变 UP。没有数据，立刻发 DISC。</p></div>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 8</p><p style="flex:1;font-size:26px;line-height:1.35;color:#9A3412;font-weight:700">A 收到第 2 个 UA——它其实是 SABM 的回答，A 却当作 DISC 的：A 变 DOWN。</p></div>
-<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#C2410C">t = 9</p><p style="flex:1;font-size:26px;line-height:1.35;color:#14253D;font-weight:400">B 才收到 DISC。8 到 9 之间，A 认为 DOWN、B 还是 UP。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:30px;font-weight:700;line-height:1.35;color:#1E1A16">一个例子：A 超时太早</p>
+<p style="font-size:26.0px;line-height:1.5;color:#5E554B">设单程时延为 3，A 只等 2 就重发。</p>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 0</p><p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16;font-weight:400">A 发 SABM。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 2</p><p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16;font-weight:400">A 没等到回答，超时，又发一个 SABM。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 3, 5</p><p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16;font-weight:400">B 收到两个 SABM，各回一个 UA：第 1 个、第 2 个。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 6</p><p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16;font-weight:400">A 收到第 1 个 UA，变 UP。没有数据，立刻发 DISC。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 8</p><p style="flex:1;font-size:26px;line-height:1.35;color:#A3301A;font-weight:700">A 收到第 2 个 UA——它其实是 SABM 的回答，A 却当作 DISC 的：A 变 DOWN。</p></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><p style="width:92px;font-size:24px;font-weight:700;line-height:1.35;color:#B4381F">t = 9</p><p style="flex:1;font-size:26px;line-height:1.35;color:#1E1A16;font-weight:400">B 才收到 DISC。8 到 9 之间，A 认为 DOWN、B 还是 UP。</p></div>
 </div>
 </div>
 <aside>【3 分钟】

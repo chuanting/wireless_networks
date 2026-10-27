@@ -1,35 +1,35 @@
-<section id="frame-2" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一个 HDLC 帧的开销有多大？</h2>
+<section data-transition="fade" id="frame-2" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">一个 HDLC 帧的开销有多大？</h2>
 </div>
 <div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">固定开销（不含比特插入）</p>
-<div style="display:flex;flex-direction:column;gap:6px;font-size:28px;color:#14253D">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:30px;font-weight:700;line-height:1.35;color:#1E1A16">固定开销（不含比特插入）</p>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:28px;color:#1E1A16">
 <div style="display:flex"><p style="width:200px">Flag（起）</p><p>8 位</p></div>
 <div style="display:flex"><p style="width:200px">地址</p><p>8 位</p></div>
 <div style="display:flex"><p style="width:200px">控制</p><p>8 位</p></div>
 <div style="display:flex"><p style="width:200px">FCS</p><p>16 位</p></div>
 <div style="display:flex"><p style="width:200px">Flag（止）</p><p>8 位</p></div>
-<div style="display:flex;border-top:3px solid #14253D;padding-top:6px"><p style="width:200px;font-weight:700">合计</p><p style="font-weight:700">48 位 = 6 字节</p></div>
+<div style="display:flex;border-top:3px solid #1E1A16;padding-top:6px"><p style="width:200px;font-weight:700">合计</p><p style="font-weight:700">48 位 = 6 字节</p></div>
 </div>
-<p style="font-size:26px;line-height:1.4;color:#4B5A6B">连续发帧时，前一帧的止 Flag 兼作后一帧的起 Flag，每帧只需 40 位。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">连续发帧时，前一帧的止 Flag 兼作后一帧的起 Flag，每帧只需 40 位。</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">例：信息域 1000 位</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 效率 = 1000 / 1048 ≈ <b>95.4%</b></p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 再加上比特插入：平均多约 1032/64 ≈ 16 位（2.1 的公式）</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 实际效率 ≈ 1000 / 1064 ≈ <b>94%</b></p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:30px;font-weight:700;line-height:1.35;color:#1E1A16">例：信息域 1000 位</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 效率 = 1000 / 1048 ≈ <b>95.4%</b></p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 再加上比特插入：平均多约 1032/64 ≈ 16 位（2.1 的公式）</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 实际效率 ≈ 1000 / 1064 ≈ <b>94%</b></p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">最短的帧：没有信息域</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">S 帧、U 帧只有 48 位。在 64 kb/s 的链路上，发一个只含确认的帧要 48 / 64000 = <b>0.75 ms</b>。</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+
+<p style="font-size:30px;line-height:1.5;color:#5E554B"><span style="color:#1E1A16"><b>最短的帧：没有信息域：</b></span>S 帧、U 帧只有 48 位。在 64 kb/s 的链路上，发一个只含确认的帧要 48 / 64000 = <b>0.75 ms</b>。</p>
 </div>
 </div>
 </div>
-<div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">联系 2.2：头尾 <i>l</i>h = 48 位，<i>p</i>b = 10 的 −4 次方时，最佳负荷 ≈ √(48 / 0.0001) ≈ 690 位。</p></div>
+<div style="flex:1"></div><div style=""><p style="font-family:'Noto Serif SC', serif;font-size:32px;font-weight:400;line-height:1.55;color:#1E1A16">联系 2.2：头尾 <i>l</i>h = 48 位，<i>p</i>b = 10 的 −4 次方时，最佳负荷 ≈ √(48 / 0.0001) ≈ 690 位。</p></div>
 <aside>【2 分钟】
 算一算一个 HDLC 帧的开销。
 固定开销：起 Flag 8 位，地址 8 位，控制 8 位，FCS 16 位，止 Flag 8 位，合计 48 位，也就是 6 个字节。如果连续发帧，前一帧的止 Flag 兼作后一帧的起 Flag，每帧只需 40 位。

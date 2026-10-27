@@ -1,28 +1,28 @@
-<section id="init-sum" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 小结</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">初始化：五句话</h2>
+<section data-transition="fade" id="init-sum" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">初始化：五句话</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">为什么</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">SN、RN 是两端共同的计数器，每个 UP 周期开始前必须<b>清零对齐</b>。</p>
+<div style="display:flex;flex-direction:column;gap:44px">
+<div style="display:flex;align-items:center;gap:26px">
+<p style="width:210px;font-family:'Noto Serif SC', serif;font-size:34px;font-weight:900;color:#1E1A16">为什么</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#1E1A16">SN、RN 是两端共同的计数器，每个 UP 周期开始前必须<b>清零对齐</b>。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">做什么</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">INIT / ACKI 建立，DISC / ACKD 拆除；两端对 UP / DOWN 的看法要一致。</p>
+<div style="display:flex;align-items:center;gap:26px">
+<p style="width:210px;font-family:'Noto Serif SC', serif;font-size:34px;font-weight:900;color:#1E1A16">做什么</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#1E1A16">INIT / ACKI 建立，DISC / ACKD 拆除；两端对 UP / DOWN 的看法要一致。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">HDLC</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">SNRM / SABM 建立，DISC 拆除，都用 <b>UA</b> 回答；UA 无编号，分不清回答谁。</p>
+<div style="display:flex;align-items:center;gap:26px">
+<p style="width:210px;font-family:'Noto Serif SC', serif;font-size:34px;font-weight:900;color:#1E1A16">HDLC</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#1E1A16">SNRM / SABM 建立，DISC 拆除，都用 <b>UA</b> 回答；UA 无编号，分不清回答谁。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">问题</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">节点故障重启、忘了一切，迟到的<b>旧 ACKI</b> 被当作新 INIT 的回答，旧数据混进新的一轮。</p>
+<div style="display:flex;align-items:center;gap:26px">
+<p style="width:210px;font-family:'Noto Serif SC', serif;font-size:34px;font-weight:900;color:#1E1A16">问题</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#1E1A16">节点故障重启、忘了一切，迟到的<b>旧 ACKI</b> 被当作新 INIT 的回答，旧数据混进新的一轮。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="width:210px;font-size:34px;font-weight:700;color:#C2410C">办法</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">非易失存储器 · 长定时器 · 随机数；核心：让新旧握手<b>可区分</b>。</p>
+<div style="display:flex;align-items:center;gap:26px">
+<p style="width:210px;font-family:'Noto Serif SC', serif;font-size:34px;font-weight:900;color:#1E1A16">办法</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#1E1A16">非易失存储器 · 长定时器 · 随机数；核心：让新旧握手<b>可区分</b>。</p>
 </div>
 </div>
 <aside>【1.5 分钟】

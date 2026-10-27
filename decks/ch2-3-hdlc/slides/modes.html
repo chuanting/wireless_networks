@@ -1,38 +1,38 @@
-<section id="modes" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · HDLC 是什么</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">HDLC 的三种工作模式</h2>
+<section data-transition="fade" id="modes" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">HDLC 的三种工作模式</h2>
 </div>
 <div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#C2410C">NRM</p>
-<p style="font-size:26px;font-weight:700;color:#14253D">正常响应模式</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• <b>主从式</b>：一端是主站，其余是从站。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 主站负责协调：从站<b>只有被主站“点名”（轮询）</b>才能发。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 典型：一台计算机和多个终端共用一条线。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'Noto Serif SC', serif;font-size:40px;font-weight:900;line-height:1.25;color:#1E1A16">NRM</p>
+<p style="font-size:26px;font-weight:700;color:#1E1A16">正常响应模式</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• <b>主从式</b>：一端是主站，其余是从站。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 主站负责协调：从站<b>只有被主站“点名”（轮询）</b>才能发。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 典型：一台计算机和多个终端共用一条线。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#4B5A6B">ARM</p>
-<p style="font-size:26px;font-weight:700;color:#14253D">异步响应模式</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 也是主从式，但从站<b>可以不等点名</b>，主动发。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B">• 很少使用，后面不再讨论。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'Noto Serif SC', serif;font-size:40px;font-weight:900;line-height:1.25;color:#1E1A16">ARM</p>
+<p style="font-size:26px;font-weight:700;color:#1E1A16">异步响应模式</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 也是主从式，但从站<b>可以不等点名</b>，主动发。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 很少使用，后面不再讨论。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#1E40AF">ABM</p>
-<p style="font-size:26px;font-weight:700;color:#14253D">异步平衡模式</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• <b>全双工点到点</b>，两端是“组合站”，地位<b>平等</b>。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• 双方都可以随时主动发，都负责链路控制。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">• <b>应用最广</b>（LAPB 就只用它）。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'Noto Serif SC', serif;font-size:40px;font-weight:900;line-height:1.25;color:#1E1A16">ABM</p>
+<p style="font-size:26px;font-weight:700;color:#1E1A16">异步平衡模式</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• <b>全双工点到点</b>，两端是“组合站”，地位<b>平等</b>。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• 双方都可以随时主动发，都负责链路控制。</p>
+<p style="font-size:30px;line-height:1.5;color:#5E554B">• <b>应用最广</b>（LAPB 就只用它）。</p>
 </div>
 </div>
 <div style="display:flex;gap:48px">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">“异步”是什么意思？</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D">指站可以<b>不等对方许可就主动发送</b>（和 2.1 里的“异步串口”意思不同）。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+
+<p style="font-size:30px;line-height:1.5;color:#5E554B"><span style="color:#1E1A16"><b>“异步”是什么意思？</b></span>指站可以<b>不等对方许可就主动发送</b>（和 2.1 里的“异步串口”意思不同）。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">命令与响应</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D">主站发<b>命令</b>，从站发<b>响应</b>；平衡模式下双方都既发命令也发响应。</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+
+<p style="font-size:30px;line-height:1.5;color:#5E554B"><span style="color:#1E1A16"><b>命令与响应：</b></span>主站发<b>命令</b>，从站发<b>响应</b>；平衡模式下双方都既发命令也发响应。</p>
 </div>
 </div>
 <aside>【2.5 分钟】

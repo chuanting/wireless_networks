@@ -1,17 +1,15 @@
-<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
-<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 2 章 · 端到端的传输协议 · 2.3</p>
-<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">标准数据链路控制协议</h1>
-<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">HDLC 与链路的初始化</h2>
-<p style="font-size:32px;color:#B9C4D3">帧格式 · I / S / U 三类帧 · 工作过程 · 初始化</p>
-<svg aria-label="装饰图：三个 HDLC 帧，两端是橙色的 Flag，中间依次是地址、控制、信息和校验" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
-<rect x="0" y="40" width="44" height="52" rx="5" fill="#F4975A"/><rect x="50" y="40" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="100" y="40" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="150" y="40" width="300" height="52" rx="5" fill="#3B4E68"/><rect x="456" y="40" width="70" height="52" rx="5" fill="#8FA3BD"/><rect x="532" y="40" width="44" height="52" rx="5" fill="#F4975A"/>
-<rect x="0" y="150" width="44" height="52" rx="5" fill="#F4975A"/><rect x="50" y="150" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="100" y="150" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="150" y="150" width="170" height="52" rx="5" fill="#3B4E68"/><rect x="326" y="150" width="70" height="52" rx="5" fill="#8FA3BD"/><rect x="402" y="150" width="44" height="52" rx="5" fill="#F4975A"/><rect x="452" y="150" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="502" y="150" width="44" height="52" rx="5" fill="#B9C4D3"/>
-<rect x="0" y="260" width="44" height="52" rx="5" fill="#F4975A"/><rect x="50" y="260" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="100" y="260" width="44" height="52" rx="5" fill="#B9C4D3"/><rect x="150" y="260" width="236" height="52" rx="5" fill="#3B4E68"/><rect x="392" y="260" width="70" height="52" rx="5" fill="#8FA3BD"/><rect x="468" y="260" width="44" height="52" rx="5" fill="#F4975A"/>
-</svg>
-<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
+<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">2.3</p>
+<div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div>
+<p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 2 章 · 端到端的传输协议 · 2.3</p></div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<h1 style="font-family:'Noto Serif SC', serif;font-size:124px;font-weight:900;line-height:1.12;color:#1E1A16">标准数据链路<br>控制协议</h1>
+<p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">HDLC 与链路的初始化</p>
+<div style="width:760px;border-top:2px solid #1E1A16"></div>
+<p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">帧格式 · I / S / U 三类帧 · 工作过程 · 初始化</p></div>
+<p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p>
 <aside>【开场 · 1 分钟】
 前两节我们解决了两件事：2.1 在比特流里划出一帧；2.2 检查这一帧对不对、错了怎么重发。今天这一节，把这些零件装配成一个真正的、全世界通用的协议——HDLC，高级数据链路控制协议。
 右边的装饰图：三个帧，两端橙色的是 Flag，接着是地址、控制（浅灰），然后是信息（深色，长度不定），最后是校验 FCS，对应我们前面学的东西。
 本节分四块：一、HDLC 是什么，属于哪个家族；二、HDLC 的帧格式，重点是控制域；三、HDLC 的工作过程，用具体的收发时序图；四、链路的初始化——建立连接时最容易出问题的地方。
-全程用具体的例子，不要求预先知识。时间不限，全部讲完约 90 分钟，可以分两次。</aside>
-</section>
+全程用具体的例子，不要求预先知识。时间不限，全部讲完约 90 分钟，可以分两次。</aside></section>

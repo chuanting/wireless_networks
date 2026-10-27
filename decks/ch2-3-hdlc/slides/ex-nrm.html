@@ -1,42 +1,42 @@
-<section id="ex-nrm" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 工作过程 · 场景三</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">主从式（NRM）：主站点名，从站才能发</h2>
+<section data-transition="fade" id="ex-nrm" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;padding-bottom:24px">
+
+<h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16">主从式（NRM）：主站点名，从站才能发</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:570px"></div>
-<svg aria-label="正常响应模式：主站轮询，从站应答" viewBox="0 0 1072 500" width="1072" height="500" style="position:absolute;left:128px;top:300px">
-<path d="M240,44V476" stroke="#8A97A6" stroke-width="4"/>
-<path d="M840,44V476" stroke="#8A97A6" stroke-width="4"/>
-<path d="M240,44L818,137" stroke="#14253D" stroke-width="5" fill="none"/>
-<polygon points="840,140 817,147 820,126" fill="#14253D"/>
-<path d="M840,140L262,233" stroke="#1D4ED8" stroke-width="5" fill="none"/>
-<polygon points="240,236 260,222 263,243" fill="#1D4ED8"/>
-<path d="M840,188L262,281" stroke="#1D4ED8" stroke-width="5" fill="none"/>
-<polygon points="240,284 260,270 263,291" fill="#1D4ED8"/>
-<path d="M240,308L818,401" stroke="#14253D" stroke-width="5" fill="none"/>
-<polygon points="840,404 817,411 820,390" fill="#14253D"/>
+<div style="position:absolute;left:128px;top:232px;width:1072px;height:570px"></div>
+<svg aria-label="正常响应模式：主站轮询，从站应答" viewBox="0 0 1072 500" width="1072" height="500" style="position:absolute;left:128px;top:260px">
+<path d="M240,44V476" stroke="#8C8170" stroke-width="4"/>
+<path d="M840,44V476" stroke="#8C8170" stroke-width="4"/>
+<path d="M240,44L818,137" stroke="#1E1A16" stroke-width="5" fill="none"/>
+<polygon points="840,140 817,147 820,126" fill="#1E1A16"/>
+<path d="M840,140L262,233" stroke="#2F5D8A" stroke-width="5" fill="none"/>
+<polygon points="240,236 260,222 263,243" fill="#2F5D8A"/>
+<path d="M840,188L262,281" stroke="#2F5D8A" stroke-width="5" fill="none"/>
+<polygon points="240,284 260,270 263,291" fill="#2F5D8A"/>
+<path d="M240,308L818,401" stroke="#1E1A16" stroke-width="5" fill="none"/>
+<polygon points="840,404 817,411 820,390" fill="#1E1A16"/>
 </svg>
-<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 主站</p>
-<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 从站</p>
-<p style="position:absolute;left:602px;top:344px;width:131px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B(RR,0) P</p>
-<p style="position:absolute;left:595px;top:439px;width:145px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(0,0) F=0</p>
-<p style="position:absolute;left:595px;top:555px;width:145px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">I(1,0) F=1</p>
-<p style="position:absolute;left:614px;top:610px;width:108px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B(RR,2)</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">① 点名</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">A 发 <b>B(RR,0) P</b>：地址写 B；RR 表示“请讲”；<b>P = 1</b>：要求回答。</p>
+<p style="position:absolute;left:278px;top:254px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">A 主站</p>
+<p style="position:absolute;left:878px;top:254px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">B 从站</p>
+<p style="position:absolute;left:602px;top:304px;width:131px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">B(RR,0) P</p>
+<p style="position:absolute;left:595px;top:399px;width:145px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#2F5D8A">I(0,0) F=0</p>
+<p style="position:absolute;left:595px;top:515px;width:145px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#2F5D8A">I(1,0) F=1</p>
+<p style="position:absolute;left:614px;top:570px;width:108px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1E1A16">B(RR,2)</p>
+<div style="position:absolute;left:1230px;top:232px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>① 点名：</b></span>A 发 <b>B(RR,0) P</b>：地址写 B；RR 表示“请讲”；<b>P = 1</b>：要求回答。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">② 从站回答</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">B 有两个 I 帧：第一个 <b>F = 0</b>（后面还有），第二个 <b>F = 1</b>（说完了）。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>② 从站回答：</b></span>B 有两个 I 帧：第一个 <b>F = 0</b>（后面还有），第二个 <b>F = 1</b>（说完了）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">③ 主站确认</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">A 收到 F = 1，知道 B 说完了，回 <b>B(RR,2)</b>，确认 0、1 号；然后可以点下一个从站。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+
+<p style="font-size:28px;line-height:1.45;color:#5E554B"><span style="color:#1E1A16"><b>③ 主站确认：</b></span>A 收到 F = 1，知道 B 说完了，回 <b>B(RR,2)</b>，确认 0、1 号；然后可以点下一个从站。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:26px;line-height:1.45;color:#14253D">特点：从站<b>没有主动权</b>，不会冲突；代价是主站要不停地轮询，没有数据的从站也要被问一遍。</p>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-family:'Noto Serif SC', serif;font-size:30px;font-weight:400;line-height:1.55;color:#1E1A16">特点：从站<b>没有主动权</b>，不会冲突；代价是主站要不停地轮询，没有数据的从站也要被问一遍。</p>
 </div>
 </div>
 <aside>【3 分钟】
