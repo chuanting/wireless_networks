@@ -3,15 +3,15 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先学一个小工具：模 2 运算</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="width:560px;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="width:560px;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">加法 = 减法 = 异或（⊕）</p>
 <div style="display:flex;flex-direction:column;gap:8px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;color:#14253D">
 <p>0 ⊕ 0 = 0</p><p>0 ⊕ 1 = 1</p><p>1 ⊕ 0 = 1</p><p style="color:#C2410C">1 ⊕ 1 = 0</p>
 </div>
 <p style="font-size:28px;line-height:1.5;color:#14253D">相同得 0，不同得 1。<b>没有进位，也没有借位</b>。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">整串比特：逐位异或</p>
 <div style="display:flex;flex-direction:column;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;text-align:center">
 <div style="display:flex;gap:6px;align-items:center"><p style="width:60px;font-family:'Noto Sans SC', sans-serif;font-size:26px;font-weight:400;color:#4B5A6B;text-align:left"></p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">0</p><p style="width:60px;height:60px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p></div>
@@ -22,12 +22,12 @@
 <p style="font-size:28px;line-height:1.5;color:#14253D">1101 ⊕ 1011 = 0110</p>
 </div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">除法：和笔算长除法一样</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">每一步：对齐 → 被除数的首位是 1，就<b>减去（异或）除数</b>；是 0 就不减。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">为什么这样规定</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">异或在硬件里就是一个门电路，没有进位链，速度极快。</p>
 </div>

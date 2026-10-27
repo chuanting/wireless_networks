@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 长度计数</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">现实中：多种办法常常配合使用</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">例：以太网帧（你的电脑每天在用）</p>
 <div style="display:flex;align-items:stretch;gap:4px;height:92px;text-align:center">
 <div style="width:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#C2410C;border-radius:12px 0 0 12px"><p style="font-size:28px;font-weight:700;color:#FFF6EC">前导码</p><p style="font-size:22px;color:#FFE9D6">7 字节</p></div>
@@ -15,21 +15,21 @@
 <div style="width:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#14253D;border-radius:0 12px 12px 0"><p style="font-size:28px;font-weight:700;color:#F4F1E8">FCS</p><p style="font-size:22px;color:#B9C4D3">4 字节</p></div>
 </div>
 </div>
-<div style="display:flex;gap:20px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 24px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">起点：前导码 + SFD</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">7 个字节的 10101010 让接收方对准时钟；最后一个字节 10101011（末尾两位变成 11）告诉它：“从下一位开始就是帧了。”</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">终点：靠物理层信号</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">线路上的载波消失（回到空闲），或 100 Mb/s 以太网编码里专门留出的结束码字，标出帧的结尾。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">长度字段的用武之地</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">在 TCP 这样可靠的字节流上，HTTP/2、TLS 都用长度字段切分消息：流里不会出错，长度计数就很安全。</p>
 </div>
 </div>
-<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">没有哪一种办法包打天下：实际协议按场合组合使用。</p></div>
+<div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:30px;font-weight:700;color:#14253D">没有哪一种办法包打天下：实际协议按场合组合使用。</p></div>
 <aside>【2.5 分钟】
 长度计数在现实中怎么用？看一个熟悉的例子：以太网帧。
 帧格式：前导码 7 字节、起始帧定界符 SFD 1 字节、目的地址 6 字节、源地址 6 字节、长度/类型 2 字节、数据 46 到 1500 字节、帧校验 FCS 4 字节。

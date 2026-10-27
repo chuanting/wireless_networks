@@ -3,21 +3,21 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第 2 章 · 端到端的传输协议</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">这一章要解决什么问题</h2>
 </div>
-<div style="display:flex;align-items:center;gap:24px;background:#14253D;border-radius:22px;padding:24px 36px">
-<p style="font-size:32px;font-weight:700;line-height:1.45;color:#F4F1E8">物理层只给我们一根“比特管道”：会出错，而且没有边界。怎样在它上面做出一条<b>可靠</b>的数据通道？</p>
+<div style="display:flex;align-items:center;gap:24px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:32px;font-weight:700;line-height:1.45;color:#14253D">物理层只给我们一根“比特管道”：会出错，而且没有边界。怎样在它上面做出一条<b>可靠</b>的数据通道？</p>
 </div>
 <div style="display:flex;flex-direction:column;gap:12px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">可靠传输要做三件事</p>
-<div style="display:flex;align-items:stretch;gap:20px">
-<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<div style="display:flex;align-items:stretch;gap:48px">
+<div style="flex:1;display:flex;align-items:center;gap:18px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">①</p>
 <div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">划边界</p><p style="font-size:28px;color:#4B5A6B">组帧：一帧从哪开始、到哪结束</p></div>
 </div>
-<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;align-items:center;gap:18px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">②</p>
 <div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">发现错误</p><p style="font-size:28px;color:#4B5A6B">校验：这一帧收对了吗</p></div>
 </div>
-<div style="flex:1;display:flex;align-items:center;gap:18px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;align-items:center;gap:18px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:56px;font-weight:700;line-height:1;color:#C2410C">③</p>
 <div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700;color:#14253D">消除错误</p><p style="font-size:28px;color:#4B5A6B">重传：错了就再发一遍</p></div>
 </div>
@@ -25,23 +25,23 @@
 </div>
 <div style="display:flex;flex-direction:column;gap:12px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">本章的四节</p>
-<div style="display:flex;gap:20px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#C2410C;border-radius:20px;padding:20px 26px">
-<p style="font-size:40px;font-weight:700;line-height:1;color:#FFF6EC">2.1</p>
-<p style="font-size:32px;font-weight:700;color:#FFF6EC">组帧技术</p>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:40px;font-weight:700;line-height:1;color:#14253D">2.1</p>
+<p style="font-size:32px;font-weight:700;color:#14253D">组帧技术</p>
 <p style="font-size:28px;color:#FFE9D6">今天：怎样划出一帧</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.2</p>
 <p style="font-size:32px;font-weight:700;color:#14253D">链路层的差错控制</p>
 <p style="font-size:28px;color:#4B5A6B">检错、重传</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.3</p>
 <p style="font-size:32px;font-weight:700;color:#14253D">标准数据链路控制协议</p>
 <p style="font-size:28px;color:#4B5A6B">HDLC 及其初始化</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:40px;font-weight:700;line-height:1;color:#C2410C">2.4</p>
 <p style="font-size:32px;font-weight:700;color:#14253D">网络层和运输层的端到端协议</p>
 <p style="font-size:28px;color:#4B5A6B">跨越多条链路怎么办</p>

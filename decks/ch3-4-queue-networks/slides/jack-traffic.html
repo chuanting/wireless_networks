@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Jackson 定理</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">流量方程：每个节点到底有多忙？</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">第一步：流量方程（每个节点的总到达率）</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">节点 <i>i</i> 的总到达 = 外部到达 + 别的节点送来的：</p>
 <p style="font-size:34px;font-weight:700;line-height:1.4;color:#C2410C;padding-left:20px"><i>λ</i><i>i</i> = <i>γ</i><i>i</i> + Σ<i>j</i> <i>λ</i><i>j</i> <i>P</i><i>ji</i></p>
@@ -13,16 +13,16 @@
 <p style="font-size:28px;line-height:1.5;color:#14253D;padding-left:20px"><i>λ</i>1 = <i>γ</i> + <i>λ</i>2，　<i>λ</i>2 = <i>p</i>2 <i>λ</i>1</p>
 <p style="font-size:28px;line-height:1.5;font-weight:700;color:#14253D;padding-left:20px"><i>λ</i>1 = <i>γ</i> / <i>p</i>1，　<i>λ</i>2 = <i>p</i>2 <i>γ</i> / <i>p</i>1</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">数字：<i>γ</i> = 1 个/秒，<i>p</i>1 = 0.25</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>λ</i>1 = 1/0.25 = <b>4</b> 个/秒；<i>λ</i>2 = 0.75 × 4 = <b>3</b> 个/秒。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">访问次数</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">每个任务平均访问 CPU <b>4</b> 次（<i>λ</i>1/<i>γ</i>）、I/O <b>3</b> 次。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">直觉</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">只有 25% 的概率离开，所以平均要“绕”4 圈——节点的到达率比外部到达率大得多。</p>
 </div>

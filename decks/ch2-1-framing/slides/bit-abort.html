@@ -3,38 +3,38 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 面向比特的组帧</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数一数连续的 1，就知道线路上发生了什么</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <div style="width:600px;display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
 <p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#1D4ED8;border:2px solid #1D4ED8;color:#F4F8FF">0</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#1E40AF">5 个 1 后面接 0</p><p style="font-size:26px;color:#4B5A6B">插入的 0，删掉，其余照常当数据。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FDEBDD;border:2px solid #C2410C;border-radius:18px;padding:14px 26px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <div style="width:600px;display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
 <p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">1</p><p style="width:38px;height:50px;line-height:50px;border-radius:7px;background:#C2410C;color:#FFF6EC">0</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#9A3412">恰好 6 个 1，两头是 0</p><p style="font-size:26px;color:#14253D">Flag：一帧的边界。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <div style="width:600px;display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
 <p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#FFFEFA;border:2px solid #C9C1AA">0</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p><p style="width:38px;height:50px;line-height:46px;border-radius:7px;background:#14253D;border:2px solid #14253D;color:#F4F1E8">1</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#14253D">连续 7 个以上的 1：中止（abort）</p><p style="font-size:26px;color:#4B5A6B">发送方放弃当前帧，接收方丢弃已经收到的部分。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:14px 26px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <div style="width:600px;display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;text-align:center">
 <p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p><p style="width:36px;height:50px;line-height:50px;border-radius:7px;background:#E3DDCB;color:#4B5A6B">1</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:2px"><p style="font-size:28px;font-weight:700;color:#14253D">连续 15 个以上的 1：链路空闲（idle）</p><p style="font-size:26px;color:#4B5A6B">线路上没有任何帧在传。</p></div>
 </div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 26px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">为什么能这么用</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">因为插入之后，正常数据里不会有 6 个连续的 1。所以 6 个以上的 1，就可以拿来表示“不是数据”的特殊信号。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">小细节</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">相邻两帧之间，同一个 Flag 可以同时做前一帧的结尾和后一帧的开头。</p>
 </div>

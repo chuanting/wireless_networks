@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 返回 n</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">返回 n 的算法，以及几个细节</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">发送方 A</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">SNmin = 窗口下沿（最小的未确认序号）；SNmax = 下一个要分配的序号。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">• 开始：SNmin = SNmax = 0。</p>
@@ -12,7 +12,7 @@
 <p style="font-size:26px;line-height:1.5;color:#14253D">• 收到无错的 ACK 且 RN &gt; SNmin：SNmin = RN（窗口右滑）。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">• SNmin 长时间不变：从 SNmin 起重发。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#9A3412">接收方 B</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">• 置 RN = 0。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">• 收到 SN = RN 的帧：交给上层，RN 加 1。其余帧丢弃。</p>
@@ -20,16 +20,16 @@
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B">（和停等式的 B 一模一样，只是 A 的窗口变大了。）</p>
 </div>
 </div>
-<div style="display:flex;gap:20px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">ACK 丢了没关系</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">累计确认：后面的 ACK 一到，前面丢的就自动补上。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">快速反馈：REJ</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 发现帧序号不对，立刻回一个短帧（拒绝），A 不必等超时就回退重发。HDLC 里就有。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">n 不能太大</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">出错时要重发 n 帧，n 越大浪费越多；但 n 太小又填不满管道。</p>
 </div>

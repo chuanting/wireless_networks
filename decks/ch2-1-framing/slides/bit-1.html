@@ -3,24 +3,24 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 面向比特的组帧</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">路标换成一个比特串：Flag</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">为什么要换</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">字符组帧要求数据是整数个字节，最坏情况开销翻倍。如果直接在比特层面做，数据可以是任意多个比特。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">用在哪里</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">HDLC（高级数据链路控制）协议及其家族：路由器专线、PPP 在同步链路上的组帧、早期的 X.25 网络等。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">标志 Flag = 01111110：一个 0，六个连续的 1，再一个 0</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;text-align:center">
 <p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">1</p><p style="width:56px;height:68px;line-height:68px;border-radius:8px;background:#C2410C;color:#FFF6EC">0</p>
 <p style="font-family:'Noto Sans SC', sans-serif;font-size:28px;font-weight:400;line-height:68px;color:#14253D;padding-left:24px">= 十六进制 7E（和 PPP 的路标是同一个数）</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">帧格式：Flag + 数据（任意多个比特）+ Flag</p>
 <div style="display:flex;align-items:stretch;gap:5px;height:84px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace">
 <div style="width:260px;display:flex;align-items:center;justify-content:center;background:#C2410C;border-radius:12px"><p style="font-size:30px;font-weight:700;color:#FFF6EC">01111110</p></div>
@@ -28,7 +28,7 @@
 <div style="width:260px;display:flex;align-items:center;justify-content:center;background:#C2410C;border-radius:12px"><p style="font-size:30px;font-weight:700;color:#FFF6EC">01111110</p></div>
 </div>
 </div>
-<div style="background:#DCE6FB;border-radius:20px;padding:18px 28px">
+<div style="border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">问题还是那个：数据里万一出现了 01111110，怎么办？</p>
 </div>
 <aside>【2 分钟】

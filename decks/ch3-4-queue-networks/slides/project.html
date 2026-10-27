@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：验证网络的公式</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:30px 32px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">验证 Burke 定理</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">模拟 M/M/1（<i>λ</i> = 0.5，<i>μ</i> = 1），记录离开时刻，统计离开间隔的平均与 CV；再把服务时间换成固定值（M/D/1）对比。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>M/M/1 的 CV ≈ 1.00；M/D/1 的 CV ≈ 0.87。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">中级</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">串联与反馈网络</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">模拟两个 M/M/1 串联（<i>λ</i> = 2，<i>μ</i>1 = 4，<i>μ</i>2 = 3），再模拟 CPU / I/O 反馈系统（<i>γ</i> = 1，<i>p</i>1 = 0.25，<i>μ</i> = 8、5）。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>串联 <i>T</i> ≈ 1.5 s；反馈系统 <i>T</i> ≈ 2.5 s；与 Jackson 公式对照。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">进阶</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">检验独立性近似</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">模拟两条链路串联、分组长度在两处相同，<i>ρ</i> = 0.3、0.5、0.8，与 Kleinrock 公式对比；再加入第二条流汇合，看误差如何变化。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>相同长度、单流：+6%、+3%、−16%；汇合后误差应减小。</p>
 </div>
 </div>
-<div style="background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 28px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>实现一个封闭网络（固定 <i>M</i> 个顾客在两个队列间循环），统计各状态概率，与乘积形式对比。</p></div>
+<div style="border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>实现一个封闭网络（固定 <i>M</i> 个顾客在两个队列间循环），统计各状态概率，与乘积形式对比。</p></div>
 <aside>【选做 · 课上只需 1 分钟介绍】
 这页是给想动手的同学准备的，不在课上做。
 基础：验证 Burke 定理。模拟一个 M/M/1，λ 等于 0.5，μ 等于 1，记录每个顾客的离开时刻；统计相邻离开间隔的平均值，和波动系数 CV。再换成固定服务时间 M/D/1 对比。M/M/1 的 CV 应该约等于 1，M/D/1 约 0.87。（老师试过：0.9993 和 0.867。）

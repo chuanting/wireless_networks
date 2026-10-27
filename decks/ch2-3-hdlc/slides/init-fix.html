@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 解决办法</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种办法：记住、等待、给每次握手一个“暗号”</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:620px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:620px"></div>
 <svg aria-label="随机数使迟到的旧 ACKI 被识别并丢弃" viewBox="0 0 1072 477" width="1072" height="477" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V453" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V453" stroke="#8A97A6" stroke-width="4"/>
@@ -33,21 +33,21 @@
 <p style="position:absolute;left:469px;top:524px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACKI(r=31)</p>
 <p style="position:absolute;left:584px;top:582px;width:168px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;background:#FFFEFA;border-radius:6px">I(0,0)（旧）</p>
 <p style="position:absolute;left:589px;top:668px;width:158px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">ACKI(r=57)</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">① 非易失存储器</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">掉电不丢的存储里记下链路状态，重启后“记得”出过故障。（要额外硬件）</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">② 长定时器</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">重启后先静默一段时间，长于帧在链路上能活的最长时间，让旧帧消失，再发 INIT。（要等很久）</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">③ 随机数（图中）</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">INIT 带随机数 <i>r</i>，ACKI 原样带回；A 只认与最新 INIT 相同的 <i>r</i>。图中 31 ≠ 57，旧 ACKI 被丢弃。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:25px;line-height:1.45;color:#F4F1E8">TCP 的 2MSL 等待与初始序号 ISN，就是②和③的思想。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:25px;line-height:1.45;color:#14253D">TCP 的 2MSL 等待与初始序号 ISN，就是②和③的思想。</p>
 </div>
 </div>
 <aside>【3.5 分钟 · 重点】

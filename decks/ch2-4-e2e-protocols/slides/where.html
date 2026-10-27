@@ -4,43 +4,43 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">本节在整个体系里的位置</h2>
 </div>
 <div style="display:flex;gap:28px;align-items:flex-start">
-<div style="width:880px;display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;align-items:center;gap:20px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:16px;padding:12px 22px">
+<div style="width:880px;display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;align-items:center;gap:20px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:130px;font-size:30px;font-weight:700;color:#4B5A6B">应用层</p>
 <p style="flex:1;font-size:26px;line-height:1.35;color:#14253D"></p>
 </div>
-<div style="display:flex;align-items:center;gap:20px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:12px 22px">
+<div style="display:flex;align-items:center;gap:20px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:130px;font-size:30px;font-weight:700;color:#9A3412">运输层</p>
 <p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">两个进程之间，穿过整个网络</p>
 </div>
-<div style="display:flex;align-items:center;gap:20px;background:#FDEBDD;border:2px solid #C2410C;border-radius:16px;padding:12px 22px">
+<div style="display:flex;align-items:center;gap:20px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:130px;font-size:30px;font-weight:700;color:#9A3412">网络层</p>
 <p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">一次会话：源节点到目的节点，经过多个节点</p>
 </div>
-<div style="display:flex;align-items:center;gap:20px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:16px;padding:12px 22px">
+<div style="display:flex;align-items:center;gap:20px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:130px;font-size:30px;font-weight:700;color:#1E40AF">链路层</p>
 <p style="flex:1;font-size:26px;line-height:1.35;color:#14253D">一条链路上的相邻两个节点（2.1–2.3 已学）</p>
 </div>
-<div style="display:flex;align-items:center;gap:20px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:16px;padding:12px 22px">
+<div style="display:flex;align-items:center;gap:20px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:130px;font-size:30px;font-weight:700;color:#4B5A6B">物理层</p>
 <p style="flex:1;font-size:26px;line-height:1.35;color:#14253D"></p>
 </div>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#9A3412">比链路层难在哪？</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">① 时延大，而且<b>变化大</b>（排队）。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">② 分组会丢、会乱序、会重复，甚至<b>迟到很久</b>。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">③ 中间节点会断电，会拥塞。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">用到的零件，其实一样</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">编号（SN / RN）· 确认 · 窗口 · 超时重传 · 初始化——还是 2.2、2.3 学过的。</p>
 </div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:30px;line-height:1.45;color:#F4F1E8">接下来要回答的问题：环境更恶劣了，同样的零件要怎样改造？</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:30px;line-height:1.45;color:#14253D">接下来要回答的问题：环境更恶劣了，同样的零件要怎样改造？</p>
 </div>
 <aside>【3 分钟】
 先看今天在整个体系里的位置。回忆第 1 章的分层：从下到上，物理层、链路层、网络层、运输层、应用层。

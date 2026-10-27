@@ -3,35 +3,35 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数据网络：Jackson 的假设不成立，怎么办？</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px;flex:1">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#1E40AF">Jackson 的假设</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">服务时间每次独立；</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">这样才有乘积形式。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px;flex:1">
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#9A3412">数据网络的现实</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">分组长度在源端就定了，每个链路上都一样；</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">所以 net-corr 里看到的相关性<b>真实存在</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px;flex:1">
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#C2410C">Kleinrock 的观察</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">当<b>很多条流汇合</b>到一条链路上时，每个分组与前后分组的相关性被“冲淡”。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">结论：<b>近似</b>当作独立。</p>
 </div>
 </div>
-<div style="display:flex;gap:22px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px;flex:1">
+<div style="display:flex;gap:48px">
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">Kleinrock 独立性近似</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">把每条链路都当作<b>孤立的 M/M/1</b>，到达率 = 经过该链路的所有流之和；<b>不管</b>其他链路上的业务如何影响它。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px;flex:1">
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#9A3412">适用范围</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">中等到重负荷、多条流汇合的网络：模拟和实测验证过，是很好的近似。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:28px;line-height:1.45;color:#F4F1E8">这是网络性能分析里<b>最常用</b>的近似：简单、够用，适合规划和比较方案。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:28px;line-height:1.45;color:#14253D">这是网络性能分析里<b>最常用</b>的近似：简单、够用，适合规划和比较方案。</p>
 </div>
 <aside>【3 分钟】
 Jackson 定理要求：每个节点的服务时间是独立的指数分布，同一个任务每次经过，都是重新独立抽取。但数据网络不是这样：分组的长度，在源节点就确定了，每个链路上传输时间都和它的长度成正比。前面“分组长度一路带着走”的例子，说明这种相关性是真实存在的。所以数据网络，严格说，不满足 Jackson 定理的条件。

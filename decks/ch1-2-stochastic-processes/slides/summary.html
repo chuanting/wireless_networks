@@ -3,13 +3,13 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 28px">
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">随机过程</p>
 <div style="flex:1"><p style="font-size:28px;color:#14253D">随时间变化的一族随机变量；一次实验 = 一条样本函数；用均值 <i>m</i>(<i>t</i>) 和相关函数刻画；平稳：规律不随时间平移；各态历经：时间平均 = 统计平均。</p></div>
 <div style="width:480px"></div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 28px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">Poisson 过程</p>
 <div style="flex:1"><p style="font-size:28px;color:#14253D">到达的标准模型：计数服从 Poisson 分布，间隔服从指数分布（无记忆）；合并 → 速率相加；分流 → 速率按比例分。</p></div>
 <div style="width:480px;display:flex;align-items:center;gap:10px">
@@ -25,7 +25,7 @@
 </div>
 </div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 28px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">马尔可夫链</p>
 <div style="flex:1"><p style="font-size:28px;color:#14253D">未来只依赖现在；转移矩阵 <i>P</i>（每行之和为 1）；信道好/坏是最简单的例子；<i>n</i> 步转移 = <i>P</i> 的 <i>n</i> 次方。</p></div>
 <div style="width:480px;display:flex;align-items:flex-start">
@@ -34,7 +34,7 @@
 <p style="font-size:30px;line-height:1.4;color:#4B5A6B;padding-left:14px">（<i>n</i> 步转移）</p>
 </div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 28px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">稳态分布</p>
 <div style="flex:1"><p style="font-size:28px;color:#14253D">长期时间比例：解 <i>π</i> = <i>πP</i> 加归一化；稳态 = 流进等于流出。信道例子 <i>π</i> = (0.8, 0.2)，平均丢包率 10.8%。</p></div>
 <div style="width:480px;display:flex;align-items:center;gap:26px">
@@ -49,7 +49,7 @@
 </div>
 </div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:14px 28px">
+<div style="display:flex;align-items:center;gap:28px;border-bottom:1px solid #D9D1C0;padding:14px 0px">
 <p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">生灭链</p>
 <div style="flex:1"><p style="font-size:28px;color:#14253D">路由器缓冲区：在相邻状态间“切一刀”，流量相等，得到几何分布；平均队长 <i>ρ</i> / (1 − <i>ρ</i>)，<i>ρ</i> → 1 时急剧增大。</p></div>
 <div style="width:480px;display:flex;align-items:flex-end">
@@ -57,9 +57,9 @@
 <p style="font-size:36px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D;padding-left:8px">= (1 − <i>ρ</i>) <i>ρ</i></p><p style="align-self:flex-start;font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p>
 </div>
 </div>
-<div style="display:flex;align-items:center;gap:28px;background:#14253D;border-radius:16px;padding:14px 28px">
-<p style="width:240px;font-size:32px;font-weight:700;color:#F4975A">三者的联系</p>
-<div style="flex:1"><p style="font-size:28px;color:#F4F1E8">Poisson 过程描述“包怎么来”，马尔可夫链描述“队列怎么变”，稳态分布回答“队列平均有多长”。下一章（网络时延模型）就用它们。</p></div>
+<div style="display:flex;align-items:center;gap:28px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:14px 0px">
+<p style="width:240px;font-size:32px;font-weight:700;color:#C2410C">三者的联系</p>
+<div style="flex:1"><p style="font-size:28px;color:#14253D">Poisson 过程描述“包怎么来”，马尔可夫链描述“队列怎么变”，稳态分布回答“队列平均有多长”。下一章（网络时延模型）就用它们。</p></div>
 </div>
 </div>
 <aside>【1.5 分钟】

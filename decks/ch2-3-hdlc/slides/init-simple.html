@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 一个最简单的办法</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">INIT / ACKI 建立，DISC / ACKD 拆除</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px"></div>
 <svg aria-label="简化的初始化协议：INIT/ACKI 建立，DISC/ACKD 拆除" viewBox="0 0 1072 571" width="1072" height="571" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V547" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V547" stroke="#8A97A6" stroke-width="4"/>
@@ -36,21 +36,21 @@
 <p style="position:absolute;left:626px;top:574px;width:84px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR(1)</p>
 <p style="position:absolute;left:627px;top:676px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DISC</p>
 <p style="position:absolute;left:627px;top:744px;width:81px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ACKD</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">① 建立：INIT / ACKI</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 发 <b>INIT</b>：“请重置”。B 把 SN、RN 置 0，变 UP，回 <b>ACKI</b>。A 收到后也置 0，变 UP。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">② 传输</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">两端都是 UP 时，照常用 I 帧和 RR（第三部分的内容）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">③ 拆除：DISC / ACKD</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 发 <b>DISC</b>，B 变 DOWN，回 <b>ACKD</b>。A 收到后变 DOWN。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:26px;line-height:1.45;color:#F4F1E8">如果 INIT 或 ACKI 丢了？和 ARQ 一样：<b>定时器 + 重发</b>。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">如果 INIT 或 ACKI 丢了？和 ARQ 一样：<b>定时器 + 重发</b>。</p>
 </div>
 </div>
 <aside>【3 分钟 · 重点】

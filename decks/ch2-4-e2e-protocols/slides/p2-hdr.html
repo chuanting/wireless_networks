@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 运输层</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">TCP 报文头：最少 20 字节</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:flex-start">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <div style="display:flex;justify-content:space-between;width:1152px"><p style="font-size:22px;color:#4B5A6B">位 0</p><p style="font-size:22px;color:#4B5A6B">16</p><p style="font-size:22px;color:#4B5A6B">31</p></div>
 <div style="display:flex;gap:0px"><p style="width:572px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">源端口（16 位）</p><p style="width:572px;height:64px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#1E40AF">目的端口（16 位）</p></div>
 <div style="display:flex;gap:0px"><p style="width:1148px;height:64px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#9A3412">序号（32 位）：本段第一个字节的编号</p></div>
@@ -14,20 +14,20 @@
 <div style="display:flex;gap:0px"><p style="width:1148px;height:64px;background:#14253D;border:2px solid #14253D;border-radius:8px;font-size:26px;font-weight:700;line-height:60px;text-align:center;color:#F4F1E8">选项（长度可变）+ 数据</p></div>
 <p style="font-size:24px;line-height:1.4;color:#4B5A6B">标志位：U 紧急、<b>A</b> 确认有效、P 推送、<b>R</b> 复位、<b>S</b> 同步（建立连接）、<b>F</b> 结束（关闭连接）。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">最少 20 字节</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">比 HDLC 的 6 字节大得多，因为要管的事多。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">序号与确认号</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">都是 32 位，<b>按字节</b>编号。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">窗口</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">接收方告诉发送方：我还能收多少字节。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">SYN、FIN、ACK、RST</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">握手、挥手、确认、复位，都靠标志位。</p>
 </div>

@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">解决办法：给帧编序号 SN，接收方记住 RN</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:610px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:610px"></div>
 <svg aria-label="加上序号后，重复帧会被丢弃" viewBox="0 0 1072 565" width="1072" height="565" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V541" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V541" stroke="#8A97A6" stroke-width="4"/>
@@ -31,8 +31,8 @@
 <p style="position:absolute;left:992px;top:634px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#C2410C">SN&lt;RN：丢弃</p>
 <p style="position:absolute;left:700px;top:631px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK RN=1</p>
 <p style="position:absolute;left:436px;top:719px;width:200px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA SN=1</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">帧里加两个序号</p>
 <div style="display:flex;gap:4px;align-items:stretch;height:56px;text-align:center">
 <div style="width:90px;display:flex;align-items:center;justify-content:center;background:#C2410C;border-radius:10px 0 0 10px"><p style="font-size:26px;font-weight:700;color:#FFF6EC">SN</p></div>
@@ -41,16 +41,16 @@
 <div style="width:90px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:0 10px 10px 0"><p style="font-size:26px;font-weight:700;color:#F4F1E8">CRC</p></div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">SN：我这一帧的编号</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">RN：我期望收到的<b>下一帧</b>的编号（= 已经正确收到的最大编号 + 1）</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">B 的规则</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">收到 SN = RN 的帧：交付，RN 加 1。收到 SN &lt; RN 的帧：是重复，<b>丢弃</b>，但仍然回 ACK(RN)。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:26px;line-height:1.45;color:#F4F1E8">停等式里，SN 和 RN 只需要 <b>1 位</b>（模 2）：0、1 交替就够了。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">停等式里，SN 和 RN 只需要 <b>1 位</b>（模 2）：0、1 交替就够了。</p>
 </div>
 </div>
 <aside>【3 分钟 · 重点】

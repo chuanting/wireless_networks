@@ -3,17 +3,17 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 流量控制</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">窗口多大才够？——TCP 的 16 位不够用</h2>
 </div>
-<div style="display:flex;gap:22px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">公式（和 1 部分的一样）</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">吞吐 ≤ 窗口 / <i>T</i>；要跑满，窗口 ≥ <i>R</i>·<i>T</i>（带宽时延积）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">TCP 的实际发送窗口</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">= min（接收窗口 win，拥塞窗口 cwnd）。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">例：100 Mb/s，往返 50 ms</p>
 <div style="display:flex;align-items:center;gap:18px">
 <p style="width:340px;font-size:26px;font-weight:700;color:#14253D">管道容量 <i>R</i>·<i>T</i> = 625 KB</p>
@@ -29,8 +29,8 @@
 </div>
 <p style="font-size:26px;line-height:1.5;color:#14253D">100 Mb/s × 0.05 s ÷ 8 = <b>625 000</b> 字节。窗口 65 535 字节时，最大吞吐 = 65 535 × 8 / 0.05 ≈ <b>10.5 Mb/s</b>，只用了链路的 <b>10%</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:26px;line-height:1.45;color:#F4F1E8">窗口字段只有 16 位（最大 65 535 字节），所以 TCP 增加了<b>窗口放大选项</b>：在握手时约定一个移位 <i>s</i>，真正的窗口 = 字段值 × 2 的 <i>s</i> 次方。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">窗口字段只有 16 位（最大 65 535 字节），所以 TCP 增加了<b>窗口放大选项</b>：在握手时约定一个移位 <i>s</i>，真正的窗口 = 字段值 × 2 的 <i>s</i> 次方。</p>
 </div>
 <aside>【3 分钟】
 回到第一部分的结论：要把管道装满，窗口必须不小于 R 乘 T，叫“带宽时延积”。

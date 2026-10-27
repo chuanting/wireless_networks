@@ -3,30 +3,30 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">TCP：六句话</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">端口</p>
 <p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">四元组标识一个连接；复用与分用。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">序号</p>
 <p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">按字节编号，ack = 期待的下一个字节（累积确认）。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">握手挥手</p>
 <p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">三次握手（SYN、SYN+ACK、ACK）识破旧 SYN；四次挥手后主动关闭方等 2MSL。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">可靠传输</p>
 <p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">累积确认 + 乱序缓存 + 超时重传 + 3 个重复 ACK 快速重传。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:20px 30px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">定时器</p>
 <p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">RTO = SRTT + 4·RTTVAR，自适应；重传不取样，超时翻倍。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:20px 30px">
-<p style="width:250px;font-size:34px;font-weight:700;color:#F4975A">流量控制</p>
-<p style="flex:1;font-size:30px;line-height:1.4;color:#F4F1E8">接收窗口 win；窗口 ≥ <i>R</i>·<i>T</i> 才跑得满；实际窗口 = min(win, cwnd)。</p>
+<div style="display:flex;align-items:center;gap:26px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="width:250px;font-size:34px;font-weight:700;color:#C2410C">流量控制</p>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#14253D">接收窗口 win；窗口 ≥ <i>R</i>·<i>T</i> 才跑得满；实际窗口 = min(win, cwnd)。</p>
 </div>
 </div>
 <aside>【1.5 分钟】

@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">路由分流：随机 vs 计量</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">例：A 沿两条同样的链路发往 B，怎样分流？</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">到达：泊松 <i>λ</i>，分组长度指数；两条链路服务率都是 <i>μ</i>；<i>ρ</i> = <i>λ</i> / (2<i>μ</i>)。</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D"><b>方案 1：随机（掷硬币）</b>：两条链路各得到达率 <i>λ</i>/2 的泊松流，各是 M/M/1：</p>
@@ -13,20 +13,20 @@
 <p style="font-size:28px;line-height:1.45;color:#14253D;padding-left:20px"><i>T</i>M = 1/<i>μ</i> + <i>P</i>Q/(2<i>μ</i> − <i>λ</i>) = 1 / [<i>μ</i>(1 − <i>ρ</i> 的平方)]</p>
 <p style="font-size:32px;font-weight:700;line-height:1.45;color:#C2410C;padding-left:20px"><i>T</i>M / <i>T</i>R = 1/(1 + <i>ρ</i>)</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">数字 <i>ρ</i> = 0.8</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>R = 5/<i>μ</i>，<i>T</i>M = 2.78/<i>μ</i>：计量方案<b>快近一倍</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C"><i>ρ</i> = 0.5</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>R = 2/<i>μ</i>，<i>T</i>M = 1.33/<i>μ</i>：快 1/3。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">这又是“统计复用”</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">两条链路<b>共用</b>一个队列，比各管各的好——和 3.2 节的结论一致。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#C2410C">但是（大小要紧）</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">计量会让各链路的到达<b>不再是泊松</b>，对这种情形，把每条链路当作 M/M/1 的近似较差。</p>
 </div>

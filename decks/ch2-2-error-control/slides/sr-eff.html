@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 效率比较</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种 ARQ 的效率：以卫星链路为例</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">选择重发：每帧只需重发出错的那一帧</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">平均每帧发送 1/(1 − <i>p</i>) 次，管道总是满的，所以（窗口足够大时）：</p>
 <div style="display:flex;align-items:center;gap:12px">
@@ -12,20 +12,20 @@
 </div>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">窗口不够大（<i>n</i> &lt; 1 + 2<i>a</i>）时，再乘 <i>n</i> / (1 + 2<i>a</i>)。</p>
 </div>
-<div style="width:760px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="width:760px;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">三个公式（窗口足够大）</p>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">停等式</p><div style="display:flex;flex-direction:column;align-items:stretch"><div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 + 2<i>a</i></p></div></div></div>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">返回 n</p><div style="display:flex;flex-direction:column;align-items:stretch"><div style="display:flex;justify-content:center;padding:0 6px 2px"><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p></div><div style="display:flex;justify-content:center;border-top:3px solid #14253D;padding:2px 6px 0"><p style="font-size:26px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 + (<i>n</i> − 1)<i>p</i></p></div></div></div>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">选择重发</p><p style="font-size:28px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">1 − <i>p</i></p></div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">例：卫星链路 <i>a</i> = 20，<i>p</i> = 0.1，窗口取 <i>n</i> = 41</p>
 <div style="display:flex;align-items:center;gap:20px"><p style="width:190px;font-size:26px;font-weight:700;color:#14253D">停等式</p><div style="width:19px;height:36px;background:#C2410C;border-radius:6px"></div><p style="font-size:30px;font-weight:700;color:#9A3412">2.2%</p></div>
 <div style="display:flex;align-items:center;gap:20px"><p style="width:190px;font-size:26px;font-weight:700;color:#14253D">返回 n</p><div style="width:158px;height:36px;background:#1D4ED8;border-radius:6px"></div><p style="font-size:30px;font-weight:700;color:#1E40AF">18%</p></div>
 <div style="display:flex;align-items:center;gap:20px"><p style="width:190px;font-size:26px;font-weight:700;color:#14253D">选择重发</p><div style="width:792px;height:36px;background:#1D4ED8;border-radius:6px"></div><p style="font-size:30px;font-weight:700;color:#1E40AF">90%</p></div>
 </div>
-<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">时延越大、误帧率越高，选择重发的优势越明显；代价是接收方要有缓存和排序能力。</p></div>
+<div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">时延越大、误帧率越高，选择重发的优势越明显；代价是接收方要有缓存和排序能力。</p></div>
 <aside>【3 分钟】
 选择重发的效率就很容易算了。每一帧只需要重发出错的那一帧，平均每帧发 1/(1−p) 次，管道总是满的，所以只要窗口足够大，U = 1−p。窗口不够大时，再乘 n/(1+2a)。
 把三个公式放在一起（窗口足够大）：停等式 (1−p)/(1+2a)；返回 n (1−p)/[1+(n−1)p]；选择重发 1−p。

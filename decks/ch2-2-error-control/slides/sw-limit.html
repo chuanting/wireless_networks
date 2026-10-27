@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 从停等到流水线</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">改进：别空等，连续发！</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">停等式（<i>a</i> = 20）：发一帧，空等 2<i>T</i>p</p>
 <div style="display:flex;height:48px;gap:0">
 <div style="width:40px;background:#C2410C"></div><div style="width:760px;background:#E3DDCB;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;color:#4B5A6B">空等 ACK（链路闲着）</p></div><div style="width:40px;background:#C2410C"></div><div style="flex:1;background:#E3DDCB"></div>
@@ -13,20 +13,20 @@
 <div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div><div style="flex:1;background:#1D4ED8"></div>
 </div>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">管道里能装多少帧？</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">从发出第一位到收到 ACK，是一个周期 <i>T</i>D + 2<i>T</i>p。这段时间里，发送方最多能发出 1 + 2<i>a</i> 帧。</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D"><i>a</i> = 20 时，要 41 帧才能把链路填满。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">新问题</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">连续发了很多帧，其中某一帧出错了，怎么办？</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 这一帧以及后面的全部重发？<b>返回 n</b></p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 只重发出错的那一帧？<b>选择重发</b></p>
 </div>
 </div>
-<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">这就需要“滑动窗口”：规定最多可以有多少帧“已发出、还没确认”。</p></div>
+<div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">这就需要“滑动窗口”：规定最多可以有多少帧“已发出、还没确认”。</p></div>
 <aside>【2 分钟】
 上一页的结论：a 一大，停等式就浪费。改进的思路很自然：别空等，连续发。
 上面一行是停等式：发一帧（橙色），然后空等一个来回（灰色），链路大部分时间闲着。下面一行是流水线：不等 ACK，接着发后面的帧，链路一直是满的。

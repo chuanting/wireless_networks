@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 工作过程 · 场景四</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">出错了：REJ 让重传不必等超时</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:689px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:689px"></div>
 <svg aria-label="REJ：接收方发现序号不对，立即要求从 RN 起重发" viewBox="0 0 1072 619" width="1072" height="619" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V595" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V595" stroke="#8A97A6" stroke-width="4"/>
@@ -42,21 +42,21 @@
 <p style="position:absolute;left:621px;top:680px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C;background:#FFFEFA;border-radius:6px">I(2,0)</p>
 <p style="position:absolute;left:621px;top:748px;width:93px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">I(3,0)</p>
 <p style="position:absolute;left:626px;top:785px;width:84px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RR(4)</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">① 帧 1 丢了</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 连续发 0、1、2、3，其中 I(1,0) 在链路上丢了。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">② B 立刻发现</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 先收到 0，RN = 1；接着收到 2：序号不对（期望 1）→ 丢弃，并马上发 <b>REJ(1)</b>：“从 1 号起请重发”。3 号同样丢弃（不重复发 REJ）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">③ A 退回重发</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">收到 REJ(1)，A <b>退回</b>到 1，重发 1、2、3（橙色）；B 依次收下，回 RR(4)。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:26px;line-height:1.45;color:#F4F1E8">对比 2.2：返回 n 靠<b>超时</b>才重发，这里靠 REJ <b>立即</b>触发，省掉了等待超时的时间。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">对比 2.2：返回 n 靠<b>超时</b>才重发，这里靠 REJ <b>立即</b>触发，省掉了等待超时的时间。</p>
 </div>
 </div>
 <aside>【4 分钟 · 重点】

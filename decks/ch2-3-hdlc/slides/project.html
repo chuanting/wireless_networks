@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：用代码“玩”一遍 HDLC</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:30px 32px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">封装一个 HDLC 帧</p>
 <p style="font-size:30px;line-height:1.5;color:#14253D">用 Python 把“地址 0x03、控制 0x00、信息 Hi”装成帧：算 16 位 FCS（CRC-16/X-25：多项式 0x1021 的反射形式，初值 0xFFFF，结果取反），再做比特插入，加上两端 Flag。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>对 “123456789” 算出的 CRC 应为 0x906E；本例 FCS = 0xAF72，先发低字节 72，再发 AF。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#1E40AF">中级</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">控制域解码器</p>
 <p style="font-size:30px;line-height:1.45;color:#14253D">输入 8 个比特，输出：I、S 还是 U 帧；SN、RN、P/F，S 帧的类型（RR / REJ / RNR / SREJ）。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>用第二部分课堂练习的 4 个控制域检验；再自己编 3 个，交给同桌检查。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#9A3412">进阶</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">小型链路模拟器</p>
 <p style="font-size:30px;line-height:1.45;color:#14253D">模拟 A 到 B 的返回 n 协议：窗口 n，丢包概率 p，出错后接收方发 REJ，发送方回退重发；统计链路利用率。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>n = 6、p = 0.1 时，应接近 (1 − p) / (1 + (n − 1)p) = 0.6；再把 p 从 0.01 调到 0.2，看利用率怎样变化。</p>
 </div>
 </div>
-<div style="background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 28px"><p style="font-size:30px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>给模拟器加上 RNR 流量控制和随机数初始化，复现“旧 ACKI 混进新一轮”的故障，再验证随机数怎样把它挡住。</p></div>
+<div style="border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:30px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>给模拟器加上 RNR 流量控制和随机数初始化，复现“旧 ACKI 混进新一轮”的故障，再验证随机数怎样把它挡住。</p></div>
 <aside>【选做 · 课上只需 1 分钟介绍】
 这页是给想动手的同学准备的，不在课上做。
 基础：用 Python 把一个 HDLC 帧拼出来。FCS 用 HDLC 的 CRC-16，也就是 X-25 版本：多项式 x 的 16 次方加 x 的 12 次方加 x 的 5 次方加 1，反射形式 0x8408；初值 0xFFFF；最后结果取反。检验办法：对字符串 123456789 算出来应该是 0x906E。本例的帧字节：03 00 48 69，FCS 是 0xAF72，传输时先发低字节 0x72，再发 0xAF，所以整个帧（不含 Flag）是 03 00 48 69 72 AF。这个例子里没有连续 5 个 1，所以比特插入不会插入任何位；可以自己换个数据，造出连续的 1 来测试。再检查一遍：把整帧（含 FCS）一起再算一次，结果是个固定的“余数” 0xF0B8，不等于这个值就说明有错。

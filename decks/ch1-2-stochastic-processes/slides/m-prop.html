@@ -3,13 +3,13 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 马尔可夫链</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">马尔可夫性：已知现在，未来与过去无关</h2>
 </div>
-<div style="display:flex;align-items:center;gap:24px">
+<div style="display:flex;align-items:center;gap:48px">
 <div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#E4DFD0;border:2px dashed #8896A8;border-radius:20px;padding:22px 28px">
 <p style="font-size:32px;font-weight:700;color:#5B6B7C">过去</p>
 <p style="font-size:28px;color:#5B6B7C">之前所有时隙的状态，已经发生</p>
 </div>
 <x-shape kind="arrow-right" style="width:80px;height:44px;background:#8896A8"></x-shape>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:3px solid #C2410C;border-radius:20px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#9A3412">现在</p>
 <div style="display:flex;align-items:flex-end">
 <p style="font-size:28px;color:#14253D">此刻的状态：</p>
@@ -19,36 +19,36 @@
 </div>
 </div>
 <x-shape kind="arrow-right" style="width:80px;height:44px;background:#1D4ED8"></x-shape>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#1E40AF">未来</p>
 <p style="font-size:28px;color:#14253D">下一时隙：是什么状态？</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#14253D;border-radius:24px;padding:28px 36px">
-<p style="font-size:28px;font-weight:700;color:#F4975A">马尔可夫性（无后效性）</p>
-<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">P{ 未来 | 现在，过去 } = P{ 未来 | 现在 }</p>
+<div style="display:flex;flex-direction:column;gap:14px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">马尔可夫性（无后效性）</p>
+<p style="font-size:44px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">P{ 未来 | 现在，过去 } = P{ 未来 | 现在 }</p>
 <div style="display:flex;align-items:center;gap:6px">
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>P</i>{</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i>+1</p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>j</i> |</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i></p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>i</i>,</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i>−1</p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">, …,</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">0</p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">} = <i>P</i>{</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i>+1</p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>j</i> |</p>
-<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8"><i>n</i></p></div>
-<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#F4F1E8">= <i>i</i>}</p>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>P</i>{</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>+1</p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">= <i>j</i> |</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">= <i>i</i>,</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>−1</p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">, …,</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">0</p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">} = <i>P</i>{</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i>+1</p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">= <i>j</i> |</p>
+<div style="display:flex;align-items:flex-end"><p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>X</i></p><p style="font-size:24px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D"><i>n</i></p></div>
+<p style="font-size:38px;line-height:1.2;font-family:'Times New Roman', Georgia, serif;color:#14253D">= <i>i</i>}</p>
 </div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">信道的例子</p>
 <p style="font-size:28px;color:#14253D">此刻是坏。下一时隙变好的概率只取决于“此刻是坏”，和之前连续坏了几个时隙无关。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">齐次</p>
 <p style="font-size:28px;color:#14253D">转移概率不随时间 <i>n</i> 改变：“规律”本身是固定的。本课只讨论齐次的链。</p>
 </div>

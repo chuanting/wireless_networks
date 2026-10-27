@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么要研究“排队网络”？</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#C2410C">① 真实网络是很多队列</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">分组每经过一个节点，就要在输出队列里排队一次。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">端到端时延 = 沿途各节点时延之和。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#9A3412">② 但不能简单相加</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">第二个节点的到达，就是第一个节点的离开；</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">分组的长度还在两个节点里<b>一路带着</b>。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">独立性假设不再成立。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#1E40AF">③ 本节的三件武器</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D"><b>Burke</b>：M/M/1 的离开仍是泊松。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D"><b>Jackson</b>：一大类网络可拆成独立的 M/M/1。</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D"><b>Kleinrock</b>：数据网络的实用近似。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:30px;line-height:1.45;color:#F4F1E8">目标：给定网络的拓扑、流量和链路速率，能算出<b>每条链路的负荷</b>和<b>网络的平均时延</b>。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:30px;line-height:1.45;color:#14253D">目标：给定网络的拓扑、流量和链路速率，能算出<b>每条链路的负荷</b>和<b>网络的平均时延</b>。</p>
 </div>
 <aside>【2.5 分钟】
 为什么要研究排队网络？

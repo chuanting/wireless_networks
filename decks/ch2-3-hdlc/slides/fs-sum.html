@@ -3,22 +3,22 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三类帧：一张表记住</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;align-items:center;background:#14253D;border-radius:14px;padding:12px 22px">
-<p style="width:180px;font-size:26px;font-weight:700;color:#F4975A"></p>
-<p style="width:420px;font-size:26px;font-weight:700;color:#F4F1E8">I 帧（信息帧）</p>
-<p style="width:420px;font-size:26px;font-weight:700;color:#F4F1E8">S 帧（监控帧）</p>
-<p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">U 帧（无编号帧）</p>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;align-items:center;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:12px 0px">
+<p style="width:180px;font-size:26px;font-weight:700;color:#C2410C"></p>
+<p style="width:420px;font-size:26px;font-weight:700;color:#14253D">I 帧（信息帧）</p>
+<p style="width:420px;font-size:26px;font-weight:700;color:#14253D">S 帧（监控帧）</p>
+<p style="flex:1;font-size:26px;font-weight:700;color:#14253D">U 帧（无编号帧）</p>
 </div>
-<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">控制域开头</p><p style="width:420px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">0</p><p style="width:420px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">10</p><p style="flex:1;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">11</p></div>
-<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">有信息域？</p><p style="width:420px;font-size:26px;color:#14253D">有（载荷）</p><p style="width:420px;font-size:26px;color:#14253D">无（48 位）</p><p style="flex:1;font-size:26px;color:#14253D">一般无（48 位）</p></div>
-<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">序号</p><p style="width:420px;font-size:26px;color:#14253D">SN 和 RN</p><p style="width:420px;font-size:26px;color:#14253D">只有 RN</p><p style="flex:1;font-size:26px;color:#14253D">没有</p></div>
-<div style="display:flex;align-items:center;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 22px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">作用</p><p style="width:420px;font-size:26px;color:#14253D">传数据 + 捎带确认</p><p style="width:420px;font-size:26px;color:#14253D">确认、重传请求、流量控制</p><p style="flex:1;font-size:26px;color:#14253D">建立、拆除、特殊控制</p></div>
-<div style="display:flex;align-items:center;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:14px;padding:12px 22px"><p style="width:180px;font-size:26px;font-weight:700;color:#1E40AF">典型成员</p><p style="width:420px;font-size:26px;color:#14253D">I</p><p style="width:420px;font-size:26px;color:#14253D">RR、REJ、RNR、SREJ</p><p style="flex:1;font-size:26px;color:#14253D">SNRM、SABM、DISC、UA</p></div>
+<div style="display:flex;align-items:center;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">控制域开头</p><p style="width:420px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">0</p><p style="width:420px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">10</p><p style="flex:1;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:26px;font-weight:700;color:#14253D">11</p></div>
+<div style="display:flex;align-items:center;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">有信息域？</p><p style="width:420px;font-size:26px;color:#14253D">有（载荷）</p><p style="width:420px;font-size:26px;color:#14253D">无（48 位）</p><p style="flex:1;font-size:26px;color:#14253D">一般无（48 位）</p></div>
+<div style="display:flex;align-items:center;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">序号</p><p style="width:420px;font-size:26px;color:#14253D">SN 和 RN</p><p style="width:420px;font-size:26px;color:#14253D">只有 RN</p><p style="flex:1;font-size:26px;color:#14253D">没有</p></div>
+<div style="display:flex;align-items:center;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:180px;font-size:26px;font-weight:700;color:#C2410C">作用</p><p style="width:420px;font-size:26px;color:#14253D">传数据 + 捎带确认</p><p style="width:420px;font-size:26px;color:#14253D">确认、重传请求、流量控制</p><p style="flex:1;font-size:26px;color:#14253D">建立、拆除、特殊控制</p></div>
+<div style="display:flex;align-items:center;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:180px;font-size:26px;font-weight:700;color:#1E40AF">典型成员</p><p style="width:420px;font-size:26px;color:#14253D">I</p><p style="width:420px;font-size:26px;color:#14253D">RR、REJ、RNR、SREJ</p><p style="flex:1;font-size:26px;color:#14253D">SNRM、SABM、DISC、UA</p></div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 26px"><p style="font-size:26px;line-height:1.45;color:#14253D"><b>P/F 位</b>（第 5 位）：命令里是 P（请回答），响应里是 F（回答完了）。</p></div>
-<div style="flex:1;background:#14253D;border-radius:20px;padding:16px 26px"><p style="font-size:26px;line-height:1.45;color:#F4F1E8">下面看它们怎样在一条真实的链路上配合工作。</p></div>
+<div style="display:flex;gap:48px">
+<div style="flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:26px;line-height:1.45;color:#14253D"><b>P/F 位</b>（第 5 位）：命令里是 P（请回答），响应里是 F（回答完了）。</p></div>
+<div style="flex:1;border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:26px;line-height:1.45;color:#14253D">下面看它们怎样在一条真实的链路上配合工作。</p></div>
 </div>
 <aside>【1.5 分钟】
 一张表回顾三类帧。

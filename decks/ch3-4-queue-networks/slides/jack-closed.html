@@ -3,28 +3,28 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · Jackson 定理</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">封闭网络：顾客数固定</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="flex:1.1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1.1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">封闭网络（Gordon–Newell）</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">没有外部到达、没有离开：<b>固定 <i>M</i> 个顾客</b>在 <i>K</i> 个队列间循环。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">乘积形式仍成立，只是要<b>归一化</b>（顾客总数 <i>n</i>1 + … + <i>n</i><i>K</i> = <i>M</i>）：</p>
 <p style="font-size:28px;font-weight:700;line-height:1.5;color:#C2410C;padding-left:20px"><i>P</i>(<i>n</i>) = (1/<i>G</i>) Π <i>ρ</i><i>i</i> 的 <i>n</i><i>i</i> 次方</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">例：2 个队列、<i>M</i> = 2 个顾客，相对负荷 <i>ρ</i>1 = 1，<i>ρ</i>2 = 0.5：</p>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;gap:14px;background:#14253D;border-radius:12px;padding:10px 22px"><p style="width:170px;font-size:24px;font-weight:700;color:#F4975A">状态 (<i>n</i>1, <i>n</i>2)</p><p style="width:520px;font-size:24px;font-weight:700;color:#F4F1E8">权重 = <i>ρ</i>1 的 <i>n</i>1 次方 × <i>ρ</i>2 的 <i>n</i>2 次方</p><p style="flex:1;font-size:24px;font-weight:700;color:#F4F1E8">概率</p></div>
-<div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(2, 0)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 2 次方 × 0.5 的 0 次方 = 1</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">1/1.75 = 0.571</p></div><div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(1, 1)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 1 次方 × 0.5 的 1 次方 = 0.5</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">0.5/1.75 = 0.286</p></div><div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(0, 2)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 0 次方 × 0.5 的 2 次方 = 0.25</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">0.25/1.75 = 0.143</p></div>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;gap:14px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:10px 0px"><p style="width:170px;font-size:24px;font-weight:700;color:#C2410C">状态 (<i>n</i>1, <i>n</i>2)</p><p style="width:520px;font-size:24px;font-weight:700;color:#14253D">权重 = <i>ρ</i>1 的 <i>n</i>1 次方 × <i>ρ</i>2 的 <i>n</i>2 次方</p><p style="flex:1;font-size:24px;font-weight:700;color:#14253D">概率</p></div>
+<div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(2, 0)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 2 次方 × 0.5 的 0 次方 = 1</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">1/1.75 = 0.571</p></div><div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(1, 1)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 1 次方 × 0.5 的 1 次方 = 0.5</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">0.5/1.75 = 0.286</p></div><div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:170px;font-size:26px;font-weight:700;color:#C2410C">(0, 2)</p><p style="width:520px;font-size:26px;color:#14253D">1 的 0 次方 × 0.5 的 2 次方 = 0.25</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">0.25/1.75 = 0.143</p></div>
 </div>
 </div>
-<div style="width:560px;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="width:560px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">网络里的用途</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><b>窗口式流量控制</b>：网络里始终有 <i>M</i> 个分组（窗口大小）在途，每个分组完成，就放进一个新的——第 6 章会回到这里。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">适合建模</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">资源“有限”的系统：窗口、令牌、线程池。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#C2410C">代价</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">要算归一化常数 <i>G</i>；<i>K</i>、<i>M</i> 大时需要专门算法（本课不要求）。</p>
 </div>

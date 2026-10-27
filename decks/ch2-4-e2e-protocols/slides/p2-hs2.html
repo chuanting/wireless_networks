@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接建立</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么是三次？——识破旧的重复 SYN</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:638px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:638px"></div>
 <svg aria-label="旧的重复 SYN 被第三次握手识破" viewBox="0 0 1072 568" width="1072" height="568" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V544" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V544" stroke="#8A97A6" stroke-width="4"/>
@@ -25,16 +25,16 @@
 <p style="position:absolute;left:510px;top:365px;width:316px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">旧 SYN  seq=100（迟到）</p>
 <p style="position:absolute;left:503px;top:574px;width:329px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">SYN+ACK  seq=y  ack=101</p>
 <p style="position:absolute;left:635px;top:721px;width:66px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">RST</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">① 两次握手会怎样</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 分不清收到的 SYN 是新的还是旧的：旧 SYN 也会让 B 以为连接建立了，白白占资源，等一个永远不会来的数据。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">② 三次握手怎样识破</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 收到 ack = 101，可是自己根本没发过 seq = 100 的 SYN，于是回 RST（复位）。B 收到 RST，放弃。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">③ 对照 2.3</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">HDLC 的 ACKI 没有“身份”，旧 ACKI 会被误认。TCP 的序号 x 就像那个<b>随机数 r</b>，被 ACK 原样带回来，新旧立刻分清。</p>
 </div>

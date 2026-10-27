@@ -3,22 +3,22 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 为什么需要组帧</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么不干脆一直发，非要切成一帧一帧？</h2>
 </div>
-<div style="display:flex;gap:36px;align-items:stretch">
-<div style="width:640px;display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="width:640px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">① 检错要有“一块”</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">校验码是针对一块数据算出来的，必须知道这块数据在哪里。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">② 出错只重发一小块</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">哪一块错了，就重发哪一块，不必从头再来。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">③ 共享链路要“轮流”</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">多个用户的数据必须以帧为单位交替发送，不能一个人占满。</p>
 </div>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">例：传一个 1 GB 的文件，途中有 1 个比特出错</p>
 <div style="display:flex;flex-direction:column;gap:8px">
 <p style="font-size:28px;font-weight:700;color:#4B5A6B">不分帧：整个文件是一大块</p>

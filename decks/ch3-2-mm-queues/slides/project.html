@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：用程序验证排队公式</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:30px 32px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">M/M/1：模拟与公式对照</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">用事件模拟产生 40 万个顾客（<i>λ</i> = 0.8，<i>μ</i> = 1）。统计系统里有 <i>n</i> 个顾客的时间比例，与 (1 − <i>ρ</i>) <i>ρ</i> 的 <i>n</i> 次方对比；再比较 <i>T</i> 与 1/(<i>μ</i> − <i>λ</i>)。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>p</i>0 应约 0.2；<i>T</i> 应约 5（模拟约 4.9）。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">中级</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">M/M/m：慢信道 vs 快信道</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">实现 M/M/4（共用队列）和 M/M/1（4 倍速），在 <i>ρ</i> = 0.1、0.5、0.9 下比较平均时延。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>T</i> 之比应接近 3.6、2.2、1.19；与爱尔兰 C 公式对照。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:30px 32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">进阶</p>
 <p style="font-size:40px;font-weight:700;color:#14253D">爱尔兰 B 计算器与模拟</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">写一个爱尔兰 B 递推函数；再模拟损失制系统，验证 <i>B</i>(3, 2) 与 <i>B</i>(10, 8)；并画出“1% 阻塞下，线路数 vs 利用率”曲线。</p>
 <p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>B</i>(3, 2) ≈ 0.2105；<i>B</i>(10, 8) ≈ 0.1217；利用率随 <i>m</i> 增大而上升。</p>
 </div>
 </div>
-<div style="background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 28px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>把服务时间换成固定长度，看平均等待怎样变化（这正是 3.3 节 P-K 公式要回答的）。</p></div>
+<div style="border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>把服务时间换成固定长度，看平均等待怎样变化（这正是 3.3 节 P-K 公式要回答的）。</p></div>
 <aside>【选做 · 课上只需 1 分钟介绍】
 这页是给想动手的同学准备的，不在课上做。
 基础：M/M/1 的模拟与公式对照。用事件模拟产生 40 万个顾客，到达率 0.8，服务速率 1。记录每个顾客的到达和离开时刻，用事件扫描的方法，统计系统里有 n 个顾客的时间比例；与 (1 减 ρ) 乘 ρ 的 n 次方对比；再统计平均时延，和 1 除以 (μ 减 λ) 对比。（老师试过：p_0 约 0.2，T 约 4.93，理论 5，因为有限样本，模拟值略小。）

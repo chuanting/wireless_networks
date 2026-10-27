@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">链路层已经重传了，端到端为什么还要重传？</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1.1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1.1;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">推导：<i>K</i> 跳，每跳丢帧概率 <i>p</i></p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">① 一次端到端尝试成功的概率：<i>q</i> = (1 − <i>p</i>) 的 <i>K</i> 次方。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">② 一次尝试用掉的链路传输：第 <i>i</i> 跳要传，当且仅当前面 <i>i</i> − 1 跳都成功，所以平均 (1 − <i>p</i>) 的各次方之和 = (1 − <i>q</i>) / <i>p</i>。</p>
@@ -13,23 +13,23 @@
 <p style="font-size:26px;line-height:1.5;color:#14253D">④ 逐跳重传：每跳平均 1 / (1 − <i>p</i>) 次，共 <i>K</i> / (1 − <i>p</i>) 次。</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:14px"><div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;align-items:center;gap:10px;background:#14253D;border-radius:14px;padding:12px 18px"><p style="width:100px;font-size:26px;font-weight:700;color:#F4975A">每跳 <i>p</i></p><p style="width:190px;font-size:26px;font-weight:700;color:#F4F1E8">成功率 <i>q</i></p><p style="width:230px;font-size:26px;font-weight:700;color:#F4F1E8">仅端到端重传</p><p style="flex:1;font-size:26px;font-weight:700;color:#F4F1E8">逐跳重传</p></div>
-<div style="display:flex;align-items:center;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:14px;padding:12px 18px"><p style="width:100px;font-size:28px;font-weight:700;color:#C2410C">0.01</p><p style="width:190px;font-size:28px;color:#14253D">90.4%</p><p style="width:230px;font-size:28px;color:#14253D">10.57</p><p style="flex:1;font-size:28px;color:#14253D">10.10</p></div>
-<div style="display:flex;align-items:center;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:14px;padding:12px 18px"><p style="width:100px;font-size:28px;font-weight:700;color:#C2410C">0.1</p><p style="width:190px;font-size:28px;color:#14253D">34.9%</p><p style="width:230px;font-size:28px;font-weight:700;color:#9A3412">18.68</p><p style="flex:1;font-size:28px;color:#14253D">11.11</p></div>
+<div style="display:flex;align-items:center;gap:10px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:12px 0px"><p style="width:100px;font-size:26px;font-weight:700;color:#C2410C">每跳 <i>p</i></p><p style="width:190px;font-size:26px;font-weight:700;color:#14253D">成功率 <i>q</i></p><p style="width:230px;font-size:26px;font-weight:700;color:#14253D">仅端到端重传</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">逐跳重传</p></div>
+<div style="display:flex;align-items:center;gap:10px;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:100px;font-size:28px;font-weight:700;color:#C2410C">0.01</p><p style="width:190px;font-size:28px;color:#14253D">90.4%</p><p style="width:230px;font-size:28px;color:#14253D">10.57</p><p style="flex:1;font-size:28px;color:#14253D">10.10</p></div>
+<div style="display:flex;align-items:center;gap:10px;border-bottom:1px solid #D9D1C0;padding:12px 0px"><p style="width:100px;font-size:28px;font-weight:700;color:#C2410C">0.1</p><p style="width:190px;font-size:28px;color:#14253D">34.9%</p><p style="width:230px;font-size:28px;font-weight:700;color:#9A3412">18.68</p><p style="flex:1;font-size:28px;color:#14253D">11.11</p></div>
 <p style="font-size:24px;line-height:1.4;color:#4B5A6B">表中：<i>K</i> = 10 跳，每个分组平均要发多少次“链路传输”（越少越好）。</p>
 </div></div>
 </div>
-<div style="display:flex;gap:22px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">链路很差（如无线）</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">端到端重传代价大得多（18.68 对 11.11）。<b>必须逐跳先纠错。</b></p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">链路很好</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">两者差不多（10.57 对 10.10），但<b>端到端仍不可省</b>：节点故障、缓冲区溢出链路层看不见。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:28px;line-height:1.45;color:#F4F1E8"><b>两层是互补，不是二选一</b>：链路层处理比特错，端到端处理分组丢。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:28px;line-height:1.45;color:#14253D"><b>两层是互补，不是二选一</b>：链路层处理比特错，端到端处理分组丢。</p>
 </div>
 </div>
 <aside>【5 分钟 · 重点】

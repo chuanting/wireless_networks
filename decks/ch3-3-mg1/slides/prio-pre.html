@@ -3,29 +3,29 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">强插优先级的时延</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">强插（中断后恢复）：第 <i>k</i> 类完全“看不见”更低的类</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">第 <i>k</i> 类的时延 = 服务时间被高类<b>拉长</b> + 排队：</p>
 <p style="font-size:30px;line-height:1.5;font-weight:700;color:#C2410C;padding-left:20px"><i>T</i><i>k</i> = [(1/<i>μ</i><i>k</i>)(1 − <i>σ</i><i>k</i>) + <i>R</i><i>k</i>] / [(1 − <i>σ</i><i>k</i>−1)(1 − <i>σ</i><i>k</i>)]</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">其中 <i>R</i><i>k</i> = (1/2) Σ(<i>i</i>=1…<i>k</i>) <i>λ</i><i>i</i> <i>E</i>[<i>X</i><i>i</i> 的平方]：只含第 1 到 <i>k</i> 类。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">第 1 类：<i>T</i>1 = 1/<i>μ</i>1 + <i>R</i>1/(1 − <i>ρ</i>1)：<b>与低优先级完全无关</b>。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">同一例子（强插）</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">第 1 类：<i>T</i>1 = 0.2 + 0.004/0.96 ≈ <b>0.204 ms</b>（几乎不等，<i>W</i>1 ≈ 0.004 ms）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">第 2 类</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>2 = 3.14 ms，<i>W</i>2 = <i>T</i>2 − 1.2 = <b>1.94 ms</b>（非强插：1.89）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">对比</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">强插：高类几乎不等（0.45 → 0.004 ms）；低类略受损（1.89 → 1.94 ms）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:25px;line-height:1.45;color:#F4F1E8">强插适合<b>实时业务</b>要求极低时延的场合；代价：低优先级被打断，要有恢复机制。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:25px;line-height:1.45;color:#14253D">强插适合<b>实时业务</b>要求极低时延的场合；代价：低优先级被打断，要有恢复机制。</p>
 </div>
 </div>
 </div>

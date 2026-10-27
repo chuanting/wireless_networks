@@ -3,29 +3,29 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;align-items:center;gap:26px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">差错检测</p>
 <p style="flex:1;font-size:28px;color:#14253D">加冗余，重算比对。奇偶校验只能发现奇数个错；<b>CRC</b> = 用 g 做模 2 除法，发现所有 ≤ L 位的突发错误，漏检约 2 的 −L 次方。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<div style="display:flex;align-items:center;gap:26px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">ARQ 基础</p>
 <p style="flex:1;font-size:28px;color:#14253D">ACK + 定时器 + 重发；<b>序号 SN / RN</b> 防重复、防误确认；停等式利用率 <i>U</i> = (1 − <i>p</i>) / (1 + 2<i>a</i>)。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<div style="display:flex;align-items:center;gap:26px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">滑动窗口</p>
 <p style="flex:1;font-size:28px;color:#14253D"><b>返回 n</b>：错一帧，后面全重发，<i>U</i> = (1 − <i>p</i>) / (1 + (<i>n</i> − 1)<i>p</i>)；<b>选择重发</b>：只重发错的，<i>U</i> = 1 − <i>p</i>。窗口 <i>n</i> ≈ 1 + 2<i>a</i>。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:12px 26px">
+<div style="display:flex;align-items:center;gap:26px;border-bottom:1px solid #D9D1C0;padding:12px 0px">
 <p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">序号空间</p>
 <p style="flex:1;font-size:28px;color:#14253D">模 <i>m</i>：返回 n 要 <i>n</i> ≤ <i>m</i> − 1，选择重发要 <i>n</i> ≤ <i>m</i> / 2；HDLC 用 <i>m</i> = 8，窗口最大 7。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:12px 26px">
-<p style="width:210px;font-size:30px;font-weight:700;color:#F4975A">最佳帧长</p>
-<p style="flex:1;font-size:28px;color:#F4F1E8">单链路 <i>l</i>d* ≈ √( <i>l</i>h / <i>p</i>b )；多跳 <i>K</i>* = √( <i>M V</i> / (<i>j</i> − 1) )；语音要短；长度应由网络统一定。</p>
+<div style="display:flex;align-items:center;gap:26px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:12px 0px">
+<p style="width:210px;font-size:30px;font-weight:700;color:#C2410C">最佳帧长</p>
+<p style="flex:1;font-size:28px;color:#14253D">单链路 <i>l</i>d* ≈ √( <i>l</i>h / <i>p</i>b )；多跳 <i>K</i>* = √( <i>M V</i> / (<i>j</i> − 1) )；语音要短；长度应由网络统一定。</p>
 </div>
 </div>
-<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 28px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一节（2.3）：把组帧、CRC、返回 n 装配起来，就是 HDLC 协议。</p></div>
+<div style="border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一节（2.3）：把组帧、CRC、返回 n 装配起来，就是 HDLC 协议。</p></div>
 <aside>【2 分钟】
 带着大家快速回顾，每行一句话：
 差错检测：加冗余，重算比对。奇偶校验只能发现奇数个错；CRC 是用 g 做模 2 除法，能发现所有不超过 L 位的突发错误，漏检概率约 2 的 −L 次方。

@@ -4,28 +4,28 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">推导（二）：平均剩余服务时间 R = λ E[X²] / 2</h2>
 </div>
 <div style="display:flex;gap:24px;align-items:flex-start">
-<div style="position:relative;width:900px;height:420px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<div style="position:relative;width:900px;height:420px">
 <svg aria-label="剩余服务时间随时间的变化：每次服务开始时跳到服务时间 X，再线性下降到 0" viewBox="0 0 900 340" width="900" height="340" style="position:absolute;left:0px;top:0px">
 <path d="M70,300H880M70,300V30" stroke="#8A97A6" stroke-width="3" fill="none"/>
 <polygon points="110,300 110,160 270,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/><polygon points="350,300 350,230 430,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/><polygon points="550,300 550,90 790,300" fill="#FBD9BF" stroke="#C2410C" stroke-width="3"/>
 </svg>
 <p style="position:absolute;left:20px;top:14px;width:520px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#9A3412">剩余服务时间 r(t)：锯齿</p><p style="position:absolute;left:100.0px;top:126px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X1 = 2</p><p style="position:absolute;left:340.0px;top:196px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X2 = 1</p><p style="position:absolute;left:540px;top:56px;width:120px;font-size:24px;font-weight:700;line-height:1.3;text-align:center;color:#14253D">X3 = 3</p><p style="position:absolute;left:86.0px;top:308px;width:640px;font-size:24px;font-weight:400;line-height:1.3;text-align:left;color:#4B5A6B">三个三角形的面积分别是 X 的平方 / 2</p><p style="position:absolute;left:60px;top:344px;width:820px;font-size:26px;font-weight:700;line-height:1.3;text-align:left;color:#14253D">面积 = 2 + 0.5 + 4.5 = 7；观察 10 秒：<i>R</i> = 7 / 10 = 0.7</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">每次服务</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">开始时，剩余时间<b>跳到</b> <i>X</i>，然后均匀下降到 0：一个直角三角形，面积 <i>X</i> 的平方 / 2。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#C2410C">时间平均</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D"><i>R</i> = (1/<i>t</i>) × 所有三角形面积之和 = (1/2) · [服务次数 / <i>t</i>] · [Σ<i>X</i> 的平方 / 服务次数]</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:32px;font-weight:700;color:#9A3412">极限</p>
 <p style="font-size:34px;line-height:1.4;color:#14253D"><b><i>R</i> = (1/2) <i>λ</i> <i>E</i>[<i>X</i> 的平方]</b></p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:25px;line-height:1.45;color:#F4F1E8">数字核对：<i>λ</i> = 3/10，<i>E</i>[<i>X</i> 的平方] = (4+1+9)/3 = 4.67；(1/2) × 0.3 × 4.67 = 0.7 ✓。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:25px;line-height:1.45;color:#14253D">数字核对：<i>λ</i> = 3/10，<i>E</i>[<i>X</i> 的平方] = (4+1+9)/3 = 4.67；(1/2) × 0.3 × 4.67 = 0.7 ✓。</p>
 </div>
 </div>
 </div>

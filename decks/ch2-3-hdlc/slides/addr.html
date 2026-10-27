@@ -3,30 +3,30 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · HDLC 帧格式</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">地址域：多个站共用一条链路时区分“是谁”</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">NRM（主从式）中的规则</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">地址域<b>总是从站的地址</b>：</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 主站 → 从站：写<b>接收的从站</b>的地址（点名）。</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 从站 → 主站：写<b>发送的从站自己</b>的地址（报名）。</p>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">主站自己没有地址，因为它是唯一的。</p>
 </div>
-<div style="width:640px;display:flex;flex-direction:column;gap:12px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:24px 28px">
+<div style="width:640px;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">例：主站 A，三个从站，地址 1、2、3</p>
 <div style="display:flex;flex-direction:column;gap:8px;font-size:26px;color:#14253D">
-<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">A → B2</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412;background:#FFFEFA;border-radius:8px;padding:2px 12px">地址 = 2</p></div>
-<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">B2 → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412;background:#FFFEFA;border-radius:8px;padding:2px 12px">地址 = 2</p></div>
-<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">B3 → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412;background:#FFFEFA;border-radius:8px;padding:2px 12px">地址 = 3</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">A → B2</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412">地址 = 2</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">B2 → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412">地址 = 2</p></div>
+<div style="display:flex;gap:12px;align-items:center"><p style="width:200px;font-weight:700">B3 → A</p><p style="font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-weight:700;color:#9A3412">地址 = 3</p></div>
 </div>
 <p style="font-size:26px;line-height:1.4;color:#14253D">每个从站只处理地址是自己的帧，其余的忽略。</p>
 </div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">点到点链路</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">对方只有一个，地址域<b>没有实际作用</b>（PPP 里固定填 FF）。平衡模式里它用来区分“命令”和“响应”。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">广播地址</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">全 1（8 位都是 1）表示“所有站”，所有从站都接收。</p>
 </div>

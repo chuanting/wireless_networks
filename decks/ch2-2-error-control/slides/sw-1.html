@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">停等式 ARQ：发一帧，等确认，再发下一帧</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:480px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:480px"></div>
 <svg aria-label="停等式 ARQ：发一帧，等 ACK，再发下一帧" viewBox="0 0 1072 449" width="1072" height="449" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V426" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V426" stroke="#8A97A6" stroke-width="4"/>
@@ -22,18 +22,18 @@
 <p style="position:absolute;left:773px;top:408px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK</p>
 <p style="position:absolute;left:413px;top:500px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA</p>
 <p style="position:absolute;left:773px;top:592px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 24px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">基本思想</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">开始发下一帧之前，必须确认当前帧已经被正确接收。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">规则</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">① B 收到正确的帧，回 ACK。</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">② A 收到 ACK，才发下一帧。</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">③ A 发帧时启动定时器，超时没收到 ACK 就重发。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">优点</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">简单；A 只需缓存 1 帧，B 也只需要 1 帧的缓冲。</p>
 </div>

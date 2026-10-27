@@ -3,37 +3,37 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/∞</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">M/M/∞：服务员无穷多，没有排队</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">模型</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">服务员无穷多：顾客一到就有服务员，<b>不排队</b>。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">所以 <i>N</i>Q = 0，<i>W</i> = 0。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">离开速率 = <i>nμ</i>（所有 <i>n</i>）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#9A3412">稳态分布</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">切一刀：<i>λp</i><i>n</i> = (<i>n</i>+1) <i>μ p</i>(<i>n</i>+1)，</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><b><i>p</i><i>n</i> = e 的 −<i>a</i> 次方 × <i>a</i> 的 <i>n</i> 次方 / <i>n</i>!</b></p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">即 <b>泊松分布</b>，均值 <i>a</i> = <i>λ</i>/<i>μ</i>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">时延</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i> = <i>N</i>/<i>λ</i> = <i>a</i>/<i>λ</i> = <b>1/<i>μ</i></b>。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">没有等待，只有服务时间本身。</p>
 </div>
 </div>
-<div style="display:flex;gap:22px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">例：同时在线的用户数</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">每秒 10 个新会话，每个会话平均 30 秒：<i>a</i> = 300。<b>在线数 ~ 泊松（均值 300，标准差 √300 ≈ 17）</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">容量规划</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">平均 300，按“均值 + 3 个标准差”留余量：约 <b>350</b> 个并发。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:27px;line-height:1.45;color:#F4F1E8">用途：当“服务员”足够多（如大量并行信道、自助服务），M/M/∞ 给出系统里<b>同时有多少人</b>的分布。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:27px;line-height:1.45;color:#14253D">用途：当“服务员”足够多（如大量并行信道、自助服务），M/M/∞ 给出系统里<b>同时有多少人</b>的分布。</p>
 </div>
 <aside>【2.5 分钟 · 可压缩】
 一个极端情形：服务员无穷多。每个顾客一来，立刻有一个服务员为他服务，所以没有排队，排队的平均人数是 0，等待时间也是 0。

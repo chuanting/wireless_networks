@@ -6,24 +6,24 @@
 <div style="position:absolute;left:1050px;top:520px;width:170px;height:84px;background:#DCE6FB;border:3px solid #1D4ED8;border-radius:28px"></div>
 <div style="position:absolute;left:1250px;top:520px;width:284px;height:84px;background:#DCE6FB;border:3px solid #1D4ED8;border-radius:28px"></div>
 <div style="position:absolute;left:1050px;top:700px;width:520px;height:84px;background:#DCE6FB;border:3px solid #1D4ED8;border-radius:28px"></div>
-<div style="position:absolute;left:128px;top:244px;width:872px;display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
-<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">1</p>
+<div style="position:absolute;left:128px;top:244px;width:872px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:24px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
+<p style="width:56px;height:56px;border-radius:50%;color:#C2410C;font-size:40px;font-weight:700;line-height:56px;text-align:center">1</p>
 <div style="flex:1"><p style="font-size:32px;color:#14253D">开始：每个点自成一个小团体（6 个团体）</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
-<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">2</p>
+<div style="display:flex;align-items:center;gap:24px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
+<p style="width:56px;height:56px;border-radius:50%;color:#C2410C;font-size:40px;font-weight:700;line-height:56px;text-align:center">2</p>
 <div style="flex:1"><p style="font-size:32px;color:#14253D">每个团体找出自己“最便宜的出口边”（连向团体之外的边）</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
-<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">3</p>
+<div style="display:flex;align-items:center;gap:24px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
+<p style="width:56px;height:56px;border-radius:50%;color:#C2410C;font-size:40px;font-weight:700;line-height:56px;text-align:center">3</p>
 <div style="flex:1"><p style="font-size:32px;color:#14253D">沿着出口边，与对面的团体合并</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:24px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 28px">
-<p style="width:56px;height:56px;border-radius:50%;background:#C2410C;color:#FFF6EC;font-size:28px;font-weight:700;line-height:56px;text-align:center">4</p>
+<div style="display:flex;align-items:center;gap:24px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
+<p style="width:56px;height:56px;border-radius:50%;color:#C2410C;font-size:40px;font-weight:700;line-height:56px;text-align:center">4</p>
 <div style="flex:1"><p style="font-size:32px;color:#14253D">重复第 2、3 步，直到只剩一个团体：它就是最小生成树</p></div>
 </div>
-<div style="background:#DCE6FB;border-radius:20px;padding:16px 28px">
+<div style="border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">每一轮，团体数量至少减半。前提：所有边的造价互不相同（相同时用节点编号打破平局）。</p>
 </div>
 </div>

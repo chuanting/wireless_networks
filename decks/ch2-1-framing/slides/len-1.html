@@ -3,17 +3,17 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 长度计数</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">第三种办法：不放路标，帧头写明长度</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:20px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">想法</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">在每帧最前面放一个长度字段 <i>L</i>：“后面有 <i>L</i> 个字节”。接收方读完 <i>L</i> 个字节，就知道这一帧结束了。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">好处</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">没有路标，就不会撞车，也<b>不需要转义</b>。载荷可以是任何内容，开销固定（长度字段的大小）。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">例：连续发三条消息（长度字段占 2 个字节）：HELLO、OK、BYE</p>
 <div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
 <p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">00</p><p style="width:72px;height:68px;line-height:68px;border-radius:10px;background:#14253D;color:#F4F1E8">05</p>
@@ -29,8 +29,8 @@
 <p style="width:170px;text-align:center;color:#14253D;font-weight:700;margin-left:14px">L = 3</p><p style="width:236px;text-align:center">“BYE”</p>
 </div>
 </div>
-<div data-build-in="fade 1" style="display:flex;gap:20px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div data-build-in="fade 1" style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">接收方的做法</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">① 读 2 字节，得到 <i>L</i>　② 再读 <i>L</i> 个字节，就是载荷　③ 回到 ①</p>
 </div>

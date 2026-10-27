@@ -3,19 +3,19 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">手算一遍：数据 1101，除数 g = 1011</h2>
 </div>
-<div style="display:flex;gap:20px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">已知</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">数据 K = 4 位：<b>1101</b>；除数 <b>g = 1011</b>（4 位）<br>校验位 L = g 的位数 − 1 = <b>3</b></p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">第 0 步：在数据后面补 L = 3 个 0（占位）</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
 <p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#DCE6FB">1</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p><p style="width:52px;height:56px;line-height:56px;border-radius:8px;background:#E3DDCB">0</p>
 </div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:18px 26px">
+<div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <div data-build-in="fade 1" style="display:flex;align-items:center;gap:16px">
 <p style="width:64px;font-size:30px;font-weight:700;color:#C2410C">①</p>
 <div style="display:flex;gap:4px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;text-align:center">
@@ -61,8 +61,8 @@
 <p style="flex:1;font-size:26px;line-height:1.4;color:#4B5A6B">前 4 位全是 0：除完了</p>
 </div>
 </div>
-<div data-build-in="fade 5" style="display:flex;align-items:center;gap:24px;background:#14253D;border-radius:20px;padding:16px 30px">
-<p style="font-size:32px;font-weight:700;color:#F4F1E8">余数 = 最后 3 位 = <b>001</b>，这就是校验位 → 把补的 000 换成 001，发送 1101 <b>001</b></p>
+<div data-build-in="fade 5" style="display:flex;align-items:center;gap:24px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:32px;font-weight:700;color:#14253D">余数 = 最后 3 位 = <b>001</b>，这就是校验位 → 把补的 000 换成 001，发送 1101 <b>001</b></p>
 </div>
 <aside>【4 分钟 · 请带着学生一步一步算】
 例：数据 1101（K = 4），除数 g = 1011。g 一共 4 位，所以校验位的个数 L = 3（等于 g 的位数减 1，原因见前两页：余数最长 L 位）。

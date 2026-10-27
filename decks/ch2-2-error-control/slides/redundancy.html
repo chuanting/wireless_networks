@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">基本思路：加一点“冗余”，让错误露出马脚</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">发送方：在 K 个信息位后面，加上按规则算出的 L 个校验位</p>
 <div style="display:flex;align-items:stretch;height:84px;gap:4px">
 <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#1D4ED8;border-radius:14px 0 0 14px"><p style="font-size:32px;font-weight:700;color:#F4F8FF">K 个信息位</p></div>
@@ -11,24 +11,24 @@
 </div>
 <p style="font-size:26px;color:#4B5A6B">校验位 = 某个固定的函数（信息位）。冗余 = 额外多发的 L 位。</p>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">接收方</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">① 用收到的 K 个信息位，按同样的规则重新算出 L 个校验位。</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">② 和收到的校验位比较：<b>相同</b> → 认为无错；<b>不同</b> → 一定有错。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FDEBDD;border:2px solid #C2410C;border-radius:22px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#9A3412">注意一个不对称</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">不同 → <b>肯定</b>有错。</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">相同 → <b>大概率</b>无错，但有极小的可能：错误恰好让信息位和校验位“配套”，这叫<b>漏检</b>。</p>
 </div>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">最笨的办法：重复发两遍</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">K = 8 位，再发一遍，L = 8，冗余 100%。能检错，但太浪费。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">我们的目标</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">L 尽量小（比如 K = 1000 位，只加 16 位），漏检概率尽量低。</p>
 </div>

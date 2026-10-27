@@ -3,34 +3,34 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 并行等待式（了解，可略）</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">另一种思路：并行跑 8 个停等式（ARPANET）</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
-<div style="display:flex;align-items:center;gap:20px">
-<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#14253D;border-radius:16px;padding:18px 0"><p style="font-size:28px;font-weight:700;color:#F4F1E8">输入分组</p><p style="font-size:24px;color:#B9C4D3">任意分给空闲信道</p></div>
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
+<div style="display:flex;align-items:center;gap:48px">
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">输入分组</p><p style="font-size:24px;color:#5F6B7A">任意分给空闲信道</p></div>
 <div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;gap:8px">
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">A</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#9A3412">B</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">C</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">D</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#9A3412">E</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">F</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">G</p></div>
-<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:12px;padding:10px 0"><p style="font-size:30px;font-weight:700;color:#1E40AF">H</p></div>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">A</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#9A3412">B</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">C</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">D</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#9A3412">E</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">F</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">G</p></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:30px;font-weight:700;color:#1E40AF">H</p></div>
 </div>
 <p style="font-size:24px;color:#4B5A6B">8 条独立的停等式“虚信道”（橙色 = 正在等确认，蓝色 = 空闲）</p>
 </div>
 <div style="display:flex;align-items:center"><p style="font-size:40px;font-weight:700;color:#C2410C">→</p></div>
-<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#14253D;border-radius:16px;padding:18px 0"><p style="font-size:28px;font-weight:700;color:#F4F1E8">比特管道</p><p style="font-size:24px;color:#B9C4D3">复接发送</p></div>
+<div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:4px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">比特管道</p><p style="font-size:24px;color:#5F6B7A">复接发送</p></div>
 </div>
 </div>
-<div style="display:flex;gap:20px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 24px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">怎么工作</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">• 每条虚信道自己是停等式：1 位 SN、1 位 RN。</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">• 输入分组分到空闲的信道上；忙的信道<b>轮流</b>把分组再发一遍，直到收到确认——不需要定时器。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">特点</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">• 管道里同时有最多 8 帧，效率约为停等式的 8 倍。</p>
 <p style="font-size:26px;line-height:1.45;color:#14253D">• 各信道速度不同，分组<b>可能乱序</b>到达，链路层不负责排序，要由上层来排。</p>

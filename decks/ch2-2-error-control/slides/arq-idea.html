@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">ARQ：错了，就让对方重发</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">ARQ（Automatic Repeat reQuest）</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">接收方经过 CRC 检查，没问题就回一个<b>肯定应答 ACK</b>，有问题就丢弃，或回一个<b>否定应答 NAK</b>；发送方没收到 ACK 就<b>重发</b>。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">还要有一个定时器（timer）</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">发送方发出一帧后启动定时器。如果规定时间内没有收到 ACK（帧丢了，或 ACK 丢了），就认为失败，<b>超时重发</b>。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">我们对物理链路作三个假设（与实际网络一致）</p>
-<div style="display:flex;gap:16px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#F0ECE0;border-radius:16px;padding:16px 22px"><p style="font-size:28px;font-weight:700;color:#14253D">① 时延可变</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">帧到达接收方之前，被延迟了一个任意的时间。</p></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#F0ECE0;border-radius:16px;padding:16px 22px"><p style="font-size:28px;font-weight:700;color:#14253D">② 会丢会错</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">帧在传输中可能丢失，也可能出错（出错的被 CRC 丢弃）。</p></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#F0ECE0;border-radius:16px;padding:16px 22px"><p style="font-size:28px;font-weight:700;color:#14253D">③ 不乱序</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">先发的帧先到（如果到得了）。</p></div>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#14253D">① 时延可变</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">帧到达接收方之前，被延迟了一个任意的时间。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#14253D">② 会丢会错</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">帧在传输中可能丢失，也可能出错（出错的被 CRC 丢弃）。</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#14253D">③ 不乱序</p><p style="font-size:26px;line-height:1.4;color:#4B5A6B">先发的帧先到（如果到得了）。</p></div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:22px;padding:20px 30px">
-<p style="font-size:28px;font-weight:700;color:#F4975A">四种 ARQ，一步步改进：</p>
-<p style="font-size:30px;line-height:1.5;color:#F4F1E8">停等式 → 返回 n（Go-Back-N）→ 选择重发（Selective Repeat）；另外还有并行等待式（了解即可）。</p>
+<div style="display:flex;flex-direction:column;gap:10px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">四种 ARQ，一步步改进：</p>
+<p style="font-size:30px;line-height:1.5;color:#14253D">停等式 → 返回 n（Go-Back-N）→ 选择重发（Selective Repeat）；另外还有并行等待式（了解即可）。</p>
 </div>
 <aside>【2.5 分钟】
 检测到错误之后怎么办？最朴素的办法：让对方再发一次。这就是 ARQ，自动请求重传。

@@ -3,25 +3,25 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">最佳帧长：都是“两头夹击”的折中</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:30px;font-weight:700;color:#C2410C">单条链路</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:28px;color:#14253D">短 → 头尾占比大；长 → 出错重发多。</p><p style="font-size:28px;color:#14253D">最佳负荷长度 <i>l</i>d* ≈ √( <i>l</i>h / <i>p</i>b )</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:30px;font-weight:700;color:#C2410C">多跳路径</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:28px;color:#14253D">小 → 头尾总开销大；大 → 流水线填充慢。</p><p style="font-size:28px;color:#14253D">最佳分组长度 <i>K</i>* = √( <i>M V</i> / (<i>j</i> − 1) )</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:30px;font-weight:700;color:#C2410C">实时语音</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:28px;color:#14253D">要攒够 <i>K</i> 位才能发：打包时延 = <i>K</i> / <i>R</i>，所以分组要很短（&lt; 500 位）。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:30px;font-weight:700;color:#1E40AF">网络整体</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:28px;color:#14253D">慢货车效应：长分组堵短分组，帧长应由网络统一规定。</p></div>
 </div>
 </div>
-<div style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">一个通用的方法：写出“总代价”的表达式，求导，找极小点。第 3 章讲排队时延时还会再用。</p></div>
+<div style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:28px;font-weight:700;color:#14253D">一个通用的方法：写出“总代价”的表达式，求导，找极小点。第 3 章讲排队时延时还会再用。</p></div>
 <aside>【1.5 分钟】
 最佳帧长小结，三个场景，一个共同的方法。
 单条链路：帧短，头尾占比大；帧长，出错重发多。最佳负荷长度约等于 √(l_h/p_b)。

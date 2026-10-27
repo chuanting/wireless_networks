@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 选择重发（Selective Repeat）</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">选择重发：错了哪一帧，就只重发哪一帧</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:640px"></div>
 <svg aria-label="选择重发 ARQ：只重发丢失的那一帧" viewBox="0 0 1072 580" width="1072" height="580" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V556" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V556" stroke="#8A97A6" stroke-width="4"/>
@@ -54,18 +54,18 @@
 <p style="position:absolute;left:990px;top:548px;width:80px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">缓存</p>
 <p style="position:absolute;left:990px;top:628px;width:80px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#8A97A6">缓存</p>
 <p style="position:absolute;left:990px;top:708px;width:190px;font-size:24px;font-weight:700;line-height:1.2;text-align:left;color:#1D4ED8">按序交付 1~4</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">和返回 n 的区别</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">• B 把乱序到达的帧<b>缓存</b>下来（灰点），并对每一帧单独确认。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">• A 只重发<b>没有被确认</b>的帧（这里只有 1）。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">• 1 一到，B 把 1、2、3、4 按序一起交给上层。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">代价</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">接收方要有<b>缓存</b>和<b>排序</b>能力；确认信息更复杂（每帧一个，或位图）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">好处</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">没有出错的帧不用重发，特别适合时延大的链路（卫星）。</p>
 </div>

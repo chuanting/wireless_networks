@@ -3,26 +3,26 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">网络层的点对点协议：五句话</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:26px 32px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:36px;font-weight:700;color:#C2410C">为什么</p>
 <p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">链路可靠 ≠ 整条路可靠：节点会断电、缓冲区会满。最终必须由<b>两端</b>确认。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:26px 32px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:36px;font-weight:700;color:#C2410C">两类服务</p>
 <p style="flex:1;font-size:32px;line-height:1.4;color:#14253D"><b>虚电路</b>先建路径、头里是短 VC 号（节点存表）；<b>数据报</b>每个分组带完整地址、各自选路。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:26px 32px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:36px;font-weight:700;color:#C2410C">编号与窗口</p>
 <p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">编号认出乱序、丢失、重复；窗口限制在途分组。要跑满：<i>n</i> ≥ <i>R</i>·<i>T</i>。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:16px;padding:26px 32px">
+<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:250px;font-size:36px;font-weight:700;color:#C2410C">两层重传</p>
 <p style="flex:1;font-size:32px;line-height:1.4;color:#14253D">差的链路必须逐跳先纠错，端到端再兜底：互补，不是二选一。</p>
 </div>
-<div style="display:flex;align-items:center;gap:26px;background:#14253D;border-radius:16px;padding:26px 32px">
-<p style="width:250px;font-size:36px;font-weight:700;color:#F4975A">X.25</p>
-<p style="flex:1;font-size:32px;line-height:1.4;color:#F4F1E8"> LCN（VC 号）、P(S)/P(R)、D 位（端到端确认）；建立、传输、清除三阶段。</p>
+<div style="display:flex;align-items:center;gap:26px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="width:250px;font-size:36px;font-weight:700;color:#C2410C">X.25</p>
+<p style="flex:1;font-size:32px;line-height:1.4;color:#14253D"> LCN（VC 号）、P(S)/P(R)、D 位（端到端确认）；建立、传输、清除三阶段。</p>
 </div>
 </div>
 <aside>【1.5 分钟】

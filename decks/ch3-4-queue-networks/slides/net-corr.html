@@ -4,23 +4,23 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">分组长度“一路带着走”</h2>
 </div>
 <div style="display:flex;gap:24px;align-items:flex-start">
-<div style="width:1130px"><div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="width:1130px;gap:24px"><div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">两条速率相同的链路串联；分组 A 长 3，B 长 1，C 长 2（时间单位）</p>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">链路 1</p><div style="position:relative;width:900px;height:58px"><p style="position:absolute;left:0px;top:0px;width:296px;height:54px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#1E40AF">分组 A（长）</p><p style="position:absolute;left:300px;top:0px;width:96px;height:54px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#9A3412">B</p><p style="position:absolute;left:400px;top:0px;width:196px;height:54px;background:#E5F0E5;border:2px solid #4C7A4C;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#2F5A2F">分组 C</p></div></div>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">链路 2</p><div style="position:relative;width:900px;height:58px"><p style="position:absolute;left:300px;top:0px;width:296px;height:54px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#1E40AF">分组 A</p><p style="position:absolute;left:600px;top:0px;width:96px;height:54px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#9A3412">B</p><p style="position:absolute;left:700px;top:0px;width:196px;height:54px;background:#E5F0E5;border:2px solid #4C7A4C;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#2F5A2F">分组 C</p></div></div>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:26px;font-weight:700;color:#14253D">B、C 的等待</p><div style="position:relative;width:900px;height:58px"><p style="position:absolute;left:400px;top:0px;width:196px;height:54px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#4B5A6B">B 等 2</p><p style="position:absolute;left:600px;top:0px;width:96px;height:54px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:24px;font-weight:700;line-height:50px;text-align:center;color:#4B5A6B">C 等 1</p></div></div>
 <p style="font-size:24px;color:#4B5A6B">横轴：时间 0–9。分组在链路 1 发完的瞬间，就到达链路 2 的队列。</p>
 </div></div>
-<div style="display:flex;flex-direction:column;gap:14px;width:560px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:24px;width:560px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">现象</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">短包 B 紧跟长包 A：在链路 1 只发 1，在链路 2 却要<b>等 2</b>——因为 A 在链路 2 还没发完。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">原因</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">分组长度在<b>每个链路</b>上都一样（长的在两处都长）：到达间隔和服务时间<b>相关</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">如果长度相同</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">全是长度 3：队列 2 永远不会有人等。</p>
 </div>

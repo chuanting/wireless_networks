@@ -3,27 +3,27 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 生成树与最小生成树</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">三种构造最小生成树的思路</h2>
 </div>
-<div style="position:absolute;left:128px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:32px">
+<div style="position:absolute;left:128px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">思路一</p>
 <h3 style="font-size:40px;font-weight:700;color:#14253D">Prim（普里姆）</h3>
 <p style="font-size:32px;font-weight:700;color:#1E40AF">像滚雪球</p>
 <p style="font-size:28px;color:#4B5A6B">从一个点出发，一棵树不断向外长大；每次吃进离它最近（最便宜）的那个邻居。</p>
 </div>
-<div style="position:absolute;left:693px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:32px">
+<div style="position:absolute;left:693px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">思路二</p>
 <h3 style="font-size:40px;font-weight:700;color:#14253D">Kruskal（克鲁斯卡尔）</h3>
 <p style="font-size:32px;font-weight:700;color:#1E40AF">先抢便宜货</p>
 <p style="font-size:28px;color:#4B5A6B">把所有线路按造价从小到大排队，逐条挑选；会形成回路的就跳过。</p>
 </div>
-<div style="position:absolute;left:1258px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:24px;padding:32px">
+<div style="position:absolute;left:1258px;top:252px;width:533px;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">思路三</p>
 <h3 style="font-size:40px;font-weight:700;color:#14253D">分布式算法</h3>
 <p style="font-size:32px;font-weight:700;color:#1E40AF">各自行动，合并成团</p>
 <p style="font-size:28px;color:#4B5A6B">没有总指挥。每个点先自成一团，每个团体选自己最便宜的出口，合并成大团。</p>
 </div>
-<div style="position:absolute;left:128px;top:690px;width:1664px;display:flex;flex-direction:column;gap:10px;background:#14253D;border-radius:24px;padding:32px 40px">
-<p style="font-size:32px;font-weight:700;color:#F4F1E8">共同点：贪心——每一步都选当前最便宜的（并且不成回路）。</p>
-<p style="font-size:32px;color:#F4975A">它们为什么都对？到第四部分，用“割”来揭晓。</p>
+<div style="position:absolute;left:128px;top:690px;width:1664px;display:flex;flex-direction:column;gap:10px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:32px;font-weight:700;color:#14253D">共同点：贪心——每一步都选当前最便宜的（并且不成回路）。</p>
+<p style="font-size:32px;color:#C2410C">它们为什么都对？到第四部分，用“割”来揭晓。</p>
 </div>
 <aside>【1 分钟】
 先给三个算法一个“画面感”，后面逐个展开：

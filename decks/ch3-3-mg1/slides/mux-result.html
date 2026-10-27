@@ -3,14 +3,14 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 多路复用</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">四种方式的平均时延（单位：时隙）</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">FDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = <i>m</i> + <i>λm</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">每个用户 M/D/1：到达 <i>λ</i>/<i>m</i>，服务 <i>m</i></p></div>
-<div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">时隙 FDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = <i>T</i>(FDM) + <i>m</i>/2</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">休假（等时隙）：多等 <i>E</i>[<i>V</i>²]/(2<i>E</i>[<i>V</i>]) = <i>m</i>/2</p></div>
-<div style="display:flex;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:10px 22px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">TDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = 1 + <i>m</i>/2 + <i>λm</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">与时隙 FDM 同样排队，但分组只占 1 时隙：少 <i>m</i> − 1</p></div>
-<div style="display:flex;gap:14px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:10px 22px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">统计复用</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = 1 + <i>λ</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">一条全速信道，M/D/1：到达 <i>λ</i>，服务 1</p></div>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">FDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = <i>m</i> + <i>λm</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">每个用户 M/D/1：到达 <i>λ</i>/<i>m</i>，服务 <i>m</i></p></div>
+<div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">时隙 FDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = <i>T</i>(FDM) + <i>m</i>/2</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">休假（等时隙）：多等 <i>E</i>[<i>V</i>²]/(2<i>E</i>[<i>V</i>]) = <i>m</i>/2</p></div>
+<div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">TDM</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = 1 + <i>m</i>/2 + <i>λm</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">与时隙 FDM 同样排队，但分组只占 1 时隙：少 <i>m</i> − 1</p></div>
+<div style="display:flex;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C">统计复用</p><p style="width:620px;font-size:28px;color:#14253D"><i>T</i> = 1 + <i>λ</i> / [2(1 − <i>λ</i>)]</p><p style="flex:1;font-size:24px;line-height:1.35;color:#4B5A6B">一条全速信道，M/D/1：到达 <i>λ</i>，服务 1</p></div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:27px;line-height:1.45;color:#F4F1E8">用 M/D/1（服务固定 <i>m</i> 或 1）与休假公式 <i>E</i>[<i>V</i>²]/(2<i>E</i>[<i>V</i>]) = <i>m</i>/2（休假为固定的 <i>m</i> 个时隙）即得；M/D/1 的等待 = <i>λ</i>·服务的平方 / [2(1 − <i>ρ</i>)]。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:27px;line-height:1.45;color:#14253D">用 M/D/1（服务固定 <i>m</i> 或 1）与休假公式 <i>E</i>[<i>V</i>²]/(2<i>E</i>[<i>V</i>]) = <i>m</i>/2（休假为固定的 <i>m</i> 个时隙）即得；M/D/1 的等待 = <i>λ</i>·服务的平方 / [2(1 − <i>ρ</i>)]。</p>
 </div>
 <aside>【4 分钟 · 重点】
 用 P-K 公式和休假公式，推出四个结果。

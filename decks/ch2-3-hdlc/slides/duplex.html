@@ -3,20 +3,20 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · HDLC 是什么</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">先分清三种通信方式：单工、半双工、全双工</h2>
 </div>
-<div style="display:flex;gap:22px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:34px;font-weight:700;color:#14253D">单工</p>
 <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">A</p></div><p style="font-size:44px;font-weight:700;color:#1D4ED8">→</p><div style="width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">B</p></div></div>
 <p style="font-size:28px;line-height:1.5;color:#14253D">只有<b>一个方向</b>有数据。一方只发，一方只收。</p>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">例：广播电台、遥控器</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:34px;font-weight:700;color:#14253D">半双工</p>
 <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">A</p></div><p style="font-size:44px;font-weight:700;color:#1D4ED8">⇄</p><div style="width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:28px;font-weight:700;color:#F4F1E8">B</p></div></div>
 <p style="font-size:28px;line-height:1.5;color:#14253D">两个方向都可以，但<b>不能同时</b>：发的时候不能收，收的时候不能发。</p>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">例：对讲机（“over”）、早期的以太网</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:24px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:34px;font-weight:700;color:#1E40AF">全双工</p>
 <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-start">
 <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:44px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:26px;font-weight:700;color:#F4F1E8">A</p></div><p style="font-size:32px;font-weight:700;color:#1D4ED8">→ →</p><div style="width:100px;height:44px;display:flex;align-items:center;justify-content:center;background:#14253D;border-radius:12px"><p style="font-size:26px;font-weight:700;color:#F4F1E8">B</p></div></div>
@@ -26,9 +26,9 @@
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">例：电话、现代以太网</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#14253D;border-radius:22px;padding:20px 30px">
-<p style="font-size:28px;font-weight:700;color:#F4975A">和 HDLC 的关系</p>
-<p style="font-size:28px;line-height:1.5;color:#F4F1E8">ARQ 里 ACK 要回传，所以至少是半双工；<b>全双工</b>时，数据和确认可以同时在两个方向上流动，效率最高——后面的“捎带确认”就利用了这一点。</p>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:28px;font-weight:700;color:#C2410C">和 HDLC 的关系</p>
+<p style="font-size:28px;line-height:1.5;color:#14253D">ARQ 里 ACK 要回传，所以至少是半双工；<b>全双工</b>时，数据和确认可以同时在两个方向上流动，效率最高——后面的“捎带确认”就利用了这一点。</p>
 </div>
 <aside>【2 分钟】
 先分清三种通信方式，这是后面理解 HDLC 工作模式的基础。

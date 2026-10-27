@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · 奇偶校验</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">加强版：二维奇偶校验，还能定位出错的位</h2>
 </div>
-<div style="display:flex;gap:28px;align-items:flex-start">
-<div style="width:760px;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="width:760px;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">把数据排成方阵，每行、每列各加一个偶校验位</p>
 <div style="display:flex;flex-direction:column;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;text-align:center">
 <div style="display:flex;gap:6px"><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">0</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#DCE6FB;border:2px solid #DCE6FB">1</p><p style="width:84px;height:68px;line-height:64px;border-radius:10px;background:#C2410C;border:2px solid #C2410C;color:#FFF6EC;margin-left:8px">1</p></div>
@@ -15,14 +15,14 @@
 </div>
 <p style="font-size:26px;color:#4B5A6B">蓝色：4×4 数据；橙色：每行（右）、每列（下）的偶校验位。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:20px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">如果第 2 行第 3 列的 1 被翻转成 0</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 第 2 行校验失败（只剩 1 个 1）</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 第 3 列校验失败</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 行与列的交叉点 = 出错的位置！</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 26px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">能力</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 任何 1 位错：<b>定位并纠正</b></p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">• 任何 2 位、3 位错：<b>一定能发现</b></p>

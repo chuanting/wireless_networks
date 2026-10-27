@@ -4,7 +4,7 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例子：X.25 的分组层</h2>
 </div>
 <div style="display:flex;gap:24px;align-items:flex-start">
-<div style="width:980px;display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 28px">
+<div style="width:980px;display:flex;flex-direction:column;gap:24px"><div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">X.25 数据分组的头（3 字节，每格 1 位 = 76 px）</p>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:24px;color:#4B5A6B">第 1 字节</p><div style="display:flex;gap:4px"><p style="width:76px;height:58px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:26px;font-weight:700;line-height:54px;text-align:center;color:#4B5A6B">Q</p><p style="width:76px;height:58px;background:#FDEBDD;border:2px solid #C2410C;border-radius:8px;font-size:26px;font-weight:700;line-height:54px;text-align:center;color:#9A3412">D</p><p style="width:152px;height:58px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:8px;font-size:24px;font-weight:700;line-height:54px;text-align:center;color:#4B5A6B">模式 01</p><p style="width:304px;height:58px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:54px;text-align:center;color:#1E40AF">LCGN（4 位）</p></div></div>
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:24px;color:#4B5A6B">第 2 字节</p><div style="display:flex;gap:4px"><p style="width:612px;height:58px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:8px;font-size:26px;font-weight:700;line-height:54px;text-align:center;color:#1E40AF">LCN：逻辑信道号（8 位）</p></div></div>
@@ -12,32 +12,32 @@
 <div style="display:flex;align-items:center;gap:14px"><p style="width:150px;font-size:24px;color:#4B5A6B">后面</p><div style="display:flex;gap:4px"><p style="width:612px;height:58px;background:#14253D;border:2px solid #14253D;border-radius:8px;font-size:24px;font-weight:700;line-height:54px;text-align:center;color:#F4F1E8">用户数据（默认 128 字节，可协商）</p></div></div>
 <p style="font-size:24px;line-height:1.4;color:#4B5A6B">LCGN + LCN 合起来 12 位，就是 VC 号。“模式 01”表示序号模 8。</p>
 </div>
-<div style="display:flex;gap:12px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">分组层（X.25）</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">虚电路、窗口</p>
-</div><div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+</div><div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">链路层（LAPB）</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">HDLC 的一个子集</p>
-</div><div style="display:flex;flex-direction:column;gap:6px;background:#EFEBDD;border:2px solid #BDB59B;border-radius:20px;padding:16px 22px">
+</div><div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#4B5A6B">物理层</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">X.21 等</p>
 </div>
 </div></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">LCN</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">就是 VC 号：虚电路在这条链路上的号码。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">P(S) / P(R)</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">分组的发送、接收序号，和 HDLC 的 SN / RN 一样，模 8（默认窗口 2）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">M 位</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">“后面还有”：一个长消息被切成几个分组时使用。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">D 位</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">D = 1 时，P(R) 表示<b>对方用户</b>已收到（端到端确认），不只是本地网络收下。</p>
 </div>

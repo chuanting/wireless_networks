@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · M/M/m/m</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">损失制与爱尔兰 B 公式</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="flex:1.2;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">M/M/m/m：m 条线路，没有等待位置（损失制）</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">到达时若 <i>m</i> 条线路全忙，呼叫立刻被拒绝（<b>阻塞</b>）。状态只有 0, 1, …, <i>m</i>。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">切一刀和 M/M/∞ 完全一样，只是只取到 <i>m</i> 为止：</p>
@@ -13,20 +13,20 @@
 <p style="font-size:34px;line-height:1.5;font-weight:700;color:#C2410C;padding-left:20px"><i>B</i>(<i>m</i>, <i>a</i>) = (<i>a</i> 的 <i>m</i> 次方 / <i>m</i>!) / Σ(<i>k</i>=0…<i>m</i>) (<i>a</i> 的 <i>k</i> 次方 / <i>k</i>!)</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">——<b>爱尔兰 B 公式</b>。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">小例子：<i>m</i> = 3，<i>a</i> = 2</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">各项 a 的 k 次方 / k!：1, 2, 2, 1.33；和 = 6.33。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">阻塞概率</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D"><i>B</i> = 1.33 / 6.33 ≈ <b>21%</b>：每 5 个呼叫被拒绝 1 个。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">对照 3.1 节</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">300 线、<i>a</i> = 360：下限 16.7%，精确 <b>17.9%</b>；<i>a</i> = 300：下限 0，精确 <b>4.5%</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#C2410C">惊人的性质</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">公式对<b>任意服务时间分布</b>都成立，只要平均值是 1/<i>μ</i>（不敏感性）。</p>
 </div>

@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 进阶（可略）· 帧的开销</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">开销随 <i>j</i> 怎么变？（<i>k</i> = 1000 位）</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#14253D">每帧平均多发的位数 OV(<i>j</i>)</p>
 <div style="display:flex;align-items:flex-end;gap:22px;height:400px;border-bottom:3px solid #5B6B7C;padding:0 20px">
 <div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:6px"><p style="font-size:26px;font-weight:700;color:#4B5A6B">67.5</p><div style="width:76px;height:324px;background:#B9C4D3;border-radius:6px 6px 0 0"></div></div>
@@ -23,12 +23,12 @@
 </div>
 <p style="font-size:26px;color:#4B5A6B;text-align:center">Flag 中 1 的个数 <i>j</i>（横轴）</p>
 </div>
-<div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 26px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412"><i>j</i> = 6：HDLC 的选择</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">22.6 位。<i>j</i> 偏小，数据里太容易撞上 Flag，要插很多 0。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF"><i>j</i> = 9：最小</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">11.95 位。再增大 <i>j</i>，Flag 太长，开销又回升。</p>
 </div>

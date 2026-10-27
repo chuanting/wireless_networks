@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">例：用串口发送字母 “A”</h2>
 </div>
-<div style="display:flex;gap:20px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 26px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;color:#14253D">“A” 的 ASCII 码是十六进制 <b>41</b> = 二进制 <b>0100 0001</b></p>
 <p style="font-size:28px;color:#14253D">串口先发最低位，所以 D0 到 D7 依次是：<b>1 0 0 0 0 0 1 0</b></p>
 </div>
@@ -24,16 +24,16 @@
 <p style="width:125px;color:#4B5A6B">空闲</p><p style="width:125px;font-weight:700;color:#9A3412">起始位</p><p style="width:125px;color:#1E40AF">D0</p><p style="width:125px;color:#1E40AF">D1</p><p style="width:125px;color:#1E40AF">D2</p><p style="width:125px;color:#1E40AF">D3</p><p style="width:125px;color:#1E40AF">D4</p><p style="width:125px;color:#1E40AF">D5</p><p style="width:125px;color:#1E40AF">D6</p><p style="width:125px;color:#1E40AF">D7</p><p style="width:125px;font-weight:700;color:#9A3412">停止位</p><p style="width:125px;color:#4B5A6B">空闲</p>
 </div>
 </div>
-<div style="display:flex;gap:20px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 26px">
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">效率 = 8 / 10 = 80%</p>
 <p style="font-size:28px;color:#14253D">每 8 位有效数据，要多花 2 位做路标。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">速度：9600 波特</p>
 <p style="font-size:28px;color:#14253D">每秒 9600 位 → 每秒 960 个字符。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:18px 26px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">接收方怎么读</p>
 <p style="font-size:28px;color:#14253D">看到下降沿后，每隔 1 个位时间在中点读一次。</p>
 </div>

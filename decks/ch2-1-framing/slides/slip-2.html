@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · SLIP</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">SLIP 的转义规则：两条</h2>
 </div>
-<div style="display:flex;gap:28px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#14253D">发送方：载荷里的字节这样写到线路上</p>
 <div style="display:flex;align-items:center;gap:22px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;text-align:center">
 <p style="width:96px;height:72px;line-height:72px;border-radius:10px;background:#FDEBDD;border:3px dashed #C2410C;font-size:36px;font-weight:700;color:#9A3412">C0</p>
@@ -27,7 +27,7 @@
 <p style="font-family:'Noto Sans SC', sans-serif;font-size:28px;color:#4B5A6B;text-align:left">不用处理</p>
 </div>
 </div>
-<div style="width:640px;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="width:640px;display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#14253D">接收方：反过来还原</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">见到 <b>C0</b> → 帧边界</p>
 <p style="font-size:28px;line-height:1.5;color:#14253D">见到 <b>DB DC</b> → 还原成 C0</p>
@@ -35,7 +35,7 @@
 <p style="font-size:28px;line-height:1.5;color:#14253D">其他字节 → 原样收下</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:20px 30px">
+<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">一个巧妙的设计：线路上的“C0”只会是路标</p>
 <p style="font-size:28px;line-height:1.45;color:#14253D">载荷里的 C0 被改写成 DB DC，所以帧的中间根本不会出现 C0。接收方只要见到 C0，就一定是边界，不需要记住“前一个字节是不是转义字符”。</p>
 </div>

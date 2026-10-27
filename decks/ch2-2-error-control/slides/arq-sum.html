@@ -3,29 +3,29 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 小结</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">ARQ：一路改进下来的逻辑</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:56px;font-size:40px;font-weight:700;color:#C2410C">1</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#14253D">基本机制：CRC 检错 + ACK + 定时器 + 重发</p><p style="font-size:26px;color:#4B5A6B">收错了就不回确认，发送方超时重发。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:56px;font-size:40px;font-weight:700;color:#C2410C">2</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#14253D">序号 SN / RN：解决重复和误确认</p><p style="font-size:26px;color:#4B5A6B">停等式只要 1 位；没有序号，ACK 丢了会重复交付。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="width:56px;font-size:40px;font-weight:700;color:#C2410C">3</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#14253D">停等式的瓶颈：利用率 <i>U</i> = (1 − <i>p</i>) / (1 + 2<i>a</i>)</p><p style="font-size:26px;color:#4B5A6B">时延越大越浪费，卫星上只有 2% 左右。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:18px;padding:16px 26px">
+<div style="display:flex;align-items:center;gap:22px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="width:56px;font-size:40px;font-weight:700;color:#1E40AF">4</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#14253D">滑动窗口：连续发，最多 <i>n</i> 个未确认；<i>n</i> ≈ 1 + 2<i>a</i></p><p style="font-size:26px;color:#4B5A6B">返回 n：错了一帧，后面全重发。选择重发：只重发错的，接收方要缓存。</p></div>
 </div>
-<div style="display:flex;align-items:center;gap:22px;background:#14253D;border-radius:18px;padding:16px 26px">
-<p style="width:56px;font-size:40px;font-weight:700;color:#F4975A">5</p>
-<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">效率：2.2% → 18% → 90%（卫星，<i>p</i> = 0.1）</p><p style="font-size:26px;color:#D5DCE6">序号模 <i>m</i>：返回 n 要 <i>n</i> ≤ <i>m</i> − 1，选择重发要 <i>n</i> ≤ <i>m</i> / 2。</p></div>
+<div style="display:flex;align-items:center;gap:22px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="width:56px;font-size:40px;font-weight:700;color:#C2410C">5</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:30px;font-weight:700;color:#14253D">效率：2.2% → 18% → 90%（卫星，<i>p</i> = 0.1）</p><p style="font-size:26px;color:#5F6B7A">序号模 <i>m</i>：返回 n 要 <i>n</i> ≤ <i>m</i> − 1，选择重发要 <i>n</i> ≤ <i>m</i> / 2。</p></div>
 </div>
 </div>
-<div style="background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 28px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一步：帧到底切多长？—— 最佳帧长。</p></div>
+<div style="border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一步：帧到底切多长？—— 最佳帧长。</p></div>
 <aside>【2 分钟】
 小结一下 ARQ 一路改进的逻辑，五步：
 一，基本机制：CRC 检错、ACK、定时器、重发。收错了就不回确认，发送方超时重发。

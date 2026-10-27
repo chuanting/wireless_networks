@@ -3,17 +3,17 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">转义：给载荷里的特殊字符“加个前缀”</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:18px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">发送方</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">载荷里的 <b>~</b> 写成 <b>\~</b>；载荷里的 <b>\</b> 写成 <b>\\</b>。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:18px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">接收方</p>
 <p style="font-size:28px;line-height:1.4;color:#14253D">见到 <b>\</b>：丢掉它，下一个字符当普通数据；见到没有 \ 的 <b>~</b>：路标。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <div style="display:flex;align-items:center;gap:20px">
 <p style="width:230px;font-size:28px;font-weight:700;color:#4B5A6B">① 原始载荷</p>
 <div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:40px;font-weight:700;line-height:72px;text-align:center">
@@ -36,7 +36,7 @@
 <p style="font-size:26px;color:#4B5A6B">与原始载荷完全一致 ✓</p>
 </div>
 </div>
-<div data-build-in="fade 2" style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">这样，线路上不带 \ 的 ~ 一定是路标，载荷可以是任意内容——透明传输做到了。</p></div>
+<div data-build-in="fade 2" style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:30px;font-weight:700;color:#14253D">这样，线路上不带 \ 的 ~ 一定是路标，载荷可以是任意内容——透明传输做到了。</p></div>
 <aside>【3 分钟 · 本节最核心的例子】
 解决办法：转义。引入一个新字符 \（叫“转义字符”）作为前缀。
 发送方的规则：载荷里每遇到一个 ~，就在它前面加一个 \，也就是写成 \~；载荷里每遇到一个 \，也要在它前面加一个 \，也就是写成 \\。

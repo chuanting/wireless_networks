@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 可靠传输</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">快速重传：不等超时</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:678px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:678px"></div>
 <svg aria-label="快速重传：三个重复 ACK 触发立即重发" viewBox="0 0 1072 608" width="1072" height="608" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V584" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V584" stroke="#8A97A6" stroke-width="4"/>
@@ -45,20 +45,20 @@
 <p style="position:absolute;left:599px;top:640px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">ack=2000</p>
 <p style="position:absolute;left:549px;top:676px;width:237px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">seq=2000（重发）</p>
 <p style="position:absolute;left:599px;top:774px;width:137px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ack=6000</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">① 为什么要快</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">超时通常 ≥ 200 ms 甚至 1 s，而 RTT 可能只有几十 ms。干等太浪费。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">② 规则</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">收到 <b>3 个重复 ACK</b>，就立即重发那一段，不等超时。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">③ 为什么是 3 个</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">乱序也会产生 1–2 个重复 ACK。3 个，基本说明真丢了。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">④ 重发后</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 已缓存 3000–5999，所以一次回 ack = 6000。</p>
 </div>

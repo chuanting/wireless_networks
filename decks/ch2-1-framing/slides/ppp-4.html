@@ -3,8 +3,8 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · PPP</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">PPP 的字节插入：7D 是转义字符</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 28px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">发送方的规则</p>
 <div style="display:flex;align-items:center;gap:16px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:34px;font-weight:700;text-align:center">
 <p style="width:84px;height:64px;line-height:64px;border-radius:10px;background:#FDEBDD;border:3px dashed #C2410C;color:#9A3412">7E</p><p style="font-family:'Noto Sans SC', sans-serif;color:#14253D">→</p><p style="width:84px;height:64px;line-height:64px;border-radius:10px;background:#1D4ED8;color:#F4F8FF">7D</p><p style="width:84px;height:64px;line-height:64px;border-radius:10px;background:#DCE6FB;color:#14253D">5E</p>
@@ -14,16 +14,16 @@
 </div>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">协商后，还可以转义控制字符（小于 20H 的字节，如 13H）。</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:22px;padding:22px 28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">统一的写法</p>
 <p style="font-size:30px;line-height:1.4;color:#14253D">需要转义的字节 <b>x</b> → 先发 <b>7D</b>，再发 <b>x 与 20H 做异或</b></p>
-<div style="display:flex;flex-direction:column;gap:2px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;color:#14253D;background:#FFFEFA;border-radius:12px;padding:10px 18px">
+<div style="display:flex;flex-direction:column;gap:2px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:30px;font-weight:700;color:#14253D;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p>7E = 0111 1110</p><p>20 = 0010 0000 （异或）</p><p style="border-top:3px solid #14253D;color:#9A3412">5E = 0101 1110</p>
 </div>
 <p style="font-size:26px;line-height:1.4;color:#4B5A6B">异或 20H 就是把第 6 位翻转，结果不会是 7E。</p>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:20px 28px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <div style="display:flex;align-items:center;gap:20px">
 <p style="width:210px;font-size:28px;font-weight:700;color:#4B5A6B">信息字段原文</p>
 <div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;line-height:64px;text-align:center">

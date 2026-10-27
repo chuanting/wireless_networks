@@ -4,7 +4,7 @@
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">RTO 手算一遍：它怎样“跟着样本走”</h2>
 </div>
 <div style="display:flex;gap:22px;align-items:flex-start">
-<div style="position:relative;width:1060px;height:420px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px">
+<div style="position:relative;width:1060px;height:420px">
 <svg aria-label="16 个 RTT 样本与对应的 SRTT、RTO 曲线" viewBox="0 0 1000 400" width="1000" height="400" style="position:absolute;left:0px;top:0px">
 <path d="M60,360.0H980M60,360.0V20" stroke="#8A97A6" stroke-width="3" fill="none"/>
 <path d="M60,260.0H980" stroke="#E3DDCB" stroke-width="2" fill="none"/><path d="M60,160.0H980" stroke="#E3DDCB" stroke-width="2" fill="none"/><path d="M60,60.0H980" stroke="#E3DDCB" stroke-width="2" fill="none"/>
@@ -14,26 +14,26 @@
 </svg>
 <p style="position:absolute;left:6px;top:346.0px;width:56px;font-size:22px;font-weight:400;line-height:1.3;text-align:right;color:#4B5A6B">0</p><p style="position:absolute;left:6px;top:246.0px;width:56px;font-size:22px;font-weight:400;line-height:1.3;text-align:right;color:#4B5A6B">100</p><p style="position:absolute;left:6px;top:146.0px;width:56px;font-size:22px;font-weight:400;line-height:1.3;text-align:right;color:#4B5A6B">200</p><p style="position:absolute;left:6px;top:46.0px;width:56px;font-size:22px;font-weight:400;line-height:1.3;text-align:right;color:#4B5A6B">300</p><p style="position:absolute;left:70px;top:386px;width:900px;font-size:22px;font-weight:400;line-height:1.3;text-align:left;color:#4B5A6B">（纵轴单位：毫秒；横轴：第 1–16 个样本）</p><p style="position:absolute;left:640px;top:30px;width:380px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#1D4ED8">● 样本 RTT</p><p style="position:absolute;left:640px;top:60px;width:380px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#C2410C">━ SRTT（平滑值）</p><p style="position:absolute;left:640px;top:90px;width:380px;font-size:24px;font-weight:700;line-height:1.3;text-align:left;color:#14253D">━ RTO（超时时间）</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">手算：4 个样本（毫秒）</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">100，140，90，200</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;gap:8px;background:#14253D;border-radius:12px;padding:8px 14px"><p style="width:80px;font-size:24px;font-weight:700;color:#F4975A">样本</p><p style="width:96px;font-size:24px;font-weight:700;color:#F4F1E8">SRTT</p><p style="width:120px;font-size:24px;font-weight:700;color:#F4F1E8">RTTVAR</p><p style="flex:1;font-size:24px;font-weight:700;color:#F4F1E8">RTO</p></div>
-<div style="display:flex;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 14px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">100</p><p style="width:96px;font-size:26px;color:#14253D">100.0</p><p style="width:120px;font-size:26px;color:#14253D">50.0</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">300.0</p></div>
-<div style="display:flex;gap:8px;background:#FDEBDD;border:2px solid #C2410C;border-radius:12px;padding:8px 14px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">140</p><p style="width:96px;font-size:26px;color:#14253D">105.0</p><p style="width:120px;font-size:26px;color:#14253D">47.5</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">295.0</p></div>
-<div style="display:flex;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 14px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">90</p><p style="width:96px;font-size:26px;color:#14253D">103.1</p><p style="width:120px;font-size:26px;color:#14253D">39.4</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">260.6</p></div>
-<div style="display:flex;gap:8px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:12px;padding:8px 14px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">200</p><p style="width:96px;font-size:26px;color:#14253D">115.2</p><p style="width:120px;font-size:26px;color:#14253D">53.8</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">330.2</p></div>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;gap:8px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:8px 0px"><p style="width:80px;font-size:24px;font-weight:700;color:#C2410C">样本</p><p style="width:96px;font-size:24px;font-weight:700;color:#14253D">SRTT</p><p style="width:120px;font-size:24px;font-weight:700;color:#14253D">RTTVAR</p><p style="flex:1;font-size:24px;font-weight:700;color:#14253D">RTO</p></div>
+<div style="display:flex;gap:8px;border-bottom:1px solid #D9D1C0;padding:8px 0px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">100</p><p style="width:96px;font-size:26px;color:#14253D">100.0</p><p style="width:120px;font-size:26px;color:#14253D">50.0</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">300.0</p></div>
+<div style="display:flex;gap:8px;border-bottom:1px solid #D9D1C0;padding:8px 0px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">140</p><p style="width:96px;font-size:26px;color:#14253D">105.0</p><p style="width:120px;font-size:26px;color:#14253D">47.5</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">295.0</p></div>
+<div style="display:flex;gap:8px;border-bottom:1px solid #D9D1C0;padding:8px 0px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">90</p><p style="width:96px;font-size:26px;color:#14253D">103.1</p><p style="width:120px;font-size:26px;color:#14253D">39.4</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">260.6</p></div>
+<div style="display:flex;gap:8px;border-bottom:1px solid #D9D1C0;padding:8px 0px"><p style="width:80px;font-size:26px;font-weight:700;color:#C2410C">200</p><p style="width:96px;font-size:26px;color:#14253D">115.2</p><p style="width:120px;font-size:26px;color:#14253D">53.8</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">330.2</p></div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:26px;font-weight:700;color:#C2410C">以第 2 步为例</p>
 <p style="font-size:24px;line-height:1.4;color:#14253D">RTTVAR = 0.75×50 + 0.25×|100 − 140| = 47.5；SRTT = 0.875×100 + 0.125×140 = 105；RTO = 105 + 4×47.5 = 295。</p>
 </div>
 </div>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#14253D;border-radius:20px;padding:16px 22px">
-<p style="font-size:26px;line-height:1.45;color:#F4F1E8">看图：开始的 RTO 取得很宽松（3 倍 RTT）；样本稳定后，RTO 迅速收紧；样本偶尔跳高（第 7、12 个），RTO 随之抬高，但没有被越过——没有误超时。</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
+<p style="font-size:26px;line-height:1.45;color:#14253D">看图：开始的 RTO 取得很宽松（3 倍 RTT）；样本稳定后，RTO 迅速收紧；样本偶尔跳高（第 7、12 个），RTO 随之抬高，但没有被越过——没有误超时。</p>
 </div>
 <aside>【3 分钟】
 用数字走一遍。

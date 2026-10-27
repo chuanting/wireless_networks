@@ -3,25 +3,25 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 网络层</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">网络层为什么也要编号、确认和窗口？</h2>
 </div>
-<div style="display:flex;gap:24px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;gap:48px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">① 编号：认出“谁是谁”</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">在数据报网络里分组可能<b>乱序、丢失、重复</b>。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">3 号比 2 号先到 → 按编号重排；5 号没来 → 知道丢了；4 号来了两次 → 丢掉一个。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">② 确认：告诉发送方“收到哪了”</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">接收方回“我已收到 0–4 号”（累积确认，和 2.2 的 RN 一样）。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#1E40AF">③ 窗口：限制“在途”的分组数</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">发送方最多有 <i>n</i> 个未确认的分组在网络里：</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">• 流量控制：接收方来不及处理，就不确认，发送方自动停下。</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">• 保护网络：不让一个会话把网络塞满。</p>
 </div>
 </div>
-<div style="flex:1.05;display:flex;flex-direction:column;gap:12px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:24px 30px">
+<div style="flex:1.05;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:30px;font-weight:700;color:#C2410C">窗口和速率有什么关系？（推导）</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">设窗口为 <i>n</i> 个分组，一个往返时间为 <i>T</i>。</p>
 <p style="font-size:26px;line-height:1.5;color:#14253D">发送方发出 <i>n</i> 个后，必须等确认回来才能继续：最快每隔 <i>T</i> 发 <i>n</i> 个。</p>

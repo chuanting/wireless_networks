@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 连接关闭</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">四次挥手：每个方向各关一次</h2>
 </div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:642px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px"></div>
+<div style="position:absolute;left:128px;top:272px;width:1072px;height:642px"></div>
 <svg aria-label="TCP 四次挥手" viewBox="0 0 1072 572" width="1072" height="572" style="position:absolute;left:128px;top:300px">
 <path d="M240,44V548" stroke="#8A97A6" stroke-width="4"/>
 <path d="M840,44V548" stroke="#8A97A6" stroke-width="4"/>
@@ -29,20 +29,20 @@
 <p style="position:absolute;left:578px;top:453px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK  ack=u+1</p>
 <p style="position:absolute;left:592px;top:581px;width:151px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">FIN  seq=v</p>
 <p style="position:absolute;left:578px;top:687px;width:180px;font-size:24px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK  ack=v+1</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">① FIN</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 说：“我没数据要发了”（A→B 方向关闭）。FIN 也占 1 个序号。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#C2410C">② ACK</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 确认。但 B 可能还有数据要发——这叫<b>半关闭</b>。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#FDEBDD;border:2px solid #C2410C;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#9A3412">③ FIN</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">B 的数据发完，也发 FIN。</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:6px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:20px;padding:16px 22px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
 <p style="font-size:28px;font-weight:700;color:#1E40AF">④ ACK</p>
 <p style="font-size:26px;line-height:1.4;color:#14253D">A 确认，然后<b>等 2MSL</b>（TIME_WAIT）才真正结束。</p>
 </div>

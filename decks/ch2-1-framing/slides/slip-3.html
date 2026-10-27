@@ -3,7 +3,7 @@
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 面向字符的组帧 · SLIP</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">完整例子：发送和还原一个 5 字节的数据报</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:14px;background:#FFFEFA;border:2px solid #E3DDCB;border-radius:22px;padding:22px 30px">
+<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
 <div style="display:flex;align-items:center;gap:20px">
 <p style="width:240px;font-size:28px;font-weight:700;color:#4B5A6B">① 原始数据报</p>
 <div style="display:flex;gap:6px;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:32px;font-weight:700;line-height:64px;text-align:center">
@@ -42,7 +42,7 @@
 </div>
 </div>
 </div>
-<div data-build-in="fade 2" style="background:#14253D;border-radius:20px;padding:16px 30px"><p style="font-size:30px;font-weight:700;color:#F4F1E8">载荷里每有一个 C0 或 DB，就多发一个字节；其余字节没有额外开销。</p></div>
+<div data-build-in="fade 2" style="border-left:8px solid #C2410C;padding:6px 0px 6px 28px"><p style="font-size:30px;font-weight:700;color:#14253D">载荷里每有一个 C0 或 DB，就多发一个字节；其余字节没有额外开销。</p></div>
 <aside>【3 分钟】
 把规则用一个具体的数据报走一遍。数据报共 5 个字节：45 C0 12 DB 7F。其中 C0 和 DB 是特殊字节（虚线框）。
 （点击）发送方逐字节处理：45 原样；C0 写成 DB DC；12 原样；DB 写成 DB DD；7F 原样。再在两头各加一个 END（C0）。线路上共 9 个字节：C0 45 DB DC 12 DB DD 7F C0。比原来的 5 字节多了 4 个字节：两个路标加两个转义字节。
