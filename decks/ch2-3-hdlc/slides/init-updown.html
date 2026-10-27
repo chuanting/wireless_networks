@@ -1,48 +1,12 @@
-<section id="init-updown" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
+<section id="init-updown" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:32px">
 <div style="display:flex;flex-direction:column;gap:8px">
 <p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 链路初始化</p>
 <h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">两端对链路的“看法”必须一致</h2>
 </div>
-<div style="display:flex;gap:28px;align-items:flex-start">
-<div style="width:1040px;display:flex;flex-direction:column;gap:14px">
-<div style="display:flex;gap:14px"><p style="width:190px"> </p><p style="flex:1;font-size:32px;font-weight:700;text-align:center;color:#14253D">B 认为 UP</p><p style="flex:1;font-size:32px;font-weight:700;text-align:center;color:#14253D">B 认为 DOWN</p></div>
-<div style="display:flex;gap:48px;align-items:stretch"><p style="width:190px;font-size:30px;font-weight:700;text-align:center;color:#14253D">A 认为 UP</p>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#1E40AF">✓ 正常通信</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">双方都准备好：发 I 帧、回确认。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#9A3412">✗ A 在发，B 不收</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">B 丢弃 A 的帧；A 收不到确认，白白重发。</p>
-</div>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch"><p style="width:190px;font-size:30px;font-weight:700;text-align:center;color:#14253D">A 认为 DOWN</p>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#9A3412">✗ B 在发，A 不收</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">A 丢弃 B 的帧；B 收不到确认。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:34px;font-weight:700;color:#4B5A6B">— 都没通</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">谁都不发，没有危险。</p>
-</div>
-</div>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#1E40AF">初始化要做的三件事</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">① 确认对方在线、愿意通信</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">② 两端的 SN、RN 置 0，清空缓冲区</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">③ 同时进入 UP</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#C2410C">拆除要做的事</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">两端<b>同时</b>回到 DOWN，不再收发 I 帧。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:28px;line-height:1.45;color:#14253D">目标：任何时刻，A 与 B 对链路是 UP 还是 DOWN 的“看法”<b>一致</b>。</p>
-</div>
-</div>
-</div>
+<div style="display:flex;flex-direction:column;border-top:3px solid #14253D;border-bottom:3px solid #14253D"><div style="display:flex;gap:24px;align-items:baseline;border-bottom:2px solid #14253D;padding:12px 16px"><p style="width:170px;font-size:26px;font-weight:700;color:#4B5A6B">A 认为</p><p style="width:170px;font-size:26px;font-weight:700;color:#4B5A6B">B 认为</p><p style="width:380px;font-size:26px;font-weight:700;color:#4B5A6B">结果</p><p style="flex:1;font-size:26px;font-weight:700;color:#4B5A6B">说明</p></div><div style="display:flex;gap:24px;align-items:baseline;border-bottom:1px solid #D3CAB6;padding:22px 16px"><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">UP</p><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">UP</p><p style="width:380px;font-size:32px;font-weight:700;color:#1E40AF">✓ 正常通信</p><p style="flex:1;font-size:30px;color:#3B4A5C">双方都准备好：发 I 帧、回确认。</p></div><div style="display:flex;gap:24px;align-items:baseline;border-bottom:1px solid #D3CAB6;padding:22px 16px"><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">UP</p><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">DOWN</p><p style="width:380px;font-size:32px;font-weight:700;color:#9A3412">✗ A 在发，B 不收</p><p style="flex:1;font-size:30px;color:#3B4A5C">B 丢弃 A 的帧；A 收不到确认，白白重发。</p></div><div style="display:flex;gap:24px;align-items:baseline;border-bottom:1px solid #D3CAB6;padding:22px 16px"><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">DOWN</p><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">UP</p><p style="width:380px;font-size:32px;font-weight:700;color:#9A3412">✗ B 在发，A 不收</p><p style="flex:1;font-size:30px;color:#3B4A5C">A 丢弃 B 的帧；B 收不到确认。</p></div><div style="display:flex;gap:24px;align-items:baseline;padding:22px 16px"><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">DOWN</p><p style="width:170px;font-size:32px;font-weight:700;color:#14253D">DOWN</p><p style="width:380px;font-size:32px;font-weight:700;color:#4B5A6B">— 都没通</p><p style="flex:1;font-size:30px;color:#3B4A5C">谁都不发，没有危险。</p></div></div>
+<div style="display:flex;flex-direction:column"><div style="display:flex;gap:40px;align-items:baseline;padding:26px 0px"><p style="width:330px;font-size:32px;font-weight:700;color:#1E40AF">初始化要做的三件事</p><div style="flex:1;display:flex;flex-wrap:wrap;gap:4px 40px"><p style="font-size:28px;line-height:1.45;color:#14253D">① 确认对方在线、愿意通信</p><p style="font-size:28px;line-height:1.45;color:#14253D">② 两端的 SN、RN 置 0，清空缓冲区</p><p style="font-size:28px;line-height:1.45;color:#14253D">③ 同时进入 UP</p></div></div><div style="display:flex;gap:40px;align-items:baseline;border-top:1px solid #D3CAB6;padding:26px 0px"><p style="width:330px;font-size:32px;font-weight:700;color:#C2410C">拆除要做的事</p><div style="flex:1;display:flex;flex-wrap:wrap;gap:4px 40px"><p style="font-size:28px;line-height:1.45;color:#14253D">两端<b>同时</b>回到 DOWN，不再收发 I 帧。</p></div></div></div>
+<div style="flex:1"></div>
+<div style="border-left:8px solid #C2410C;padding:4px 0px 4px 24px"><p style="font-size:30px;line-height:1.45;color:#14253D">目标：任何时刻，A 与 B 对链路是 UP 还是 DOWN 的“看法”<b>一致</b>。</p></div>
 <aside>【2.5 分钟】
 每一端节点都有一个状态：UP 或者 DOWN。UP 表示“我认为链路在工作，可以收发 I 帧”；DOWN 表示“链路没在工作”。
 两个节点各有两种看法，一共四种组合。
