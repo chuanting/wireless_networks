@@ -106,7 +106,19 @@ window.COURSE = {
         }
       ]
     },
-    { id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms", sections: [] },
+    {
+      id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms",
+      sections: [
+        {
+          no: "5.1", title: "路由算法概述", status: "ready",
+          desc: "路由要解决什么 · 数据报与虚电路 · 路由的好坏：时延与通过量 · 五种分类与六项要求 · 路由表、逐跳转发与环路 · 洪泛与广播 · 分级路由与自治系统 · 自组织网络",
+          deck: "ch5-1-routing-overview", slides: 35, minutes: 100
+        },
+        { no: "5.2", title: "集中式最短路由算法", status: "todo" },
+        { no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "todo" },
+        { no: "5.4", title: "路由的稳定性与路由信息的广播", status: "todo" }
+      ]
+    },
     { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [] },
     { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [] }
   ]

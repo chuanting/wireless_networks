@@ -1,0 +1,87 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-28T12:00:00Z"
+  },
+  "lists": "css",
+  "title": "路由算法概述：任务、分类、路由表与常用路由",
+  "order": [
+    "cover",
+    "why",
+    "agenda",
+    "d1",
+    "p1-task",
+    "p1-dgvc",
+    "p1-example",
+    "p1-example-cb",
+    "p1-flowctl",
+    "p1-sum",
+    "d2",
+    "p2-class",
+    "p2-where",
+    "p2-adapt",
+    "p2-req",
+    "p2-sum",
+    "d3",
+    "p3-table",
+    "p3-walk",
+    "p3-loop",
+    "p3-fields",
+    "p3-sum",
+    "d4",
+    "p4-flood",
+    "p4-count-cb",
+    "p4-bcast",
+    "p4-optimal",
+    "p4-devices",
+    "p4-hier",
+    "p4-internet",
+    "p4-adhoc",
+    "p4-adhoc-class",
+    "p4-sum",
+    "summary",
+    "homework"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：一个分组要经过多台路由器，每一跳都要决定下一跳。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "路由要解决什么：选路与送达、数据报与虚电路、路由的好坏、与流量控制的关系。",
+      "start": "d1"
+    },
+    "s2": {
+      "description": "分类与要求：五种分类、集中与分布、静态与自适应、六项要求。",
+      "start": "d2"
+    },
+    "s3": {
+      "description": "路由表：目的地到下一跳、逐跳转发、路由环路与 TTL、附加信息。",
+      "start": "d3"
+    },
+    "s4": {
+      "description": "常用路由：洪泛与广播、最短与最佳、互连设备、分级路由、自组织网络。",
+      "start": "d4"
+    },
+    "s5": {
+      "description": "总结与课后练习。",
+      "start": "summary"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    },
+    "zcool-kuaile": {
+      "family": "ZCOOL KuaiLe",
+      "href": "https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap"
+    }
+  },
+  "designSystems": []
+}
