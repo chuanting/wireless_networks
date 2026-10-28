@@ -99,7 +99,11 @@ window.COURSE = {
           desc: "为什么还会碰撞与检测时延 β · 三种坚持策略 · 非时隙 CSMA 的通过率推导 · 时隙 CSMA 的漂移与稳定算法 · CSMA/CD、最短帧长、以太网与 CSMA/CA",
           deck: "ch4-3-csma", slides: 35, minutes: 100
         },
-        { no: "4.4", title: "冲突分解算法", status: "todo" }
+        {
+          no: "4.4", title: "冲突分解算法", status: "ready",
+          desc: "撞了先解开：冲突分解期 · 树形分裂算法（栈与计数器、分解期长度）· 三个改进（0.43、0.46）· FCFS 分裂算法（指配区间、四条规则、稳定条件 0.487）· 上界与 RFID 应用",
+          deck: "ch4-4-collision-resolution", slides: 37, minutes: 100
+        }
       ]
     },
     { id: "ch5", no: 5, icon: "route", title: "路由算法", en: "Routing Algorithms", sections: [] },
