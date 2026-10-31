@@ -50,8 +50,8 @@ window.COURSE = {
         },
         {
           no: "2.3", title: "标准数据链路控制协议及其初始化", status: "ready",
-          desc: "HDLC 家族与工作模式 · 帧格式（I、S、U 帧）· 工作过程（建立、捎带确认、REJ、RNR）· 链路初始化与节点故障",
-          deck: "ch2-3-hdlc", slides: 40, minutes: 90
+          desc: "为什么需要标准 · HDLC 的家族与三种模式 · 帧格式：地址、控制域、I/S/U 三类帧、P/F 位 · 工作过程：建立、捎带确认、轮询、REJ、RNR、拆除 · 链路的初始化：UP/DOWN、节点故障、三种办法",
+          deck: "ch2-3-hdlc", slides: 30, minutes: 80
         },
         {
           no: "2.4", title: "网络层和运输层的点对点传输协议", status: "ready",

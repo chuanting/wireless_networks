@@ -1,15 +1,3 @@
-<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
-<p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">2.3</p>
-<div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div>
-<p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 2 章 · 端到端的传输协议 · 2.3</p></div>
-<div style="display:flex;flex-direction:column;gap:24px">
-<h1 style="font-family:'Noto Serif SC', serif;font-size:124px;font-weight:900;line-height:1.12;color:#1E1A16">标准数据链路<br>控制协议</h1>
-<p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">HDLC 与链路的初始化</p>
-<div style="width:760px;border-top:2px solid #1E1A16"></div>
-<p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">帧格式 · I / S / U 三类帧 · 工作过程 · 初始化</p></div>
-<p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p>
-<aside>【开场 · 1 分钟】
-前两节我们解决了两件事：2.1 在比特流里划出一帧；2.2 检查这一帧对不对、错了怎么重发。今天这一节，把这些零件装配成一个真正的、全世界通用的协议——HDLC，高级数据链路控制协议。
-右边的装饰图：三个帧，两端橙色的是 Flag，接着是地址、控制（浅灰），然后是信息（深色，长度不定），最后是校验 FCS，对应我们前面学的东西。
-本节分四块：一、HDLC 是什么，属于哪个家族；二、HDLC 的帧格式，重点是控制域；三、HDLC 的工作过程，用具体的收发时序图；四、链路的初始化——建立连接时最容易出问题的地方。
-全程用具体的例子，不要求预先知识。时间不限，全部讲完约 90 分钟，可以分两次。</aside></section>
+<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">2.3</p><div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div><p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 2 章 · 端到端的传输协议 · 2.3</p></div><div style="display:flex;flex-direction:column;gap:24px"><h1 style="font-family:'Noto Serif SC', serif;font-size:92px;font-weight:900;line-height:1.12;color:#1E1A16">标准数据链路控制协议</h1><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">HDLC 与链路的初始化</p><div style="width:760px;border-top:2px solid #1E1A16"></div><p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">把组帧、CRC 和 ARQ 装配成一个标准协议</p></div><p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p><aside>【开场】
+2.1 讲了怎样划出一帧，2.2 讲了怎样发现并纠正错误。这一节把它们装配起来，看一个真实的标准：HDLC。分四块：HDLC 是什么（家族、工作方式、三种模式）；帧格式（地址域、控制域，I、S、U 三类帧，P/F 位）；工作过程（建立、传数据、出错重传 REJ、流量控制 RNR、拆除）；链路的初始化（为什么建立链路不能草草了事，节点故障时的麻烦和三种办法）。
+数字都用程序算过：例子里的 FCS、控制域的解码、REJ 的重传次序、开销与效率。前置知识：2.1 的比特插入，2.2 的 CRC、返回 n、序号模 m。</aside></section>
