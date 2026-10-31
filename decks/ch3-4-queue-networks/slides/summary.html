@@ -1,33 +1,7 @@
-<section id="summary" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
-</div>
-<div style="display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:200px;font-size:34px;font-weight:700;color:#C2410C">困难</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">网络里队列相连：到达 = 上一个队列的离开；分组长度一路带着走。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:200px;font-size:34px;font-weight:700;color:#C2410C">Burke</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">M/M/1 离开过程是泊松（生灭链时间可逆）；串联 → 乘积形式，<i>T</i> = Σ<i>T</i><i>i</i>。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:200px;font-size:34px;font-weight:700;color:#C2410C">Jackson</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">流量方程 <i>λ</i><i>i</i> = <i>γ</i><i>i</i> + Σ<i>λ</i><i>j</i><i>P</i><i>ji</i>；各节点独立 M/M/1；<i>T</i> = <i>N</i>/<i>γ</i>；封闭网络。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="width:200px;font-size:34px;font-weight:700;color:#C2410C">Kleinrock</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">每链路当作 M/M/1：<i>T</i> = (1/<i>γ</i>) Σ <i>λ</i>/(<i>μ</i> − <i>λ</i>)；计量分流；近似有范围。</p>
-</div>
-</div>
-<div style="border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一章（第 4 章）：多址接入协议——许多用户怎样共享一条信道？</p></div>
-<aside>【2 分钟】
-带着大家快速回顾，每行一句话：
-困难：网络里的队列相连，第二个队列的到达，就是第一个队列的离开；分组长度一路带着走，使到达间隔和服务时间相关。
-Burke：M/M/1 的离开过程是泊松，理由是生灭链时间可逆；串联的 M/M/1，联合分布是乘积形式，总时延是各节点时延相加。
-Jackson：先解流量方程，求各节点的总到达率；各节点像独立的 M/M/1；网络平均时延 T 等于 N 除以 γ；还有封闭网络。
-Kleinrock：把每条链路当作 M/M/1，网络平均时延是 1/γ 乘以所有链路的 λ 除以 (μ 减 λ) 之和；计量分流比随机分流好；近似有适用范围。
-下一章：第 4 章多址接入协议。
-最后留 3 分钟提问，然后布置练习。</aside>
-</section>
+<section id="summary" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">一页回顾</h2><div style="display:flex;flex-direction:column;border-bottom:1px solid #CFC5B4"><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:28px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">困难</p><p style="font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">后一个队列的到达就是前一个队列的离开；分组长度一路带着走。平均时延仍然可以相加。</p></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:28px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">Burke</p><p style="font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">M/M/1 的离开是速率 <i>λ</i> 的泊松过程，而且不泄露队长；没有反馈的串联是乘积形式。</p></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:28px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">Jackson</p><div style="flex:1"><div style="display:flex;gap:6px;align-items:baseline"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">先解流量方程，再把每个节点当作孤立的 M/M/1，</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>T</i> = <i>N</i> / <i>γ</i></p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">；封闭网络要归一化。</p></div></div></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:28px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">Kleinrock</p><div style="flex:1"><div style="display:flex;gap:6px;align-items:baseline"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">数据网络用近似，每条链路一个 M/M/1：</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>T</i> = (1/<i>γ</i>) Σ <i>λ</i> / (<i>μ</i> − <i>λ</i>)</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">；用前先用模拟检验。</p></div></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">下一章（第 4 章）：多址接入协议，许多用户怎样共享一条信道？</p><aside>【2 分钟】
+一页回顾。
+困难：网络里队列相连，后一个队列的到达就是前一个队列的离开；分组长度一路带着走，使到达间隔和服务时间相关。但平均时延永远可以相加。
+Burke：M/M/1 的离开过程是速率 λ 的泊松过程，理由是生灭链的时间可逆；而且离开过程不泄露队长。没有反馈的 M/M/1 串联，联合分布是乘积形式，总时延是各节点时延相加。
+Jackson：先解流量方程，求各节点的总到达率；然后每个节点像一个孤立的 M/M/1，网络平均时延 T = N/γ；封闭网络也是乘积形式，但要归一化。
+Kleinrock：数据网络用近似，每条链路当作 M/M/1，T = (1/γ) Σ λ/(μ − λ)；用来比较方案、做规划；用之前先用模拟检验。
+下一章：第 4 章多址接入协议。最后留 3 分钟提问，然后布置练习。</aside></section>

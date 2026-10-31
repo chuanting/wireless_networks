@@ -1,18 +1,5 @@
-<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
-<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 3 章 · 网络的时延模型 · 3.4</p>
-<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">排队网络</h1>
-<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">Burke · Jackson · Kleinrock</h2>
-<p style="font-size:32px;color:#B9C4D3">从一个队列走到整个网络：乘积形式解与独立性近似</p>
-<svg aria-label="装饰图：三个节点用箭头连成网络，每个节点前有一个小队列" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
-<circle cx="90" cy="180" r="42" fill="#3B4E68"/><circle cx="316" cy="90" r="42" fill="#F4975A"/><circle cx="316" cy="270" r="42" fill="#3B4E68"/><circle cx="542" cy="180" r="42" fill="#3B4E68"/>
-<path d="M126,158L282,108M126,202L282,252M352,108L506,160M352,252L506,200M316,138V222" stroke="#8FA3BD" stroke-width="5" fill="none"/>
-<rect x="10" y="30" width="26" height="26" rx="5" fill="#B9C4D3"/><rect x="42" y="30" width="26" height="26" rx="5" fill="#B9C4D3"/>
-</svg>
-<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
-<aside>【开场 · 1 分钟】
-前面三节，我们一直在研究“一个队列”：3.1 学了 Little 定理，3.2 学了 M/M/m，3.3 学了 M/G/1。可是真实的网络，不是一个队列，而是成百上千个队列连在一起：一个分组从源节点出发，要依次经过很多个节点，每个节点前面都有一个队列。
-这一节要回答：整个网络的平均时延怎么算？
-先说一个坏消息：多个队列连在一起，分析就变难了——因为第二个队列的到达过程，就是第一个队列的离开过程，它们不再独立。再说两个好消息：一个是 Burke 定理，告诉我们 M/M/1 的离开过程仍然是泊松过程；另一个是 Jackson 定理，告诉我们一大类网络，每个队列都可以当作独立的 M/M/1 来算。最后，对于数据网络，我们用 Kleinrock 的独立性近似，得到一个非常实用的网络时延公式。
-这一节也是第 3 章的最后一节，最后会把整章做个回顾。
-时间不限，全部讲完约 100 分钟，可以分两次。</aside>
-</section>
+<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">3.4</p><div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div><p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 3 章 · 网络时延模型 · 3.4</p></div><div style="display:flex;flex-direction:column;gap:24px"><h1 style="font-family:'Noto Serif SC', serif;font-size:124px;font-weight:900;line-height:1.12;color:#1E1A16">排队网络</h1><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">Burke · Jackson · Kleinrock</p><div style="width:760px;border-top:2px solid #1E1A16"></div><p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">一个分组要排很多次队，端到端时延怎么算？</p></div><p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p><aside>【开场】
+前三节研究的都是“一个队列”：3.1 学了 Little 定理，3.2 算了 M/M/m，3.3 放开了服务时间的分布。真实的网络是成百上千个队列连在一起：一个分组从源节点出发，要依次经过很多个节点，每个节点前面都有一个队列。
+这一节回答：整个网络的平均时延怎么算？
+先说坏消息：队列连在一起，分析变难了。后一个队列的到达，就是前一个队列的离开；分组的长度还一路带着走。再说三件工具：Burke 定理告诉我们，M/M/1 的离开过程仍是泊松过程；Jackson 定理告诉我们，一大类网络里每个节点都像一个孤立的 M/M/1；Kleinrock 独立性近似把它用到真实的数据网络，得到一个很实用的网络时延公式。
+这一节也是第 3 章的最后一节，最后会把整章串成一条线。所有数字都用程序和事件模拟核对过。</aside></section>

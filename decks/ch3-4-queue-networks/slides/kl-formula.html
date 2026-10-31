@@ -1,40 +1,8 @@
-<section id="kl-formula" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数据网络的平均时延公式</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:flex-start">
-<div style="flex:1.15;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">网络平均时延公式</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">链路 (<i>i</i>, <i>j</i>) 视为 M/M/1：到达率 <i>λ</i><i>ij</i> = 经过它的各条流之和，服务率 <i>μ</i><i>ij</i> = 链路速率 / 平均分组长度。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">每条链路平均分组数 <i>N</i><i>ij</i> = <i>λ</i><i>ij</i>/(<i>μ</i><i>ij</i> − <i>λ</i><i>ij</i>)；网络 <i>N</i> = Σ<i>N</i><i>ij</i>；Little 定理，<i>γ</i> = 进入网络的总到达率：</p>
-<p style="font-size:36px;font-weight:700;line-height:1.5;color:#C2410C;padding-left:20px"><i>T</i> = (1/<i>γ</i>) Σ <i>λ</i><i>ij</i> / (<i>μ</i><i>ij</i> − <i>λ</i><i>ij</i>)</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">若各链路还有处理 + 传播时延 <i>d</i><i>ij</i>：<i>T</i> = (1/<i>γ</i>) Σ [<i>λ</i><i>ij</i>/(<i>μ</i><i>ij</i> − <i>λ</i><i>ij</i>) + <i>λ</i><i>ij</i> <i>d</i><i>ij</i>]。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:26px;font-weight:700;color:#1E40AF">沿一条路径 <i>p</i> 的时延</p>
-<p style="font-size:24px;line-height:1.4;color:#14253D"><i>T</i><i>p</i> = Σ [ <i>λ</i><i>ij</i>/(<i>μ</i><i>ij</i>(<i>μ</i><i>ij</i> − <i>λ</i><i>ij</i>)) + 1/<i>μ</i><i>ij</i> + <i>d</i><i>ij</i> ]</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">三项依次是</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">排队等待 + 传输时间 + 处理与传播。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">用法（三步）</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">① 按路由把各条流叠加到链路上，得 <i>λ</i><i>ij</i>；② 算 <i>μ</i><i>ij</i>；③ 代入公式。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:26px;line-height:1.45;color:#14253D">公式里没有“网络拓扑”的任何复杂性——只靠<b>各链路的负荷</b>。</p>
-</div>
-</div>
-</div>
-<aside>【4 分钟 · 重点】
-有了独立性近似，网络时延的公式，一下子就简单了。
-把每条链路 (i, j)，当作一个 M/M/1。它的到达率 λ_ij，等于经过这条链路的所有分组流的到达率之和；它的服务率 μ_ij，等于链路速率除以平均分组长度。每条链路上平均的分组数，是 N_ij 等于 λ_ij 除以 (μ_ij 减 λ_ij)，也就是 M/M/1 的平均顾客数。整个网络里的平均分组数 N，就是所有链路的 N_ij 之和。
-再用 Little 定理：网络的平均时延 T 等于 N 除以 γ，γ 是进入网络的总到达率。所以：T 等于 1 除以 γ，乘以对所有链路的 λ_ij 除以 (μ_ij 减 λ_ij) 求和。这就是 Kleinrock 的网络时延公式。
-如果每条链路，还有不可忽略的处理时延和传播时延 d_ij，那么每个分组每经过一条链路，还要多花 d_ij，在整个网络里，平均要加上 λ_ij 乘 d_ij 的和除以 γ。
-如果只想要某一条路径 p 上的时延：对路径上的每条链路，累加三项：排队等待 λ_ij 除以 μ_ij 乘以 (μ_ij 减 λ_ij)，传输时间 1 除以 μ_ij，加上处理和传播 d_ij。
-用法三步：按路由，把各条流的流量叠加到各条链路上，得到 λ_ij；算出 μ_ij；代入公式。
-[提示：这个公式，是第 5 章“路由算法”里，以“最小时延”为目标设计路由的基础。]</aside>
-</section>
+<section id="kl-formula" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">网络平均时延：逐条链路加起来</h2><div style="display:flex;gap:64px;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:36px;flex:1"><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">①</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">按路由，把各条流叠加到每条链路上，得到链路的到达率 <i>λ</i>；服务率 <i>μ</i> 是链路速率 <i>C</i> 除以平均分组长度 <i>L</i></p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>μ</i> = <i>C</i> / <i>L</i></p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">②</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">每条链路当作 M/M/1：平均人数</p><div style="display:flex;gap:0px;align-items:flex-start"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>N</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">&#160;= <i>λ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">&#160;/ (<i>μ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">&#160;− <i>λ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">)</p></div></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">③</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">全网的人数相加，再用 Little 定理除以进入网络的总到达率 <i>γ</i></p><div style="display:flex;gap:0px;align-items:flex-start"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:52px;white-space:nowrap"><i>T</i> = (1/<i>γ</i>) Σ <i>λ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:32px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:52px;white-space:nowrap">&#160;/ (<i>μ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:32px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:52px;white-space:nowrap">&#160;− <i>λ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:32px;white-space:nowrap;align-self:flex-end">ij</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:52px;white-space:nowrap">)</p></div></div></div></div></div><div style="display:flex;flex-direction:column;gap:32px;width:560px;flex-shrink:0"><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>固定时延：</b></span>每条链路还有处理和传播时延 <i>d</i> 时，每个经过的分组多花 <i>d</i>：分子里再加 <i>λd</i>。</p></div><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>一条路径：</b></span>路径上每条链路：等待 + 传输 + <i>d</i>。</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">公式里只有每条链路的 λ 和 μ，拓扑的其余细节都不进来。</p><aside>【4 分钟 · 重点】
+有了独立性近似，网络时延的公式一下子就简单了。
+第一步，把每条链路 (i, j) 当作一个 M/M/1。它的到达率 λ_ij，等于经过这条链路的所有分组流的到达率之和，这要按路由把各条流叠加上去；它的服务率 μ_ij，等于链路速率 C 除以平均分组长度 L。
+第二步，每条链路上平均的分组数，是 N_ij = λ_ij/(μ_ij − λ_ij)，也就是 M/M/1 的平均人数。
+第三步，整个网络里的平均分组数 N，就是所有链路的 N_ij 之和。再用 Little 定理：网络的平均时延 T = N/γ，γ 是进入网络的总到达率。所以 T = (1/γ) 乘以对所有链路的 λ_ij/(μ_ij − λ_ij) 求和。这就是 Kleinrock 的网络时延公式。
+如果每条链路还有不可忽略的处理时延和传播时延 d_ij，那么每个分组每经过一条链路，还要多花 d_ij，所以分子里再加上 λ_ij d_ij 的和。如果只想要某一条路径上的时延：对路径上的每条链路，累加三项：排队等待 λ/[μ(μ − λ)]，传输时间 1/μ，加上处理和传播 d。
+用法三步：按路由叠加流量，得到 λ_ij；算出 μ_ij；代入公式。
+[提示：这个公式是第 5 章“路由算法”里，以最小时延为目标设计路由的基础。]</aside></section>

@@ -1,28 +1,67 @@
 {
   "v": 4,
-  "createdOnFiles": { "v": 1, "at": "2026-10-19T03:00:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-18T23:30:00Z"
+  },
   "lists": "css",
   "title": "排队网络：Burke、Jackson 与 Kleinrock 近似",
   "order": [
-    "cover", "why", "recap", "agenda",
-    "d1", "net-chain", "net-corr", "net-out", "p1-sum",
-    "d2", "burke-rev", "burke-thm", "burke-tandem", "p2-sum",
-    "d3", "jack-model", "jack-traffic", "jack-thm", "jack-feedback", "jack-closed", "p3-sum",
-    "d4", "kl-why", "kl-formula", "kl-eg-net", "kl-split", "kl-accuracy", "p4-sum",
-    "ch3-review", "summary", "project", "homework"
+    "cover",
+    "why",
+    "carry",
+    "outflow",
+    "burke",
+    "reverse",
+    "tandem",
+    "jmodel",
+    "traffic",
+    "jthm",
+    "jfeed",
+    "closed",
+    "closed-eg",
+    "kl-why",
+    "kl-formula",
+    "kl-eg",
+    "kl-upgrade",
+    "kl-split",
+    "kl-accuracy",
+    "chapter",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
   ],
   "sections": {
-    "s0": { "description": "开场：从单个队列到网络，需要什么新工具。", "start": "cover" },
-    "s1": { "description": "网络里的队列为什么难：分组长度“带着走”，输出过程不再是泊松。", "start": "d1" },
-    "s2": { "description": "Burke 定理：M/M/1 的离开过程是泊松过程，串联队列的乘积形式解。", "start": "d2" },
-    "s3": { "description": "Jackson 定理：开放排队网络的流量方程与乘积形式。", "start": "d3" },
-    "s4": { "description": "Kleinrock 独立性近似：数据网络的平均时延公式、路由分流、近似的精度。", "start": "d4" },
-    "s5": { "description": "第 3 章回顾、总结、拓展实践与课后练习。", "start": "ch3-review" }
+    "s0": {
+      "description": "开场：一个分组要排很多次队，平均时延可以相加，难在每一项怎么算。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "困难与 Burke 定理：分组长度带着走、输出不一定是泊松；M/M/1 的离开是泊松，串联是乘积形式。",
+      "start": "carry"
+    },
+    "s2": {
+      "description": "Jackson 网络：流量方程、乘积形式、反馈的“神奇”、封闭网络。",
+      "start": "jmodel"
+    },
+    "s3": {
+      "description": "Kleinrock 近似：网络时延公式、升级与分流的比较、用模拟检验近似。",
+      "start": "kl-why"
+    },
+    "s4": {
+      "description": "第 3 章的统一视角、练习、回顾与选做。",
+      "start": "chapter"
+    }
   },
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
     }
   },
   "designSystems": []

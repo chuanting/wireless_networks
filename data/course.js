@@ -76,8 +76,8 @@ window.COURSE = {
         },
         {
           no: "3.4", title: "排队网络", status: "ready",
-          desc: "为什么网络里的队列难分析 · Burke 定理 · Jackson 开放/封闭网络 · Kleinrock 独立性近似与路由分流",
-          deck: "ch3-4-queue-networks", slides: 32, minutes: 100
+          desc: "分组长度带着走 · Burke 定理 · Jackson 开放/封闭网络 · Kleinrock 近似、分流与检验",
+          deck: "ch3-4-queue-networks", slides: 24, minutes: 100
         }
       ]
     },

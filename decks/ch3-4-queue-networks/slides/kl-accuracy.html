@@ -1,35 +1,8 @@
-<section id="kl-accuracy" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">近似到底准不准？</h2>
-</div>
-<div style="display:flex;flex-direction:column;gap:0px">
-<div style="display:flex;gap:10px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:10px 0px"><p style="width:330px;font-size:26px;font-weight:700;color:#C2410C">两条串联链路，单条流</p><p style="width:300px;font-size:26px;font-weight:700;color:#14253D">Kleinrock 公式 2/(1−<i>ρ</i>)</p><p style="width:300px;font-size:26px;font-weight:700;color:#14253D">事件模拟（长度一路带着）</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">误差</p></div>
-<div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:330px;font-size:28px;font-weight:700;color:#C2410C"><i>ρ</i> = 0.3</p><p style="width:300px;font-size:28px;color:#14253D">2.86</p><p style="width:300px;font-size:28px;color:#14253D">3.02</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">+6%</p></div><div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:330px;font-size:28px;font-weight:700;color:#C2410C"><i>ρ</i> = 0.5</p><p style="width:300px;font-size:28px;color:#14253D">4.00</p><p style="width:300px;font-size:28px;color:#14253D">4.12</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">+3%</p></div><div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:330px;font-size:28px;font-weight:700;color:#C2410C"><i>ρ</i> = 0.8</p><p style="width:300px;font-size:28px;color:#14253D">10.0</p><p style="width:300px;font-size:28px;color:#14253D">8.40</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">−16%</p></div>
-</div>
-<p style="font-size:24px;color:#4B5A6B">时延单位：平均分组长度的传输时间；两条链路速率相同，分组长度指数分布且两处相同。</p>
-<div style="display:flex;gap:48px">
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">这是“最坏情形”</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">只有<b>一条流</b>串联穿过两个队列，相关性毫无稀释。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">现实网络里</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">许多条流<b>汇合</b>，相关性被稀释，近似<b>更准</b>（中、重负荷尤其好）。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">怎么用</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">算<b>趋势、比较方案、做规划</b>：足够。别指望精确到个位数的百分比。</p>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:28px;line-height:1.45;color:#14253D">所有“近似”都有适用范围：知道它在哪里<b>不准</b>，比记住公式更重要。</p>
-</div>
-<aside>【3 分钟 · 重点】
-最后一个问题：Kleinrock 独立性近似，到底准不准？我用事件模拟，做了一个实验：就是前面“分组长度一路带着走”的最坏情形——一条流，串联经过两个速率相同的链路，分组长度是指数分布，而且在两条链路上完全相同。
-Kleinrock 公式给出的总时延，是两个 M/M/1 相加：2 除以 (1 减 ρ)。ρ 等于 0.3：公式 2.86，模拟 3.02，公式偏小 6%；ρ 等于 0.5：公式 4.00，模拟 4.12，偏小 3%；ρ 等于 0.8：公式 10.0，模拟 8.40，公式偏大 16%。
-看起来，误差在 3% 到 16% 之间。这是最坏情形：只有一条流穿过两个队列，没有其他流稀释相关性。在真实的网络里，一条链路上汇合了许多条流，相关性被稀释，近似会更准，对中等到重负荷尤其好。
-所以怎么用？用来算趋势，比较方案，做规划，足够了；别指望它精确到个位数的百分比。
-更一般的教训：所有的“近似”，都有适用范围。知道它在哪里不准，比记住公式更重要。
-[验算：事件模拟 30 万个分组：ρ=0.3：3.02；0.5：4.12；0.8：8.40；独立服务的串联：2.87、4.02、10.08（与公式一致）。]</aside>
-</section>
+<section id="kl-accuracy" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">近似准不准？用模拟检验</h2><div style="display:flex;flex-direction:column;gap:26px"><p style="font-size:32px;font-weight:400;line-height:1.55;color:#5E554B">时延以平均分组传输时间为单位；链路速率相同，分组长度指数分布，同一分组在两条链路上长度相同。</p><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:18px 0px"><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:880px;flex-shrink:0">情形</p><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">公式</p><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">模拟</p><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">误差</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:22px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:880px;flex-shrink:0">一条流串联两条链路，<i>ρ</i> = 0.3</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">2.86</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">3.03</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">+6%</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:22px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:880px;flex-shrink:0">一条流串联两条链路，<i>ρ</i> = 0.5</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">4.00</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">4.13</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">+3%</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:22px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:880px;flex-shrink:0">一条流串联两条链路，<i>ρ</i> = 0.8</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">10.0</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">8.51</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#B4381F;width:220px;flex-shrink:0">−15%</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:22px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:880px;flex-shrink:0">第二条链路又汇入另一条流（0.4 + 0.4）</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">6.67</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">6.99</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">+5%</p></div></div><p style="font-size:32px;font-weight:400;line-height:1.55;color:#5E554B">三节点算例：公式 0.611 s，分组长度一路带着走的模拟 0.615 s，相差 +0.6%。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">单流串联时误差最大；别的流汇入后，降到 5% 左右。</p><aside>【3 分钟 · 重点】
+最后一个问题：Kleinrock 独立性近似，到底准不准？不能凭感觉，用事件模拟来检验。
+实验一，最坏的一类情形：一条流，串联经过两条速率相同的链路，分组长度是指数分布，而且在两条链路上完全相同。Kleinrock 公式给出的总时延，是两个 M/M/1 相加：2/(1 − ρ)。ρ = 0.3：公式 2.86，模拟 3.03，公式偏小 6%；ρ = 0.5：公式 4.00，模拟 4.13，偏小 3%；ρ = 0.8：公式 10.0，模拟 8.51，公式偏大 15%。
+实验二：同样的一条流 A（到达率 0.4），再让另一条流 B（0.4）在第二条链路汇入，第二条链路的负荷是 0.8，看 A 的时延。公式 6.67，模拟 6.99，误差降到 5%。
+实验三：就是前面的三节点算例，分组长度从 A 一直带到 C：全网平均时延，公式 0.611 秒，模拟 0.615 秒，相差 0.6%。
+结论要说得克制：这些都是我们取的几组参数，不是普遍的误差保证。单条流穿过两个队列、相关性没有被其他流稀释的时候，误差最大（负荷高时，公式偏大 15%）；有别的流汇入后，在这几个例子里降到 5% 以内。拿它算趋势、比较方案、做规划，足够；要精确的数字，就在你的网络参数下用模拟检验。
+更一般的教训：所有的“近似”都有适用范围，知道它在哪里不准，比记住公式更重要。
+[验算：事件模拟，每个点 300 万个分组，三节点算例 400 万个分组；序列号固定，结果可复现（见 verify34.py）。]</aside></section>

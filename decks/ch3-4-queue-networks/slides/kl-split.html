@@ -1,43 +1,8 @@
-<section id="kl-split" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">路由分流：随机 vs 计量</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">例：A 沿两条同样的链路发往 B，怎样分流？</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D">到达：泊松 <i>λ</i>，分组长度指数；两条链路服务率都是 <i>μ</i>；<i>ρ</i> = <i>λ</i> / (2<i>μ</i>)。</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D"><b>方案 1：随机（掷硬币）</b>：两条链路各得到达率 <i>λ</i>/2 的泊松流，各是 M/M/1：</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D;padding-left:20px"><i>T</i>R = 1/(<i>μ</i> − <i>λ</i>/2) = 1 / [<i>μ</i>(1 − <i>ρ</i>)]</p>
-<p style="font-size:26px;line-height:1.45;color:#14253D"><b>方案 2：计量</b>——送进比特数最少的队列。等价于一个 M/M/2（共用队列）；爱尔兰 C：<i>P</i>Q = 2<i>ρ</i> 的平方/(1 + <i>ρ</i>)：</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D;padding-left:20px"><i>T</i>M = 1/<i>μ</i> + <i>P</i>Q/(2<i>μ</i> − <i>λ</i>) = 1 / [<i>μ</i>(1 − <i>ρ</i> 的平方)]</p>
-<p style="font-size:32px;font-weight:700;line-height:1.45;color:#C2410C;padding-left:20px"><i>T</i>M / <i>T</i>R = 1/(1 + <i>ρ</i>)</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">数字 <i>ρ</i> = 0.8</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>R = 5/<i>μ</i>，<i>T</i>M = 2.78/<i>μ</i>：计量方案<b>快近一倍</b>。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C"><i>ρ</i> = 0.5</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>R = 2/<i>μ</i>，<i>T</i>M = 1.33/<i>μ</i>：快 1/3。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">这又是“统计复用”</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">两条链路<b>共用</b>一个队列，比各管各的好——和 3.2 节的结论一致。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:26px;font-weight:700;color:#C2410C">但是（大小要紧）</p>
-<p style="font-size:24px;line-height:1.4;color:#14253D">计量会让各链路的到达<b>不再是泊松</b>，对这种情形，把每条链路当作 M/M/1 的近似较差。</p>
-</div>
-</div>
-</div>
-<aside>【4 分钟】
-用公式比较两种路由分流方法。节点 A 有一个泊松到达流，速率 λ，分组长度是指数分布，要发给 B。A 和 B 之间有两条一样的链路，服务率都是 μ。怎样把分组分配给两条链路？
-方案一：随机，A 每收到一个分组，就掷一个硬币，决定走哪条链路。根据泊松过程的“随机分流”性质，每条链路得到的是速率 λ/2 的泊松流，各是一个 M/M/1。时延 T_R 等于 1 除以 (μ 减 λ/2)，也就是 1 除以 μ 乘 (1 减 ρ)，ρ 是 λ 除以 2μ。
-方案二：计量，A 把分组送进比特数最少的那个队列——也就是工作量最小的队列。可以证明，这和一个有两个服务员的 M/M/2 系统，所有顾客共用一个队列，是等价的。用爱尔兰 C 公式，等待概率是 2ρ 平方除以 (1 加 ρ)，时延 T_M 等于 1/μ，加上等待概率除以 (2μ 减 λ)，化简得 1 除以 μ 乘以 (1 减 ρ 平方)。
-两者之比：T_M 除以 T_R，等于 1 除以 (1 加 ρ)。ρ 等于 0.8 时，T_R 是 5/μ，T_M 是 2.78/μ，计量方案快了将近一倍。
-这又是“统计复用”的好处：两条链路共用一个队列，不让一条链路空着、另一条排长队。
-但是有一个细节：计量会破坏各链路到达过程的泊松性质，这时，把每条链路当作 M/M/1 的近似，精度较差——所以独立性近似的准确度，也受服务规则影响。
-[验算：T_M = 1/μ + C/(2μ−λ)，C = 2ρ²/(1+ρ)，2μ−λ = 2μ(1−ρ)：T_M = (1/μ)[1 + ρ²/((1+ρ)(1−ρ))] = 1/(μ(1−ρ²))。]</aside>
-</section>
+<section id="kl-split" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">分流：随机，还是共用一个队列？</h2><div style="display:flex;flex-direction:column;gap:22px"><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">两台相同的服务员，服务率都是 <i>μ</i>，总到达率 <i>λ</i>（泊松），<i>ρ</i> = <i>λ</i> / (2<i>μ</i>)。</p><div style="display:flex;gap:20px;align-items:baseline"><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16">随机分流（两个 M/M/1）：</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>T</i> = 1 / (<i>μ</i>(1 − <i>ρ</i>))</p></div><div style="display:flex;gap:20px;align-items:baseline"><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16">共用一个队列（M/M/2）：</p><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>T</i> = 1 / (<i>μ</i>(1 − <i>ρ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap">2</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">))</p></div></div><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:14px 0px"><div style="width:260px;flex-shrink:0"><div style="display:flex;gap:8px;align-items:baseline"><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16">负荷</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:34px;white-space:nowrap"><i>ρ</i></p></div></div><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">随机分流</p><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">共用一个队列</p><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">共用 / 随机</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:18px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.5</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">2</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">1.333</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">0.667</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:18px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.8</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">5</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">2.778</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#B4381F;width:400px;flex-shrink:0">0.556</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:18px 0px"><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.9</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">10</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">5.263</p><p style="font-size:36px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">0.526</p></div></div><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B">时延以 1/<i>μ</i> 为单位。比值是 1/(1 + <i>ρ</i>)。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">共用一个队列总比各管各的好：这又是统计复用。</p><aside>【4 分钟】
+用公式比较两种分流办法。节点 A 有一个泊松到达流，速率 λ，分组长度是指数分布，要发给 B。A 和 B 之间有两条一样的链路，服务率都是 μ，ρ = λ/(2μ)。
+方案一：随机分流。每个分组独立地掷一个硬币，决定走哪条链路。泊松过程的随机分流性质：每条链路得到速率 λ/2 的泊松流，各是一个 M/M/1。时延 T = 1/(μ − λ/2) = 1/[μ(1 − ρ)]。
+方案二：共用一个队列。分组先排在一个队里，哪个服务员空了就取队首，这是 M/M/2。用爱尔兰 C 公式，等待概率 P_Q = 2ρ^2/(1 + ρ)，时延 T = 1/μ + P_Q/(2μ − λ)，化简得 T = 1/[μ(1 − ρ^2)]。
+两者之比 T_共用/T_随机 = 1/(1 + ρ)。ρ = 0.5：2/μ 对 1.333/μ；ρ = 0.8：5/μ 对 2.778/μ，快了将近一倍；ρ = 0.9：10/μ 对 5.263/μ。
+这又是“统计复用”的好处：两台服务员共用一个队列，不让一台空着、另一台排长队，和 3.2 节的结论一致。
+注意：这个比较精确适用于这两种模型，不能套给任意负载均衡策略。如果分组到达时就必须选一条链路，而且选了不能换：按“当前未完成工作量最少”选（知道分组长度）能做到和共用队列同样的时延；按“当前分组个数最少”选就差一些，在 ρ = 0.8 时是 2.95/μ，介于共用队列的 2.77/μ 和随机分流的 4.97/μ 之间。
+[验算：事件模拟（300 万个分组）：随机分流 1.999、4.967、9.963（ρ = 0.5、0.8、0.9）；共用队列 1.334、2.770、5.246；未完成工作量最少的分流与共用队列完全相同；个数最少的分流 1.427、2.946、5.458。]</aside></section>

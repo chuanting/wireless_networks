@@ -1,42 +1,4 @@
-<section id="kl-why" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · Kleinrock</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数据网络：Jackson 的假设不成立，怎么办？</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#1E40AF">Jackson 的假设</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">服务时间每次独立；</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">这样才有乘积形式。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#9A3412">数据网络的现实</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">分组长度在源端就定了，每个链路上都一样；</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">所以 net-corr 里看到的相关性<b>真实存在</b>。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#C2410C">Kleinrock 的观察</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">当<b>很多条流汇合</b>到一条链路上时，每个分组与前后分组的相关性被“冲淡”。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">结论：<b>近似</b>当作独立。</p>
-</div>
-</div>
-<div style="display:flex;gap:48px">
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#1E40AF">Kleinrock 独立性近似</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">把每条链路都当作<b>孤立的 M/M/1</b>，到达率 = 经过该链路的所有流之和；<b>不管</b>其他链路上的业务如何影响它。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;flex:1;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#9A3412">适用范围</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">中等到重负荷、多条流汇合的网络：模拟和实测验证过，是很好的近似。</p>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:28px;line-height:1.45;color:#14253D">这是网络性能分析里<b>最常用</b>的近似：简单、够用，适合规划和比较方案。</p>
-</div>
-<aside>【3 分钟】
-Jackson 定理要求：每个节点的服务时间是独立的指数分布，同一个任务每次经过，都是重新独立抽取。但数据网络不是这样：分组的长度，在源节点就确定了，每个链路上传输时间都和它的长度成正比。前面“分组长度一路带着走”的例子，说明这种相关性是真实存在的。所以数据网络，严格说，不满足 Jackson 定理的条件。
-怎么办？Kleinrock 在 1960 年代提出了一个观察：当很多条流汇合到一条链路上的时候，每个分组和它前后分组的关系，被大量其他流的分组“稀释”了——前一个分组是长是短，对后一个分组的长度没有影响，它们来自不同的流。所以，到达间隔与分组长度之间的相关性很弱。基于这个观察，他建议：近似把它们当作独立的。
-这就是 Kleinrock 独立性近似：把每条链路，都当作一个孤立的 M/M/1，到达率，等于经过这条链路的所有流的到达率之和；不去管其他链路上的业务，怎样影响它。
-这个近似对中等到重负荷、有许多条流汇合的网络，非常好；已经被模拟和实测验证过。它是网络性能分析里，最常用的近似：简单，够用，特别适合比较方案、做规划。
-[提示：“近似”两个字要强调：它不是定理，是工程上的经验。]</aside>
-</section>
+<section id="kl-why" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">数据网络用近似：Kleinrock 独立性</h2><div style="display:flex;gap:96px;align-items:flex-start"><div style="flex:1"><div style="display:flex;flex-direction:column;gap:18px"><div style="border-top:3px solid #1E1A16;width:100%"></div><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:900;line-height:1.3;color:#1E1A16">Jackson：精确</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">每次经过一个节点，服务时间都重新独立抽取。</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">于是各节点的人数是乘积形式，这是定理。</p></div></div><div style="flex:1"><div style="display:flex;flex-direction:column;gap:18px"><div style="border-top:3px solid #1E1A16;width:100%"></div><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:900;line-height:1.3;color:#B4381F">数据网络：近似</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">分组长度在源端就定了，每条链路上的传输时间都与它成正比，一路带着走。</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">Kleinrock 近似：假设各链路的输入和服务近似独立，把每条链路当作孤立的 M/M/1。</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">这是近似，不是定理：用之前，先用模拟检验。</p><aside>【3 分钟】
+Jackson 定理要求：每个节点的服务时间是独立的指数分布，同一个任务每次经过，都重新独立抽取。但数据网络不是这样：分组的长度在源节点就确定了，每条链路上的传输时间都和它的长度成正比。前面“分组长度一路带着走”的例子说明，这种相关性是真实存在的。所以数据网络严格说不满足 Jackson 定理的条件。
+怎么办？Kleinrock 在 1960 年代提出：当很多条流汇合到一条链路上的时候，每个分组和它前后分组的关系，被其他流的分组“稀释”了，到达间隔与分组长度之间的相关性变弱。基于这个观察，他建议近似当作独立：把每条链路都当作一个孤立的 M/M/1，到达率等于经过这条链路的所有流的到达率之和。
+这就是 Kleinrock 独立性近似。注意：它不是定理，是工程上的近似。“独立”只是近似，M/M/1 还要求泊松到达和指数分组长度，又是一层近似。它的好处是简单，适合比较方案、做规划；代价是要知道它在哪里不准，所以最后一页用模拟来检验。</aside></section>
