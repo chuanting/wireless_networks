@@ -128,7 +128,11 @@ window.COURSE = {
           desc: "没有中心：每个节点独立地算 · 距离矢量（分布式的 Bellman–Ford、好消息与坏消息、计数到无穷、水平分割、RIP）· 链路状态（发现、测量、构造、洪泛、Dijkstra）· 两者比较 · OSPF 与 IS-IS",
           deck: "ch5-3-distributed-routing", slides: 20, minutes: 50
         },
-        { no: "5.4", title: "路由的稳定性与路由信息的广播", status: "todo" }
+        {
+          no: "5.4", title: "稳定性与路由信息的广播", status: "ready",
+          desc: "自适应最短路由的稳定性：链路长度与流量的反馈 · 16 节点环的整体振荡 · 偏置因子与多周期平均 · 路由信息的广播：旧消息、简单洪泛、序号、序号出错、年龄与周期更新",
+          deck: "ch5-4-stability-broadcast", slides: 19, minutes: 48
+        }
       ]
     },
     { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [] },

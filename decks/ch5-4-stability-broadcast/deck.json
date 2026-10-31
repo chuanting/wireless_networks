@@ -1,0 +1,59 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T03:00:00Z"
+  },
+  "lists": "css",
+  "title": "路由的稳定性与路由信息的广播",
+  "order": [
+    "cover",
+    "why-loop",
+    "ring-model",
+    "ring-osc",
+    "ring-why",
+    "bias",
+    "avg",
+    "tradeoff",
+    "bc-why",
+    "bc-assume",
+    "bc-stale",
+    "bc-loop",
+    "bc-seq",
+    "bc-seq-bad",
+    "bc-age",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：路由会不会来回摆动，消息会不会传错。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "自适应路由的稳定性：反馈、16 节点环的振荡、偏置与平均。",
+      "start": "why-loop"
+    },
+    "s2": {
+      "description": "路由信息的广播：难点与假设、旧消息、简单洪泛、序号、年龄。",
+      "start": "bc-why"
+    },
+    "s3": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}
