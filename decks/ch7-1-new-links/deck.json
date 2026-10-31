@@ -1,0 +1,59 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T10:00:00Z"
+  },
+  "lists": "css",
+  "title": "新的链路：更宽、更多、更远",
+  "order": [
+    "cover",
+    "knobs",
+    "fspl",
+    "mimo",
+    "massive",
+    "peel",
+    "irsa",
+    "orbits",
+    "pass",
+    "leo",
+    "flood",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：这一章看新的链路和新的架构，每项技术只回答它动了五个问题里的哪一个。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "容量与频率：三个旋钮、毫米波的代价、多天线。",
+      "start": "knobs"
+    },
+    "s2": {
+      "description": "海量连接：多发几份、接收端消除。",
+      "start": "massive"
+    },
+    "s3": {
+      "description": "低轨卫星：时延、运动、与光纤比较、洪泛的代价。",
+      "start": "orbits"
+    },
+    "s4": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

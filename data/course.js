@@ -152,6 +152,12 @@ window.COURSE = {
           deck: "ch6-2-window-token-bucket", slides: 23, minutes: 61
         }
       ] },
-    { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [] }
+    { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [
+        {
+          no: "7.1", title: "新的链路：更宽、更多、更远", status: "ready",
+          desc: "容量的三个旋钮（带宽、功率、天线）· 毫米波：频率高 8 倍、小区多 64 倍 · 多天线与空间复用 · 海量接入：重复加消除的剥离译码与阈值 · 低轨卫星：时延、过顶 4.5 分钟、与光纤的交点 2867 km · 星座里的洪泛与可预测的拓扑",
+          deck: "ch7-1-new-links", slides: 15, minutes: 47
+        }
+      ] }
   ]
 };
