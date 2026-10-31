@@ -1,0 +1,61 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T05:00:00Z"
+  },
+  "lists": "css",
+  "title": "流量与拥塞控制概论",
+  "order": [
+    "cover",
+    "why",
+    "curve",
+    "collapse",
+    "deadlock",
+    "deadlock-kinds",
+    "classify",
+    "objectives",
+    "fairness",
+    "power",
+    "principle",
+    "loops",
+    "layers",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：负载超过网络处理能力时会发生什么。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "拥塞与死锁：恶性循环、有效吞吐量的曲线、环形网络的死锁。",
+      "start": "why"
+    },
+    "s2": {
+      "description": "控制的分类与目标：流量控制、拥塞控制、死锁防止，公平与时延的取舍。",
+      "start": "classify"
+    },
+    "s3": {
+      "description": "基本原理：让需求不超过供给，开环与闭环，在哪一层做。",
+      "start": "principle"
+    },
+    "s4": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

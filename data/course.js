@@ -135,7 +135,13 @@ window.COURSE = {
         }
       ]
     },
-    { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [] },
+    { id: "ch6", no: 6, icon: "traffic", title: "流量和拥塞控制", en: "Traffic & Congestion Control", sections: [
+        {
+          no: "6.1", title: "流量与拥塞控制概论", status: "ready",
+          desc: "负载超过处理能力的恶性循环 · 有效吞吐量先升后降 · 死锁 · 流量控制、拥塞控制与死锁防止 · 公平与吞吐量、时延与功率的取舍 · 基本原理、开环与闭环、各层的做法",
+          deck: "ch6-1-congestion-overview", slides: 17, minutes: 42
+        }
+      ] },
     { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [] }
   ]
 };
