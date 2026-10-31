@@ -115,8 +115,8 @@ window.COURSE = {
       sections: [
         {
           no: "5.1", title: "路由算法概述", status: "ready",
-          desc: "路由要解决什么 · 数据报与虚电路 · 路由的好坏：时延与通过量 · 五种分类与六项要求 · 路由表、逐跳转发与环路 · 洪泛与广播 · 分级路由与自治系统 · 自组织网络",
-          deck: "ch5-1-routing-overview", slides: 35, minutes: 100
+          desc: "路由要解决什么 · 数据报与虚电路 · 路由的好坏：时延与通过量 · 五种分类与六项要求 · 路由表、逐跳转发、环路与最长前缀匹配 · 洪泛与三种广播 · 分级路由与自治系统 · 自组织网络",
+          deck: "ch5-1-routing-overview", slides: 29, minutes: 70
         },
         { no: "5.2", title: "集中式最短路由算法", status: "todo" },
         { no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "todo" },
