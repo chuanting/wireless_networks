@@ -95,8 +95,8 @@ window.COURSE = {
         },
         {
           no: "4.2", title: "随机多址接入：ALOHA", status: "ready",
-          desc: "ALOHA 的规则与模型 · 纯 ALOHA 与时隙 ALOHA 的通过率（1/2e 与 1/e）· 平衡点、马尔可夫链与漂移 · 为什么会堵死 · 伪贝叶斯算法",
-          deck: "ch4-2-aloha", slides: 37, minutes: 100
+          desc: "从事先分好到谁有数据谁发 · ALOHA 的规则与分析模型（积压、λ、G、S） · 纯 ALOHA 与时隙 ALOHA 的通过率（1/(2e) 与 1/e） · 平衡点、马尔可夫链与漂移 · 重传概率的两难与固定 q 的堵塞 · 伪贝叶斯算法",
+          deck: "ch4-2-aloha", slides: 29, minutes: 81
         },
         {
           no: "4.3", title: "载波侦听多址接入：CSMA", status: "ready",
