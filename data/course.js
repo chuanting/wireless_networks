@@ -24,8 +24,8 @@ window.COURSE = {
         },
         {
           no: "1.3", title: "数学基础：图论", status: "ready",
-          desc: "图的概念 · 路径与回路 · 生成树与最小生成树 · 割集",
-          deck: "ch1-3-graph-theory", slides: 48, minutes: 60
+          desc: "图的概念：点、边、度 · 路径与回路：七桥问题、连通 · 树与最小生成树：Prim、Kruskal、分布式算法 · 割与割性质 · 最小生成树与最短路径树",
+          deck: "ch1-3-graph-theory", slides: 32, minutes: 85
         }
       ]
     },
