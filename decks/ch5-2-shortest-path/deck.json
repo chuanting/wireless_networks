@@ -1,0 +1,71 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T00:30:00Z"
+  },
+  "lists": "css",
+  "title": "集中式最短路径算法：Bellman–Ford、Dijkstra、Floyd–Warshall",
+  "order": [
+    "cover",
+    "why",
+    "problem",
+    "bf-idea",
+    "bf-example",
+    "bf-tree",
+    "bf-proof",
+    "bf-neg",
+    "bf-cost",
+    "dj-idea",
+    "dj-steps",
+    "dj-example",
+    "dj-proof",
+    "dj-neg",
+    "fw-idea",
+    "fw-example",
+    "fw-path",
+    "compare",
+    "where",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：路由表里的下一跳是怎么算出来的。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "Bellman–Ford：一次多走一条链路，Bellman 方程，证明，负环，运算量。",
+      "start": "bf-idea"
+    },
+    "s2": {
+      "description": "Dijkstra：由近到远确定节点，三步、例子、证明、不能有负长度。",
+      "start": "dj-idea"
+    },
+    "s3": {
+      "description": "Floyd–Warshall：一次多允许一个中间节点，例子，下一跳矩阵。",
+      "start": "fw-idea"
+    },
+    "s4": {
+      "description": "三种算法的比较与用途。",
+      "start": "compare"
+    },
+    "s5": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

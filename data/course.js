@@ -118,7 +118,11 @@ window.COURSE = {
           desc: "路由要解决什么 · 数据报与虚电路 · 路由的好坏：时延与通过量 · 五种分类与六项要求 · 路由表、逐跳转发、环路与最长前缀匹配 · 洪泛与三种广播 · 分级路由与自治系统 · 自组织网络",
           deck: "ch5-1-routing-overview", slides: 29, minutes: 70
         },
-        { no: "5.2", title: "集中式最短路由算法", status: "todo" },
+        {
+          no: "5.2", title: "集中式最短路由算法", status: "ready",
+          desc: "最短路径问题 · Bellman–Ford（递推、Bellman 方程、证明、负环、运算量）· Dijkstra（三步、例子、证明、不能有负长度）· Floyd–Warshall（矩阵、下一跳）· 三种算法的比较与用途",
+          deck: "ch5-2-shortest-path", slides: 23, minutes: 58
+        },
         { no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "todo" },
         { no: "5.4", title: "路由的稳定性与路由信息的广播", status: "todo" }
       ]
