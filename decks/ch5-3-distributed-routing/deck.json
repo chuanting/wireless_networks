@@ -1,0 +1,60 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T01:30:00Z"
+  },
+  "lists": "css",
+  "title": "分布式路由：距离矢量与链路状态",
+  "order": [
+    "cover",
+    "why",
+    "dv-idea",
+    "dv-table",
+    "dv-good",
+    "dv-bad",
+    "dv-split",
+    "dv-rip",
+    "ls-idea",
+    "ls-hello",
+    "ls-lan",
+    "ls-lsp",
+    "ls-flood",
+    "ls-spf",
+    "ls-vs-dv",
+    "ospf",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：没有中心，每个节点只靠邻居。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "距离矢量：分布式的 Bellman–Ford、好消息与坏消息、水平分割、RIP。",
+      "start": "dv-idea"
+    },
+    "s2": {
+      "description": "链路状态：发现、测量、构造、洪泛、计算；与距离矢量比较；OSPF 与 IS-IS。",
+      "start": "ls-idea"
+    },
+    "s3": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

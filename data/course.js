@@ -123,7 +123,11 @@ window.COURSE = {
           desc: "最短路径问题 · Bellman–Ford（递推、Bellman 方程、证明、负环、运算量）· Dijkstra（三步、例子、证明、不能有负长度）· Floyd–Warshall（矩阵、下一跳）· 三种算法的比较与用途",
           deck: "ch5-2-shortest-path", slides: 23, minutes: 58
         },
-        { no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "todo" },
+        {
+          no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "ready",
+          desc: "没有中心：每个节点独立地算 · 距离矢量（分布式的 Bellman–Ford、好消息与坏消息、计数到无穷、水平分割、RIP）· 链路状态（发现、测量、构造、洪泛、Dijkstra）· 两者比较 · OSPF 与 IS-IS",
+          deck: "ch5-3-distributed-routing", slides: 20, minutes: 50
+        },
         { no: "5.4", title: "路由的稳定性与路由信息的广播", status: "todo" }
       ]
     },
