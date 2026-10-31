@@ -140,6 +140,11 @@ window.COURSE = {
           no: "6.1", title: "流量与拥塞控制概论", status: "ready",
           desc: "负载超过处理能力的恶性循环 · 有效吞吐量先升后降 · 死锁 · 流量控制、拥塞控制与死锁防止 · 公平与吞吐量、时延与功率的取舍 · 基本原理、开环与闭环、各层的做法",
           deck: "ch6-1-congestion-overview", slides: 17, minutes: 42
+        },
+        {
+          no: "6.2", title: "流量与拥塞控制的技术", status: "ready",
+          desc: "窗口式控制（速率 min{1/x, W/d}、多会话时延、往返时延带来的不公平、动态调整、TCP 的加性增乘性减）· 业务整形（漏桶、令牌桶、突发长度）· 令牌桶里的分组等多久 · 用在哪里",
+          deck: "ch6-2-window-token-bucket", slides: 23, minutes: 61
         }
       ] },
     { id: "ch7", no: 7, icon: "sixg", title: "通信网络前沿简介", en: "Frontiers of Communication Networks", sections: [] }

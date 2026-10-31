@@ -1,0 +1,63 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T07:00:00Z"
+  },
+  "lists": "css",
+  "title": "流量与拥塞控制技术：窗口、漏桶与令牌桶",
+  "order": [
+    "cover",
+    "window-idea",
+    "window-rate",
+    "window-shared",
+    "window-problems",
+    "window-bias",
+    "window-adjust",
+    "aimd",
+    "aimd-fair",
+    "shaping-why",
+    "leaky-idea",
+    "leaky-trace",
+    "token-idea",
+    "token-trace",
+    "burst",
+    "shaping-compare",
+    "token-model",
+    "token-delay",
+    "where",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：怎样限制一个源发得多快。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "窗口式流量与拥塞控制：速率公式、多会话时延、不公平、动态调整、AIMD。",
+      "start": "window-idea"
+    },
+    "s2": {
+      "description": "速率控制与业务整形：漏桶、令牌桶、突发长度、比较、令牌桶的排队模型。",
+      "start": "shaping-why"
+    },
+    "s3": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}
