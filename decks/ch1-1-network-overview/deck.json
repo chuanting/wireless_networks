@@ -1,0 +1,70 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-31T21:00:00Z"
+  },
+  "lists": "css",
+  "title": "通信网络概论：构成、交换方式与协议分层",
+  "order": [
+    "cover",
+    "why",
+    "elements",
+    "links",
+    "packets",
+    "circuit",
+    "mux",
+    "datagram",
+    "vc",
+    "compare",
+    "interconnect",
+    "three",
+    "armies",
+    "armies2",
+    "protocol",
+    "layering",
+    "models",
+    "functions",
+    "encap",
+    "hops",
+    "repair",
+    "map",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：为什么需要网络，通信网络由什么构成。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "交换方式：分组、电路交换、虚电路与数据报，网络互连。",
+      "start": "packets"
+    },
+    "s2": {
+      "description": "协议：两军问题，协议是什么。",
+      "start": "armies"
+    },
+    "s3": {
+      "description": "分层：五层模型、封装、两套地址，本课程的地图。",
+      "start": "layering"
+    },
+    "s4": {
+      "description": "练习、回顾与实验。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

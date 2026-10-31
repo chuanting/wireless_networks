@@ -16,7 +16,11 @@ window.COURSE = {
       title: "通信网络概论及数学基础",
       en: "Introduction & Mathematical Foundations",
       sections: [
-        { no: "1.1", title: "课件待补充", status: "todo" },
+        {
+          no: "1.1", title: "通信网络概论：构成、交换方式与协议分层", status: "ready",
+          desc: "为什么需要网络 · 终端、链路与节点 · 电路交换、虚电路与数据报 · 网络互连 · 协议与两军问题 · 五层模型、封装与两套地址",
+          deck: "ch1-1-network-overview", slides: 26, minutes: 70
+        },
         {
           no: "1.2", title: "数学基础：随机过程", status: "ready",
           desc: "随机过程的基本概念 · Poisson 过程（计数、指数间隔、无记忆、合并与分流）· 马尔可夫链（转移矩阵、稳态分布）· 生灭链与队列长度",
