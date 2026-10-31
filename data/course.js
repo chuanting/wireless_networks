@@ -55,8 +55,8 @@ window.COURSE = {
         },
         {
           no: "2.4", title: "网络层和运输层的点对点传输协议", status: "ready",
-          desc: "为什么链路可靠还不够 · 虚电路与数据报 · 端到端窗口 · X.25 · TCP（端口、握手挥手、可靠传输、重传定时器、流量控制）",
-          deck: "ch2-4-e2e-protocols", slides: 37, minutes: 100
+          desc: "为什么链路可靠还不够 · 虚电路与数据报，窗口与带宽时延积，逐跳与端到端重传，X.25 · TCP：端口、字节序号、三次握手与旧 SYN、ISN、四次挥手与 TIME_WAIT、累积确认与快速重传、RTO 估计与 RFC 规矩、接收窗口、窗口放大 · 与 HDLC 对照",
+          deck: "ch2-4-e2e-protocols", slides: 35, minutes: 97
         }
       ]
     },

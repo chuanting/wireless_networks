@@ -1,34 +1,7 @@
-<section id="project" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：看见 TCP</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">抓一次握手</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">用 Wireshark 或 tcpdump 抓下“访问一个网页”的包，找到三次握手：记下三个报文的标志、seq、ack。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>第二个报文的 ack 恰好是第一个的 seq + 1；第三个报文的 ack 是第二个的 seq + 1。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">中级</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">自己算 RTO</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">用 Python 的 socket 做一个回声程序，测 20 个 RTT 样本，按 RFC 6298 算 SRTT、RTTVAR、RTO，画出曲线。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>Linux 上用 “ss -ti” 看真实连接的 rtt、rto，量级应与你的结果接近；样本稳定时 RTO 应明显小于初值。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">进阶</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">小型 TCP 模拟器</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">模拟丢包、乱序的链路，实现累积 ACK、乱序缓存、超时重传、快速重传；统计吞吐随丢包率的变化。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>单个报文丢失时，应在收到第 3 个重复 ACK 后重发，而不是等超时。</p>
-</div>
-</div>
-<div style="border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>给模拟器加上接收窗口和窗口放大，验证 “吞吐 ≤ 窗口 / <i>T</i>”；或者在握手里故意放进一个迟到的旧 SYN，看你的实现能否识破。</p></div>
-<aside>【选做 · 课上只需 1 分钟介绍】
+<section id="project" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">选做：自己动手，看见 TCP</h2><div style="display:flex;gap:64px;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:34px;flex:1"><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">①</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">抓一次握手：用 Wireshark 或 tcpdump 抓下访问一个网页的包，记下三个报文的标志、seq、ack</p><div style="display:flex;gap:40px;align-items:center"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:42px;white-space:nowrap"><i>ack</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:26px;white-space:nowrap;align-self:flex-end">2</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:42px;white-space:nowrap">&#160;= <i>seq</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:26px;white-space:nowrap;align-self:flex-end">1</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:42px;white-space:nowrap">&#160;+ 1</p></div><p style="font-size:30px;font-weight:400;line-height:1.4;color:#5E554B;white-space:nowrap">SYN 占一个序号</p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">②</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">自己算 RTO：用 Python 的 socket 做回声程序，测 20 个 RTT 样本，按 RFC 6298 算 SRTT、RTTVAR、RTO</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:40px;white-space:nowrap">RTO = SRTT + 4·RTTVAR</p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">③</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">小型 TCP 模拟器：模拟丢包、乱序的链路，实现累积 ACK、乱序缓存、超时重传、快速重传</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">统计吞吐随丢包率的变化</p></div></div></div></div><div style="display:flex;flex-direction:column;gap:32px;width:640px;flex-shrink:0"><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>怎么检验：</b></span>握手：第 2 个报文的 ack 是第 1 个的 seq 加 1，第 3 个的 ack 是第 2 个的 seq 加 1。RTO：Linux 上用 ss -ti 看真实连接的 rtt 和 rto，量级应与你的结果接近。</p></div><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>再多做一点：</b></span>给模拟器加上接收窗口和窗口放大，验证“吞吐 ≤ 窗口 / T”；或者在握手里故意放进一个迟到的旧 SYN，看你的实现能不能识破。</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">单个报文丢失时，应该在第 3 个重复 ACK 之后重发，而不是等超时。</p><aside>【选做 · 课上只需 1 分钟介绍】
 这页是给想动手的同学准备的，不在课上做。
-基础：用 Wireshark 或者 tcpdump，抓一次访问网页的包。例如在 Linux 上，一个终端运行 tcpdump，过滤只看带 SYN 或 FIN 标志的包；另一个终端用 curl 访问一个网页。就能看到三次握手：第一个包是 SYN，第二个是 SYN+ACK，第三个是 ACK。检验：第二个包的确认号，恰好是第一个包的序号加 1。因为 SYN 占一个序号。
-中级：自己动手算 RTO。用 Python 的 socket 做一个简单的回声程序，客户端发一个小包，服务器原样返回，测量往返时间，测 20 个样本。然后按照 RFC 6298 的公式，第一个样本 SRTT 取它本身，RTTVAR 取一半，之后按 α = 1/8，β = 1/4 更新，RTO 等于 SRTT 加 4 倍 RTTVAR。画出曲线，和本节的图对照。如果有 Linux，ss -ti 命令能看到真实连接的 rtt 和 rto，可以对照量级（真实系统的 RTO 有 200 毫秒的下限）。
+基础：用 Wireshark 或者 tcpdump 抓一次访问网页的包。例如在 Linux 上，一个终端运行 tcpdump，过滤只看带 SYN 或 FIN 标志的包；另一个终端用 curl 访问一个明确走 TCP 的网页（注意 HTTP/3 走的是 UDP，要选 HTTP/1.1 或 HTTP/2）。就能看到三次握手：第一个包是 SYN，第二个是 SYN+ACK，第三个是 ACK。检验：第二个包的确认号，恰好是第一个包的序号加 1，因为 SYN 占一个序号；抓包软件默认显示相对序号，要看真实值，在设置里关掉相对序号。
+中级：自己算 RTO。用 Python 的 socket 做一个简单的回声程序，客户端发一个小包，服务器原样返回，测量往返时间，测 20 个样本。然后按照 RFC 6298 的公式：第一个样本 SRTT 取它本身，RTTVAR 取一半，之后先算 RTTVAR（β = 1/4）、再算 SRTT（α = 1/8），RTO 等于 SRTT 加 4 倍 RTTVAR。画出曲线，和课上的图对照。在 Linux 上，ss -ti 命令能看到真实连接的 rtt 和 rto，可以对照量级（真实系统的 RTO 有 200 毫秒的下限）。
 进阶：写一个小型 TCP 模拟器：模拟一条会丢包、乱序的链路，实现累积确认、乱序缓存、超时重传和快速重传，统计吞吐随丢包率的变化。检验：单个报文丢失时，应该在收到第 3 个重复 ACK 后重发，而不是等超时。
 更进一步：加上接收窗口，验证“吞吐不超过窗口除以往返时间”；或者在握手里故意放进一个迟到的旧 SYN，看你的实现能不能识破。
-[提示：这些练习不要求提交，愿意做的同学可以课后找老师交流。]</aside>
-</section>
+[提示：这些练习不要求提交，愿意做的同学可以课后找老师交流。]</aside></section>
