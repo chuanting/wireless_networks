@@ -90,8 +90,8 @@ window.COURSE = {
       sections: [
         {
           no: "4.1", title: "概述与固定多址接入", status: "ready",
-          desc: "共享信道与碰撞 · MAC 子层与三类协议 · 多址信道的排队模型与评价指标 · FDMA / TDMA / CDMA / SDMA · 固定分配的时延代价",
-          deck: "ch4-1-multiple-access", slides: 36, minutes: 100
+          desc: "共享信道与碰撞 · MAC 子层、两个极端与三大类协议 · 多址信道的排队模型、四个分析约定与评价指标 · FDMA / TDMA / CDMA / SDMA · 固定分配与理想总队列的时延差距",
+          deck: "ch4-1-multiple-access", slides: 29, minutes: 73
         },
         {
           no: "4.2", title: "随机多址接入：ALOHA", status: "ready",
