@@ -1,0 +1,57 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T09:00:00Z"
+  },
+  "lists": "css",
+  "title": "通信网络的基本理论问题",
+  "order": [
+    "cover",
+    "start",
+    "five",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "journey",
+    "tools",
+    "interplay",
+    "map",
+    "lab",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：这一讲是整门课的地图。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "五个基本问题：用户关心什么，五个问题各是什么，各给一个例子和一个数。",
+      "start": "start"
+    },
+    "s2": {
+      "description": "把它们放在一起：分组的旅程、数学工具、问题之间的牵连、课程地图。",
+      "start": "journey"
+    },
+    "s3": {
+      "description": "课后实验、练习、回顾与选做。",
+      "start": "lab"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}

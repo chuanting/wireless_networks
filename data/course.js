@@ -30,6 +30,11 @@ window.COURSE = {
           no: "1.3", title: "数学基础：图论", status: "ready",
           desc: "图的概念：点、边、度 · 路径与回路：七桥问题、连通 · 树与最小生成树：Prim、Kruskal、分布式算法 · 割与割性质 · 最小生成树与最短路径树",
           deck: "ch1-3-graph-theory", slides: 32, minutes: 85
+        },
+        {
+          no: "1.4", title: "通信网络的基本理论问题", status: "ready",
+          desc: "用户关心什么 · 五个基本问题：拓扑与覆盖、传输与交换、多址、路由、流量控制 · 八个站点的连法 · 分组交换的时延 · 分组的旅程 · 数学工具与课程地图 · 课后实验",
+          deck: "ch1-4-basic-problems", slides: 17, minutes: 43
         }
       ]
     },
