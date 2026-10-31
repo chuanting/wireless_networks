@@ -1,26 +1,72 @@
 {
   "v": 4,
-  "createdOnFiles": { "v": 1, "at": "2026-10-18T22:00:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-18T22:00:00Z"
+  },
   "lists": "css",
   "title": "时延的构成与 Little 定理",
   "order": [
-    "cover", "why", "roadmap", "agenda",
-    "d1", "delay4", "delay-eg", "caravan", "dom", "qdelay", "why-model", "p1-sum",
-    "d2", "qanat", "qdesc", "params", "rho", "randomvs", "p2-sum",
-    "d3", "little-idea", "little-proof-1", "little-proof-2", "little-eg", "little-cond", "app-node", "app-net", "app-hall", "app-block", "app-else", "little-try", "p3-sum",
-    "summary", "project", "homework"
+    "cover",
+    "why",
+    "four",
+    "caravan",
+    "clocks",
+    "eg",
+    "speedup",
+    "dom",
+    "hops",
+    "system",
+    "kendall",
+    "sym1",
+    "sym2",
+    "rand",
+    "rho",
+    "hockey",
+    "little",
+    "proof1",
+    "proof2",
+    "cond",
+    "node",
+    "net",
+    "hall",
+    "block",
+    "everywhere",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
   ],
   "sections": {
-    "s0": { "description": "开场：时延为什么重要，第 3 章的整体路线。", "start": "cover" },
-    "s1": { "description": "网络时延的四个部分：处理、排队、传输、传播，以及谁说了算。", "start": "d1" },
-    "s2": { "description": "排队系统的数学描述：到达、服务、排队规则、Kendall 记号、利用率与稳定性。", "start": "d2" },
-    "s3": { "description": "Little 定理：直观、图形证明、条件与五个应用。", "start": "d3" },
-    "s4": { "description": "总结、拓展实践与课后练习。", "start": "summary" }
+    "s0": {
+      "description": "开场：同一条链路，为什么晚上就变慢了？",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "时延的构成：处理、排队、传输、传播；传输和传播谁说了算；多跳的存储转发。",
+      "start": "four"
+    },
+    "s2": {
+      "description": "排队系统：结构、Kendall 记号、符号；随机到达为什么排队；稳定与负荷。",
+      "start": "system"
+    },
+    "s3": {
+      "description": "Little 定理：证明、条件与五个应用。",
+      "start": "little"
+    },
+    "s4": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
   },
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
     }
   },
   "designSystems": []

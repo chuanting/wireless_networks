@@ -1,34 +1,6 @@
-<section id="project" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">拓展实践 · 选做</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">自己动手：用程序“看见”排队</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">基础</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">模拟一个队列并验证 Little</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">用 Python 写一个单服务员、先来先服务的队列：泊松到达（速率 0.8），指数服务（速率 1）。记录每位顾客的到达和离开时刻。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b>算出 <i>N</i>（时间平均）、<i>λ</i>、<i>T</i>（样本平均），验证 <i>N</i> ≈ <i>λ</i><i>T</i>。模拟 40 万个顾客时，两边应几乎相等。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">中级</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">画出曲棍球棒曲线</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">让 <i>ρ</i> 取 0.5、0.8、0.9、0.95，分别模拟，画出平均时延 <i>T</i> 对 <i>ρ</i> 的曲线，与 <i>T</i> = 1/(<i>μ</i> − <i>λ</i>) 对比。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>T</i> 应约为 2、5、10、20（<i>μ</i> = 1 时）；<i>ρ</i> 越高，需要的样本越多才收敛。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">进阶</p>
-<p style="font-size:40px;font-weight:700;color:#14253D">“随机”的代价</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">同样 <i>ρ</i>，比较泊松到达和均匀到达（固定间隔）的平均等待；再把服务时间换成固定长度，看等待怎样变化。</p>
-<p style="font-size:26px;line-height:1.5;color:#4B5A6B"><b>检验：</b><i>ρ</i> = 0.8、服务固定时，均匀到达的平均等待应为 0；泊松到达（M/D/1）约为 2 个服务时间。</p>
-</div>
-</div>
-<div style="border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px"><p style="font-size:28px;line-height:1.5;color:#14253D"><b>想挑战更多？</b>用 ping 在不同时段测几百个往返时间，画出直方图，看它像不像“排队时延”的形状。</p></div>
-<aside>【选做 · 课上只需 1 分钟介绍】
+<section id="project" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">选做：用程序看见排队</h2><div style="display:flex;gap:64px;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:38px;flex:1"><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">①</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B"><i>g</i>(<i>i</i>) 是第 <i>i</i> 个到达间隔，<i>x</i>(<i>i</i>) 是第 <i>i</i> 位的服务时长，都用随机数生成</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>a</i>(<i>i</i>) = <i>a</i>(<i>i</i> − 1) + <i>g</i>(<i>i</i>)</p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">②</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">先来先服务：开始时刻 <i>b</i>(<i>i</i>) 与离开时刻 <i>d</i>(<i>i</i>)</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:42px;white-space:nowrap"><i>b</i>(<i>i</i>) = max(<i>a</i>(<i>i</i>), <i>d</i>(<i>i</i> − 1))　　<i>d</i>(<i>i</i>) = <i>b</i>(<i>i</i>) + <i>x</i>(<i>i</i>)</p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">③</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">统计等待和停留</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:42px;white-space:nowrap"><i>W</i>(<i>i</i>) = <i>b</i>(<i>i</i>) − <i>a</i>(<i>i</i>)　　<i>T</i>(<i>i</i>) = <i>d</i>(<i>i</i>) − <i>a</i>(<i>i</i>)</p></div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:52px">④</p><div style="display:flex;flex-direction:column;gap:6px;flex:1"><p style="font-size:30px;font-weight:400;line-height:1.5;color:#5E554B">把“人数 × 时长”累计成面积，除以总时间，得 <i>N</i>；检验</p><div style="display:flex;gap:0px;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#B4381F;font-weight:400;font-size:56px;white-space:nowrap"><i>N</i> ≈ <i>λ</i> · <i>T</i></p></div></div></div></div><div style="display:flex;flex-direction:column;gap:32px;width:560px;flex-shrink:0"><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>M/M/1，<i>ρ</i> = 0.8：</b></span><i>λ</i> = 0.8，<i>μ</i> = 1，模拟 40 万位顾客：<i>T</i> 约 5，<i>N</i> 约 4，<i>N</i> 与 <i>λT</i> 几乎相等。</p></div><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>再比一比：</b></span>同样 <i>ρ</i> = 0.8：均匀到达、服务固定，平均等待为 0；泊松到达、服务固定（M/D/1），约 2 个服务时间；服务也是指数（M/M/1），约 4 个。</p></div><div style="display:flex;flex-direction:column;gap:8px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>再多做一点：</b></span>用 ping 测几百个往返时间，画直方图，看像不像排队时延的形状。</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">每多一层随机性，等待就多一些：3.3 节的 P-K 公式讲的就是这件事。</p><aside>【选做 · 课上只需 1 分钟介绍】
 这页是给想动手的同学准备的，不在课上做。
-基础：写一个单服务员、先来先服务的队列模拟。办法：到达间隔用指数分布产生，速率 λ 取 0.8；服务时间也用指数分布，速率 μ 取 1。对第 i 个顾客：到达时刻等于上一个到达时刻加间隔；开始服务的时刻，是它的到达时刻和上一个顾客离开时刻中较大的；离开时刻等于开始服务时刻加服务时间。记录每位顾客的停留时间，求平均，得 T；再用事件扫描法，算出 N(t) 的时间平均，得 N；λ 用顾客数除以总时间。验证 N 约等于 λ 乘 T。（老师用 40 万个顾客试过：ρ=0.8 时，T 约 4.93，N 约 3.94，N 与 λT 完全一致。）
-中级：让 ρ 取 0.5、0.8、0.9、0.95，分别模拟，得到 T 的值，画成曲线，和 1 除以（μ 减 λ）对比。理论值依次是 2、5、10、20；模拟值会略小一点（样本有限），ρ 越大越难收敛。
-进阶：比较“随机”的代价。同样 ρ 等于 0.8，如果顾客均匀到达、服务时间固定，平均等待是 0；如果到达是泊松，服务时间固定（M/D/1），平均等待约 2 个服务时间；如果服务时间也是指数（M/M/1），约 4 个服务时间。可以看到每增加一层随机性，等待就增加一些，这就是 3.3 节 P-K 公式要讲的。
-更进一步：用 ping 测几百个往返时间，画直方图，看它像不像排队时延。
-[验算：模拟验证过：ρ=0.5/0.8/0.9/0.95 时，T 分别约 1.99/4.93/9.88/19.2；M/D/1 在 ρ=0.8 时等待约 1.99（理论 2）。]</aside>
-</section>
+基础：写一个单服务员、先来先服务的队列模拟。到达间隔用指数分布产生，速率 λ 取 0.8；服务时间也用指数分布，速率 μ 取 1。对第 i 位顾客：开始服务的时刻，是他的到达时刻和上一位离开时刻中较大的；离开时刻等于开始服务时刻加服务时间。记录每位的停留时间，求平均，得 T；用事件之间的人数乘时长，累计占用面积，除以总时间，得 N；λ 用顾客数除以总时间。验证 N 约等于 λ 乘 T。（老师用 40 万位顾客试过：T 约 4.99，N 约 3.99，两者几乎相等；理论值 5 和 4。）
+进阶：比较“随机”的代价。同样 ρ 等于 0.8：均匀到达、服务固定，平均等待 0；泊松到达、服务固定（M/D/1），平均等待约 2 个服务时间（模拟约 1.98）；服务也是指数（M/M/1），约 4 个服务时间。每增加一层随机性，等待就增加一些，这就是 3.3 节 P-K 公式要讲的。
+更进一步：用 ping 测几百个往返时间，画直方图，看它像不像排队时延的形状。
+[验算：脚本模拟：M/M/1 ρ=0.8，T≈4.99，N≈3.99；M/D/1 平均等待≈1.98。]</aside></section>

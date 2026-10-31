@@ -1,35 +1,6 @@
-<section id="why" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么要研究时延？</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#C2410C">① 直接决定体验</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">语音通话：单向时延超过约 150 ms，对话就明显不自然（ITU-T G.114 的建议值）。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">网页、游戏、远程操作，都怕“慢半拍”。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#1E40AF">② 协议靠它来比较</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">第 4 章：哪种多址接入协议时延小？</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">第 5 章：路由该选哪条路？</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">第 6 章：流量控制把速率限到多少合适？</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">答案都要用<b>时延</b>来衡量。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#9A3412">③ 难在“排队”</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">分组在路由器里要排队，排多久是<b>随机的</b>，而且随负荷剧烈变化。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">只靠经验和直觉不行，要用数学模型：<b>排队论</b>。</p>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:30px;line-height:1.45;color:#14253D">本节任务：① 把时延拆成四部分　② 学会描述一个排队系统　③ 掌握最基本的定理——<b>Little 定理</b>。</p>
-</div>
-<aside>【3 分钟】
-先回答一个问题：为什么要专门研究时延？
-第一，它直接决定体验。比如语音通话：国际电信联盟有个建议值，单向时延超过大约 150 毫秒，对话就开始明显不自然——你说完一句，要等很久才听到对方的回答，两个人还容易抢话。网页、网络游戏、远程操作，也都怕“慢半拍”。
-第二，它是比较协议好坏的标尺。后面第 4 章会学多址接入协议，问题是哪个协议下的时延更小；第 5 章学路由，问题是选哪条路时延更小；第 6 章学流量控制，问题是把速率限到多少合适。这些问题的答案，都要用时延来衡量。
-第三，难点在“排队”。一个分组在路由器里，要等前面的分组发完才轮到它，等多久是随机的，而且负荷一重，时延会急剧上升——后面你会看到这个曲线。这种东西，只靠经验和直觉是不行的，要用数学模型来研究，这门数学就叫排队论。
-所以本节的任务有三个：一，把时延拆成四部分；二，学会描述一个排队系统；三，掌握最基本的定理——Little 定理。
-[提示：可以问学生：“你觉得，网络流量翻一倍，时延会翻一倍吗？”先让大家猜，后面会给出答案。]</aside>
-</section>
+<section id="why" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">同一条链路，为什么晚上变慢了？</h2><div style="display:flex;flex-direction:column;gap:40px"><div style="position:relative;width:1664px;height:410px;flex-shrink:0"><svg aria-label="同一个分组走过一跳的时间账本：凌晨 3 点共 11.3 毫秒；晚上 8 点排队多了 25 毫秒，共 36.3 毫秒" style="position:absolute;left:0px;top:0px" width="1664" height="410" viewBox="0 0 1664 410"><rect x="270" y="74" width="3" height="110" fill="#1E1A16"/><rect x="273" y="74" width="36" height="110" fill="#2F5D8A"/><rect x="309" y="74" width="300" height="110" fill="#DCD0B8" stroke="#8C8170" stroke-width="1.5"/><rect x="270" y="254" width="3" height="110" fill="#1E1A16"/><rect x="273" y="254" width="750" height="110" fill="#B4381F"/><rect x="1023" y="254" width="36" height="110" fill="#2F5D8A"/><rect x="1059" y="254" width="300" height="110" fill="#DCD0B8" stroke="#8C8170" stroke-width="1.5"/><line x1="271.5" y1="62" x2="271.5" y2="73" stroke="#1E1A16" stroke-width="2" stroke-linecap="round"/><line x1="291" y1="185" x2="291" y2="196" stroke="#2F5D8A" stroke-width="2" stroke-linecap="round"/></svg><p style="position:absolute;left:0px;top:86px;width:250px;font-size:40px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">凌晨 3 点</p><p style="position:absolute;left:0px;top:136px;width:250px;font-size:30px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">链路空闲</p><p style="position:absolute;left:0px;top:266px;width:250px;font-size:40px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">晚上 8 点</p><p style="position:absolute;left:0px;top:316px;width:250px;font-size:30px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">链路繁忙</p><p style="position:absolute;left:633px;top:102px;width:260px;font-size:44px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">11.3 ms</p><p style="position:absolute;left:1383px;top:282px;width:260px;font-size:44px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">36.3 ms</p><p style="position:absolute;left:309px;top:110px;width:300px;font-size:32px;font-weight:400;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">传播 10 ms</p><p style="position:absolute;left:1059px;top:290px;width:300px;font-size:32px;font-weight:400;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">传播 10 ms</p><p style="position:absolute;left:273px;top:286px;width:750px;font-size:38px;font-weight:700;line-height:1.25;text-align:center;color:#F6F1E7;white-space:nowrap">排队 25 ms</p><p style="position:absolute;left:24px;top:22px;width:250px;font-size:28px;font-weight:400;line-height:1.25;text-align:right;color:#1E1A16;white-space:nowrap">处理 0.1 ms</p><p style="position:absolute;left:278px;top:198px;width:240px;font-size:28px;font-weight:700;line-height:1.25;text-align:left;color:#2F5D8A;white-space:nowrap">传输 1.2 ms</p></div><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>速率和距离都没变，变的是排队。</b></span>晚上流量更大，分组要在路由器里等前面的分组发完。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">把一个分组的时间拆开，才知道时间花在哪里。</p><aside>【3 分钟】
+先问一个问题：同一条链路，凌晨传文件很快，晚上却要等。链路的速率没变，距离也没变，变的是什么？
+看图。上下两条是同一个 1500 字节的分组走过同一跳：10 Mb/s 的链路，2000 公里。凌晨 3 点链路空闲，分组 11.3 毫秒走完；晚上 8 点要先在路由器里排队等 25 毫秒，一共 36.3 毫秒。多出来的全是红色的排队时间。（25 ms 只是一个例子；条的长度按比例画，处理时间只有 0.1 ms，细得几乎看不见。）
+所以研究时延，关键就是弄清这四段时间各由什么决定，特别是会随流量变化的排队时间。
+为什么值得研究？一，直接决定体验：ITU-T G.114 建议语音单向时延不超过约 150 ms，再长对话就不自然；二，协议好坏要用时延来比较：第 4 章比多址协议，第 5 章比路由，第 6 章定流量控制；三，难在排队：排多久是随机的，只靠直觉不行，要用数学模型，这门数学叫排队论。
+[提示：可以先问学生“速率高，时延就一定低吗？”不急着回答。]</aside></section>

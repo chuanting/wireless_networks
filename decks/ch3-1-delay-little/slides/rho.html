@@ -1,44 +1,6 @@
-<section id="rho" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 排队系统</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">利用率 ρ 与稳定条件：必须 ρ &lt; 1</h2>
-</div>
-<div style="display:flex;gap:22px;align-items:flex-start">
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#1E40AF">定义</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D"><i>ρ</i> = <i>λ</i> / <i>μ</i> = <i>λ</i> · <i>E</i>[<i>X</i>]，就是<b>服务员忙的时间比例</b>。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#9A3412">为什么必须 ρ &lt; 1</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">服务员最多每秒服务 <i>μ</i> 个。若 <i>λ</i> &gt; <i>μ</i>，队列每秒多 <i>λ</i> − <i>μ</i> 个，永远增长，时延趋于无穷。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">ρ = 1 也不行</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">有随机性时，队列的波动会积累，同样会越排越长。</p>
-</div>
-</div>
-<div style="flex:1.15;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">例：<i>μ</i> = 1000 个/秒的输出链路</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">平均分组 10 000 位，链路 10 Mb/s。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:0px">
-<div style="display:flex;gap:14px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:10px 0px"><p style="width:190px;font-size:26px;font-weight:700;color:#C2410C"><i>λ</i>（个/秒）</p><p style="width:130px;font-size:26px;font-weight:700;color:#14253D"><i>ρ</i></p><p style="width:230px;font-size:26px;font-weight:700;color:#14253D">忙的比例</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">结果</p></div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:190px;font-size:28px;font-weight:700;color:#14253D">500</p><p style="width:130px;font-size:28px;color:#14253D">0.5</p><div style="width:100px;height:30px;background:#1D4ED8;border-radius:8px"></div><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">稳定，时延小</p></div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:190px;font-size:28px;font-weight:700;color:#14253D">800</p><p style="width:130px;font-size:28px;color:#14253D">0.8</p><div style="width:160px;height:30px;background:#1D4ED8;border-radius:8px"></div><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">稳定，开始拥挤</p></div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:190px;font-size:28px;font-weight:700;color:#14253D">950</p><p style="width:130px;font-size:28px;color:#14253D">0.95</p><div style="width:190px;height:30px;background:#C2410C;border-radius:8px"></div><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">稳定，时延很大</p></div>
-<div style="display:flex;align-items:center;gap:14px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:190px;font-size:28px;font-weight:700;color:#14253D">1200</p><p style="width:130px;font-size:28px;color:#14253D">1.2</p><div style="width:240px;height:30px;background:#B91C1C;border-radius:8px"></div><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">不稳定：队列每秒 +200</p></div>
-</div>
-</div>
-</div>
-<aside>【3 分钟】
-上一页说过，ρ 等于 λ 除以 μ，必须小于 1。现在解释。
-ρ 的意思：服务员忙的时间所占的比例。比如 λ 是每秒 500 个分组，服务员每秒最多服务 1000 个，那么它平均一半的时间在忙，ρ 等于 0.5。
-为什么必须小于 1？因为服务员最多每秒服务 μ 个。如果顾客来得比这个还快，λ 大于 μ，那么每秒钟队列里就多出 λ 减 μ 个，一直增长，永远排不完——时延趋于无穷大。
-看这个例子：输出链路 10 兆比特每秒，平均分组 10000 位，所以 μ 等于每秒 1000 个。
-λ 是 500，ρ 是 0.5，稳定，时延小；λ 是 800，ρ 是 0.8，稳定但开始拥挤；λ 是 950，ρ 是 0.95，稳定但时延已经很大；λ 是 1200，ρ 是 1.2，不稳定：每秒钟队列多 200 个分组，缓冲区迟早会满，这时只能丢包。
-还有一点：ρ 恰好等于 1 也不行。因为到达和服务都是随机的，波动会积累下来，队列同样会越来越长。
-所以第一个要记住的条件：ρ 必须小于 1，系统才有稳态——也就是队长和时延有一个有限的平均值。
-[提示：缓冲区是有限的，所以 ρ 大于 1 的实际后果是丢包，不是无限排队。]</aside>
-</section>
+<section id="rho" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">稳定：来得比服务得快，就越排越长</h2><div style="display:flex;flex-direction:column;gap:36px"><div style="display:flex;gap:56px;align-items:center"><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B;width:960px;flex-shrink:0"><span style="color:#1E1A16"><b>服务员每秒最多服务 <i>μ</i> 个。</b></span>来得更快，队列每秒就多出 <i>λ</i> − <i>μ</i> 个，永远排不完。</p><div style="display:flex;flex-direction:column;gap:8px;flex:1"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:60px;white-space:nowrap"><i>ρ</i> = <i>λ</i>E[<i>X</i>] &lt; 1</p><p style="font-size:28px;font-weight:400;line-height:1.55;color:#5E554B">无限缓冲的单服务员队列，稳定需要 ρ &lt; 1。</p></div></div><div style="display:flex;flex-direction:column;gap:16px"><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B">例：<i>μ</i> = 1000 个/s（10 Mb/s 的链路，每个分组 10 000 bit）</p><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:14px 0px"><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">到达率 <i>λ</i>（个/s）</p><div style="width:220px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:30px;white-space:nowrap"><i>ρ</i></p></div><p style="font-size:30px;font-weight:700;line-height:1.4;color:#1E1A16;flex:1">结果</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:18px 0px"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">500</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">0.5</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;flex:1">稳定，时延小</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:18px 0px"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">800</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">0.8</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;flex:1">稳定，开始拥挤</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:18px 0px"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">950</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">0.95</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;flex:1">稳定，时延很大</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:18px 0px"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:440px;flex-shrink:0">1200</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16;width:220px;flex-shrink:0">1.2</p><p style="font-size:34px;font-weight:400;line-height:1.4;color:#B4381F;flex:1">不稳定：队列每秒多 200 个</p></div></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">有限的缓冲区，结局是丢包，而不是无限排队。</p><aside>【3 分钟】
+ρ 的意思是服务员忙的时间比例。服务员每秒最多服务 μ 个；如果顾客来得比这更快，λ 大于 μ，队列每秒就多出 λ 减 μ 个，一直增长，永远排不完，时延趋于无穷。所以对无限缓冲的单服务员队列，稳定的条件是 ρ 小于 1。
+看例子：10 Mb/s 的链路，平均分组 10 000 比特，所以 μ 等于每秒 1000 个。λ 是 500，ρ 是 0.5，稳定，时延小；800，ρ 是 0.8，稳定但开始拥挤；950，ρ 是 0.95，稳定但时延已经很大；1200，ρ 是 1.2，不稳定，队列每秒多 200 个。
+ρ 等于 1 也不行：到达和服务都是随机的，波动会积累，队列同样越排越长。（如果到达和服务都严格固定、恰好同步，确实可以不排队，但那是特例。）
+实际的缓冲区是有限的：ρ 大于 1 的后果是丢包，而不是无限排队。有限缓冲的系统靠丢掉多余的到达，让人数保持有界，代价是丢包。
+[注：ρ&lt;1 是无限缓冲 M/M/1、M/G/1 的稳定条件，不能推广成所有系统的条件，也不是 Little 定理的前提。]</aside></section>
