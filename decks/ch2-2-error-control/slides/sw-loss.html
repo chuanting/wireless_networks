@@ -1,45 +1,4 @@
-<section id="sw-loss" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · ARQ 协议 · 停等式</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">情形一：数据帧丢了 / 出错了 → 超时重发</h2>
-</div>
-<div style="position:absolute;left:128px;top:272px;width:1072px;height:520px"></div>
-<svg aria-label="数据帧丢失：A 超时后重发" viewBox="0 0 1072 477" width="1072" height="477" style="position:absolute;left:128px;top:300px">
-<path d="M240,44V453" stroke="#8A97A6" stroke-width="4"/>
-<path d="M840,44V453" stroke="#8A97A6" stroke-width="4"/>
-<path d="M240,44L552,90" stroke="#1D4ED8" stroke-width="5" fill="none"/>
-<path d="M538,76L566,104M538,104L566,76" stroke="#C2410C" stroke-width="6" stroke-linecap="round"/>
-<path d="M212,44V264M204,44H220M204,264H220" stroke="#C2410C" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
-<circle cx="240" cy="264" r="9" fill="#C2410C"/>
-<path d="M240,264L818,349" stroke="#C2410C" stroke-width="5" fill="none"/>
-<polygon points="840,352 817,360 820,338" fill="#C2410C"/>
-<path d="M840,352L262,437" stroke="#14253D" stroke-width="5" fill="none"/>
-<polygon points="240,440 260,426 263,448" fill="#14253D"/>
-</svg>
-<p style="position:absolute;left:278px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">A 发送方</p>
-<p style="position:absolute;left:878px;top:294px;width:180px;font-size:28px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">B 接收方</p>
-<p style="position:absolute;left:413px;top:316px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#1D4ED8">DATA</p>
-<p style="position:absolute;left:190px;top:438px;width:130px;font-size:26px;font-weight:700;line-height:1.2;text-align:right;color:#C2410C">定时器</p>
-<p style="position:absolute;left:473px;top:549px;width:210px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#C2410C">DATA（重发）</p>
-<p style="position:absolute;left:773px;top:624px;width:150px;font-size:26px;font-weight:700;line-height:1.2;text-align:center;color:#14253D">ACK</p>
-<div style="position:absolute;left:1230px;top:272px;width:562px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">发生了什么</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">第一次发的 DATA 在链路上丢了（红叉），或者到了 B 但 CRC 检查不通过被丢弃。B 什么也不回。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">A 怎么办</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">定时器到期仍没收到 ACK → <b>重发同一帧</b>（橙色），B 这次收到了，回 ACK。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">定时器取多长？</p>
-<p style="font-size:28px;line-height:1.45;color:#14253D">至少要超过一个来回的时间（发送时间 + 两倍传播时延）。太短会白白重发，太长会白白等待。</p>
-</div>
-</div>
-<aside>【2 分钟】
-第一种异常：数据帧丢了，或者到了 B 但 CRC 不通过被丢弃。从 A 的角度看，这两种情况一样：什么都没有回来。
-A 在发送这一帧的同时启动了一个定时器（图中左侧的虚线括号）。定时器到期，仍然没有收到 ACK，A 就重发同一帧（橙色）。这次 B 收到了，回 ACK，A 收到 ACK，发下一帧。
-定时器取多长？至少要超过一个来回的时间，也就是发送时间加两倍传播时延。太短会白白重发（B 其实已经收到了），太长会白白等待。
-到这里一切正常。但下一种情形就有问题了。
-[提示：可以问学生：如果 B 收到的帧 CRC 不对，要不要回 NAK？——可以，NAK 能让 A 不必等到超时就立刻重发；但即使没有 NAK，只靠超时也能工作。]</aside>
-</section>
+<section id="sw-loss" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">停等式：发一帧，等确认，再发下一帧</h2><div style="display:flex;flex-direction:column;gap:14px"><div style="position:relative;width:1500px;height:480px;flex-shrink:0"><svg aria-label="停等式：第二个数据帧在链路上丢了，发送方的定时器到期后重发；重发的帧到达后接收方回 ACK" style="position:absolute;left:0px;top:0px" width="1500" height="480" viewBox="0 0 1500 480"><defs><marker id="m1E1A16" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#1E1A16" stroke="none"/></marker><marker id="m2F5D8A" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#2F5D8A" stroke="none"/></marker><marker id="mB4381F" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#B4381F" stroke="none"/></marker></defs><line x1="460" y1="80" x2="460" y2="430" stroke="#8C8170" stroke-width="3" stroke-linecap="round"/><line x1="1040" y1="80" x2="1040" y2="430" stroke="#8C8170" stroke-width="3" stroke-linecap="round"/><line x1="460" y1="80.0" x2="1040" y2="128.6" stroke="#1E1A16" stroke-width="4" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="1040" y1="128.6" x2="460" y2="177.2" stroke="#2F5D8A" stroke-width="4" stroke-linecap="round" marker-end="url(#m2F5D8A)"/><line x1="460" y1="186.9" x2="808.0" y2="216.1" stroke="#1E1A16" stroke-width="4" stroke-linecap="round"/><line x1="794.0" y1="202.1" x2="822.0" y2="230.1" stroke="#B4381F" stroke-width="6" stroke-linecap="round"/><line x1="794.0" y1="230.1" x2="822.0" y2="202.1" stroke="#B4381F" stroke-width="6" stroke-linecap="round"/><line x1="448" y1="186.94444444444446" x2="448" y2="323.05555555555554" stroke="#2F5D8A" stroke-width="6" stroke-linecap="round"/><line x1="460" y1="323.1" x2="1040" y2="371.7" stroke="#B4381F" stroke-width="4" stroke-linecap="round" marker-end="url(#mB4381F)"/><line x1="1040" y1="371.7" x2="460" y2="420.3" stroke="#2F5D8A" stroke-width="4" stroke-linecap="round" marker-end="url(#m2F5D8A)"/></svg><p style="position:absolute;left:330px;top:34px;width:260px;font-size:28px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">发送方 A</p><p style="position:absolute;left:910px;top:34px;width:260px;font-size:28px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">接收方 B</p><p style="position:absolute;left:710.0px;top:64.9px;width:80px;font-size:26px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">DATA</p><p style="position:absolute;left:718.0px;top:113.5px;width:64px;font-size:26px;font-weight:700;line-height:1.25;text-align:center;color:#2F5D8A;white-space:nowrap">ACK</p><p style="position:absolute;left:710.0px;top:171.8px;width:80px;font-size:26px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">DATA</p><p style="position:absolute;left:58px;top:238.0px;width:380px;font-size:26px;font-weight:400;line-height:1.25;text-align:right;color:#2F5D8A;white-space:nowrap">定时器</p><p style="position:absolute;left:658.0px;top:308.0px;width:184px;font-size:26px;font-weight:700;line-height:1.25;text-align:center;color:#B4381F;white-space:nowrap">DATA（重发）</p><p style="position:absolute;left:718.0px;top:356.6px;width:64px;font-size:26px;font-weight:700;line-height:1.25;text-align:center;color:#2F5D8A;white-space:nowrap">ACK</p><p style="position:absolute;left:58px;top:160.2px;width:380px;font-size:24px;font-weight:400;line-height:1.25;text-align:right;color:#5E554B;white-space:nowrap">收到 ACK，发下一帧</p><p style="position:absolute;left:1062px;top:354.7px;width:380px;font-size:24px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">这次收到了</p></div><p style="font-size:30px;font-weight:400;line-height:1.55;color:#5E554B">规则：B 收到正确的帧，回 ACK；A 收到 ACK，才发下一帧；A 发帧时启动定时器，超时没收到 ACK 就重发。数据帧丢了，或收到时 CRC 不通过，B 什么也不回，A 超时后重发同一帧。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">定时器至少要超过一个来回的时间（发送时间加两倍传播时延）：太短白白重发，太长白白等待。</p><aside>【3 分钟】
+停等式 ARQ 的基本思想：开始发下一帧之前，必须确认当前帧已经被正确接收。规则：B 收到正确的帧，回 ACK；A 收到 ACK，才发下一帧；A 发帧时启动定时器，超时没收到 ACK 就重发。优点：简单，A 只需缓存 1 帧，B 也只需要 1 帧的缓冲。
+看图。第一帧顺利到达，ACK 回来，A 发第二帧。第二帧在链路上丢了（红叉），或者到了 B 但 CRC 检查不通过被丢弃，B 什么也不回。A 的定时器到期仍没收到 ACK，就重发同一帧（红色）；这次 B 收到了，回 ACK。
+定时器取多长？至少要超过一个来回的时间（发送时间 + 两倍传播时延）。太短会白白重发，太长会白白等待。</aside></section>

@@ -1,36 +1,4 @@
-<section id="crc-idea" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第一部分 · 差错检测 · CRC</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">CRC 的想法：让整串数据“能被 g 整除”</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">先用十进制类比：双方约定“除数 g = 7”</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">发送方要发数据 <b>1234</b>。在后面补一位校验数字，使整个数能被 7 整除：</p>
-<div style="display:flex;font-family:'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:44px;font-weight:700;line-height:1.2"><p style="color:#1D4ED8">1234</p><p style="color:#C2410C">1</p></div>
-<p style="font-size:28px;line-height:1.5;color:#14253D">12341 = 7 × 1763，除得尽。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">接收方：用 7 去除，看余数</p>
-<div style="display:flex;gap:48px">
-<div style="flex:1;display:flex;flex-direction:column;gap:4px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px"><p style="font-size:26px;color:#1E40AF">收到 12341</p><p style="font-size:26px;line-height:1.4;color:#14253D">余 0 → 无错 ✓</p></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:4px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:26px;color:#9A3412">收到 12741</p><p style="font-size:26px;line-height:1.4;color:#14253D">余 1 → 有错 ✓</p></div>
-</div>
-<div style="border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:26px;line-height:1.45;color:#14253D">收到 12348：差了 7，仍除得尽 → <b>漏检</b>。错误的大小恰好是 7 的倍数时才会漏检。</p></div>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:12px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">CRC = 同样的想法，换成二进制</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">• 双方约定一个二进制数 <b>g</b>（叫生成多项式），比如 1011。</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">• 发送方补上 L 位校验位，使整串比特“被 g 整除”（用<b>模 2</b> 运算，没有进位）。</p>
-<p style="font-size:28px;line-height:1.5;color:#14253D">• 接收方用 g 去除，<b>余数为 0 才认为无错</b>；漏检只发生在错误图样恰好是 g 的倍数时。</p>
-</div>
-<aside>【3 分钟】
-CRC 的名字叫循环冗余校验（Cyclic Redundancy Check），听起来吓人，其实想法很朴素：让整串数据“能被 g 整除”。
-先用十进制类比。双方约定除数 g = 7。发送方要发数据 1234，在后面补一位校验数字，使整个数能被 7 整除：12341 = 7 × 1763，除得尽，所以补 1。
-接收方用 7 去除：收到 12341，余 0，认为无错；收到 12741（中间一位变了），12741 = 7 × 1820 + 1，余 1，不为 0，有错。
-漏检什么时候发生？如果收到 12348，比原来多了 7，仍然除得尽，就看不出来。也就是说，只有错误的大小恰好是 7 的倍数才会漏检。
-CRC 是同样的想法，只是换成二进制：双方约定一个二进制数 g，比如 1011，叫生成多项式；发送方补上 L 位校验位，使整串比特被 g 整除；接收方用 g 去除，余数为 0 才认为无错。
-区别只有一点：二进制的加减法要用“模 2 运算”，没有进位和借位，这样整套运算用异或就能完成，非常适合硬件。下一页讲模 2 运算。
-[验算：12341 ÷ 7 = 1763；12741 = 7×1820 + 1；12348 = 7×1764。]</aside>
-</section>
+<section id="crc-idea" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">CRC 的想法：让整串数据“能被 g 整除”</h2><div style="display:flex;gap:64px;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:18px;width:800px;flex-shrink:0"><p style="font-size:36px;font-weight:700;line-height:1.3;color:#1E1A16">十进制类比</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">双方约定除数 g = 7。发送方要发数据 1234，在后面补一位校验数字，使整个数能被 7 整除：</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">12341 = 7 × 1763</p><div style="display:flex;flex-direction:column;border-bottom:1px solid #CFC5B4"><div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #CFC5B4;padding:16px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:32px;font-weight:900;line-height:1.3;color:#1E1A16;width:300px">收到 12341</p><p style="font-size:32px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">余 0，无错 ✓</p></div><div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #CFC5B4;padding:16px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:32px;font-weight:900;line-height:1.3;color:#1E1A16;width:300px">收到 12741</p><p style="font-size:32px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">余 1，有错 ✓</p></div><div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #CFC5B4;padding:16px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:32px;font-weight:900;line-height:1.3;color:#1E1A16;width:300px">收到 12348</p><p style="font-size:32px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">差了 7，仍除得尽：漏检 ✗</p></div></div></div><div style="display:flex;flex-direction:column;gap:18px;width:760px;flex-shrink:0"><p style="font-size:36px;font-weight:700;line-height:1.3;color:#1E1A16">换成二进制</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">双方约定一个二进制数 g，叫生成多项式，例如 1011。发送方补上 L 位校验位，使整串比特被 g 整除，用模 2 运算，没有进位。接收方用 g 去除，余数为 0 才认为无错。</p><p style="font-size:32px;font-weight:400;line-height:1.55;color:#1E1A16">漏检只发生在错误图样恰好是 g 的倍数的时候。</p></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">十进制里错误是 7 的倍数才漏检；CRC 里错误是 g 的倍数才漏检。</p><aside>【3 分钟】
+CRC，循环冗余校验，是最重要的检错码。想法：让整串数据“能被 g 整除”。先用十进制类比：双方约定除数 g = 7。发送方要发数据 1234，在后面补一位校验数字，使整个数能被 7 整除：12341 = 7 × 1763，除得尽。接收方用 7 去除，看余数：收到 12341，余 0，无错；收到 12741，余 1，有错；收到 12348，差了 7，仍除得尽，漏检。错误的大小恰好是 7 的倍数时才会漏检。
+CRC 是同样的想法，换成二进制：双方约定一个二进制数 g，叫生成多项式，比如 1011。发送方补上 L 位校验位，使整串比特被 g 整除（用模 2 运算，没有进位）。接收方用 g 去除，余数为 0 才认为无错；漏检只发生在错误图样恰好是 g 的倍数的时候。
+[验算：12341 = 7 × 1763；12741 除以 7 余 1；12348 = 7 × 1764。]</aside></section>
