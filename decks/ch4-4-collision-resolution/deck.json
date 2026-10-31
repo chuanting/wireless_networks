@@ -2,73 +2,68 @@
   "v": 4,
   "createdOnFiles": {
     "v": 1,
-    "at": "2026-10-28T10:00:00Z"
+    "at": "2026-11-01T22:00:00Z"
   },
   "lists": "css",
   "title": "冲突分解算法：树形分裂与 FCFS 分裂",
   "order": [
     "cover",
     "why",
-    "agenda",
-    "d1",
-    "p1-rule",
-    "p1-two",
-    "p1-two-cb",
-    "p1-info",
-    "p1-crp",
-    "p1-sum",
-    "d2",
-    "p2-rule",
-    "p2-tree",
-    "p2-table",
-    "p2-counter",
-    "p2-len-cb",
-    "p2-new",
-    "p2-split",
-    "p2-split-cb",
-    "p2-idle",
-    "p2-sum",
-    "d3",
-    "p3-return",
-    "p3-interval",
-    "p3-rules",
-    "p3-example",
-    "p3-stable-cb",
-    "p3-chain",
-    "p3-alpha",
-    "p3-sim",
-    "p3-sum",
-    "d4",
-    "p4-compare",
-    "p4-cost",
-    "p4-rfid",
+    "rule",
+    "two",
+    "two-calc",
+    "info",
+    "split",
+    "tree",
+    "counter",
+    "length",
+    "new",
+    "group",
+    "group-calc",
+    "idle",
+    "interval",
+    "return",
+    "rules",
+    "fcfs-ex",
+    "chain",
+    "alpha",
+    "delay",
+    "compare",
+    "cost",
+    "rfid",
+    "ex1",
+    "ex2",
     "summary",
-    "homework"
+    "project"
   ],
   "sections": {
     "s0": {
-      "description": "开场：时隙 ALOHA 还差在哪里，冲突分解想做什么。",
+      "description": "开场：ALOHA 还差在哪里，撞了以后能不能有组织地解开。",
       "start": "cover"
     },
     "s1": {
-      "description": "冲突分解的思想：撞了先解开、两个分组的例子、冲突分解期。",
-      "start": "d1"
+      "description": "冲突分解的思想：冲突分解期、两个分组的例子、碰撞就是信息。",
+      "start": "rule"
     },
     "s2": {
-      "description": "树形分裂算法：一分为二、栈与计数器、分解期长度、改进一与改进二。",
-      "start": "d2"
+      "description": "树形分裂：一分为二、栈与计数器、平均时隙数 L(n)、基本版的稳定性。",
+      "start": "split"
     },
     "s3": {
-      "description": "FCFS 分裂算法：右边还回去、指配区间、四条规则、稳定条件与 0.487。",
-      "start": "d3"
+      "description": "两步改进：按到达时间分组，空闲之后省一次碰撞。",
+      "start": "group"
     },
     "s4": {
-      "description": "比较与应用：最大稳定通过率对比、代价与前提、RFID 标签识别。",
-      "start": "d4"
+      "description": "FCFS 分裂：指配区间、还回去、四条规则、马尔可夫链、区间取多长、时延。",
+      "start": "interval"
     },
     "s5": {
-      "description": "总结与课后练习。",
-      "start": "summary"
+      "description": "比较、前提与应用：RFID 查询树。",
+      "start": "compare"
+    },
+    "s6": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
     }
   },
   "faces": {

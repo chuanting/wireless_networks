@@ -105,8 +105,8 @@ window.COURSE = {
         },
         {
           no: "4.4", title: "冲突分解算法", status: "ready",
-          desc: "撞了先解开：冲突分解期 · 树形分裂算法（栈与计数器、分解期长度）· 三个改进（0.43、0.46）· FCFS 分裂算法（指配区间、四条规则、稳定条件 0.487）· 上界与 RFID 应用",
-          deck: "ch4-4-collision-resolution", slides: 37, minutes: 100
+          desc: "撞了先解开：冲突分解期 · 两个分组的例子 · 树形分裂（栈与计数器、分解期长度 L(n)、基本版 0.347）· 两步改进（0.4295、0.4623）· FCFS 分裂（指配区间、还回去、四条规则、马尔可夫链、0.4871）· 时延仿真 · 前提与 RFID 查询树",
+          deck: "ch4-4-collision-resolution", slides: 28, minutes: 84
         }
       ]
     },
