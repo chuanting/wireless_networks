@@ -1,38 +1,8 @@
-<section id="summary" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">总结</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">一页回顾今天的内容</h2>
-</div>
-<div style="display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:220px;font-size:34px;font-weight:700;color:#C2410C">P-K 公式</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D"><i>W</i> = <i>λE</i>[<i>X</i>²]/[2(1 − <i>ρ</i>)] = (1 + <i>C</i> 的平方)/2 · <i>ρ</i>/(1 − <i>ρ</i>) · <i>E</i>[<i>X</i>]：方差越大，等得越久。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:220px;font-size:34px;font-weight:700;color:#C2410C">ARQ</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">重传使服务时间变长又变波动；10% 错误率让等待增加 20 倍。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:220px;font-size:34px;font-weight:700;color:#C2410C">休假与复用</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D"><i>W</i> 多等“半个休假”；FDM/TDM 的固定代价；统计复用快约 <i>m</i> 倍。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="width:220px;font-size:34px;font-weight:700;color:#C2410C">轮询</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">耗尽 &lt; 闸门 &lt; 限制（等待时间）；轻载 ≈ 半个循环。</p>
-</div>
-<div style="display:flex;align-items:center;gap:26px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="width:220px;font-size:34px;font-weight:700;color:#C2410C">优先级</p>
-<p style="flex:1;font-size:28px;line-height:1.4;color:#14253D">非强插 <i>R</i>/[(1−<i>σ</i><i>k</i>−1)(1−<i>σ</i><i>k</i>)]；短的优先；守恒定律。</p>
-</div>
-</div>
-<div style="border-top:2px solid #C2410C;padding:16px 0px 0px 0px"><p style="font-size:28px;font-weight:700;color:#9A3412">下一节（3.4）：把许多个队列连成网络——Burke 定理、Jackson 定理与 Kleinrock 近似。</p></div>
-<aside>【2 分钟】
-带着大家快速回顾，每行一句话：
-P-K 公式：W 等于 λ 乘二阶矩，除以 2(1 减 ρ)；用波动系数写：(1 加 C 平方) 除以 2，乘 ρ 除以 (1 减 ρ)，乘 E[X]。方差越大，等得越久。
-ARQ：重传让服务时间变长，还变得波动；出错率 10%，等待增加了 20 倍。
-休假与复用：休假使平均多等半个休假；FDM、TDM 有固定的代价；统计复用，轻载时快大约 m 倍。
-轮询：耗尽型最好，闸门型次之，限制型最差；轻载的时候，平均等待大约是半个循环。
-优先级：非强插的公式；服务时间短的优先；守恒定律。
-下一节 3.4：把许多个队列连成网络，会用到 Burke 定理、Jackson 定理和 Kleinrock 近似。
-最后留 3 分钟提问，然后布置练习。</aside>
-</section>
+<section id="summary" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">一页回顾</h2><div style="display:flex;flex-direction:column;border-bottom:1px solid #CFC5B4"><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:24px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">P-K</p><div style="flex:1"><div style="display:flex;gap:6px;align-items:baseline"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>W</i> = <i>λE</i>[<i>X</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap">2</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap">] / (2(1 − <i>ρ</i>))</p></div><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">，由 <i>λ</i>、<i>E</i>[<i>X</i>] 和二阶矩决定；波动越大，等得越久。</p></div></div></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:24px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">休假</p><div style="flex:1"><div style="display:flex;gap:6px;align-items:baseline"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">多出一项</p><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>E</i>[<i>V</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap">2</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap">] / (2<i>E</i>[<i>V</i>])</p></div><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">；固定休假 <i>V</i> 就是 <i>V</i>/2，休假长短不齐则更多。</p></div></div></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:24px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">复用</p><p style="font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">FDM、TDM 切开容量，每个分组背上 <i>m</i> 倍的发送时间；统计复用不切，最快。</p></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:24px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">轮询</p><p style="font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16;flex:1">轻载时等待趋于 <i>mv</i>/2；1-限制型要求 <i>ρ</i> + <i>λv</i> &lt; 1，重载时代价最大。</p></div><div style="display:flex;align-items:baseline;gap:32px;border-top:1px solid #CFC5B4;padding:24px 0px"><p style="font-family:'Noto Serif SC', serif;font-size:42px;font-weight:900;line-height:1.3;color:#1E1A16;width:260px">优先级</p><div style="flex:1"><div style="display:flex;gap:6px;align-items:baseline"><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16">非抢占用 Cobham 公式；抢占恢复时第 <i>k</i> 类只受前 <i>k</i> 类影响；等待守恒：</p><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap">Σ<i>ρ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>W</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap;align-self:flex-end">k</p></div><p style="font-size:34px;font-weight:400;line-height:1.4;color:#1E1A16"> 不变。</p></div></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">下一讲（3.4）：把许多排队系统连成网络，Burke 定理与 Jackson 网络。</p><aside>【2 分钟】
+一页回顾。
+P-K：W 等于 λE[X^2] 除以 2(1−ρ)，只由 λ、平均服务时间和二阶矩三个数决定。同样的 λ 和平均值，服务时间的波动越大，等得越久：M/D/1 是 M/M/1 的一半；重传、长短分组混合，都使二阶矩变大，等待暴涨。
+休假：多一项，平均剩余休假 E[V^2]/(2E[V])。固定休假是 V/2，休假长短不齐，多等得更多。
+复用：FDM 和 TDM 把容量切开，每个分组背上 m 倍的发送时间；统计复用不切，最快。
+轮询：轻载时等待趋于 mv/2，半个空转圈；1-限制型的稳定条件更严，ρ + λv &lt; 1，重载时代价最大。
+优先级：非抢占用 Cobham 公式；抢占恢复时，第 k 类只受前 k 类影响；非抢占的等待守恒，Σρ_kW_k 不变，调整优先级只是在各类之间搬运等待。
+下一讲 3.4：一个队列变成一张网。Burke 定理告诉我们，M/M/1 的输出仍是泊松过程，由它出发得到 Jackson 网络的乘积形式解。</aside></section>

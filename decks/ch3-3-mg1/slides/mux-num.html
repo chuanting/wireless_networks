@@ -1,35 +1,7 @@
-<section id="mux-num" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 多路复用</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">数值比较：统计复用大获全胜</h2>
-</div>
-<div style="display:flex;flex-direction:column;gap:0px">
-<div style="display:flex;gap:10px;border-top:3px solid #14253D;border-bottom:2px solid #14253D;padding:10px 0px"><p style="width:230px;font-size:26px;font-weight:700;color:#C2410C"><i>m</i> = 10 个用户</p><p style="width:200px;font-size:26px;font-weight:700;color:#14253D">FDM</p><p style="width:200px;font-size:26px;font-weight:700;color:#14253D">时隙 FDM</p><p style="width:200px;font-size:26px;font-weight:700;color:#14253D">TDM</p><p style="flex:1;font-size:26px;font-weight:700;color:#14253D">统计复用</p></div>
-<div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C"><i>λ</i> = 0.1（轻载）</p><p style="width:200px;font-size:28px;color:#14253D">10.6</p><p style="width:200px;font-size:28px;color:#14253D">15.6</p><p style="width:200px;font-size:28px;color:#14253D">6.6</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">1.06</p></div><div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C"><i>λ</i> = 0.5</p><p style="width:200px;font-size:28px;color:#14253D">15.0</p><p style="width:200px;font-size:28px;color:#14253D">20.0</p><p style="width:200px;font-size:28px;color:#14253D">11.0</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">1.5</p></div><div style="display:flex;gap:10px;border-bottom:1px solid #D9D1C0;padding:10px 0px"><p style="width:230px;font-size:28px;font-weight:700;color:#C2410C"><i>λ</i> = 0.8（重载）</p><p style="width:200px;font-size:28px;color:#14253D">30.0</p><p style="width:200px;font-size:28px;color:#14253D">35.0</p><p style="width:200px;font-size:28px;color:#14253D">26.0</p><p style="flex:1;font-size:28px;font-weight:700;color:#14253D">3.0</p></div>
-</div>
-<div style="display:flex;gap:48px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">① 轻载时差别最大</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">统计复用 1.06，FDM 是 10.6：<b>一个分组发出去，只要 1 个时隙</b>；FDM 里要 10 个。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">② TDM 比 FDM 好</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">分组发得快（1 而不是 <i>m</i>）；但<b>都要“等自己的时隙”</b>，约 <i>m</i>/2。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">③ 为什么差距这么大</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">FDM/TDM 把资源<b>预先分好</b>：别人空着，你也借不到；统计复用“<b>谁需要谁用</b>”。</p>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:28px;line-height:1.45;color:#14253D">第 4 章的任务：让大量用户<b>不用事先分配</b>就能共享信道——多址接入协议。</p>
-</div>
-<aside>【3 分钟】
-用数字比较。m 等于 10 个用户。时延单位是时隙。
-轻载，λ 等于 0.1：FDM 是 10.6 个时隙，时隙 FDM 是 15.6，TDM 是 6.6，而统计复用只有 1.06。统计复用快了将近 10 倍。
-中等负荷，λ 等于 0.5：FDM 15，时隙 FDM 20，TDM 11，统计复用 1.5。
-重载，λ 等于 0.8：FDM 30，时隙 FDM 35，TDM 26，统计复用只有 3。
-三点观察。一，轻载时差别最大：统计复用里，一个分组来了，直接用全速发出去，只要 1 个时隙；FDM 里，哪怕信道完全空闲，也只能用 1/10 的速度慢慢发，要 10 个时隙。二，TDM 比 FDM 好：分组发得快，只用 1 个时隙；但是它们都要“等自己的时隙”，平均 m/2。三，为什么差距这么大：FDM 和 TDM 都是预先把资源分好，别人空着，你也借不到；统计复用是谁需要谁用，资源得到充分利用。
-所以，对于“突发”的数据业务，统计复用优势明显。但是统计复用有个问题：多个用户同时想发的时候，怎么协调？这就是第 4 章“多址接入协议”要解决的：怎样让大量用户，不用事先分配，也能有效、公平地共享一条信道。
-[验算：m=10：FDM = 10 + 0.1×10/(2×0.9) = 10.56；统计复用 = 1 + 0.1/(2×0.9) = 1.056。]</aside>
-</section>
+<section id="mux-num" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">数字：10 个用户</h2><div style="display:flex;flex-direction:column;gap:30px"><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">时延以全速发完一个分组的时间为单位。</p><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:22px 0px"><div style="width:260px;flex-shrink:0"><div style="display:flex;gap:8px;align-items:baseline"><p style="font-size:32px;font-weight:700;line-height:1.4;color:#1E1A16">负荷</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:34px;white-space:nowrap"><i>λ</i></p></div></div><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">FDM</p><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">时隙 FDM</p><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">TDM</p><p style="font-size:36px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">统计复用</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:26px 0px"><p style="font-size:40px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.1</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">10.56</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">15.56</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">6.56</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#B4381F;width:320px;flex-shrink:0">1.06</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:26px 0px"><p style="font-size:40px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.5</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">15</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">20</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">11</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#B4381F;width:320px;flex-shrink:0">1.5</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:26px 0px"><p style="font-size:40px;font-weight:700;line-height:1.4;color:#1E1A16;width:260px;flex-shrink:0">0.8</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">30</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">35</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">26</p><p style="font-size:40px;font-weight:400;line-height:1.4;color:#B4381F;width:320px;flex-shrink:0">3</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">λ = 0.5 时，统计复用只要 1.5，FDM 要 15：共享把空闲的容量用起来了。</p><aside>【3 分钟】
+取 m = 10 个用户，时延以“全速发完一个分组”为单位。
+λ = 0.1 时：FDM 10.56，时隙 FDM 15.56，TDM 6.56，统计复用 1.06。轻载时 FDM 的时延几乎全是那个 m = 10 的发送时间，统计复用接近 1。
+λ = 0.5 时：FDM 15，时隙 FDM 20，TDM 11，统计复用 1.5。
+λ = 0.8 时：FDM 30，时隙 FDM 35，TDM 26，统计复用 3。
+统计复用快得多的原因：固定分配的信道，一个用户没有数据时，它的那份容量就闲着，别人不能借用；统计复用把闲着的容量都用起来了。代价是理想模型没算的：排队的管理、调度和不同业务之间的公平。
+[验算：四种方式都用事件模拟核对过，误差都在 0.5% 以内。]</aside></section>

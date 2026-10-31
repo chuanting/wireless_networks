@@ -1,28 +1,80 @@
 {
   "v": 4,
-  "createdOnFiles": { "v": 1, "at": "2026-10-19T01:00:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-18T23:30:00Z"
+  },
   "lists": "css",
   "title": "M/G/1 排队系统与 P-K 公式",
   "order": [
-    "cover", "why", "recap", "agenda",
-    "d1", "mg1-def", "mg1-idea", "mg1-derive", "mg1-resid", "mg1-pk", "mg1-md1", "mg1-var", "mg1-arq", "p1-sum",
-    "d2", "vac-def", "vac-W", "mux-def", "mux-result", "mux-num", "p2-sum",
-    "d3", "poll-def", "poll-exh", "poll-num", "p3-sum",
-    "d4", "prio-def", "prio-np", "prio-eg", "prio-assign", "prio-pre", "prio-sum",
-    "summary", "project", "homework"
+    "cover",
+    "why",
+    "def",
+    "moments",
+    "idea",
+    "derive",
+    "resid",
+    "pk",
+    "md1",
+    "var",
+    "arq",
+    "vac-def",
+    "vac-W",
+    "vac-eg",
+    "mux-def",
+    "mux-result",
+    "mux-num",
+    "poll-def",
+    "poll-W",
+    "poll-num",
+    "prio-def",
+    "prio-np",
+    "prio-eg",
+    "prio-assign",
+    "prio-pre",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
   ],
   "sections": {
-    "s0": { "description": "开场：为什么超越 M/M/1，回顾 Little 定理与 M/M/1。", "start": "cover" },
-    "s1": { "description": "M/G/1 与 P-K 公式：剩余服务时间、方差的代价、ARQ 重传的时延。", "start": "d1" },
-    "s2": { "description": "服务员休假与多路复用：FDM、时隙 FDM、TDM 与统计复用的时延比较。", "start": "d2" },
-    "s3": { "description": "轮询与预约系统：耗尽型、闸门型与限制型。", "start": "d3" },
-    "s4": { "description": "优先级排队：非强插与强插，谁该有高优先级。", "start": "d4" },
-    "s5": { "description": "总结、拓展实践与课后练习。", "start": "summary" }
+    "s0": {
+      "description": "开场：平均服务时间一样，等待却可以差很多。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "M/G/1 与 P-K 公式：等待 = 剩余服务 + 排队者的服务，用三角形面积和 Little 定理推出。",
+      "start": "def"
+    },
+    "s2": {
+      "description": "P-K 公式的用法：M/D/1 是 M/M/1 的一半、方差的代价、重传。",
+      "start": "md1"
+    },
+    "s3": {
+      "description": "休假与多路复用：多出一项剩余休假；FDM、TDM、统计复用的时延。",
+      "start": "vac-def"
+    },
+    "s4": {
+      "description": "轮询：耗尽型、闸门型、1-限制型。",
+      "start": "poll-def"
+    },
+    "s5": {
+      "description": "优先级：非抢占的 Cobham 公式、等待守恒、抢占恢复。",
+      "start": "prio-def"
+    },
+    "s6": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
   },
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
     }
   },
   "designSystems": []

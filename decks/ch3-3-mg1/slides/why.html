@@ -1,32 +1,5 @@
-<section id="why" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">开场</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">为什么要超越 M/M/1？</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#C2410C">① 分组长度不是指数分布</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">固定长度：语音包、ATM 的 53 字节信元。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">长短悬殊：40 字节的确认 + 1500 字节的数据。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#1E40AF">② 服务时间被“加长”</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">ARQ 重传：一个分组要发好几次。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">节点要做别的事（休假）、轮询要“走一圈”。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:32px;font-weight:700;color:#9A3412">③ 业务要区别对待</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">语音怕等，文件不怕等。</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">应给不同业务不同的<b>优先级</b>。</p>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:30px;line-height:1.45;color:#14253D">今天：一个公式（<b>P-K 公式</b>）＋ 四个应用：<b>ARQ 重传 · 休假与复用 · 轮询 · 优先级</b>。</p>
-</div>
-<aside>【2 分钟】
-为什么要超越 M/M/1？三个理由。
-一，分组长度不是指数分布。有的系统分组固定长度，比如语音包、ATM 的 53 字节信元；有的系统分组长短悬殊，比如 40 字节的确认包和 1500 字节的数据包混在一起。指数分布描述不了。
-二，服务时间被“加长”了。ARQ 重传：一个分组可能要发好几次，每次占用信道；节点要做别的事，叫服务员“休假”；轮询系统里，服务员要“走一圈”才能轮到你。这些都是在服务时间之外，额外增加的时间。
-三，不同业务要区别对待。语音怕等，一等就卡；文件传输不怕等。那就应该给语音高优先级。
-所以今天的内容：一个公式，P-K 公式，加上四个应用：ARQ 重传、休假和复用、轮询、优先级。</aside>
-</section>
+<section id="why" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">平均长度一样，等待也一样吗？</h2><div style="display:flex;flex-direction:column;gap:36px"><div style="position:relative;width:1664px;height:410px;flex-shrink:0"><svg aria-label="两条链路的分组长度：上面总是 1；下面多数是 0.5，偶尔有一个 4.5；平均都是 1" style="position:absolute;left:0px;top:0px" width="1664" height="410" viewBox="0 0 1664 410"><defs><marker id="m1E1A16" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#1E1A16" stroke="none"/></marker></defs><rect x="472" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="592" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="712" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="832" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="952" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="1072" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="1192" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="1312" y="100" width="116" height="64" fill="#2F5D8A"/><rect x="472" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="532.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="592.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="652.0" y="290" width="536.0" height="64" fill="#B4381F"/><rect x="1192.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="1252.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="1312.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><rect x="1372.0" y="290" width="56.0" height="64" fill="#2F5D8A"/><line x1="878.0" y1="54" x2="878.0" y2="96" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="878.0" y1="244" x2="878.0" y2="286" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round" marker-end="url(#m1E1A16)"/><path d="M878.0 176 L878.0 186 L950 186 L950 176" fill="none" stroke="#1E1A16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M878.0 366 L878.0 376 L1190 376 L1190 366" fill="none" stroke="#1E1A16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p style="position:absolute;left:652.0px;top:304px;width:536.0px;font-size:36px;font-weight:700;line-height:1.25;text-align:center;color:#F6F1E7;white-space:nowrap">4.5</p><p style="position:absolute;left:768.0px;top:10px;width:220px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">新分组到达</p><p style="position:absolute;left:784.0px;top:192px;width:260px;font-size:28px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">还要发 0.6</p><p style="position:absolute;left:904.0px;top:382px;width:260px;font-size:28px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">还要发 2.6</p><p style="position:absolute;left:0px;top:102px;width:440px;font-size:34px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">总是等长的分组</p><p style="position:absolute;left:0px;top:142px;width:440px;font-size:28px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">每个都是 1</p><p style="position:absolute;left:0px;top:292px;width:440px;font-size:34px;font-weight:700;line-height:1.25;text-align:left;color:#1E1A16;white-space:nowrap">偶尔出现很长的分组</p><p style="position:absolute;left:0px;top:332px;width:440px;font-size:28px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">多数 0.5，偶尔 4.5，平均也是 1</p></div><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">到达率相同，平均分组长度也相同（都是 1）。新分组一到，下面那条链路更可能正被一个长分组占着。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">只知道平均服务时间不够，还要知道它的波动。</p><aside>【3 分钟 · 先让学生猜】
+先问一个问题：两条链路，分组到达的速率一样，平均分组长度也一样，都是 1 个时间单位。上面一条的分组全是等长的 1；下面一条，多数分组只有 0.5，但每 8 个里有一个长分组，长度 4.5，平均下来也是 1。哪一条的平均等待更长？
+让同学们举手。答案是下面一条。原因看图：新分组到达时，如果碰上一个正在发送的分组，要等它发完。上面那条，正在发送的分组最多还剩 1；下面那条，长分组虽然只占分组个数的八分之一，却占了 4.5/8，约 56% 的时间，新分组一到，更可能撞上它，剩余时间可能长达 4.5。
+所以，平均值不够。这一节要弄清楚：服务时间的哪个量会影响等待？答案是二阶矩，也就是波动。
+[提示：图中到达点剩余的 0.6 和 2.6 只是这一次的例子。]</aside></section>

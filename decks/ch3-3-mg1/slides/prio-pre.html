@@ -1,40 +1,7 @@
-<section id="prio-pre" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">强插优先级的时延</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:flex-start">
-<div style="flex:1.2;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">强插（中断后恢复）：第 <i>k</i> 类完全“看不见”更低的类</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">第 <i>k</i> 类的时延 = 服务时间被高类<b>拉长</b> + 排队：</p>
-<p style="font-size:30px;line-height:1.5;font-weight:700;color:#C2410C;padding-left:20px"><i>T</i><i>k</i> = [(1/<i>μ</i><i>k</i>)(1 − <i>σ</i><i>k</i>) + <i>R</i><i>k</i>] / [(1 − <i>σ</i><i>k</i>−1)(1 − <i>σ</i><i>k</i>)]</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">其中 <i>R</i><i>k</i> = (1/2) Σ(<i>i</i>=1…<i>k</i>) <i>λ</i><i>i</i> <i>E</i>[<i>X</i><i>i</i> 的平方]：只含第 1 到 <i>k</i> 类。</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">第 1 类：<i>T</i>1 = 1/<i>μ</i>1 + <i>R</i>1/(1 − <i>ρ</i>1)：<b>与低优先级完全无关</b>。</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">同一例子（强插）</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">第 1 类：<i>T</i>1 = 0.2 + 0.004/0.96 ≈ <b>0.204 ms</b>（几乎不等，<i>W</i>1 ≈ 0.004 ms）。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">第 2 类</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D"><i>T</i>2 = 3.14 ms，<i>W</i>2 = <i>T</i>2 − 1.2 = <b>1.94 ms</b>（非强插：1.89）。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">对比</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">强插：高类几乎不等（0.45 → 0.004 ms）；低类略受损（1.89 → 1.94 ms）。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2410C;padding:6px 0px 6px 28px">
-<p style="font-size:25px;line-height:1.45;color:#14253D">强插适合<b>实时业务</b>要求极低时延的场合；代价：低优先级被打断，要有恢复机制。</p>
-</div>
-</div>
-</div>
-<aside>【3 分钟 · 可压缩】
-强插，也叫抢占：高优先级一到，立刻中断低优先级。
-这时，第 k 类顾客看不见比它优先级低的类——因为低优先级的顾客一来就会被打断，不会影响他。所以第 k 类的时延，只和第 1 到 k 类有关。
-公式：T_k 等于 [ (1/μ_k) 乘 (1 减 σ_k)，加 R_k ]，除以 [(1 减 σ_{k−1}) 乘 (1 减 σ_k)]。其中 R_k 是前 k 类的剩余时间，二分之一乘前 k 类的 λ_i 乘二阶矩之和。直观上：第一项，是服务时间本身被更高优先级的顾客“拉长”；第二项，是排队等待。
-第 1 类最简单：T_1 等于 1/μ_1，加上 R_1 除以 (1 减 ρ_1)——和低优先级完全无关，就像系统里只有第 1 类。
-用同样的例子：第 1 类的 R_1 只有 0.004 毫秒，所以 T_1 约 0.204 毫秒，几乎不用等，比非强插的 0.454 毫秒，等待又降了一百倍。第 2 类：T_2 等于 3.14 毫秒，扣掉自己的服务时间 1.2 毫秒，等待 1.94 毫秒，比非强插的 1.89 毫秒略大一点。
-所以，强插的效果：高类几乎不等，低类略受损失。适合实时业务要求极低时延的场合；代价是低优先级的分组会被打断，实现上要有恢复机制。
-[验算：用事件模拟验证过：强插，T_1 ≈ 0.204 ms，T_2 ≈ 3.13 ms。]</aside>
-</section>
+<section id="prio-pre" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">抢占恢复：高类随到随服务</h2><div style="display:flex;flex-direction:column;gap:26px"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap"><i>T</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">&#160;= <i>E</i>[<i>X</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">] / (1 − <i>σ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k−1</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">) + <i>R</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">&#160;/ ((1 − <i>σ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k−1</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">)(1 − <i>σ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:27px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:44px;white-space:nowrap">))</p></div><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>R</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap">&#160;= (1/2) Σ <i>λ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap;align-self:flex-end">i</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap"><i>E</i>[<i>X</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap;align-self:flex-end">i</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:24px;white-space:nowrap">2</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:400;font-size:38px;white-space:nowrap">]，　<i>i</i> = 1 … <i>k</i></p></div><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">第一项：服务被更高类打断，被拉长；第二项：开始服务前的等待，只与第 1 到 k 类有关。</p><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:18px 0px"><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:520px;flex-shrink:0">时延 T（ms）</p><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:420px;flex-shrink:0">非抢占</p><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:420px;flex-shrink:0">抢占恢复</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:22px 0px"><p style="font-size:38px;font-weight:700;line-height:1.4;color:#1E1A16;width:520px;flex-shrink:0">语音</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:420px;flex-shrink:0">0.654</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#B4381F;width:420px;flex-shrink:0">0.204</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:22px 0px"><p style="font-size:38px;font-weight:700;line-height:1.4;color:#1E1A16;width:520px;flex-shrink:0">数据</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:420px;flex-shrink:0">3.092</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:420px;flex-shrink:0">3.142</p></div></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">语音的时延几乎等于它自己的发送时间 0.2 ms；数据只多等 0.05 ms。</p><aside>【4 分钟】
+抢占恢复：高优先级分组到达，立刻打断正在服务的低优先级分组，低优先级以后从断点继续。这时第 k 类完全不受更低类的影响，就像它们不存在。
+公式：T_k = E[X_k]/(1−σ_(k−1)) + R_k/[(1−σ_(k−1))(1−σ_k)]，R_k = (1/2) Σ_(i≤k) λ_i E[X_i^2]，只加到第 k 类。第一项：第 k 类的一次服务，被更高类反复打断，从 E[X_k] 拉长到 E[X_k]/(1−σ_(k−1))；第二项：开始前的等待。第 1 类：T_1 = E[X_1] + R_1/(1−ρ_1)，只受自己这一类的影响。
+还用上一页的例子。语音：T_1 = 0.2 + 0.004/0.96 = 0.204 ms，几乎等于自己的发送时间 0.2 ms；非抢占时是 0.654 ms。数据：T_2 = 1.2/0.96 + 0.436/(0.96 × 0.24) = 3.142 ms，非抢占是 3.092 ms，只多了 0.05 ms。
+注意：抢占恢复时，T_2 − E[X_2] = 1.942 ms 不只是开始服务前的排队，还包括中途被语音打断的时间，不能叫“等待”。
+适用范围：抢占恢复假定打断没有额外开销，也不重新发送。在以太网帧这类一旦发出就不能中断的场合，只能用非抢占；ATM、分段后的小信元可以近似抢占。
+[验算：事件模拟：语音 T = 0.204，数据 T = 3.129，与公式相差在 0.5% 以内。]</aside></section>

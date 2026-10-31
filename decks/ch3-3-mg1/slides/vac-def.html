@@ -1,35 +1,4 @@
-<section id="vac-def" data-transition="fade" style="background:#FBF9F3;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第二部分 · 休假</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">服务员“休假”的 M/G/1</h2>
-</div>
-<div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">服务员的时间线：服务 → 队列空了就休假 → 回来发现还空，再休假</p>
-<div style="display:flex;gap:6px"><p style="width:170px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务 <i>X</i></p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p><p style="width:170px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务</p><p style="width:130px;height:60px;background:#DCE6FB;border:2px solid #1D4ED8;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#1E40AF">服务</p><p style="width:110px;height:60px;background:#FDEBDD;border:2px solid #C2410C;border-radius:10px;font-size:24px;font-weight:700;line-height:56px;text-align:center;color:#9A3412">休假 <i>V</i></p></div>
-<p style="font-size:26px;line-height:1.5;color:#14253D">休假期间到达的顾客，必须<b>等到休假结束</b>才能被服务。</p>
-</div>
-<div style="display:flex;gap:48px;align-items:stretch">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#1E40AF">模型</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">M/G/1，但服务员每次服务完、队列变空以后，要“休假”一段时间 <i>V</i>。</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">休假回来若仍无人，再休假一次。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">已知量</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">休假时间 <i>V</i>1, <i>V</i>2, … 独立同分布，平均 <i>E</i>[<i>V</i>]，二阶矩 <i>E</i>[<i>V</i>²]；</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">与到达、服务相互独立。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#9A3412">现实中的“休假”</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">节点去做别的事：存数据、信令交换。</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">时隙系统：只能在时隙开头开始发送——<b>等下一个时隙，就是休假</b>。</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">轮询：服务员去服务别的用户。</p>
-</div>
-</div>
-<aside>【3 分钟】
-M/G/1 的一个变种：服务员有休假。图里是服务员的时间线：服务一个顾客，服务完了如果队列里没有人，服务员就去“休假”，休假一段时间 V；休假回来，如果队列里仍然没有人，再休一次。休假期间到达的顾客，必须等到休假结束才能被服务。
-假设每次休假的时间是独立同分布的，平均 E[V]，二阶矩 E[V 平方]，和到达、服务都无关。
-现实里什么是“休假”？一，节点要去做别的事：存数据、信令交换，这段时间不处理分组；二，时隙系统：只能在时隙的开头才能开始发送，如果一个分组在时隙中间到达，就得等下一个时隙开始——这段等待，等价于服务员在“休假”；三，轮询：服务员去服务别的用户了，轮到你之前，对你来说就是在休假。
-所以“休假模型”，能描述很多要等一段时间才能开始服务的系统。下一页推导它的时延。
-[提示：问学生：“你在车站等公交，车每 10 分钟一班，你的平均等待是多久？”（5 分钟，这就是休假的剩余时间。）]</aside>
-</section>
+<section id="vac-def" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">休假：服务员有时不在</h2><div style="display:flex;flex-direction:column;gap:36px"><div style="position:relative;width:1664px;height:270px;flex-shrink:0"><svg aria-label="服务员的时间线：服务、休假、再休假；休假期间到达的顾客要等到休假结束" style="position:absolute;left:0px;top:0px" width="1664" height="270" viewBox="0 0 1664 270"><defs><marker id="m1E1A16" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#1E1A16" stroke="none"/></marker></defs><rect x="62" y="120" width="196" height="72" fill="#2F5D8A"/><rect x="262" y="120" width="296" height="72" fill="#DCD0B8" stroke="#8C8170" stroke-width="1.5"/><rect x="562" y="120" width="296" height="72" fill="#DCD0B8" stroke="#8C8170" stroke-width="1.5"/><rect x="862" y="120" width="196" height="72" fill="#2F5D8A"/><rect x="1062" y="120" width="196" height="72" fill="#2F5D8A"/><rect x="1262" y="120" width="296" height="72" fill="#DCD0B8" stroke="#8C8170" stroke-width="1.5"/><line x1="640" y1="66" x2="640" y2="116" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="760" y1="66" x2="760" y2="116" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round" marker-end="url(#m1E1A16)"/><path d="M640 206 L640 218 L860 218 L860 206" fill="none" stroke="#1E1A16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p style="position:absolute;left:60px;top:138px;width:200px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#F6F1E7;white-space:nowrap">服务 <i>X</i></p><p style="position:absolute;left:260px;top:138px;width:300px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">休假 <i>V</i></p><p style="position:absolute;left:560px;top:138px;width:300px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">休假 <i>V</i></p><p style="position:absolute;left:860px;top:138px;width:200px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#F6F1E7;white-space:nowrap">服务 <i>X</i></p><p style="position:absolute;left:1060px;top:138px;width:200px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#F6F1E7;white-space:nowrap">服务 <i>X</i></p><p style="position:absolute;left:1260px;top:138px;width:300px;font-size:32px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">休假 <i>V</i></p><p style="position:absolute;left:560px;top:22px;width:300px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">到达</p><p style="position:absolute;left:500px;top:226px;width:500px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">都要等到休假结束</p></div><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">队列清空后，服务员去休假，时长 <i>V</i>（可以是随机的）。休假期间到达的分组都要等；回来时队列仍空，就再休一次。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">休假期间来的分组，多等的是剩余休假，不是整个休假。</p><aside>【3 分钟】
+再看一个常见的情形：服务员有时不在。队列清空以后，服务员去“休假”，休假的长度 V 可以是固定的，也可以是随机的。休假期间到达的分组不能被服务，必须等到休假结束。休假结束时如果队列里有分组，服务员就一直服务到队列清空，才再次休假；如果回来仍然空，就再休一次。这叫多次休假、耗尽服务的 M/G/1。
+现实中有很多这样的情形：时隙系统只能在时隙边界开始发送，空闲时服务员“休假”到下一个边界；节能设备周期性睡眠，醒来看有没有数据；FDM、TDM 里一个用户要等自己的频带或时隙；后面的轮询也是服务员去服务别的队列。
+图中，两个分组在休假中途到达，都要等到休假结束才开始被服务。注意它们多等的是“剩余的休假”，不是整个休假。</aside></section>

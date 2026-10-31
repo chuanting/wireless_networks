@@ -1,42 +1,5 @@
-<section id="poll-def" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第三部分 · 轮询</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">轮询（令牌）系统与三种服务规则</h2>
-</div>
-<div style="display:flex;gap:24px;align-items:flex-start">
-<div style="position:relative;width:640px;height:400px">
-<svg aria-label="四个站点按环形依次被轮询" viewBox="0 0 640 380" width="640" height="380" style="position:absolute;left:0px;top:0px">
-<path d="M160,70H460M520,110V260M460,310H160M100,260V110" stroke="#8A97A6" stroke-width="5" fill="none"/>
-<polygon points="470,70 446,58 446,82" fill="#C2410C"/><polygon points="520,270 508,246 532,246" fill="#C2410C"/><polygon points="150,310 174,298 174,322" fill="#C2410C"/><polygon points="100,100 88,124 112,124" fill="#C2410C"/>
-<circle cx="100" cy="70" r="40" fill="#14253D"/><circle cx="520" cy="70" r="40" fill="#14253D"/><circle cx="520" cy="310" r="40" fill="#14253D"/><circle cx="100" cy="310" r="40" fill="#14253D"/>
-</svg><p style="position:absolute;left:60px;top:52px;width:80px;font-size:30px;font-weight:700;line-height:1.1;text-align:center;color:#F4F1E8">1</p><p style="position:absolute;left:480px;top:52px;width:80px;font-size:30px;font-weight:700;line-height:1.1;text-align:center;color:#F4F1E8">2</p><p style="position:absolute;left:480px;top:292px;width:80px;font-size:30px;font-weight:700;line-height:1.1;text-align:center;color:#F4F1E8">3</p><p style="position:absolute;left:60px;top:292px;width:80px;font-size:30px;font-weight:700;line-height:1.1;text-align:center;color:#F4F1E8">4</p><p style="position:absolute;left:180px;top:160px;width:280px;font-size:30px;font-weight:700;line-height:1.3;text-align:center;color:#9A3412">令牌 / 轮询</p><p style="position:absolute;left:160px;top:206px;width:320px;font-size:24px;font-weight:400;line-height:1.3;text-align:center;color:#14253D">站间“走时” = 预约时间 <i>V</i></p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#1E40AF">设定</p>
-<p style="font-size:24px;line-height:1.4;color:#14253D"><i>m</i> 个对称用户，总到达率 <i>λ</i>（泊松），服务 <i>X</i>；站与站之间有“预约/走时” <i>V</i>（平均 <i>E</i>[<i>V</i>]）。一圈 = <i>m</i> 次访问。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#9A3412">耗尽型 Exhaustive</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">轮到我，就把队里的分组<b>全部发完</b>（包括发的过程中新到的）再走。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">闸门型 Gated</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">轮到我，只发<b>到达时已在队里</b>的，新来的等下一圈。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">限制型 Limited</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">每次访问<b>最多发 1 个</b>。公平，但容量更小。</p>
-</div>
-</div>
-</div>
-<aside>【3 分钟】
-轮询系统：m 个用户围成一圈，一个“令牌”，或者叫“轮询信号”，依次到每一个用户。拿到令牌的用户可以发送，发完（或者发到规定的数量）就把令牌交给下一个。令牌环、轮询、预约式的多址接入协议，都是这种结构。
-设 m 个对称的用户，总到达率 λ，每个用户 λ/m，泊松到达；服务时间 X。站与站之间，传递令牌、预约，需要一点时间，叫“预约时间”或者“走时”，记作 V。令牌走完一圈，访问了 m 个用户。
-令牌到了一个用户，有三种服务规则：
-一，耗尽型：把这个用户队里的分组全部发完才走，包括在发的过程中新到达的。
-二，闸门型：只发令牌到达时已经在队里的分组，发的过程中新到的，等下一圈。
-三，限制型：每次访问最多发一个分组。这种最公平，但是因为每次只发一个，容量最小。
-问题：这三种规则，分组的平均等待时间各是多少？下一页给出结果。
-[提示：这是第 4 章“轮询”和“令牌环”协议的理论基础。]</aside>
-</section>
+<section id="poll-def" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">轮询：一个服务员轮流访问多个队列</h2><div style="display:flex;gap:56px;align-items:flex-start"><div style="position:relative;width:860px;height:440px;flex-shrink:0"><svg aria-label="轮询：令牌依次访问站 1 到 4，站与站之间有走时 V" style="position:absolute;left:0px;top:0px" width="860" height="440" viewBox="0 0 860 440"><defs><marker id="m1E1A16" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#1E1A16" stroke="none"/></marker></defs><circle cx="160" cy="130" r="54" fill="#F6F1E7" stroke="#1E1A16" stroke-width="3"/><rect x="112" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="146" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="180" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><circle cx="700" cy="130" r="54" fill="#F6F1E7" stroke="#1E1A16" stroke-width="3"/><rect x="652" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="686" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="720" y="40" width="28" height="28" fill="#2F5D8A" rx="4"/><circle cx="700" cy="330" r="54" fill="#F6F1E7" stroke="#1E1A16" stroke-width="3"/><rect x="652" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="686" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="720" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><circle cx="160" cy="330" r="54" fill="#F6F1E7" stroke="#1E1A16" stroke-width="3"/><rect x="112" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="146" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><rect x="180" y="394" width="28" height="28" fill="#2F5D8A" rx="4"/><line x1="222.0" y1="130.0" x2="632.0" y2="130.0" stroke="#1E1A16" stroke-width="3" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="700.0" y1="192.0" x2="700.0" y2="262.0" stroke="#1E1A16" stroke-width="3" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="638.0" y1="330.0" x2="228.0" y2="330.0" stroke="#1E1A16" stroke-width="3" stroke-linecap="round" marker-end="url(#m1E1A16)"/><line x1="160.0" y1="268.0" x2="160.0" y2="198.0" stroke="#1E1A16" stroke-width="3" stroke-linecap="round" marker-end="url(#m1E1A16)"/><circle cx="430" cy="130" r="17" fill="#B4381F"/></svg><p style="position:absolute;left:106px;top:108px;width:108px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">站 1</p><p style="position:absolute;left:646px;top:108px;width:108px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">站 2</p><p style="position:absolute;left:646px;top:308px;width:108px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">站 3</p><p style="position:absolute;left:106px;top:308px;width:108px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#1E1A16;white-space:nowrap">站 4</p><p style="position:absolute;left:300px;top:60px;width:260px;font-size:30px;font-weight:700;line-height:1.25;text-align:center;color:#B4381F;white-space:nowrap">令牌（轮询信号）</p><p style="position:absolute;left:745px;top:218px;width:110px;font-size:28px;font-weight:400;line-height:1.25;text-align:left;color:#5E554B;white-space:nowrap">走时<br><i>V</i></p></div><div style="display:flex;flex-direction:column;gap:26px;flex:1"><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">服务员依次访问 <i>m</i> 个站，换一站要走时 <i>V</i>。每站一个队列，到达是泊松。</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>耗尽型：</b></span>这一站发到队列空为止。</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>闸门型：</b></span>只发开始服务时已在排队的，新来的等下一轮。</p><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B"><span style="color:#1E1A16"><b>1-限制型：</b></span>每次访问最多发 1 个分组。</p></div></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">闸门在服务开始时关上，本讲都按这个约定。</p><aside>【3 分钟】
+再看一类服务员“休假”的系统：一个服务员轮流访问 m 个队列，比如一条共享信道上的 m 个站，用令牌或轮询信号控制谁可以发送。服务员从一个站走到下一个站，要花走时 V：传递令牌、发轮询分组、切换天线……每个站有自己的队列，到达是泊松。
+三种服务规则。耗尽型：到了这一站，一直发到队列空为止。闸门型：到了这一站，只发开始服务时已经在排队的分组，服务期间新到的，等下一轮。1-限制型：每次访问最多发 1 个分组。
+要说清楚闸门什么时候关：本讲的闸门在服务开始的时刻关上，也就是走时结束、开始服务的那一刻。如果在轮询信号发出时就关闸，公式会不一样（教材称 fully gated，这里是 partially gated）。
+对一个站来说，服务员去服务别的站、在站间走路，都相当于“休假”；但各站的“休假”并不独立，所以不能直接套用休假公式，下一页给出对称情形下的结果。</aside></section>

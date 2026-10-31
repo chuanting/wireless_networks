@@ -1,43 +1,5 @@
-<section id="prio-assign" data-transition="fade" style="background:#F0ECE0;color:#14253D;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:22px">
-<div style="display:flex;flex-direction:column;gap:8px">
-<p style="font-size:28px;font-weight:700;color:#C2410C;letter-spacing:2px">第四部分 · 优先级</p>
-<h2 style="font-size:60px;font-weight:700;line-height:1.15;color:#14253D">谁该有高优先级？——短的先走</h2>
-</div>
-<div style="display:flex;gap:48px;align-items:flex-start">
-<div style="flex:1.1;display:flex;flex-direction:column;gap:10px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#C2410C">同样两类，换个优先级顺序</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D"><b>短包优先</b>（上一页）：<i>W</i>短 = 0.454，<i>W</i>长 = 1.892 ms</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D"><b>长包优先</b>：<i>W</i>长 = 0.436/(1 − 0.72) = 1.557，<i>W</i>短 = 0.436/(0.28 × 0.24) = 6.49 ms</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D">按分组数加权的<b>平均等待</b>（短 200 个/秒，长 600 个/秒）：</p>
-<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">短优先：(200 × 0.454 + 600 × 1.892)/800 = <b>1.53 ms</b></p>
-<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">长优先：(600 × 1.557 + 200 × 6.49)/800 = <b>2.79 ms</b></p>
-<p style="font-size:26px;line-height:1.5;color:#14253D;padding-left:20px">先来先服务：<b>1.82 ms</b></p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #1D4ED8;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#1E40AF">规则</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">服务时间<b>短</b>的（<i>μ</i> 大的）给高优先级——“最短作业优先”的思想。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:2px solid #C2410C;padding:16px 0px 0px 0px">
-<p style="font-size:30px;font-weight:700;color:#9A3412">为什么</p>
-<p style="font-size:28px;line-height:1.4;color:#14253D">短的先走，让更多顾客少等；长的只拖累它自己。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:28px;font-weight:700;color:#C2410C">反过来的代价</p>
-<p style="font-size:26px;line-height:1.4;color:#14253D">让长包优先，平均等待几乎翻倍（2.79 对 1.53 ms）。</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #D9D1C0;padding:16px 0px 0px 0px">
-<p style="font-size:26px;font-weight:700;color:#C2410C">现实</p>
-<p style="font-size:24px;line-height:1.4;color:#14253D">小包（确认、控制、语音）通常优先——既符合直觉，也最小化平均时延。</p>
-</div>
-</div>
-</div>
-<aside>【3 分钟】
-有两类业务，应该给谁高优先级？用同一个例子，换一下顺序。
-短包优先，就是上一页的情形：短包等待 0.454 毫秒，长包 1.892 毫秒。
-长包优先：把公式里的顺序换过来。长包是第 1 类，ρ_1 等于 0.72，W_长 等于 R 除以 (1 减 0.72)，等于 1.557 毫秒；短包变成第 2 类，W_短 等于 R 除以 (1 减 0.72) 乘 (1 减 0.76)，等于 6.49 毫秒。
-看对所有分组的平均等待，按分组数加权。短包有每秒 200 个，长包每秒 600 个。短优先：(200 乘 0.454 加 600 乘 1.892) 除以 800，等于 1.53 毫秒。长优先：(600 乘 1.557 加 200 乘 6.49) 除以 800，等于 2.79 毫秒。先来先服务：1.82 毫秒。
-所以：让服务时间短的业务拥有高优先级，平均等待最小，比先来先服务还好；反过来让长的优先，平均等待几乎翻倍。道理很直观：短的先走，让更多的顾客少等；长的优先，会让一大堆短的顾客，等一个长的。这就是计算机里的“最短作业优先”。
-现实里，网络设备通常给小包——确认包、控制包、语音包——高优先级，既符合直觉，也符合这个结论。
-[验算：W_长优先 = 0.436/0.28 = 1.557 ms；W_短 = 0.436/(0.28×0.24) = 6.488 ms。]</aside>
-</section>
+<section id="prio-assign" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column"><h2 style="font-family:'Noto Serif SC', serif;font-size:64px;font-weight:900;line-height:1.15;color:#1E1A16;padding:0px 0px 56px 0px">谁排前面？等待是守恒的</h2><div style="display:flex;flex-direction:column;gap:30px"><div style="display:flex;flex-direction:column;gap:0px"><div style="display:flex;align-items:center;gap:24px;border-top:3px solid #1E1A16;border-bottom:2px solid #1E1A16;padding:22px 0px"><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">排序</p><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">语音 W</p><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">数据 W</p><p style="font-size:34px;font-weight:700;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">每个分组平均 W</p><div style="width:300px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center"><div style="display:flex;align-items:flex-start"><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:34px;white-space:nowrap">Σ<i>ρ</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:24px;white-space:nowrap;align-self:flex-end">k</p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:34px;white-space:nowrap"><i>W</i></p><p style="font-family:'Times New Roman', Georgia, serif;line-height:1.2;color:#1E1A16;font-weight:700;font-size:24px;white-space:nowrap;align-self:flex-end">k</p></div></div></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:26px 0px"><p style="font-size:38px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">语音优先</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">0.454</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">1.892</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#B4381F;width:400px;flex-shrink:0">1.533</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:300px;flex-shrink:0">1.381</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:1px solid #CFC5B4;padding:26px 0px"><p style="font-size:38px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">不分优先级</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">1.817</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">1.817</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">1.817</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:300px;flex-shrink:0">1.381</p></div><div style="display:flex;align-items:center;gap:24px;border-bottom:3px solid #1E1A16;padding:26px 0px"><p style="font-size:38px;font-weight:700;line-height:1.4;color:#1E1A16;width:320px;flex-shrink:0">数据优先</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">6.488</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:230px;flex-shrink:0">1.557</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:400px;flex-shrink:0">2.790</p><p style="font-size:38px;font-weight:400;line-height:1.4;color:#1E1A16;width:300px;flex-shrink:0">1.381</p></div></div><p style="font-size:34px;font-weight:400;line-height:1.55;color:#5E554B">等待单位 ms。最后一列是各类负荷乘各自等待之和，不随排序改变：给一类少等，必定让另一类多等。</p></div><div style="flex:1;min-height:32px"></div><p style="font-family:'Noto Serif SC', serif;font-size:36px;font-weight:400;line-height:1.55;color:#1E1A16">短分组先走，每个分组的平均等待最小；让长分组优先反而最差。</p><aside>【4 分钟】
+把同样的两类，换三种排法，算每一类的平均等待。语音优先：语音 0.454，数据 1.892 ms。不分优先级：都是 1.817 ms。数据优先：数据 1.557，语音 6.488 ms。
+最后一列是 ρ_1 W_1 + ρ_2 W_2，也就是各类负荷乘以各自的平均等待之和。三种排法算出来都是 1.381 ms，等于 ρR/(1−ρ) = 0.76 × 0.436/0.24。这是非抢占优先级的守恒定律：不管怎么排，负荷加权的等待总量不变。优先级只是在各类之间搬运等待：给一类少等，必定让另一类多等。
+那怎么排最好？看每个分组的平均等待（按分组个数加权）：语音优先 1.533 ms，不分 1.817 ms，数据优先 2.790 ms。短分组先走最小，长分组先走最差。原因：短分组负荷小，让它们先走，对别人的影响小，守恒的那份等待主要由长分组承担。
+但是这只在目标是“每个分组的平均等待最小”时成立。如果目标是语音必须在时限内到达，或者要给低优先级业务一个服务保证，排序要由业务要求决定，而不是只看平均值。</aside></section>
