@@ -66,8 +66,8 @@ window.COURSE = {
         },
         {
           no: "3.2", title: "M/M/m 型排队系统", status: "ready",
-          desc: "M/M/1 的稳态分布与时延公式 · 统计复用 · 有限缓冲区 · M/M/m、爱尔兰 C 与 B 公式",
-          deck: "ch3-2-mm-queues", slides: 31, minutes: 100
+          desc: "M/M/1 的稳态分布与时延公式 · 统计复用与切分 · 有限缓冲区 · M/M/m 与爱尔兰 C 公式 · 损失制与爱尔兰 B 公式",
+          deck: "ch3-2-mm-queues", slides: 29, minutes: 100
         },
         {
           no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "ready",

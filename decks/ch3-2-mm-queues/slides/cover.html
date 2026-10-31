@@ -1,16 +1,5 @@
-<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
-<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 3 章 · 网络的时延模型 · 3.2</p>
-<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">M/M/m 型</h1>
-<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">排队系统</h2>
-<p style="font-size:32px;color:#B9C4D3">M/M/1 · M/M/m · M/M/∞ · 爱尔兰 B、C 公式</p>
-<svg aria-label="装饰图：一串状态圆圈，上方箭头向右（到达），下方箭头向左（服务）" viewBox="0 0 632 360" width="632" height="360" style="position:absolute;left:1160px;top:300px">
-<circle cx="50" cy="180" r="34" fill="#3B4E68"/><circle cx="183" cy="180" r="34" fill="#F4975A"/><circle cx="316" cy="180" r="34" fill="#3B4E68"/><circle cx="449" cy="180" r="34" fill="#3B4E68"/><circle cx="582" cy="180" r="34" fill="#3B4E68"/><path d="M90,158H150" stroke="#B9C4D3" stroke-width="5" fill="none"/><polygon points="166,158 148,148 148,168" fill="#B9C4D3"/><path d="M150,204H100" stroke="#F4975A" stroke-width="5" fill="none"/><polygon points="84,204 102,194 102,214" fill="#F4975A"/><path d="M223,158H283" stroke="#B9C4D3" stroke-width="5" fill="none"/><polygon points="299,158 281,148 281,168" fill="#B9C4D3"/><path d="M283,204H233" stroke="#F4975A" stroke-width="5" fill="none"/><polygon points="217,204 235,194 235,214" fill="#F4975A"/><path d="M356,158H416" stroke="#B9C4D3" stroke-width="5" fill="none"/><polygon points="432,158 414,148 414,168" fill="#B9C4D3"/><path d="M416,204H366" stroke="#F4975A" stroke-width="5" fill="none"/><polygon points="350,204 368,194 368,214" fill="#F4975A"/><path d="M489,158H549" stroke="#B9C4D3" stroke-width="5" fill="none"/><polygon points="565,158 547,148 547,168" fill="#B9C4D3"/><path d="M549,204H499" stroke="#F4975A" stroke-width="5" fill="none"/><polygon points="483,204 501,194 501,214" fill="#F4975A"/>
-</svg>
-<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
-<aside>【开场 · 1 分钟】
-上一节我们学会了描述排队系统，也学了 Little 定理 N 等于 λT。但是 Little 定理只给出 N、λ、T 之间的关系，要真正算出 N 或 T，必须知道系统的具体规律。
-这一节，我们取最简单也最重要的一类模型：到达是泊松过程，服务时间是指数分布，也就是 Kendall 记号里的“M/M”。先把一个服务员的 M/M/1 算透——队长、时延、等待概率，一个公式都不缺；再推广到 m 个服务员的 M/M/m，最后得到电话网用了一百多年的爱尔兰公式。
-右边装饰图：一串状态圆圈，上面的箭头表示到达，下面的箭头表示服务完成——这是 M/M/1 的状态转移图，今天整节课都围绕它。
-工具都在第 1 章：泊松过程、指数分布的无记忆性、生灭链的“切一刀”。如果有同学忘了，下一页快速回顾。
-全程用具体例子。时间不限，全部讲完约 100 分钟，可以分两次。</aside>
-</section>
+<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">3.2</p><div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div><p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 3 章 · 网络时延模型 · 3.2</p></div><div style="display:flex;flex-direction:column;gap:24px"><h1 style="font-family:'Noto Serif SC', serif;font-size:124px;font-weight:900;line-height:1.12;color:#1E1A16">M/M/m 型<br>排队系统</h1><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">M/M/1 · M/M/m · 爱尔兰 B、C 公式</p><div style="width:760px;border-top:2px solid #1E1A16"></div><p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">只知道到达和服务的规律，能算出队长和时延吗？</p></div><p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p><aside>【开场】
+上一节学会了描述排队系统，也学了 Little 定理 N 等于 λT。但是 Little 定理只给出 N、λ、T 之间的关系：要真正算出 N 或 T，必须知道系统的具体规律。
+这一节取最简单也最重要的一类模型：到达是泊松过程，服务时间是指数分布，也就是 Kendall 记号里的“M/M”。先把一个服务员的 M/M/1 算透：队长、时延、等待概率，一个公式都不缺；再推广到有限缓冲区、m 个服务员，最后得到电话网用了一百多年的爱尔兰公式。
+工具都在第 1 章：泊松过程、指数分布的无记忆性、生灭链的“切一刀”。如果有同学忘了，用到时再提一句。
+全程用具体例子，数字都用程序核对过。</aside></section>
