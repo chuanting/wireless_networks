@@ -1,0 +1,58 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-02T11:00:00Z"
+  },
+  "lists": "css",
+  "title": "新的架构：软件定义、切片、边缘与智能",
+  "order": [
+    "cover",
+    "split",
+    "gain",
+    "flow",
+    "place",
+    "slice",
+    "pool",
+    "edge",
+    "predict",
+    "loop",
+    "ex1",
+    "ex2",
+    "summary",
+    "project"
+  ],
+  "sections": {
+    "s0": {
+      "description": "开场：这一讲看新的架构，谁来决定、在哪里算。",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "软件定义网络：控制面和数据面分开、集中的好处、流表、控制器的位置。",
+      "start": "split"
+    },
+    "s2": {
+      "description": "切片与边缘：隔离的代价、卸载的门槛。",
+      "start": "slice"
+    },
+    "s3": {
+      "description": "智能：预测的下限、环路的时间尺度。",
+      "start": "predict"
+    },
+    "s4": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    }
+  },
+  "faces": {
+    "noto-sans-sc": {
+      "family": "Noto Sans SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+    },
+    "noto-serif-sc": {
+      "family": "Noto Serif SC",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+    }
+  },
+  "designSystems": []
+}
