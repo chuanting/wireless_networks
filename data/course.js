@@ -40,8 +40,8 @@ window.COURSE = {
       sections: [
         {
           no: "2.1", title: "组帧技术", status: "ready",
-          desc: "为什么组帧 · 字符组帧（SLIP、PPP）· 比特插入（HDLC）· 帧的开销 · 长度计数",
-          deck: "ch2-1-framing", slides: 51, minutes: 90
+          desc: "为什么组帧、帧与透明传输 · 字符组帧：串口、转义、SLIP、PPP · 比特组帧：Flag、比特插入（每 62 位插一个 0）、开销 · 长度计数与方法比较",
+          deck: "ch2-1-framing", slides: 31, minutes: 85
         },
         {
           no: "2.2", title: "链路层的差错控制技术", status: "ready",
