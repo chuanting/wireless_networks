@@ -100,8 +100,8 @@ window.COURSE = {
         },
         {
           no: "4.3", title: "载波侦听多址接入：CSMA", status: "ready",
-          desc: "为什么还会碰撞与检测时延 β · 三种坚持策略 · 非时隙 CSMA 的通过率推导 · 时隙 CSMA 的漂移与稳定算法 · CSMA/CD、最短帧长、以太网与 CSMA/CA",
-          deck: "ch4-3-csma", slides: 35, minutes: 100
+          desc: "为什么先听还会撞：检测时延与 β · 三种坚持策略 · 非坚持 CSMA 的忙闲周期与通过率推导 · 时隙 CSMA 的漂移、最大通过率与稳定算法 · CSMA/CD、最短帧长、以太网的指数退避 · 隐藏终端与 Wi-Fi 的 CSMA/CA",
+          deck: "ch4-3-csma", slides: 28, minutes: 83
         },
         {
           no: "4.4", title: "冲突分解算法", status: "ready",
