@@ -1,21 +1,4 @@
-<section id="cover" data-transition="fade" style="background:#14253D;color:#F4F1E8;font-family:'Noto Sans SC', sans-serif;padding:96px 128px;display:flex;flex-direction:column;justify-content:center;gap:24px">
-<p style="font-size:28px;font-weight:700;color:#F4975A;letter-spacing:4px">第 1 章 · 数学基础（二）</p>
-<h1 style="font-size:96px;font-weight:700;line-height:1.1;color:#F4F1E8">随机过程基础</h1>
-<h2 style="font-size:60px;font-weight:400;line-height:1.2;color:#F4F1E8">Poisson 过程与马尔可夫链</h2>
-<p style="font-size:32px;color:#B9C4D3">随机过程的基本概念 · Poisson 过程 · 马尔可夫链</p>
-<svg aria-label="装饰图：到达时刻与累计到达数的阶梯曲线" viewBox="0 0 632 520" width="632" height="520" style="position:absolute;left:1160px;top:260px">
-<path d="M20,480H600" fill="none" stroke="#3B4E68" stroke-width="3"/>
-<path d="M20,40H600" fill="none" stroke="#3B4E68" stroke-width="3"/>
-<path d="M20,480H36V450H50V420H79V390H103V360H137V330H229V300H247V270H303V240H353V210H389V180H421V150H473V120H580" fill="none" stroke="#F4975A" stroke-width="6" stroke-linejoin="miter"/>
-<g fill="#F4F1E8"><circle cx="36" cy="40" r="9"/><circle cx="50" cy="40" r="9"/><circle cx="79" cy="40" r="9"/><circle cx="103" cy="40" r="9"/><circle cx="137" cy="40" r="9"/><circle cx="229" cy="40" r="9"/><circle cx="247" cy="40" r="9"/><circle cx="303" cy="40" r="9"/><circle cx="353" cy="40" r="9"/><circle cx="389" cy="40" r="9"/><circle cx="421" cy="40" r="9"/><circle cx="473" cy="40" r="9"/></g>
-</svg>
-<p style="position:absolute;left:128px;top:888px;width:900px;font-size:28px;color:#B9C4D3">张传亭 · 山东大学</p>
-<aside>【开场 · 0.5 分钟】
-欢迎大家。上一部分我们认识了“图”，这一讲换一个角度：网络里的很多量是随时间随机变化的——数据包什么时候到、信道现在好不好、路由器里排了多少包。描述这些的数学工具就是随机过程。
-本讲三块内容：随机过程的基本概念、Poisson 过程、马尔可夫链。全程用具体的例子带着走，需要的公式和推导都会写出来，但不追求严格证明。
-右边的装饰图：上面一排圆点是“到达的时刻”，下面的橙色阶梯是“累计到达了多少个”——这就是第二部分要讲的 Poisson 过程的样子。
-
-时间分配（共 60 分钟）：
-开场 4 + 随机过程的基本概念 12 + Poisson 过程 18 + 马尔可夫链 21 + 总结与提问 5。
-如果时间紧，可以跳过的页：“各态历经”（第 12 页）、“稳态存在的条件”（第 32 页）。</aside>
-</section>
+<section id="cover" data-transition="fade" style="background:#F6F1E7;color:#1E1A16;font-family:'Noto Sans SC', sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between"><p style="position:absolute;left:980px;top:330px;width:812px;font-family:'Noto Serif SC', serif;font-size:400px;font-weight:900;line-height:1;text-align:right;color:#E6DCCA">1.2</p><div style="display:flex;flex-direction:column;gap:22px"><div style="width:160px;height:10px;background:#B4381F"></div><p style="font-size:28px;font-weight:400;line-height:1.4;color:#5E554B;letter-spacing:6px">第 1 章 · 通信网络概论及数学基础 · 1.2</p></div><div style="display:flex;flex-direction:column;gap:24px"><h1 style="font-family:'Noto Serif SC', serif;font-size:124px;font-weight:900;line-height:1.12;color:#1E1A16">随机过程基础</h1><p style="font-family:'Noto Serif SC', serif;font-size:44px;font-weight:400;line-height:1.4;color:#5E554B">Poisson 过程 · 马尔可夫链</p><div style="width:760px;border-top:2px solid #1E1A16"></div><p style="font-family:'Noto Serif SC', serif;font-size:34px;font-weight:400;line-height:1.5;color:#1E1A16">包什么时候到？信道现在好还是坏？队列里有几个包？</p></div><p style="font-size:28px;font-weight:400;line-height:1.45;color:#5E554B">张传亭 · 山东大学</p><aside>【开场】
+这一讲是第 3 章排队论和第 4 章多址接入的数学准备。网络里有三类典型的随机量：数据包什么时候到达、信道现在是好还是坏、路由器的队列里排了多少个包。它们都是“某个量随时间随机变化”，数学上叫随机过程。
+这一讲分三块：先建立随机过程的基本概念（样本函数、均值、相关、平稳），再学 Poisson 过程（描述到达），最后学马尔可夫链（描述状态变化，包括信道和队列）。
+所有数字都是算出来的，并且用程序模拟核对过。前置知识只有概率论里的随机变量、期望、方差和几种常见分布。</aside></section>

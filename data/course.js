@@ -19,8 +19,8 @@ window.COURSE = {
         { no: "1.1", title: "课件待补充", status: "todo" },
         {
           no: "1.2", title: "数学基础：随机过程", status: "ready",
-          desc: "随机过程的基本概念 · Poisson 过程 · 马尔可夫链",
-          deck: "ch1-2-stochastic-processes", slides: 38, minutes: 60
+          desc: "随机过程的基本概念 · Poisson 过程（计数、指数间隔、无记忆、合并与分流）· 马尔可夫链（转移矩阵、稳态分布）· 生灭链与队列长度",
+          deck: "ch1-2-stochastic-processes", slides: 31, minutes: 80
         },
         {
           no: "1.3", title: "数学基础：图论", status: "ready",
