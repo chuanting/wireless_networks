@@ -8,6 +8,7 @@
   "title": "新的链路：更宽、更多、更远",
   "order": [
     "cover",
+    "study-route",
     "knobs",
     "fspl",
     "mimo",
@@ -48,12 +49,37 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "分别用带宽、功率与天线解释容量变化，并指出相应代价。",
+      "在一个小型重复接入图上执行干扰消除，判断哪些分组能恢复。",
+      "估算卫星传播与过境时间，并比较距离变化带来的选路与控制问题。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "用容量、接入与时延模型分析新链路带来的收益和代价。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "knobs",
+        "fspl",
+        "mimo",
+        "massive",
+        "peel",
+        "irsa",
+        "orbits",
+        "pass",
+        "leo",
+        "flood",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

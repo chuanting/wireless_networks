@@ -8,6 +8,7 @@
   "title": "通信网络概论：构成、交换方式与协议分层",
   "order": [
     "cover",
+    "study-route",
     "why",
     "elements",
     "links",
@@ -59,12 +60,48 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "把网络中的终端、链路、节点与分组转发过程对应起来。",
+      "比较电路交换、虚电路和数据报，按业务需求说明选择理由。",
+      "沿一条分组路径说明封装、协议分层及链路地址与网络地址的作用。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "网络构成、交换方式、协议与分层，用一条分组路径串起来。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "elements",
+        "links",
+        "packets",
+        "circuit",
+        "mux",
+        "datagram",
+        "vc",
+        "compare",
+        "interconnect",
+        "three",
+        "armies",
+        "armies2",
+        "protocol",
+        "layering",
+        "models",
+        "functions",
+        "encap",
+        "hops",
+        "repair",
+        "map",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

@@ -8,6 +8,7 @@
   "title": "M/G/1 排队系统与 P-K 公式",
   "order": [
     "cover",
+    "study-route",
     "why",
     "def",
     "moments",
@@ -70,12 +71,54 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "由剩余服务的面积和 Little 定理，推导 P-K 平均等待公式。",
+      "检查泊松到达、服务独立、FCFS 与矩条件，再计算等待和时延。",
+      "在平均服务时间相同时，用二阶矩解释两种服务分布的等待差异。"
+    ],
+    "extensions": [
+      "arq",
+      "vac-def",
+      "vac-W",
+      "vac-eg",
+      "mux-def",
+      "mux-result",
+      "mux-num",
+      "poll-def",
+      "poll-W",
+      "poll-num",
+      "prio-def",
+      "prio-np",
+      "prio-eg",
+      "prio-assign",
+      "prio-pre",
+      "ex2"
+    ],
+    "route": {
+      "core": "模型条件、剩余服务、P-K 推导、固定与混合服务比较、课堂练习①。",
+      "extension": "重传、休假、复用、轮询与优先级，按需选讲。",
+      "practice": "课堂用 7 分钟完成练习①，②③及拓展题留作课后。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "def",
+        "moments",
+        "idea",
+        "derive",
+        "resid",
+        "pk",
+        "md1",
+        "var",
+        "ex1",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

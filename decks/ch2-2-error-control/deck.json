@@ -8,6 +8,7 @@
   "title": "链路层的差错控制：检错、重传与最佳帧长",
   "order": [
     "cover",
+    "study-route",
     "why",
     "err",
     "redundancy",
@@ -68,12 +69,57 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "完成一次 CRC 编码与校验，并说明检测能力取决于哪些条件。",
+      "根据丢帧或丢 ACK 的时间线，推演停等、GBN 与 SR 的重传。",
+      "由时延、差错率和序号空间计算效率、窗口上限或帧长选择。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "差错检测、重传规则与效率分析，每一步都配手算或时间线。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "err",
+        "redundancy",
+        "parity2d",
+        "crc-idea",
+        "crc-pad",
+        "crc-div",
+        "crc-check",
+        "crc-power",
+        "crc-poly",
+        "crc-why",
+        "ed-cmp",
+        "arq-idea",
+        "sw-loss",
+        "sw-dup",
+        "sw-sn",
+        "sw-algo",
+        "sw-eff",
+        "window",
+        "gbn",
+        "sr",
+        "arq-eff",
+        "win-size",
+        "choose-n",
+        "arq-cmp",
+        "fl-1",
+        "fl-opt",
+        "mh-1",
+        "mh-2",
+        "fl-rt",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

@@ -8,6 +8,7 @@
   "title": "路由算法概述",
   "order": [
     "cover",
+    "study-route",
     "why",
     "task",
     "dgvc",
@@ -66,12 +67,51 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "区分路由决策与逐跳转发，按路由表和最长前缀匹配追踪分组。",
+      "比较不同路由目标，说明最短路径与最小时延何时会不同。",
+      "辨认环路、洪泛和分级路由的代价，并选择相应控制办法。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "选路目标、下一跳转发、信息开销与分级组织。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "task",
+        "dgvc",
+        "example",
+        "example-calc",
+        "flowctl",
+        "class",
+        "where",
+        "adapt",
+        "req",
+        "table",
+        "walk",
+        "loop",
+        "fields",
+        "prefix",
+        "flood",
+        "count",
+        "bcast",
+        "optimal",
+        "devices",
+        "hier",
+        "internet",
+        "adhoc",
+        "adhoc-class",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

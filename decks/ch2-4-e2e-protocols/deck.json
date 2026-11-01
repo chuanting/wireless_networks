@@ -8,6 +8,7 @@
   "title": "网络层和运输层的点对点传输协议",
   "order": [
     "cover",
+    "study-route",
     "why",
     "harsh",
     "vc-dg",
@@ -76,12 +77,57 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "用丢失或重复报文的时间线解释端到端可靠性与连接建立。",
+      "计算 TCP 字节序号和累计确认号，推演快速重传或超时重传。",
+      "由 RTT 与窗口估算速率，并区分接收窗口、拥塞窗口和定时器。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先说明端到端需求，再推演连接、确认、重传与窗口。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "harsh",
+        "vc-dg",
+        "vclabel",
+        "window",
+        "bdp",
+        "hop-derive",
+        "hop-table",
+        "x25",
+        "role",
+        "tcp-udp",
+        "ports",
+        "tcphdr",
+        "seqbytes",
+        "hs",
+        "oldsyn",
+        "isn",
+        "close",
+        "timewait",
+        "states",
+        "gap",
+        "fast",
+        "rto-est",
+        "rto-table",
+        "rto-fig",
+        "rto-rfc",
+        "rwnd",
+        "two-win",
+        "wscale",
+        "cmp",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

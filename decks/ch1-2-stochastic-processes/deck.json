@@ -8,6 +8,7 @@
   "title": "随机过程基础：Poisson 过程与马尔可夫链",
   "order": [
     "cover",
+    "study-route",
     "why",
     "paths",
     "def",
@@ -64,12 +65,53 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "由泊松到达率计算计数概率，并求指数到达间隔的均值。",
+      "对独立到达流进行合并或分流，并写出新到达率。",
+      "从转移矩阵或生灭图列出平衡方程，求解并检验稳态分布。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先描述随机过程，再用泊松过程和马尔可夫链刻画到达与状态。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "paths",
+        "def",
+        "mean",
+        "corr",
+        "stat",
+        "rules",
+        "derive",
+        "pmf",
+        "exp",
+        "memory",
+        "merge",
+        "who",
+        "split",
+        "markov",
+        "matrix",
+        "nstep",
+        "conv",
+        "pistat",
+        "balance",
+        "cond",
+        "apply",
+        "bd",
+        "cut",
+        "geo",
+        "queue",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

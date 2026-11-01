@@ -8,6 +8,7 @@
   "title": "标准数据链路控制协议 HDLC 及其初始化",
   "order": [
     "cover",
+    "study-route",
     "why",
     "assemble",
     "family",
@@ -67,12 +68,52 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "读懂 HDLC 控制域，识别 I、S、U 帧及序号、P/F 位的作用。",
+      "逐帧推演连接建立、数据确认、拒绝重传、忙状态与拆除。",
+      "给出节点重启造成状态不一致的例子，说明初始化如何修复。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "从帧字段进入完整通信过程，再处理初始化与节点故障。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "assemble",
+        "family",
+        "duplex",
+        "modes",
+        "frame",
+        "addr",
+        "ctrl",
+        "ctrl-decode",
+        "iframe",
+        "sframe",
+        "uframe",
+        "pf",
+        "fs-sum",
+        "ex-setup",
+        "ex-abm",
+        "ex-nrm",
+        "ex-rej",
+        "ex-rnr",
+        "ex-life",
+        "init-why",
+        "init-simple",
+        "init-hdlc",
+        "init-fail",
+        "init-fix",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

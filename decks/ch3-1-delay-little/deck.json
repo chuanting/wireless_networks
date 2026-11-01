@@ -8,6 +8,7 @@
   "title": "时延的构成与 Little 定理",
   "order": [
     "cover",
+    "study-route",
     "why",
     "four",
     "caravan",
@@ -62,12 +63,51 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "分别计算传输与传播时延，并把多跳时延按处理过程相加。",
+      "为排队系统选定边界、顾客群和单位，区分等待与停留时间。",
+      "选用实际进入率代入 Little 定理，并检查平均量与稳定条件。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "拆开时延、画出系统边界，再用面积理解 Little 定理。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "four",
+        "caravan",
+        "clocks",
+        "eg",
+        "speedup",
+        "dom",
+        "hops",
+        "system",
+        "kendall",
+        "sym1",
+        "sym2",
+        "rand",
+        "rho",
+        "hockey",
+        "little",
+        "proof1",
+        "proof2",
+        "cond",
+        "node",
+        "net",
+        "hall",
+        "block",
+        "everywhere",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

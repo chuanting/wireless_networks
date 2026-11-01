@@ -8,6 +8,7 @@
   "title": "组帧技术：怎样在比特流里划出一帧",
   "order": [
     "cover",
+    "study-route",
     "why",
     "frame",
     "why-frame",
@@ -64,12 +65,53 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "给定含分界符的数据，完成字节转义或比特插入，再正确还原。",
+      "计算组帧开销，说明透明传输如何保留数据中的特殊内容。",
+      "比较分隔符与长度计数组帧，解释出错后如何重新找到边界。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先确定边界与透明传输，再比较字符、比特和长度计数的方法。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "frame",
+        "why-frame",
+        "transp",
+        "hex",
+        "uart",
+        "toy",
+        "toy-esc",
+        "slip",
+        "slip-eg",
+        "ppp",
+        "ppp-esc",
+        "byte-cost",
+        "bit-flag",
+        "bit-stuff",
+        "bit-eg",
+        "bit-rx",
+        "bit-edge",
+        "bit-sig",
+        "bit-ov",
+        "bit-flaglen",
+        "len",
+        "len-err",
+        "eth",
+        "compare",
+        "struct",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

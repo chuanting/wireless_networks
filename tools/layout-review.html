@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>课件排版检查</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>
+html,body { margin:0; overflow:auto; background:#eee; }
+#stage-review { width:1920px; height:1080px; position:relative; }
+#result { white-space:pre-wrap; color:#111; background:white; }
+.sheet { display:grid; grid-template-columns:repeat(4,480px); }
+.sample { width:480px; height:290px; position:relative; overflow:hidden; background:white; }
+.sample .slide { transform:scale(.25); transform-origin:top left; }
+.sample small { position:absolute; bottom:2px; color:#222; font:12px sans-serif; }
+</style></head><body><div id="stage-review"></div><pre id="result">RUNNING</pre>
+<script src="../data/course.js"></script><script type="module">
+import {renderSlide,setStep,stepsOf} from '../assets/js/deck-runtime.js';
+const q=new URLSearchParams(location.search), host=document.querySelector('#stage-review');
+const selected=q.get('deck'), slideId=q.get('slide');
+const decks=window.COURSE.chapters.flatMap(c=>c.sections).filter(s=>!selected||s.deck===selected);
+const issues=[],samples=[]; let count=0;
+try {
+  const records=await Promise.all(decks.map(async d=>{
+    const base='../decks/'+d.deck+'/';
+    const meta=await (await fetch(base+'deck.json')).json();
+    const ids=meta.order.filter(id=>!slideId||id===slideId);
+    return {deck:d.deck, slides:await Promise.all(ids.map(async id=>({id,html:await(await fetch(base+'slides/'+id+'.html')).text()})))};
+  }));
+  await Promise.all([document.fonts.load('400 34px "Noto Sans SC"'),document.fonts.load('700 64px "Noto Sans SC"'),document.fonts.load('900 64px "Noto Serif SC"')]);
+  for(const d of records) for(const s of d.slides){
+    const r=renderSlide(s.html);host.replaceChildren(r.el);
+    setStep(r.el,q.has('initial')?0:stepsOf(r.el));
+    const box=r.el.getBoundingClientRect(), problems=[];
+    for(const el of r.el.querySelectorAll('p,h1,h2,h3,li')){
+      if(el.closest('.bhid'))continue;
+      const range=document.createRange();range.selectNodeContents(el);
+      const rects=[...range.getClientRects()].filter(a=>a.width>0&&a.height>0);
+      const own=el.getBoundingClientRect();
+      if(rects.some(a=>a.right>box.right+2||a.bottom>box.bottom+2||a.left<box.left-2||a.top<box.top-2))
+        problems.push({type:'canvas',text:el.textContent.slice(0,100),bottom:Math.round(Math.max(...rects.map(a=>a.bottom))-box.top)});
+      if(el.clientWidth>0&&el.scrollWidth>el.clientWidth+3&&getComputedStyle(el).whiteSpace==='nowrap')
+        problems.push({type:'nowrap',text:el.textContent.slice(0,100),width:el.clientWidth,needed:el.scrollWidth});
+    }
+    if(problems.length)issues.push({deck:d.deck,slide:s.id,problems});
+    count++;
+    if(q.has('sheet')&&(q.get('sheet')==='all'||['cover','study-route','pk','ex1','predict','tree','gain','prim-run','gbn'].includes(s.id))) samples.push({d:d.deck,s,el:r.el});
+  }
+  if(q.has('sheet')){
+    host.remove();const grid=document.createElement('div');grid.className='sheet';
+    for(const s of samples){const cell=document.createElement('div');cell.className='sample';const label=document.createElement('small');label.textContent=s.d+'/'+s.s.id;cell.append(s.el,label);grid.append(cell);}document.body.prepend(grid);
+  }
+  document.querySelector('#result').textContent=JSON.stringify({count,issues},null,2);
+  document.documentElement.dataset.done='true';
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({error:e.stack});}
+</script></body></html>

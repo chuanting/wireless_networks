@@ -8,6 +8,7 @@
   "title": "载波侦听多址接入：CSMA 与 CSMA/CD",
   "order": [
     "cover",
+    "study-route",
     "why",
     "idea",
     "delay",
@@ -65,12 +66,50 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "由传播与检测时延计算 β，并用时间线解释先听仍会碰撞。",
+      "按成功量与周期长度计算通过率，区分近似峰值与数值峰值。",
+      "由最坏时序计算最短帧长，并解释 CD 与 CA 所需的条件。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "从侦听延迟到周期分析，再比较碰撞检测、退避与隐藏终端。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "idea",
+        "delay",
+        "beta",
+        "policies",
+        "cycle",
+        "derive",
+        "check",
+        "curves",
+        "persist1",
+        "beta-effect",
+        "slot-model",
+        "drift",
+        "max",
+        "stable-algo",
+        "stable-sim",
+        "cd-idea",
+        "min-frame",
+        "cd-S",
+        "ethernet",
+        "hidden",
+        "csma-ca",
+        "compare",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

@@ -129,3 +129,24 @@ body.print #pages { display: block; }
   .slide.enter, .slide.leave { animation: none; }
   .slide .build { transition: none; }
 }
+
+/* 教学路线：保留原始页号，仅筛选当前放映的页面。 */
+#btn-core, #ov-core { white-space: nowrap; flex-shrink: 0; }
+#btn-core[aria-pressed="true"], #ov-core[aria-pressed="true"] {
+  color: var(--cyan); border-color: var(--cyan); background: rgba(53, 224, 255, .1);
+}
+#ov-route-count { color: var(--muted); font-size: .85rem; }
+#counter { white-space: nowrap; font-size: .85rem; }
+.route-badge { position: absolute; right: 6px; bottom: 6px; z-index: 2;
+  font-size: 12px; line-height: 1.4; padding: 2px 7px; border-radius: 6px;
+  background: rgba(3, 6, 15, .86); color: var(--cyan); pointer-events: none; }
+.route-badge.extension { color: var(--amber); }
+.bar button:disabled { cursor: default; opacity: .4; }
+@media (max-width: 720px) {
+  #ov-route-count { display: none; }
+  .ov-top { gap: 8px; padding: 14px 12px; }
+  .bar.top { gap: 6px; }
+  .bar.top .title { min-width: 0; }
+  #btn-core { padding-left: 10px; padding-right: 10px; }
+}
+@media print { .page .build { visibility: visible !important; opacity: 1 !important; transform: none !important; transition: none !important; } }

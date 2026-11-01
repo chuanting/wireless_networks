@@ -8,6 +8,7 @@
   "title": "随机接入：ALOHA",
   "order": [
     "cover",
+    "study-route",
     "why",
     "rule",
     "model",
@@ -66,12 +67,51 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "区分新到达率、尝试率与成功率，由易受破坏区间推导通过率。",
+      "根据积压状态和漂移方向，解释固定重传概率为何出现拥塞。",
+      "按三态反馈更新伪贝叶斯估计，并说明它如何调节尝试率。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先推导通过率，再研究积压，最后用反馈调节重传概率。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "rule",
+        "model",
+        "rates",
+        "buffers",
+        "vuln",
+        "pure-S",
+        "slot-idea",
+        "slot-S",
+        "curves",
+        "read",
+        "example",
+        "balance",
+        "mc-setup",
+        "mc-trans",
+        "drift",
+        "three-eq",
+        "q-dilemma",
+        "sim-fixed",
+        "pb-idea",
+        "pb-algo",
+        "pb-const",
+        "pb-stable",
+        "pb-sim",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

@@ -6,7 +6,7 @@ const q = new URLSearchParams(location.search);
 const deckId = q.get('deck') || '';
 const msg = $('#msg');
 
-let deck = null, shownIdx = -2, curEl = null, state = null, lastTick = 0, tickInfo = { ms: 0, running: false, target: 60 };
+let deck = null, shownIdx = -2, shownNextIdx = -2, curEl = null, state = null, lastTick = 0, tickInfo = { ms: 0, running: false, target: 60 };
 const fmt = (ms) => { const s = Math.floor(ms / 1000); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
 
 async function main() {
@@ -30,6 +30,8 @@ async function main() {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); cmd('next'); }
     else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); cmd('prev'); }
+    else if (e.key === 'Home') { e.preventDefault(); cmd('home'); }
+    else if (e.key === 'End') { e.preventDefault(); cmd('end'); }
     else if (e.key === 't' || e.key === 'T') cmd('timer');
     else if (e.key === 'r' || e.key === 'R') cmd('reset');
   });
@@ -37,19 +39,36 @@ async function main() {
 }
 
 function render() {
-  if (!state || !deck) return;
+  if (!state || !deck || !deck.slides[state.idx]) return;
   if (shownIdx !== state.idx) {
     const r = renderSlide(deck.slides[state.idx].html);
     curEl = r.el; mountScaled($('#pv-cur'), r.el);
-    const nb = $('#pv-next');
-    if (state.idx + 1 < deck.slides.length) {
-      const n = renderSlide(deck.slides[state.idx + 1].html);
-      mountScaled(nb, n.el);
-    } else { nb.textContent = ''; nb.insertAdjacentHTML('beforeend', '<div style="position:absolute;inset:0;display:grid;place-content:center;color:#8fa0c0">已是最后一页</div>'); }
     shownIdx = state.idx;
   }
+  // Core/full can change while the current original page stays the same.
+  const nextIdx = state.nextIdx === undefined
+    ? (state.idx + 1 < deck.slides.length ? state.idx + 1 : null)
+    : state.nextIdx;
+  if (shownNextIdx !== nextIdx) {
+    const nb = $('#pv-next');
+    if (nextIdx !== null && deck.slides[nextIdx]) {
+      const n = renderSlide(deck.slides[nextIdx].html);
+      mountScaled(nb, n.el);
+      nb.setAttribute('aria-label', '下一页：原第 ' + (nextIdx + 1) + ' 页');
+    } else {
+      nb.textContent = '';
+      nb.setAttribute('aria-label', '已是当前路线的最后一页');
+      nb.insertAdjacentHTML('beforeend', '<div style="position:absolute;inset:0;display:grid;place-content:center;color:#8fa0c0">已是当前路线的最后一页</div>');
+    }
+    shownNextIdx = nextIdx;
+  }
   setStep(curEl, state.step);
-  $('#cnt').textContent = (state.idx + 1) + ' / ' + state.total;
+  $('#cnt').textContent = (state.idx + 1) + ' / ' + state.total
+    + (state.coreOnly ? ' · 核心 ' + state.routePosition + '/' + state.routeTotal : '');
+  $('#bp').disabled = state.step === 0 && (state.prevIdx === null || state.prevIdx === undefined && state.idx === 0);
+  $('#bn').disabled = nextIdx === null && state.step >= state.steps;
+  if (state.coreOnly) q.set('core', '1'); else q.delete('core');
+  if (history.replaceState) history.replaceState(null, '', location.pathname + '?' + q + '#' + (state.idx + 1));
   $('#steps').textContent = state.steps ? '点击步骤 ' + state.step + '/' + state.steps : '';
   $('#nt').textContent = state.notes || '';
   $('#nt').scrollTop = 0;

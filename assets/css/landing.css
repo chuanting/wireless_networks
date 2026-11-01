@@ -8,7 +8,7 @@
   --accent: #1d3f72;
   --accent-ink: #14305a;
   --ok: #2f6b4f;
-  --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --serif: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
 }
 * { box-sizing: border-box; }

@@ -8,6 +8,7 @@
   "title": "图论基础：从地图到最小生成树",
   "order": [
     "cover",
+    "study-route",
     "why",
     "problem",
     "graph",
@@ -69,12 +70,54 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "把网络表示成图，判别路径、回路、连通与树。",
+      "逐步执行 Prim 或 Kruskal，给出最小生成树及总权重。",
+      "用割性质解释选边，并用例子区分最小生成树和最短路径树。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "从图的语言到两种选边算法，再用割性质解释为什么正确。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "problem",
+        "graph",
+        "degree",
+        "kinds",
+        "store",
+        "bridges",
+        "euler",
+        "path",
+        "connected",
+        "tree",
+        "treeprop",
+        "span",
+        "mst",
+        "prim-rule",
+        "prim-run",
+        "kruskal-rule",
+        "kruskal-run",
+        "dist-why",
+        "dist-idea",
+        "dist-msg",
+        "dist-run",
+        "cut-def",
+        "cut-prop",
+        "cut-why",
+        "compare",
+        "spt",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

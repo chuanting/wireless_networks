@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>开发测试：核心教学路线</title>
+<style>body{font:16px/1.6 system-ui;margin:24px}pre{white-space:pre-wrap}iframe{width:960px;height:600px;border:1px solid #aaa}</style>
+<h1>开发测试：核心教学路线</h1>
+<p>此页仅用于开发。通过本地 HTTP 服务打开；加 <code>?integration=1</code> 运行放映器、讲者同步与打印集成检查。</p>
+<pre id="result">RUNNING</pre>
+<div id="fixtures" hidden></div>
+<script type="module">
+import { createRoute, resolveIndex, adjacentIndex, routePosition } from '../assets/js/route.js';
+import { renderSlide, setStep, stepsOf } from '../assets/js/deck-runtime.js';
+
+const lines = [], failures = [];
+const result = document.querySelector('#result');
+function check(name, condition) {
+  lines.push((condition ? 'PASS ' : 'FAIL ') + name);
+  if (!condition) failures.push(name);
+}
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const slides = ['cover', 'a', 'extra1', 'extra2', 'b', 'end', 'extra3'].map(id => ({ id }));
+const extensions = ['extra1', 'extra2', 'extra3'];
+const full = createRoute(slides, extensions), core = createRoute(slides, extensions, true);
+check('完整路线保留原顺序', same(full.indices, [0, 1, 2, 3, 4, 5, 6]));
+check('核心路线保留原始索引', same(core.indices, [0, 1, 4, 5]));
+check('下一页连续跳过拓展', adjacentIndex(core, 1, 1) === 4);
+check('上一页连续跳过拓展', adjacentIndex(core, 4, -1) === 1);
+check('核心路线首尾停止', adjacentIndex(core, 0, -1) === null && adjacentIndex(core, 5, 1) === null);
+check('直接跳转核心页保持原页号', resolveIndex(core, 4) === 4);
+check('直接跳转拓展页选择后一核心页', resolveIndex(core, 2) === 4);
+check('末尾拓展页回到最后核心页', resolveIndex(core, 6) === 5);
+check('越界与无效页码安全归位', resolveIndex(core, -9) === 0 && resolveIndex(core, 99) === 5 && resolveIndex(core, NaN) === 0);
+check('Home/End 使用路线首尾', core.indices[0] === 0 && core.indices.at(-1) === 5);
+check('路线位置与原始页码分开', routePosition(core, 4) === 3);
+check('关闭核心模式恢复当前原始页', resolveIndex(full, 4) === 4);
+check('无拓展时禁用核心模式', !createRoute(slides, [], true).coreOnly && !createRoute(slides, [], true).hasExtensions);
+check('未知和重复ID不影响路线', same(createRoute(slides, ['extra1', 'extra1', 'missing'], true).indices, [0, 1, 3, 4, 5, 6]));
+check('错误的全拓展标记保留可用路线', createRoute(slides, slides.map(s => s.id), true).indices.length === slides.length);
+check('空课件可检测', resolveIndex(createRoute([]), 0) === -1);
+const one = createRoute(slides, slides.slice(1).map(s => s.id), true);
+check('仅一张核心页的导航', same(one.indices, [0]) && adjacentIndex(one, 0, 1) === null);
+
+const reveal = renderSlide('<section><h2>Question</h2><div data-build-in="fade 1">Answer 1</div><div data-build-in="fade 2">Answer 2</div><aside>Notes</aside></section>');
+check('初始隐藏两步答案', stepsOf(reveal.el) === 2 && reveal.el.querySelectorAll('.bhid').length === 2);
+setStep(reveal.el, stepsOf(reveal.el));
+check('打印与总览完整揭晓答案', reveal.el.querySelectorAll('.bhid').length === 0);
+check('所选打印页保留原始编号', same(core.indices.map(i => i + 1), [1, 2, 5, 6]));
+
+async function until(test, label) {
+  const start = performance.now();
+  while (!test()) {
+    if (performance.now() - start > 20000) throw new Error('等待超时：' + label);
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+}
+
+async function integration() {
+  const collisionMeta = await (await fetch('../decks/ch4-4-collision-resolution/deck.json')).json();
+  const collision = createRoute(collisionMeta.order.map(id => ({id})), collisionMeta.teaching?.extensions, true);
+  check('4.4 教学metadata包含有效拓展页', collision.hasExtensions && collision.indices.length < collisionMeta.order.length);
+  const deckId = 'ch3-3-mg1';
+  const meta = await (await fetch('../decks/' + deckId + '/deck.json')).json();
+  const allSlides = meta.order.map(id => ({id}));
+  const selected = createRoute(allSlides, meta.teaching?.extensions, true);
+  check('3.3 教学metadata包含有效拓展页', selected.hasExtensions);
+  if (!selected.hasExtensions) return;
+  const firstExtra = [...selected.extensions].sort((a,b) => a-b)[0];
+  const anchor = adjacentIndex(selected, firstExtra, -1) ?? selected.indices[0];
+  const expectedNext = adjacentIndex(selected, anchor, 1);
+  const frames = document.querySelector('#fixtures');
+  frames.hidden = false;
+  const frame = document.createElement('iframe');
+  frames.appendChild(frame);
+  const states = [];
+  const channel = new BroadcastChannel('wn-deck-' + deckId);
+  channel.onmessage = event => { if (event.data.type === 'state') states.push(event.data); };
+  frame.src = '../viewer/?deck=' + deckId + '&core=1#' + (anchor + 1);
+  await until(() => frame.contentDocument?.querySelector('#stage .slide') && states.length, '核心课件加载');
+  const win = frame.contentWindow, doc = frame.contentDocument;
+  check('核心URL保持原页号', win.location.hash === '#' + (anchor + 1));
+  check('核心按钮显示并选中', !doc.querySelector('#btn-core').hidden && doc.querySelector('#btn-core').getAttribute('aria-pressed') === 'true');
+  check('讲者同步下一实际核心页', states.at(-1).nextIdx === expectedNext && states.at(-1).coreOnly);
+
+  const speaker = document.createElement('iframe');
+  frames.appendChild(speaker);
+  speaker.src = '../viewer/notes.html?deck=' + deckId;
+  await until(() => speaker.contentDocument?.querySelector('#pv-next')?.getAttribute('aria-label'), '讲者预览');
+  check('讲者预览跳过拓展', speaker.contentDocument.querySelector('#pv-next').getAttribute('aria-label') === '下一页：原第 ' + (expectedNext + 1) + ' 页');
+  const currentSteps = states.at(-1).steps;
+  for (let i=0; i <= currentSteps; i++) doc.querySelector('#btn-next').click();
+  check('下一页按钮跳过拓展', win.location.hash === '#' + (expectedNext + 1));
+  doc.querySelector('#btn-prev').click();
+  check('上一页按钮回原核心页', win.location.hash === '#' + (anchor + 1));
+
+  doc.querySelector('#btn-overview').click();
+  check('总览核心模式过滤拓展', doc.querySelectorAll('.thumb:not([hidden])').length === selected.indices.length);
+  check('总览显示核心/拓展标识', doc.querySelectorAll('.route-badge').length === meta.order.length && doc.querySelectorAll('.route-badge.extension').length === selected.extensions.size);
+  check('PDF导出保留核心选择', new URL(doc.querySelector('#export').href).searchParams.get('core') === '1');
+  doc.querySelector('#ov-core').click();
+  check('总览恢复全部页', doc.querySelectorAll('.thumb:not([hidden])').length === meta.order.length);
+  check('关闭核心模式保留原页号', win.location.hash === '#' + (anchor + 1) && !new URL(win.location.href).searchParams.has('core'));
+  await until(() => speaker.contentDocument.querySelector('#pv-next').getAttribute('aria-label') === '下一页：原第 ' + (anchor + 2) + ' 页', '当前页不变时刷新讲者下一页');
+  check('当前页不变也刷新下一页预览', true);
+  doc.querySelector('#ov-core').click();
+  doc.querySelector('#ov-close').click();
+  win.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'End', bubbles: true }));
+  check('End到最后核心页', win.location.hash === '#' + (selected.indices.at(-1) + 1));
+  win.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
+  check('Home到第一核心页', win.location.hash === '#' + (selected.indices[0] + 1));
+  win.location.hash = '#' + (firstExtra + 1);
+  await until(() => win.location.hash === '#' + (resolveIndex(selected, firstExtra) + 1), '拓展页深链归位');
+  check('核心模式拓展页深链归位', true);
+
+  const printFrame = document.createElement('iframe');
+  frames.appendChild(printFrame);
+  printFrame.src = '../viewer/?deck=' + deckId + '&core=1&print=1';
+  await until(() => printFrame.contentDocument?.querySelector('#pages'), '核心打印页');
+  const printDoc = printFrame.contentDocument;
+  check('核心打印页数正确', printDoc.querySelectorAll('.page').length === selected.indices.length);
+  check('打印保留原页号', same([...printDoc.querySelectorAll('.page')].map(p => +p.dataset.originalPage), selected.indices.map(i => i+1)));
+  check('打印全部揭晓答案', printDoc.querySelectorAll('.bhid').length === 0);
+  const normalFrame = document.createElement('iframe');
+  frames.appendChild(normalFrame);
+  normalFrame.src = '../viewer/?deck=ch5-2-shortest-path&core=1';
+  await until(() => normalFrame.contentDocument?.querySelector('#stage .slide'), '无拓展课件');
+  check('无拓展课件隐藏切换按钮', normalFrame.contentDocument.querySelector('#btn-core').hidden);
+  channel.close();
+}
+
+try {
+  if (new URLSearchParams(location.search).get('integration') === '1') await integration();
+} catch (error) { check(error.message, false); }
+result.textContent = (failures.length ? 'FAIL: ' + failures.length : 'PASS: ' + lines.length) + '\n' + lines.join('\n');
+document.documentElement.dataset.testStatus = failures.length ? 'fail' : 'pass';
+document.title = (failures.length ? 'FAIL' : 'PASS') + ' · 核心路线开发测试';
+</script>
+</html>

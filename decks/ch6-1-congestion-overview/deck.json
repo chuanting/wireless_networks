@@ -8,6 +8,7 @@
   "title": "流量与拥塞控制概论",
   "order": [
     "cover",
+    "study-route",
     "why",
     "curve",
     "collapse",
@@ -50,12 +51,39 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "沿排队、丢包与重传过程，解释负载增加为何可能降低有效吞吐。",
+      "区分流量控制、拥塞控制与死锁防止，并为案例匹配目标。",
+      "用吞吐、时延和公平性比较控制方案，指出反馈从哪里获得。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "从拥塞与死锁现象出发，明确控制对象、目标和反馈。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "curve",
+        "collapse",
+        "deadlock",
+        "deadlock-kinds",
+        "classify",
+        "objectives",
+        "fairness",
+        "power",
+        "principle",
+        "loops",
+        "layers",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

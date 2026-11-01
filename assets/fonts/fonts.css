@@ -1,8 +1,8 @@
-/*
- * 课件用到的宋体（Noto Serif SC 400/900）和手写体（ZCOOL KuaiLe），放在本站，
- * 打不开 Google Fonts 时也能正常显示。字库已精简为：所有课件里出现的字 + GB2312 一级常用字 3755 个。
- * 许可：SIL Open Font License 1.1，见同目录 OFL.txt。
+/* Noto Sans CJK SC / 思源黑体：本地字库，投影与离线打印使用同一字体。
+ * Regular / Medium / Bold, SIL Open Font License 1.1.
+ * Source and license: NotoSansCJK-LICENSE.txt. Rebuild: genlib/fonts.py.
  */
-@font-face { font-family: 'Noto Serif SC'; font-style: normal; font-weight: 400; font-display: swap; src: url('noto-serif-sc-400.woff2') format('woff2'); }
-@font-face { font-family: 'Noto Serif SC'; font-style: normal; font-weight: 900; font-display: swap; src: url('noto-serif-sc-900.woff2') format('woff2'); }
-@font-face { font-family: 'ZCOOL KuaiLe'; font-style: normal; font-weight: 400; font-display: swap; src: url('zcool-kuaile.woff2') format('woff2'); }
+@import url('symbols.css');
+@font-face { font-family:'Noto Sans SC'; font-style:normal; font-weight:400; font-display:swap; src:url('noto-sans-sc-400.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans SC'; font-style:normal; font-weight:500; font-display:swap; src:url('noto-sans-sc-500.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans SC'; font-style:normal; font-weight:700 900; font-display:swap; src:url('noto-sans-sc-700.woff2') format('woff2'); }

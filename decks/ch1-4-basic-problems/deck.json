@@ -8,6 +8,7 @@
   "title": "通信网络的基本理论问题",
   "order": [
     "cover",
+    "study-route",
     "start",
     "five",
     "p1",
@@ -46,12 +47,39 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "沿分组的旅程指出拓扑、传输、多址、路由和流量控制的任务。",
+      "把时延、通过量与可靠性需求转化为可计算的问题。",
+      "为一个网络问题选择随机过程、图论或排队模型，并说明理由。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "用分组的旅程连接五个基本问题、评价指标与数学工具。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "start",
+        "five",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "journey",
+        "tools",
+        "interplay",
+        "map",
+        "lab",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

@@ -8,6 +8,7 @@
   "title": "冲突分解算法：树形分裂与 FCFS 分裂",
   "order": [
     "cover",
+    "study-route",
     "why",
     "rule",
     "two",
@@ -69,12 +70,53 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "根据空闲、成功、碰撞反馈，逐时隙执行树形分裂并更新计数器。",
+      "判断哪些碰撞可由已有反馈推知，解释改进如何节省时隙。",
+      "指出反馈一致性与同步条件，用一例反馈错误说明状态如何失步。"
+    ],
+    "extensions": [
+      "length",
+      "group-calc",
+      "interval",
+      "return",
+      "rules",
+      "fcfs-ex",
+      "chain",
+      "alpha",
+      "delay",
+      "ex2"
+    ],
+    "route": {
+      "core": "树形规则、轨迹判断、计数器、两步改进的直觉、模型条件与 RFID。",
+      "extension": "分解期递推、FCFS 区间规则、马尔可夫链与性能分析。",
+      "practice": "先判断树和计数器的下一步，再点击揭晓；选讲 FCFS 时再做区间判断。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "rule",
+        "two",
+        "two-calc",
+        "info",
+        "split",
+        "tree",
+        "counter",
+        "new",
+        "group",
+        "idle",
+        "compare",
+        "cost",
+        "rfid",
+        "ex1",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

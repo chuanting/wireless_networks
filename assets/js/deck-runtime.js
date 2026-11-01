@@ -35,9 +35,9 @@ export async function loadDeck(deckId, onProgress) {
   return { id: deckId, meta, slides, sections };
 }
 
-/* 课件在 deck.json 的 faces 里声明自己用到的字体（如宋体、粗黑体），这里按需加载。
+/* 课件在 deck.json 的 faces 里声明自己用到的字体（如思源黑体），这里按需加载。
    本站自带的字体（assets/fonts/fonts.css）不再去 Google Fonts 取，国内打不开时也能显示。 */
-const LOCAL_FAMILIES = new Set(['Noto Serif SC', 'ZCOOL KuaiLe']);
+const LOCAL_FAMILIES = new Set(['Noto Sans SC', 'ZCOOL KuaiLe']);
 function loadFaces(faces) {
   Object.values(faces || {}).forEach((f) => {
     const href = f && f.href;

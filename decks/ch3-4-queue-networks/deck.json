@@ -8,6 +8,7 @@
   "title": "排队网络：Burke、Jackson 与 Kleinrock 近似",
   "order": [
     "cover",
+    "study-route",
     "why",
     "carry",
     "outflow",
@@ -57,12 +58,46 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "说明 Burke 与 Jackson 模型的条件，区分独立服务与固定包长。",
+      "由路由概率解流量方程，再用访问次数和 Little 定理求网络时延。",
+      "用 Kleinrock 近似比较升级或分流方案，并用模拟检验相关性误差。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先看队列如何相连，再解流量，最后检验独立性近似。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "carry",
+        "outflow",
+        "burke",
+        "reverse",
+        "tandem",
+        "jmodel",
+        "traffic",
+        "jthm",
+        "jfeed",
+        "closed",
+        "closed-eg",
+        "kl-why",
+        "kl-formula",
+        "kl-eg",
+        "kl-upgrade",
+        "kl-split",
+        "kl-accuracy",
+        "chapter",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

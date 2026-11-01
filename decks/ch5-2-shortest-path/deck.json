@@ -8,6 +8,7 @@
   "title": "集中式最短路径算法：Bellman–Ford、Dijkstra、Floyd–Warshall",
   "order": [
     "cover",
+    "study-route",
     "why",
     "problem",
     "bf-idea",
@@ -60,12 +61,45 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "在给定加权图上逐步执行 Bellman–Ford、Dijkstra 或 Floyd。",
+      "从距离结果构造下一跳，核对路径长度与是否可达。",
+      "按边权条件、负环和所需路径范围选择算法，并解释原因。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "每种算法都跟踪中间状态，再比较条件、结果和计算代价。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "problem",
+        "bf-idea",
+        "bf-example",
+        "bf-tree",
+        "bf-proof",
+        "bf-neg",
+        "bf-cost",
+        "dj-idea",
+        "dj-steps",
+        "dj-example",
+        "dj-proof",
+        "dj-neg",
+        "fw-idea",
+        "fw-example",
+        "fw-path",
+        "compare",
+        "where",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

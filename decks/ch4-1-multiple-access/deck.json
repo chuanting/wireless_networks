@@ -8,6 +8,7 @@
   "title": "共享信道与固定多址接入",
   "order": [
     "cover",
+    "study-route",
     "shared",
     "collide",
     "mac",
@@ -66,12 +67,51 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "把共享信道表示成分散队列，说明通过率、时延和稳定性的含义。",
+      "区分频率、时间、码与空间资源，并完成一次简单 CDMA 解码。",
+      "计算固定分配与理想总队列的时延，解释空闲份额与热点负载的代价。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "以理想总队列作基准，比较资源划分及固定份额的时延。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "shared",
+        "collide",
+        "mac",
+        "extremes",
+        "classes",
+        "queue",
+        "ideal",
+        "topo",
+        "time",
+        "feedback",
+        "poisson",
+        "metrics",
+        "resources",
+        "fdma",
+        "tdma",
+        "waste",
+        "cdma-idea",
+        "cdma-eg",
+        "sdma",
+        "table",
+        "cost-formulas",
+        "cost-numbers",
+        "cost-chart",
+        "insights",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

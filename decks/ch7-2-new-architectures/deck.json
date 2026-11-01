@@ -8,6 +8,7 @@
   "title": "新的架构：软件定义、切片、边缘与智能",
   "order": [
     "cover",
+    "study-route",
     "split",
     "gain",
     "flow",
@@ -47,12 +48,36 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "区分控制面与数据面，用简单网络说明集中分流如何改变负载。",
+      "比较切片隔离与共享容量，并计算边缘卸载的时延门槛。",
+      "根据预测误差与控制周期，判断智能决策能否及时改变网络状态。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "把软件定义、切片、边缘和预测映射回容量、时延与反馈问题。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "split",
+        "gain",
+        "flow",
+        "place",
+        "slice",
+        "pool",
+        "edge",
+        "predict",
+        "loop",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

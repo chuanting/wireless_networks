@@ -8,6 +8,7 @@
   "title": "分布式路由：距离矢量与链路状态",
   "order": [
     "cover",
+    "study-route",
     "why",
     "dv-idea",
     "dv-table",
@@ -49,12 +50,42 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "根据邻居通告更新距离矢量，逐轮追踪好消息与坏消息。",
+      "构造一次计数到无穷的例子，判断水平分割能解决哪种环路。",
+      "比较距离矢量与链路状态的信息内容、传播方式和本地计算。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "从邻居更新推演故障，再与链路状态的全图计算比较。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why",
+        "dv-idea",
+        "dv-table",
+        "dv-good",
+        "dv-bad",
+        "dv-split",
+        "dv-rip",
+        "ls-idea",
+        "ls-hello",
+        "ls-lan",
+        "ls-lsp",
+        "ls-flood",
+        "ls-spf",
+        "ls-vs-dv",
+        "ospf",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }

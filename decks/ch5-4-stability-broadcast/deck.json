@@ -8,6 +8,7 @@
   "title": "路由的稳定性与路由信息的广播",
   "order": [
     "cover",
+    "study-route",
     "why-loop",
     "ring-model",
     "ring-osc",
@@ -48,12 +49,41 @@
   "faces": {
     "noto-sans-sc": {
       "family": "Noto Sans SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
-    },
-    "noto-serif-sc": {
-      "family": "Noto Serif SC",
-      "href": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"
+      "href": "../../assets/fonts/fonts.css"
     }
   },
-  "designSystems": []
+  "designSystems": [],
+  "teaching": {
+    "objectives": [
+      "沿流量、代价、选路的反馈环解释自适应路由为何振荡。",
+      "比较偏置与时间平均，说明稳定性和响应速度的取舍。",
+      "按序号与年龄规则处理新旧路由消息，并推演异常恢复。"
+    ],
+    "extensions": [],
+    "route": {
+      "core": "先分析路由反馈，再用序号、年龄与更新规则管理消息。",
+      "coreSlides": [
+        "cover",
+        "study-route",
+        "why-loop",
+        "ring-model",
+        "ring-osc",
+        "ring-why",
+        "bias",
+        "avg",
+        "tradeoff",
+        "bc-why",
+        "bc-assume",
+        "bc-stale",
+        "bc-loop",
+        "bc-seq",
+        "bc-seq-bad",
+        "bc-age",
+        "ex1",
+        "ex2",
+        "summary",
+        "project"
+      ]
+    }
+  }
 }
