@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>开发测试：排队仿真</title>
+<style>body{font:16px/1.6 system-ui;margin:24px}pre{white-space:pre-wrap}</style>
+<h1>开发测试：排队仿真</h1>
+<pre id="result">RUNNING</pre>
+<script type="module">
+import { QueueModel } from '../assets/js/queue-model.js';
+const lines = [], failures = [];
+function check(name, condition) {
+  lines.push((condition ? 'PASS ' : 'FAIL ') + name);
+  if (!condition) failures.push(name);
+}
+const close = (a,b,tolerance = 1e-9) => Math.abs(a-b) <= tolerance * Math.max(1,Math.abs(a),Math.abs(b));
+function drain(model) {
+  model.stopArrivals();
+  let steps = 0;
+  while (!model.snapshot().drained && steps++ < 100000) model.nextEvent();
+  if (!model.snapshot().drained) throw new Error('排空未完成');
+  return model.snapshot();
+}
+function checkDrain(name, state) {
+  check(name + '：到达与完成数量守恒', state.arrived === state.completed && state.systemCount === 0);
+  check(name + '：节点人数面积等于逗留时间之和', close(state.areaN, state.totalSojourn));
+  check(name + '：等待人数面积等于等待时间之和', close(state.areaQ, state.totalWait));
+  check(name + '：服务区面积等于服务时间之和', close(state.busyTime, state.completed * state.serviceTime));
+  check(name + '：节点 Little 关系', close(state.avgN, state.littleProduct));
+  check(name + '：等待区 Little 关系', close(state.avgQ, state.observedRate * state.meanW));
+  check(name + '：服务区 Little 关系', close(state.utilization, state.observedRate * state.meanService));
+}
+try {
+  const empty = new QueueModel();
+  let s = empty.snapshot();
+  check('空样本没有 NaN 或无穷平均值', [s.avgN,s.avgQ,s.meanW,s.meanT,s.observedRate,s.utilization].every(Number.isFinite));
+  check('运行中不混用样本计算 Little 乘积', s.littleProduct === null);
+  s = empty.stopArrivals();
+  check('尚无到达时可以立即结束', s.drained && s.time === 0 && s.completed === 0 && s.littleProduct === 0);
+  check('排空后推进不改变观察时长', empty.advance(100).time === 0);
+
+  const one = new QueueModel({ arrivalRate: 2, serviceTime: 0.2, arrivalMode: 'periodic' });
+  s = one.nextEvent();
+  check('均匀首个到达在 1/λ，立即进入服务', close(s.time,0.5) && s.arrived === 1 && s.serving.id === 1 && s.queueLength === 0);
+  one.stopArrivals();
+  s = one.advance(10);
+  check('一次跨越排空时刻后冻结在最后离开时刻', close(s.time,0.7) && s.drained && close(s.areaN,0.2));
+  check('初始空闲区间包含在观察窗口内', close(s.utilization,2/7) && close(s.observedRate,10/7));
+  checkDrain('单个分组',s);
+
+  const periodic = new QueueModel({ arrivalRate: 4, serviceTime: 0.2, arrivalMode: 'periodic' });
+  periodic.advance(40);
+  s = periodic.snapshot();
+  check('均匀到达且负荷低于 1：等待严格为零', s.meanW === 0 && s.avgQ === 0 && s.queueLength === 0);
+  check('完成分组的 T 等于 W 加服务时间', close(s.meanT,s.meanW+s.serviceTime));
+  checkDrain('均匀稳定队列',drain(periodic));
+
+  const simultaneous = new QueueModel({ arrivalRate: 5, serviceTime: 0.2, arrivalMode: 'periodic' });
+  simultaneous.nextEvent();
+  s = simultaneous.nextEvent();
+  check('同一时刻先离开后到达，不产生虚假排队', close(s.time,0.4) && s.completed === 1 && s.arrived === 2 && s.queueLength === 0 && s.serving.id === 2);
+  simultaneous.advance(20);
+  s = drain(simultaneous);
+  check('均匀临界负荷不会因舍入产生等待', close(s.meanW,0) && close(s.avgQ,0));
+  checkDrain('同时事件',s);
+
+  const overloaded = new QueueModel({ arrivalRate: 8, serviceTime: 0.2, arrivalMode: 'periodic' });
+  const early = overloaded.advance(10);
+  const late = overloaded.advance(10);
+  check('超过服务能力后队列持续增长', late.queueLength > early.queueLength + 20 && late.rho > 1);
+  check('负荷可大于 1，但测得忙碌比例不超过 1', late.utilization <= 1 && late.utilization > 0.98);
+  checkDrain('过载后停止到达',drain(overloaded));
+
+  const a = new QueueModel({ seed: 2026 });
+  const b = new QueueModel({ seed: 2026 });
+  a.advance(50);
+  for (let i=0; i<500; i++) b.advance(0.1);
+  const sa = a.snapshot(), sb = b.snapshot();
+  check('随机结果不依赖动画帧长', sa.arrived === sb.arrived && sa.completed === sb.completed && close(sa.avgN,sb.avgN) && close(sa.meanW,sb.meanW));
+  const c = new QueueModel({ seed: 2026 });
+  c.advance(50);
+  check('固定种子完整重现到达/服务轨迹', JSON.stringify(sa) === JSON.stringify(c.snapshot()));
+  const different = new QueueModel({ seed: 2027 });
+  different.advance(50);
+  check('不同种子产生不同随机轨迹', sa.nextArrivalTime !== different.snapshot().nextArrivalTime);
+  check('随机到达即使平均负荷低于 1 也会等待', sa.rho < 1 && sa.meanW > 0.05 && sa.avgQ > 0);
+  check('运行中人数与已完成人数守恒', sa.arrived === sa.completed + sa.systemCount);
+  check('运行中各项占用积分相加一致', close(sa.areaN,sa.areaQ+sa.busyTime));
+  check('每个完成分组的 W/X/T 一致且非负', sa.recentCompleted.every(p => p.wait >= 0 && p.service > 0 && close(p.sojourn,p.wait+p.service)));
+  check('最近完成样本限制为 8 个，最新在前', sa.recentCompleted.length === 8 && sa.recentCompleted.every((p,i,all) => !i || p.end <= all[i-1].end));
+  checkDrain('随机稳定队列',drain(a));
+
+  const detached = new QueueModel({ arrivalRate: 12, serviceTime: 0.5, arrivalMode: 'periodic' });
+  detached.advance(1);
+  const copy = detached.snapshot();
+  copy.queue[0].id = -9;
+  copy.serving.id = -8;
+  copy.recentCompleted[0].id = -7;
+  const intact = detached.snapshot();
+  check('快照不会把可变内部对象暴露给界面', intact.queue[0].id > 0 && intact.serving.id > 0 && intact.recentCompleted[0].id > 0);
+
+  const zero = new QueueModel({ arrivalRate: 0 });
+  s = zero.advance(7);
+  check('零到达率可以观察空闲且不除零', s.time === 7 && s.arrived === 0 && s.utilization === 0 && s.nextEventTime === null);
+  check('无到达事件时单步安全返回', zero.nextEvent().time === 7);
+  checkDrain('零到达样本',zero.stopArrivals());
+  check('多次停止到达保持同一个排空时刻', zero.stopArrivals().time === 7 && zero.advance(100).time === 7);
+
+  for (const [label, action] of [
+    ['负到达率', () => new QueueModel({ arrivalRate:-1 })],
+    ['非正服务时间', () => new QueueModel({ serviceTime:0 })],
+    ['无效模式', () => new QueueModel({ arrivalMode:'invalid' })],
+    ['负时间步长', () => new QueueModel().advance(-1)],
+    ['无限时间步长', () => new QueueModel().advance(Infinity)],
+  ]) {
+    let rejected = false;
+    try { action(); } catch (error) { rejected = error instanceof RangeError; }
+    check('拒绝' + label,rejected);
+  }
+} catch (error) { check(error.stack || error.message,false); }
+document.querySelector('#result').textContent = (failures.length ? 'FAIL: ' + failures.length : 'PASS: ' + lines.length) + '\n' + lines.join('\n');
+document.documentElement.dataset.testStatus = failures.length ? 'fail' : 'pass';
+document.title = (failures.length ? 'FAIL' : 'PASS') + ' · 排队仿真测试';
+</script>
+</html>

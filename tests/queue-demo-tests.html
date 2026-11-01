@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- Use a real browser clock (or CDP), not Chrome's virtual-time-budget:
+     continuous playback is driven by requestAnimationFrame. -->
+<html lang="zh-CN"><meta charset="utf-8"><title>排队演示交互与布局测试</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>html,body{overflow:auto;background:#f6f1e7}#fixture{width:1920px;height:1080px;position:relative}#result{font:18px monospace;color:#111;white-space:pre-wrap;background:white;margin:24px}</style>
+<div id="fixture"></div><pre id="result">RUNNING</pre>
+<script type="module">
+import { renderSlide } from '../assets/js/deck-runtime.js';
+import { mountQueueDemo } from '../assets/js/queue-demo.js';
+const results = [], failures = [];
+const check = (name, value) => { results.push((value ? 'PASS ' : 'FAIL ') + name); if (!value) failures.push(name); };
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+try {
+  const html = await (await fetch('../decks/ch3-1-delay-little/slides/queue-demo.html')).text();
+  const slide = renderSlide(html).el;
+  document.querySelector('#fixture').appendChild(slide);
+  const host = slide.querySelector('[data-live-demo]'), api = mountQueueDemo(host);
+  const action = key => host.querySelector('[data-action="' + key + '"]').click();
+  const preset = key => host.querySelector('[data-preset="' + key + '"]').click();
+  const output = key => host.querySelector('[data-out="' + key + '"]').textContent;
+  const field = (key, value) => { const el = host.querySelector('[data-field="' + key + '"]'); el.value = value; el.dispatchEvent(new Event('input', {bubbles:true})); };
+  await delay(150);
+  await document.fonts.ready;
+  function layout(name) {
+    const box = slide.getBoundingClientRect();
+    const bad = [];
+    for (const el of host.querySelectorAll('p,b,span,button,label,select,svg')) {
+      const r = el.getBoundingClientRect();
+      if (r.width && (r.right > box.right - 50 || r.bottom > box.bottom - 70 || r.left < box.left + 50 || r.top < box.top)) bad.push(el.textContent.slice(0,35));
+    }
+    const packetRow = host.querySelector('.qd-packets');
+    check(name + '：内容保留边距且队列不溢出 ' + bad.join('|'), bad.length === 0 && packetRow.scrollWidth <= packetRow.clientWidth + 1);
+  }
+  function verifyIdentity(name) {
+    const eq = output('little-equation');
+    const values = [...eq.matchAll(/\d+\.\d+/g)].map(m => +m[0]);
+    check(name + '：排空后N与实测λT匹配', host.dataset.drained === 'true' && values.length === 2 && Math.abs(values[0]-values[1]) <= 0.001);
+  }
+  check('进入时暂停且统计不伪造样本', host.dataset.running === 'false' && output('mean-wait') === '—');
+  layout('初始');
+  action('step');
+  check('逐事件推进出现第一个正在服务的分组', output('arrived') === '1 个' && output('server') === '#1' && host.dataset.running === 'false');
+  action('reset'); action('fast');
+  check('均匀到达、负荷0.8时零等待且停留等于服务', output('mean-wait') === '0.00 s' && output('mean-total') === '0.20 s');
+  action('drain'); action('fast'); verifyIdentity('均匀'); layout('均匀排空');
+  preset('random'); action('fast');
+  check('只改到达规律：负荷仍0.8且出现等待', output('rho').includes('0.80') && parseFloat(output('mean-wait')) > 0);
+  const randomWait = output('mean-wait');
+  layout('随机');
+  preset('random'); action('fast');
+  check('重置随机实验可复现', output('mean-wait') === randomWait);
+  action('drain'); action('fast'); verifyIdentity('随机'); layout('随机排空');
+  preset('overload'); action('fast');
+  const q1 = parseInt(output('queue-count'));
+  action('fast');
+  check('过载时队列增长、负荷超过1、忙碌占比不超过100%', parseInt(output('queue-count')) > q1 && output('rho').includes('1.20') && parseFloat(output('busy')) <= 100);
+  layout('过载');
+  action('drain'); action('fast'); verifyIdentity('过载');
+  check('排空不被误解为过载稳定', output('footer').includes('不表示持续过载'));
+  field('serviceTime', 100);
+  check('改变服务时间以毫秒输入、以秒计算负荷，并清空旧统计', output('rho').includes('0.60') && host.dataset.simulationTime === '0' && output('mean-wait') === '—');
+  field('arrivalRate', 10); field('serviceTime', 500); field('arrivalMode','periodic');
+  for (let i=0; i<10; i++) action('fast');
+  check('到达阶段300秒上限与按钮状态一致', +host.dataset.simulationTime === 300 && host.querySelector('[data-action="start"]').disabled && !host.querySelector('[data-action="drain"]').disabled);
+  layout('最大队列');
+  action('drain');
+  check('停止到达后可立即排空大队列', host.querySelector('[data-action="fast"]').textContent === '立即排空');
+  for (let i=0; i<50 && host.dataset.drained!=='true'; i++) action('fast');
+  verifyIdentity('最大队列'); layout('大样本排空');
+  preset('regular'); action('drain');
+  check('没有到达也能安全排空，显示无样本', host.dataset.drained === 'true' && !host.textContent.includes('NaN') && output('little-status').includes('没有样本'));
+  preset('random'); action('start');
+  await delay(250);
+  api.pause(); const pausedTime = host.dataset.simulationTime;
+  check('连续播放实际推进仿真时间', +pausedTime > 0);
+  await delay(100);
+  check('暂停后时间不继续流动', host.dataset.running === 'false' && host.dataset.simulationTime === pausedTime);
+  const scene = new URLSearchParams(location.search).get('scene') || 'drained';
+  if (scene === 'initial') preset('regular');
+  else if (scene === 'random') { preset('random'); action('fast'); }
+  else if (scene === 'overload') { preset('overload'); action('fast'); action('fast'); }
+  else { preset('random'); action('fast'); action('drain'); action('fast'); }
+  api.pause(); layout('最终展示');
+} catch (error) { check(error.stack, false); }
+document.querySelector('#result').textContent = (failures.length ? 'FAIL: '+failures.length : 'PASS: '+results.length) + '\n' + results.join('\n');
+document.documentElement.dataset.testStatus = failures.length ? 'fail' : 'pass';
+</script></html>

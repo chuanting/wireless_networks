@@ -8,6 +8,45 @@ const loader = $('#loader'), loaderMsg = $('#loader-msg');
 
 let deck = null, N = 0, idx = -1, step = 0, cur = null, channel = null;
 let route = null;
+let liveDemo = null, demoGeneration = 0;
+
+/* Only the main slide mounts live controls. Thumbnails, speaker previews and
+   printed pages keep the useful static content stored in the slide source. */
+function pauseDemo() { if (liveDemo) liveDemo.pause(); }
+function disposeDemo() {
+  demoGeneration++;
+  if (liveDemo) liveDemo.destroy();
+  liveDemo = null;
+  document.body.classList.remove('interactive-slide');
+}
+async function mountDemo(slide) {
+  const host = slide.querySelector('[data-live-demo="queue"]');
+  if (!host) return;
+  document.body.classList.add('interactive-slide');
+  const generation = demoGeneration, fallback = host.innerHTML;
+  try {
+    const { mountQueueDemo } = await import('./queue-demo.js');
+    // The user may have changed slides before the module finished loading.
+    if (generation !== demoGeneration || cur?.el !== slide || !host.isConnected) return;
+    liveDemo = mountQueueDemo(host);
+    if (document.hidden || !$('#overview').hidden || !$('#notes').hidden || !$('#help').hidden || !$('#blackout').hidden) pauseDemo();
+  } catch (error) {
+    if (generation !== demoGeneration || cur?.el !== slide) return;
+    host.innerHTML = fallback;
+    const message = document.createElement('p');
+    message.setAttribute('role', 'status');
+    message.style.cssText = 'font-size:28px;line-height:1.4;color:#B4381F;margin-top:20px';
+    message.textContent = '互动演示暂时未能加载。可先按本页步骤讨论，刷新页面后重试。';
+    host.appendChild(message);
+    console.error('Queue demo could not load:', error);
+  }
+}
+function toggleBlackout() {
+  const blackout = $('#blackout');
+  blackout.hidden = !blackout.hidden;
+  if (!blackout.hidden) pauseDemo();
+}
+function openHelp() { pauseDemo(); $('#help').hidden = false; }
 
 function fail(text) {
   loader.classList.add('err');
@@ -49,6 +88,7 @@ function go(i, startStep, first) {
   i = resolveIndex(route, i);
   if (i < 0) return;
   const r = renderSlide(deck.slides[i].html);
+  disposeDemo();
   const stage = $('#stage');
   const old = cur && cur.el;
   if (!first) r.el.classList.add('enter');
@@ -61,6 +101,7 @@ function go(i, startStep, first) {
   if (!first && !tRun && tAcc === 0) { tStart = performance.now(); tRun = true; }   // 第一次翻页时自动开始计时
   updateUI();
   broadcastState();
+  mountDemo(r.el);
 }
 function next() {
   if (!cur) return;
@@ -134,10 +175,12 @@ function openSpeaker() {
 function toggleNotes(force) {
   const n = $('#notes');
   n.hidden = force === undefined ? !n.hidden : !force;
+  if (!n.hidden) pauseDemo();
   $('#btn-notes').setAttribute('aria-pressed', String(!n.hidden));
 }
 let ovBuilt = false;
 function openOverview() {
+  pauseDemo();
   const ov = $('#overview');
   if (!ovBuilt) buildOverview();
   ov.hidden = false;
@@ -249,11 +292,12 @@ async function main() {
   /* 交互 */
   const click = (id, fn) => $(id).addEventListener('click', (e) => { fn(); e.currentTarget.blur(); });
   click('#btn-prev', prev); click('#btn-next', next);
-  click('#hit-prev', prev); click('#hit-next', next);
+  click('#hit-prev', () => { if (!document.body.classList.contains('interactive-slide')) prev(); });
+  click('#hit-next', () => { if (!document.body.classList.contains('interactive-slide')) next(); });
   click('#btn-notes', () => toggleNotes()); click('#n-close', () => toggleNotes(false));
   click('#btn-speaker', openSpeaker); click('#btn-overview', openOverview);
   click('#btn-core', toggleCore); click('#ov-core', toggleCore);
-  click('#btn-full', toggleFull); click('#btn-help', () => { $('#help').hidden = false; });
+  click('#btn-full', toggleFull); click('#btn-help', openHelp);
   click('#ov-close', closeOverview); click('#help-close', () => { $('#help').hidden = true; });
   click('#clock', timerToggle);
   window.addEventListener('hashchange', () => {
@@ -264,10 +308,12 @@ async function main() {
   window.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const k = e.key;
-    // Let focused controls retain their normal keyboard activation.
-    if ([' ', 'Enter'].includes(k) && e.target instanceof Element && e.target.closest('button,a,input,select,textarea')) return;
     if (!$('#overview').hidden) { if (k === 'Escape' || k === 'o' || k === 'O' || k === 'g' || k === 'G') closeOverview(); return; }
     if (!$('#help').hidden) { if (k === 'Escape' || k === '?' || k === 'Enter') $('#help').hidden = true; return; }
+    // Sliders/selects need arrows and Home/End; demo buttons keep their native
+    // keys too. A key used to edit or operate a control must never turn a page.
+    const control = e.target instanceof Element && e.target.closest('button,a,input,select,textarea,[contenteditable="true"]');
+    if (control && (control.closest('[data-live-demo]') || [' ', 'Enter'].includes(k) || control.matches('input,select,textarea,[contenteditable="true"]'))) return;
     switch (k) {
       case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ': case 'Enter': e.preventDefault(); next(); break;
       case 'ArrowLeft': case 'ArrowUp': case 'PageUp': case 'Backspace': e.preventDefault(); prev(); break;
@@ -279,21 +325,30 @@ async function main() {
       case 'o': case 'O': case 'g': case 'G': openOverview(); break;
       case 't': case 'T': timerToggle(); break;
       case 'r': case 'R': timerReset(); break;
-      case 'b': case 'B': case '.': $('#blackout').hidden = !$('#blackout').hidden; break;
-      case '?': $('#help').hidden = false; break;
+      case 'b': case 'B': case '.': toggleBlackout(); break;
+      case '?': openHelp(); break;
       case 'Escape': $('#blackout').hidden = true; break;
       default: break;
     }
   });
 
   // 触摸滑动
-  let tx = 0, ty = 0;
+  let tx = 0, ty = 0, swipeEnabled = false;
   const vp = $('#viewport');
-  vp.addEventListener('touchstart', (e) => { tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY; }, { passive: true });
+  vp.addEventListener('touchstart', (e) => {
+    swipeEnabled = !(e.target instanceof Element && e.target.closest('[data-live-demo],button,a,input,select,textarea'));
+    if (!swipeEnabled) return;
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
   vp.addEventListener('touchend', (e) => {
+    if (!swipeEnabled) return;
+    swipeEnabled = false;
     const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) { if (dx < 0) next(); else prev(); }
   }, { passive: true });
+
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pauseDemo(); });
+  window.addEventListener('pagehide', pauseDemo);
 
   // 控制条自动隐藏
   let idleTimer = 0;

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>开发测试：排队演示与放映器</title>
+<style>body{font:16px/1.6 system-ui;margin:24px}pre{white-space:pre-wrap}iframe{width:1280px;height:720px;border:1px solid #aaa}</style>
+<h1>开发测试：排队演示与放映器</h1>
+<p>通过本地 HTTP 服务运行；检查互动控件、暂停/销毁、静态预览以及放映导航。</p>
+<pre id="result">RUNNING</pre>
+<div id="fixtures"></div>
+<script type="module">
+const lines = [], failures = [], fixtures = document.querySelector('#fixtures');
+const result = document.querySelector('#result');
+function check(name, condition) {
+  lines.push((condition ? 'PASS ' : 'FAIL ') + name);
+  if (!condition) failures.push(name);
+}
+async function until(test, label) {
+  const start = performance.now();
+  while (!test()) {
+    if (performance.now() - start > 20000) throw new Error('等待超时：' + label);
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+}
+function makeFrame(src) {
+  const frame = document.createElement('iframe');
+  frame.src = src; fixtures.appendChild(frame); return frame;
+}
+function key(win, target, value) {
+  const event = new win.KeyboardEvent('keydown', {key:value,bubbles:true,cancelable:true});
+  target.dispatchEvent(event); return event;
+}
+function touch(win, target, type, x) {
+  const event = new win.Event(type, {bubbles:true,cancelable:true});
+  Object.defineProperty(event, 'changedTouches', {value:[{clientX:x,clientY:100}]});
+  target.dispatchEvent(event);
+}
+try {
+  const deckId = 'ch3-1-delay-little';
+  const meta = await (await fetch('../decks/' + deckId + '/deck.json')).json();
+  const page = meta.order.indexOf('queue-demo') + 1;
+  check('互动页位于课件最后', page > 0 && page === meta.order.length);
+  if (!page) throw new Error('缺少 queue-demo 页');
+  const frame = makeFrame('../viewer/?deck=' + deckId + '#' + page);
+  await until(() => frame.contentDocument?.querySelector('#stage [data-queue-demo-ready="true"]'), '演示初始化');
+  const win = frame.contentWindow, doc = frame.contentDocument;
+  const getHost = () => doc.querySelector('#stage > .slide:last-child [data-live-demo="queue"]');
+  let host = getHost();
+  const action = name => host.querySelector('[data-action="' + name + '"]');
+  check('加载演示时不自动运行', host.dataset.running === 'false');
+  check('开始/步进/排空/重置控件齐全', ['start','step','drain','reset'].every(name => action(name)));
+  check('互动页移除左右翻页遮罩', ['#hit-prev','#hit-next'].every(id => win.getComputedStyle(doc.querySelector(id)).display === 'none'));
+  check('底栏保留上一页导航且最后页无下一页', !doc.querySelector('#btn-prev').disabled && doc.querySelector('#btn-next').disabled);
+
+  for (const field of ['arrivalRate','serviceTime','arrivalMode']) {
+    const control = host.querySelector('[data-field="' + field + '"]');
+    check(field + ' 可交互', !!control);
+    if (!control) continue;
+    for (const value of ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','Backspace','r']) {
+      const event = key(win, control, value);
+      check(field + ' 的 ' + value + ' 不翻页、不拦截控件按键', win.location.hash === '#' + page && !event.defaultPrevented);
+    }
+  }
+  key(win, action('start'), 'ArrowLeft');
+  check('按钮上的方向键不翻页', win.location.hash === '#' + page);
+  touch(win, host, 'touchstart', 300); touch(win, host, 'touchend', 600);
+  check('演示内触摸操作不翻页', win.location.hash === '#' + page);
+  doc.querySelector('#hit-prev').click();
+  check('互动页禁用隐藏翻页遮罩处理器', win.location.hash === '#' + page);
+
+  action('start').click();
+  check('点击开始启动演示', host.dataset.running === 'true');
+  doc.querySelector('#btn-overview').click();
+  check('打开总览暂停演示', host.dataset.running === 'false');
+  const thumbnail = doc.querySelector('#overview [data-live-demo="queue"]');
+  check('总览使用静态页，不创建仿真', !!thumbnail && !thumbnail.hasAttribute('data-queue-demo-ready') && !thumbnail.querySelector('input,select,button'));
+  doc.querySelector('#ov-close').click();
+  check('关闭总览不自动恢复', host.dataset.running === 'false');
+
+  action('start').click();
+  doc.querySelector('#btn-notes').click();
+  check('打开备注暂停演示', host.dataset.running === 'false');
+  doc.querySelector('#n-close').click();
+  check('关闭备注不自动恢复', host.dataset.running === 'false');
+  action('start').click();
+  doc.querySelector('#btn-help').click();
+  check('打开帮助暂停演示', host.dataset.running === 'false');
+  doc.querySelector('#help-close').click();
+  action('start').click();
+  key(win, win, 'b');
+  check('黑屏暂停演示', host.dataset.running === 'false' && !doc.querySelector('#blackout').hidden);
+  key(win, win, 'Escape');
+  check('退出黑屏不自动恢复', host.dataset.running === 'false' && doc.querySelector('#blackout').hidden);
+
+  action('start').click();
+  Object.defineProperty(doc, 'hidden', {configurable:true,value:true});
+  doc.dispatchEvent(new win.Event('visibilitychange'));
+  check('页面隐藏时暂停', host.dataset.running === 'false');
+  delete doc.hidden;
+  doc.dispatchEvent(new win.Event('visibilitychange'));
+  check('页面重新可见不自动恢复', host.dataset.running === 'false');
+  action('start').click();
+  win.dispatchEvent(new win.Event('pagehide'));
+  check('离开浏览器页面时暂停', host.dataset.running === 'false');
+
+  action('reset').click();
+  action('step').click();
+  check('单步推进不启动连续运行、不翻页', host.dataset.running === 'false' && win.location.hash === '#' + page);
+  action('start').click();
+  const oldHost = host;
+  doc.querySelector('#btn-prev').click();
+  check('离页销毁并停止原仿真', oldHost.dataset.running === 'false' && !doc.body.classList.contains('interactive-slide'));
+  check('普通页恢复翻页遮罩', win.getComputedStyle(doc.querySelector('#hit-next')).display !== 'none');
+  doc.querySelector('#btn-next').click();
+  await until(() => getHost()?.dataset.queueDemoReady === 'true' && getHost() !== oldHost, '返回演示');
+  host = getHost();
+  check('返回演示获得新的暂停实例', host !== oldHost && host.dataset.running === 'false');
+  // Leave and return before the cached dynamic import's promise resolves.
+  doc.querySelector('#btn-prev').click();
+  doc.querySelector('#btn-next').click();
+  doc.querySelector('#btn-prev').click();
+  await new Promise(resolve => setTimeout(resolve, 450));
+  check('快速翻页不挂载已离开的演示', !doc.body.classList.contains('interactive-slide') && !getHost());
+  key(win, win, 'End');
+  await until(() => getHost()?.dataset.queueDemoReady === 'true', 'End 返回末页');
+  host = getHost();
+  check('全局 End 导航仍可到互动末页', win.location.hash === '#' + page && host.dataset.running === 'false');
+
+  const speaker = makeFrame('../viewer/notes.html?deck=' + deckId);
+  await until(() => speaker.contentDocument?.querySelector('#pv-cur [data-live-demo="queue"]'), '讲者静态预览');
+  const preview = speaker.contentDocument.querySelector('#pv-cur [data-live-demo="queue"]');
+  check('讲者预览保留静态内容，不运行第二个仿真', !preview.hasAttribute('data-queue-demo-ready') && !preview.querySelector('input,select,button'));
+
+  const printFrame = makeFrame('../viewer/?deck=' + deckId + '&print=1');
+  await until(() => printFrame.contentDocument?.querySelector('#pages [data-live-demo="queue"]'), '打印静态页');
+  const printed = printFrame.contentDocument.querySelector('#pages [data-live-demo="queue"]');
+  check('打印保留末页及静态讲解', printFrame.contentDocument.querySelectorAll('.page').length === meta.order.length && printed.textContent.trim().length > 30);
+  check('打印不创建互动仿真或控件', !printed.hasAttribute('data-queue-demo-ready') && !printed.querySelector('input,select,button'));
+} catch (error) { check(error.message, false); }
+result.textContent = (failures.length ? 'FAIL: ' + failures.length : 'PASS: ' + lines.length) + '\n' + lines.join('\n');
+document.documentElement.dataset.testStatus = failures.length ? 'fail' : 'pass';
+document.title = (failures.length ? 'FAIL' : 'PASS') + ' · 排队演示集成测试';
+</script>
+</html>

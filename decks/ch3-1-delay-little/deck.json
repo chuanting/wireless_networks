@@ -37,7 +37,8 @@
     "ex1",
     "ex2",
     "summary",
-    "project"
+    "project",
+    "queue-demo"
   ],
   "sections": {
     "s0": {
@@ -59,6 +60,10 @@
     "s4": {
       "description": "练习、回顾与选做。",
       "start": "ex1"
+    },
+    "s5": {
+      "description": "Live demo：改变到达与服务，观察排队和时延。",
+      "start": "queue-demo"
     }
   },
   "faces": {
@@ -108,7 +113,8 @@
         "ex1",
         "ex2",
         "summary",
-        "project"
+        "project",
+        "queue-demo"
       ]
     }
   }

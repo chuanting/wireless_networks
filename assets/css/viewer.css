@@ -150,3 +150,7 @@ body.print #pages { display: block; }
   #btn-core { padding-left: 10px; padding-right: 10px; }
 }
 @media print { .page .build { visibility: visible !important; opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* Live controls receive pointer/touch events instead of the page-turn overlay. */
+body.interactive-slide .hit { display: none; pointer-events: none; }
+body.interactive-slide.idle { cursor: auto; }
