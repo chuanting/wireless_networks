@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang="zh-CN"><meta charset="utf-8"><title>第3章课堂演示集成检查</title>
+<html lang="zh-CN"><meta charset="utf-8"><title>第3章末页演示集成检查</title>
 <style>body{font:16px/1.6 system-ui;margin:24px}pre{white-space:pre-wrap}iframe{width:960px;height:540px;border:1px solid #bbb;margin:12px 0}</style>
-<h1>第3章课堂演示集成检查</h1><pre id="result">RUNNING</pre><div id="fixtures"></div>
+<h1>第3章末页演示集成检查</h1><pre id="result">RUNNING</pre><div id="fixtures"></div>
 <script type="module">
 const cases = [
-  {deck:'ch3-2-mm-queues',id:'mm1-demo',kind:'mm-queue',count:45,core:true,intro:true},
-  {deck:'ch3-2-mm-queues',id:'mm-queue-demo',kind:'mm-queue',count:45,extension:true},
+  {deck:'ch3-2-mm-queues',id:'mm-queue-demo',kind:'mm-queue',count:31},
   {deck:'ch3-3-mg1',id:'mg1-demo',kind:'mg1',count:31,core:true},
   {deck:'ch3-4-queue-networks',id:'network-queue-demo',kind:'network-queue',count:26},
 ];
@@ -17,21 +16,19 @@ const fixtures=document.querySelector('#fixtures');
 try{
   for(const test of cases){
     const name=test.deck,meta=await(await fetch('../decks/'+name+'/deck.json')).json();
-    const page=meta.order.indexOf(test.id)+1;
-    check(name+' '+test.id+' 页序与总页数一致',page>0&&meta.order.length===test.count&&(test.intro||meta.order.at(-1)===test.id));
-    check(name+' '+test.id+' 核心/拓展归属正确',meta.teaching.route.coreSlides.includes(test.id)===!test.extension&&meta.teaching.extensions.includes(test.id)===!!test.extension);
+    check(name+' 末页与页数一致',meta.order.at(-1)===test.id&&meta.order.length===test.count);
+    check(name+' 末页进入核心路线',meta.teaching.route.coreSlides.includes(test.id)&&!meta.teaching.extensions.includes(test.id));
     const frame=document.createElement('iframe');fixtures.append(frame);
-    frame.src='../viewer/?deck='+name+(test.core?'&core=1':'')+'#'+page;
+    frame.src='../viewer/?deck='+name+(test.core?'&core=1':'')+'#'+test.count;
     const host=()=>frame.contentDocument?.querySelector('#stage .slide:last-child [data-demo-ready="true"]');
     await until(host,name+' 挂载');
     const win=frame.contentWindow,doc=frame.contentDocument,h=host();
     check(name+' 正确模块挂载、初始暂停',h.dataset.liveDemo===test.kind&&h.dataset.running==='false'&&+h.dataset.simulationTime===0);
-    if(test.intro)check(name+' 入门模式不提前显示高级理论',h.dataset.demoIntro==='true'&&!/[ρ稳态爱尔兰]/.test(h.innerText));
     check(name+' 控件未被翻页遮罩覆盖',win.getComputedStyle(doc.querySelector('#hit-next')).display==='none');
     const input=h.querySelector('input,select');
     input.focus();
     for(const key of ['ArrowLeft','ArrowRight','Home','End',' '])input.dispatchEvent(new win.KeyboardEvent('keydown',{key,bubbles:true,cancelable:true}));
-    check(name+' 参数键盘操作不翻页',win.location.hash==='#'+page);
+    check(name+' 参数键盘操作不翻页',win.location.hash==='#'+test.count);
     h.querySelector('[data-action="start"]').click();
     await delay(400);
     check(name+' 连续播放推进时间',h.dataset.running==='true'&&+h.dataset.simulationTime>0);
@@ -44,7 +41,7 @@ try{
     h.querySelector('[data-action="start"]').click();
     doc.querySelector('#btn-overview').click();
     check(name+' 总览暂停仿真',h.dataset.running==='false');
-    const thumb=doc.querySelector('.thumb[data-i="'+(page-1)+'"]');
+    const thumb=doc.querySelector('.thumb[data-i="'+(test.count-1)+'"]');
     check(name+' 总览保留静态实验说明',!!thumb&&!!thumb.querySelector('[data-live-demo="'+test.kind+'"]')&&!thumb.querySelector('[data-demo-ready],input,select'));
     doc.querySelector('#ov-close').click();
     check(name+' 关闭总览不会自动恢复',h.dataset.running==='false');
@@ -55,24 +52,15 @@ try{
     h.querySelector('[data-action="start"]').click();
     doc.querySelector('#btn-prev').click();
     check(name+' 离页销毁且恢复翻页遮罩',h.dataset.running==='false'&&!doc.body.classList.contains('interactive-slide'));
-    win.location.hash='#'+page;
-    await until(()=>host()&&host()!==h,name+' 返回实验页');
+    win.location.hash='#'+test.count;
+    await until(()=>host()&&host()!==h,name+' 返回末页');
     check(name+' 返回是新实验',host().dataset.running==='false'&&+host().dataset.simulationTime===0);
-    if(test.core)check(name+' 核心模式也能操作实验页',new URL(win.location.href).searchParams.get('core')==='1');
-    if(test.intro){
-      check(name+' 核心路线26页且保留M/M/1主干',meta.teaching.route.coreSlides.length===26&&['mm1-demo','steady','cut','geom','avgN','little','delayT','waitW','worked'].every(id=>meta.teaching.route.coreSlides.includes(id)));
-      win.dispatchEvent(new win.KeyboardEvent('keydown',{key:'End',bubbles:true}));
-      const end=meta.order.indexOf('project')+1;
-      check(name+' 核心End止于选做，不进入拓展',win.location.hash==='#'+end);
-      doc.querySelector('#btn-next').click();
-      check(name+' 核心末页不进入多服务员内容',win.location.hash==='#'+end);
-    }
+    if(test.core)check(name+' 核心模式也能操作末页',new URL(win.location.href).searchParams.get('core')==='1');
     const print=document.createElement('iframe');fixtures.append(print);
     print.src='../viewer/?deck='+name+'&print=1'+(test.core?'&core=1':'');
     await until(()=>print.contentDocument?.querySelector('#pages'),name+' 打印');
-    if(test.intro)check(name+' 核心打印只输出26页',print.contentDocument.querySelectorAll('.page').length===26&&!print.contentDocument.querySelector('#pages [data-demo-ready]'));
-    const last=print.contentDocument.querySelector('.page[data-original-page="'+page+'"]');
-    check(name+' 打印实验静态且页序正确',last?.dataset.originalPage===String(page)&&last.querySelector('[data-live-demo="'+test.kind+'"]')&&!last.querySelector('[data-demo-ready],input,select'));
+    const last=print.contentDocument.querySelector('.page:last-child');
+    check(name+' 打印末页静态且页序正确',last?.dataset.originalPage===String(test.count)&&last.querySelector('[data-live-demo="'+test.kind+'"]')&&!last.querySelector('[data-demo-ready],input,select'));
     print.remove();frame.remove();
   }
 }catch(error){check(error.stack,false);}

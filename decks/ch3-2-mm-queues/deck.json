@@ -5,43 +5,26 @@
     "at": "2026-10-18T23:30:00Z"
   },
   "lists": "css",
-  "title": "M/M/1 排队模型与拓展",
+  "title": "M/M/m 型排队系统",
   "order": [
     "cover",
     "study-route",
-    "scene",
-    "random-wait",
-    "rates",
-    "mm1-demo",
-    "mm1",
-    "memoryless",
-    "load",
-    "state",
-    "steady",
     "route",
+    "mm1",
+    "state",
     "cut",
-    "recurrence",
     "geom",
     "avgN",
-    "little",
     "delayT",
-    "waitW",
-    "worked",
     "card",
     "eg-link",
     "eg-cap",
-    "ex1",
-    "summary",
-    "project",
-    "avgN-proof",
-    "wait-prob",
     "mux",
     "split",
     "mm1k",
     "mm1k-eg",
     "mmm",
     "erlc",
-    "erlc-normalize",
     "mmm-w",
     "seats",
     "slowfast",
@@ -50,45 +33,40 @@
     "erlb",
     "pool",
     "choose",
+    "ex1",
     "ex2",
+    "summary",
+    "project",
     "mm-queue-demo"
   ],
   "sections": {
     "s0": {
-      "description": "从输出口和随机扎堆开始，认识到达率与服务能力。",
+      "description": "开场：Little 定理不给 N；四步算出时延。",
       "start": "cover"
     },
     "s1": {
-      "description": "先运行单服务员实验，再解释 M/M/1、无记忆性与负荷。",
-      "start": "mm1-demo"
+      "description": "M/M/1：状态图、切一刀、归一化，得到 N、T、W 和公式卡。",
+      "start": "mm1"
     },
     "s2": {
-      "description": "人数状态、稳态、平衡与归一化，求平均系统人数。",
-      "start": "state"
-    },
-    "s3": {
-      "description": "Little 关系与边界：平均停留、平均等待与公式卡。",
-      "start": "little"
-    },
-    "s4": {
-      "description": "链路应用、概念练习与 M/M/1 回顾。",
+      "description": "M/M/1 的应用：升级链路或控制流量、反求流量上限、统计复用与切分、有限缓冲区。",
       "start": "eg-link"
     },
-    "s5": {
-      "description": "拓展：求和过程、等待概率、容量合并与有限缓冲。",
-      "start": "avgN-proof"
-    },
-    "s6": {
-      "description": "拓展：多服务员、爱尔兰 C、无穷服务员。",
+    "s3": {
+      "description": "M/M/m 与 M/M/∞：爱尔兰 C 公式、座席数、慢信道与快信道。",
       "start": "mmm"
     },
-    "s7": {
-      "description": "拓展：损失制、爱尔兰 B 与模型选择。",
+    "s4": {
+      "description": "损失制：爱尔兰 B 公式、递推与线路群效应；三种容量问题的选择。",
       "start": "loss"
     },
-    "s8": {
-      "description": "拓展练习与多服务员课堂实验。",
-      "start": "ex2"
+    "s5": {
+      "description": "练习、回顾与选做。",
+      "start": "ex1"
+    },
+    "s6": {
+      "description": "Live demo：增加服务员，排队还是拒绝？",
+      "start": "mm-queue-demo"
     }
   },
   "faces": {
@@ -100,62 +78,45 @@
   "designSystems": [],
   "teaching": {
     "objectives": [
-      "用到达率与服务能力解释随机等待，区分系统人数、等待人数、停留与等待时间。",
-      "从人数状态与长期时间比例，推导 M/M/1 的状态概率、平均人数和时延。",
-      "检查模型假设、稳定条件与单位，用同一个例子计算并解释结果。"
+      "从生灭图列出平衡式，求 M/M/1 的队长分布与平均时延。",
+      "按等待位和拒绝规则，选择 M/M/1/K、爱尔兰 B 或 C 模型。",
+      "由时延或阻塞目标计算容量，并说明合并资源带来的变化。"
     ],
-    "extensions": [
-      "avgN-proof",
-      "wait-prob",
-      "mux",
-      "split",
-      "mm1k",
-      "mm1k-eg",
-      "mmm",
-      "erlc",
-      "erlc-normalize",
-      "mmm-w",
-      "seats",
-      "slowfast",
-      "inf",
-      "loss",
-      "erlb",
-      "pool",
-      "choose",
-      "ex2",
-      "mm-queue-demo"
-    ],
+    "extensions": [],
     "route": {
-      "core": "看排队现象与单员实验，认识状态和稳态，求人数，再用 Little 关系求时间。",
-      "extension": "求和与等待概率；容量共享、有限缓冲、多服务员及爱尔兰 B/C。",
-      "practice": "用 λ = 4 个/s、μ = 5 个/s 贯穿；先预测，再观察，再计算。",
+      "core": "画状态图、列平衡式、归一化，再用 Little 定理得到时延。",
       "coreSlides": [
         "cover",
         "study-route",
-        "scene",
-        "random-wait",
-        "rates",
-        "mm1-demo",
-        "mm1",
-        "memoryless",
-        "load",
-        "state",
-        "steady",
         "route",
+        "mm1",
+        "state",
         "cut",
-        "recurrence",
         "geom",
         "avgN",
-        "little",
         "delayT",
-        "waitW",
-        "worked",
         "card",
         "eg-link",
         "eg-cap",
+        "mux",
+        "split",
+        "mm1k",
+        "mm1k-eg",
+        "mmm",
+        "erlc",
+        "mmm-w",
+        "seats",
+        "slowfast",
+        "inf",
+        "loss",
+        "erlb",
+        "pool",
+        "choose",
         "ex1",
+        "ex2",
         "summary",
-        "project"
+        "project",
+        "mm-queue-demo"
       ]
     }
   }

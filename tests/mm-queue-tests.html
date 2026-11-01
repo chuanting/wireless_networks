@@ -70,13 +70,13 @@ try {
   const output=key=>host.querySelector('[data-out="'+key+'"]').textContent;
   const field=(key,value)=>{const el=host.querySelector('[data-field="'+key+'"]');el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));};
   await delay(150);await document.fonts.ready;
-  function layout(name,stage=slide,demo=host){
-    const box=stage.getBoundingClientRect(),bad=[];
-    for(const el of demo.querySelectorAll('p,b,span,button,label,select,svg')){
+  function layout(name){
+    const box=slide.getBoundingClientRect(),bad=[];
+    for(const el of host.querySelectorAll('p,b,span,button,label,select,svg')){
       const r=el.getBoundingClientRect();
       if(r.width&&(r.right>box.right-50||r.bottom>box.bottom-70||r.left<box.left+50||r.top<box.top))bad.push(el.textContent.slice(0,35));
     }
-    const row=demo.querySelector('.mmq-packets');
+    const row=host.querySelector('.mmq-packets');
     check(name+'布局边界与队列溢出 '+bad.join('|'),!bad.length&&row.scrollWidth<=row.clientWidth+1);
   }
   check('入口暂停、无伪造样本',host.dataset.demoReady==='true'&&host.dataset.running==='false'&&output('wait')==='—');layout('初始');
@@ -99,34 +99,6 @@ try {
   const scene=new URLSearchParams(location.search).get('scene');
   if(scene==='initial')preset('one');else if(scene==='overload'){field('arrivalRate',12);field('serviceRate',2);action('fast');}else{preset('loss');action('fast');}
   api.pause();layout('最终展示');
-
-  // Introductory view uses the same event model, with one server and no losses.
-  const introSlide=renderSlide(html).el;
-  introSlide.querySelector('h2').textContent='先观察：一个服务员也会排队';
-  introSlide.querySelector('h2').nextElementSibling.textContent='先逐事件跟踪一个分组，再快进观察随机扎堆、空闲与排队。';
-  const introHost=introSlide.querySelector('[data-live-demo]');introHost.dataset.demoIntro='true';
-  slide.style.display='none';document.querySelector('#fixture').append(introSlide);
-  const introApi=mountMMQueueDemo(introHost);
-  const introAction=key=>introHost.querySelector('[data-action="'+key+'"]').click();
-  const introOutput=key=>introHost.querySelector('[data-out="'+key+'"]').textContent;
-  const introField=(key,value)=>{const el=introHost.querySelector('[data-field="'+key+'"]');el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));};
-  await delay(50);
-  check('入门版仅显示到达率和忙时处理能力',introHost.classList.contains('mmq-intro')&&introHost.querySelectorAll('[data-preset]').length===0&&[...introHost.querySelectorAll('.mmq-settings label')].filter(el=>el.getBoundingClientRect().width).length===2);
-  check('入门版不提前显示ρ、稳态理论和爱尔兰公式',!/[ρ稳态爱尔兰]/.test(introHost.innerText)&&introHost.querySelector('[data-out="theory-wait"]').getBoundingClientRect().width===0);
-  check('入门版从空系统暂停开始',introHost.dataset.running==='false'&&introHost.dataset.simulationTime==='0'&&introOutput('wait')==='—');layout('入门初始',introSlide,introHost);
-  introField('servers',4);introField('mode','loss');
-  check('入门版固定单员无限等待规则',introHost.querySelector('[data-field="servers"]').value==='1'&&introHost.querySelector('[data-field="mode"]').value==='wait'&&introHost.querySelectorAll('.mmq-server').length===1);
-  introAction('step');
-  check('入门版逐事件可观察第一个到达者',introOutput('attempted')==='1'&&introOutput('servers').includes('#1')&&introHost.dataset.running==='false');
-  introAction('fast');
-  check('入门版独立统计等待和服务并观察到排队',parseFloat(introOutput('wait'))>0&&introOutput('packet').includes('等待')&&introOutput('packet').includes('服务')&&+introOutput('rejected')===0);layout('入门运行',introSlide,introHost);
-  introAction('drain');introAction('fast');
-  const introEq=[...introOutput('little').matchAll(/\d+\.\d+/g)].map(m=>+m[0]);
-  check('入门版排空守恒与Little面积恒等式',introHost.dataset.drained==='true'&&+introOutput('completed')===+introOutput('admitted')&&introEq.length===2&&near(introEq[0],introEq[1],.001));layout('入门排空',introSlide,introHost);
-  introField('arrivalRate',6);introField('serviceRate',8);
-  check('入门版调节速率会重置且保持单员规则',introHost.dataset.simulationTime==='0'&&introOutput('lambda')==='6.0 个/s'&&introOutput('mu')==='8.0 个/s'&&introHost.querySelectorAll('.mmq-server').length===1);
-  introField('arrivalRate',4);introField('serviceRate',5);introAction('fast');introApi.pause();
-  if(scene!=='intro'){introApi.destroy();introSlide.remove();slide.style.display='';}
 }catch(error){check(error.stack,false);}
 document.querySelector('#result').textContent=(failures.length?'FAIL: '+failures.length:'PASS: '+results.length)+'\n'+results.join('\n');
 document.documentElement.dataset.testStatus=failures.length?'fail':'pass';
