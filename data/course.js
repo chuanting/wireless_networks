@@ -71,7 +71,7 @@ window.COURSE = {
         {
           no: "3.1", title: "时延的构成与 Little 定理", status: "ready",
           desc: "四种时延与存储转发 · 排队系统的描述（Kendall 记号、利用率与稳定）· 负荷与时延 · Little 定理的证明、条件与五个应用",
-          deck: "ch3-1-delay-little", slides: 30, minutes: 100
+          deck: "ch3-1-delay-little", slides: 31, minutes: 100
         },
         {
           no: "3.2", title: "M/M/m 型排队系统", status: "ready",

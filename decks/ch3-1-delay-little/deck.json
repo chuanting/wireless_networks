@@ -25,6 +25,7 @@
     "rho",
     "hockey",
     "little",
+    "little-story",
     "proof1",
     "proof2",
     "cond",
@@ -52,7 +53,7 @@
       "start": "system"
     },
     "s3": {
-      "description": "Little 定理：证明、条件与五个应用。",
+      "description": "Little 定理：人物故事、证明、条件与五个应用。",
       "start": "little"
     },
     "s4": {
@@ -95,6 +96,7 @@
         "rho",
         "hockey",
         "little",
+        "little-story",
         "proof1",
         "proof2",
         "cond",
