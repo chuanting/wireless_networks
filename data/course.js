@@ -76,17 +76,17 @@ window.COURSE = {
         {
           no: "3.2", title: "M/M/m 型排队系统", status: "ready",
           desc: "M/M/1 的稳态分布与时延公式 · 统计复用与切分 · 有限缓冲区 · M/M/m 与爱尔兰 C 公式 · 损失制与爱尔兰 B 公式",
-          deck: "ch3-2-mm-queues", slides: 30, minutes: 100
+          deck: "ch3-2-mm-queues", slides: 31, minutes: 100
         },
         {
           no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "ready",
           desc: "P-K 公式的推导 · 方差的代价与重传 · 休假与 FDM/TDM/统计复用 · 轮询 · 优先级排队",
-          deck: "ch3-3-mg1", slides: 30, minutes: 110
+          deck: "ch3-3-mg1", slides: 31, minutes: 110
         },
         {
           no: "3.4", title: "排队网络", status: "ready",
           desc: "分组长度带着走 · Burke 定理 · Jackson 开放/封闭网络 · Kleinrock 近似、分流与检验",
-          deck: "ch3-4-queue-networks", slides: 25, minutes: 100
+          deck: "ch3-4-queue-networks", slides: 26, minutes: 100
         }
       ]
     },

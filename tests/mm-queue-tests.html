@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><title>M/M/m 实验模型、交互与布局测试</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>html,body{overflow:auto;background:#f6f1e7}#fixture{width:1920px;height:1080px;position:relative}#result{font:18px monospace;color:#111;white-space:pre-wrap;background:white;margin:24px}</style>
+<div id="fixture"></div><pre id="result">RUNNING</pre>
+<script type="module">
+import { MMQueueModel, mmTheory } from '../assets/js/mm-queue-model.js';
+import { mountMMQueueDemo } from '../assets/js/mm-queue-demo.js';
+import { renderSlide } from '../assets/js/deck-runtime.js';
+const results=[],failures=[];
+const check=(name,value)=>{results.push((value?'PASS ':'FAIL ')+name);if(!value)failures.push(name);};
+const near=(a,b,tol=1e-9)=>Number.isFinite(a)&&Math.abs(a-b)<=tol;
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+try {
+  const base={arrivalRate:4,serviceRate:5,servers:1,mode:'wait'};
+  let t=mmTheory(base);
+  check('M/M/1 闭式基线：W=.8，T=1，N=4，等待概率=.8',near(t.meanW,.8)&&near(t.meanT,1)&&near(t.avgN,4)&&near(t.waitProbability,.8));
+  t=mmTheory({...base,servers:2});
+  check('M/M/2 爱尔兰 C 独立基线',near(t.waitProbability,8/35)&&near(t.meanW,4/105)&&near(t.meanT,5/21)&&near(t.avgN,20/21));
+  t=mmTheory({...base,servers:2,mode:'loss'});
+  check('M/M/2/2 爱尔兰 B、接纳率与实际利用率',near(t.blocking,8/53)&&near(t.effectiveRate,180/53)&&near(t.avgN,36/53)&&near(t.utilization,18/53)&&near(t.meanW,0));
+  check('爱尔兰 B(3,2)=4/19',near(mmTheory({...base,arrivalRate:2,serviceRate:1,servers:3,mode:'loss'}).blocking,4/19));
+  for(const lambda of [5,8]){t=mmTheory({...base,arrivalRate:lambda});check('等待模式ρ≥1不提供稳态公式 '+lambda,!t.stable&&t.meanW===null&&t.avgN===null);}
+  t=mmTheory({...base,arrivalRate:12,serviceRate:2,mode:'loss'});
+  check('损失制高负荷仍有稳态且利用率不超过1',t.stable&&t.rho>1&&t.utilization<1&&t.meanW===0);
+  const controlled=(servers,mode)=>{
+    const m=new MMQueueModel({arrivalRate:1,serviceRate:1,servers,mode});
+    m._arrivalAt=.1;m._arrivalRandom=()=>-Math.expm1(-.1);m._serviceRandom=()=>-Math.expm1(-.25);
+    m.advance(.31);return m;
+  };
+  let m=controlled(1,'wait'),s=m.snapshot();
+  check('精确事件：.31秒已有3次到达、1个忙碌、2个等待',s.attempted===3&&s.busy===1&&s.queueLength===2&&s.queue[0].id===2);
+  s=m.drainAll();
+  check('精确事件：单员FCFS完成时刻.85、总等待.45、总停留1.2',near(s.time,.85)&&near(s.totalWait,.45)&&near(s.totalSojourn,1.2)&&s.recentCompleted.map(p=>p.id).join(',')==='3,2,1');
+  check('精确积分独立核对服务、等待、停留',near(s.areaQ,.45)&&near(s.busyArea,.75)&&near(s.areaN,1.2)&&near(s.avgN,s.littleProduct));
+  m=controlled(2,'wait');s=m.drainAll();
+  check('精确事件：双员共用队列，总等待.05、总停留.8',near(s.time,.6)&&near(s.totalWait,.05)&&near(s.totalSojourn,.8)&&near(s.areaN,.8));
+  m=controlled(2,'loss');s=m.drainAll();
+  check('精确事件：双员无等待，3次尝试2接纳1拒绝',s.attempted===3&&s.admitted===2&&s.rejected===1&&s.completed===2&&s.meanW===0&&near(s.totalSojourn,.5)&&near(s.time,.45)&&near(s.areaN,.5));
+  check('损失制Little使用接纳率而非尝试率',near(s.avgN,s.effectiveRate*s.meanT)&&!near(s.avgN,s.attempted/s.time*s.meanT));
+  for(const mode of ['wait','loss'])for(const servers of [1,2,4]){
+    m=new MMQueueModel({...base,mode,servers,arrivalRate:12,serviceRate:2});
+    let valid=true;
+    for(let i=0;i<800;i++){
+      s=m.nextEvent();
+      valid&&=s.attempted===s.admitted+s.rejected&&s.admitted===s.completed+s.systemCount&&s.busy<=servers&&s.utilization<=1+1e-10;
+      valid&&=mode==='wait'||(s.queueLength===0&&s.meanW===null||s.queueLength===0&&s.meanW===0);
+    }
+    s=m.drainAll();
+    check('守恒和排空面积恒等式 '+mode+' m='+servers,valid&&s.completed===s.admitted&&near(s.areaN,s.totalSojourn,1e-7)&&near(s.areaQ,s.totalWait,1e-7)&&near(s.busyArea,s.totalService,1e-7)&&near(s.avgN,s.littleProduct,1e-9));
+  }
+  const a=new MMQueueModel(base),b=new MMQueueModel(base);a.advance(50);for(let i=0;i<500;i++)b.advance(.1);
+  const sa=a.drainAll(),sb=b.drainAll();
+  check('固定种子与不同推进步长可复现',sa.attempted===sb.attempted&&sa.completed===sb.completed&&near(sa.totalSojourn,sb.totalSojourn,1e-8));
+  const c=new MMQueueModel({...base,servers:2,mode:'loss'});c.advance(50);
+  check('到达流与服务抽样分离，改变服务方式仍保持到达流',c.snapshot().attempted===sa.attempted);
+  m=new MMQueueModel({...base,arrivalRate:0});s=m.drainAll();
+  check('零样本安全排空',s.drained&&s.meanW===null&&s.littleProduct===null&&s.time===0);
+  let rejects=0;for(const invalid of [{arrivalRate:-1},{serviceRate:0},{servers:0},{mode:'bad'}]){try{new MMQueueModel({...base,...invalid});}catch{rejects++;}}
+  check('拒绝无效参数',rejects===4);
+  m=new MMQueueModel(base);s=m.advance(20000);
+  check('长样本独立事件模拟接近M/M/1理论',near(s.meanT,1,.1)&&near(s.meanW,.8,.1)&&near(s.avgN,4,.4));
+
+  const html=await(await fetch('../decks/ch3-2-mm-queues/slides/mm-queue-demo.html')).text();
+  const slide=renderSlide(html).el;document.querySelector('#fixture').append(slide);
+  const host=slide.querySelector('[data-live-demo]'),api=mountMMQueueDemo(host);
+  const action=key=>host.querySelector('[data-action="'+key+'"]').click();
+  const preset=key=>host.querySelector('[data-preset="'+key+'"]').click();
+  const output=key=>host.querySelector('[data-out="'+key+'"]').textContent;
+  const field=(key,value)=>{const el=host.querySelector('[data-field="'+key+'"]');el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));};
+  await delay(150);await document.fonts.ready;
+  function layout(name){
+    const box=slide.getBoundingClientRect(),bad=[];
+    for(const el of host.querySelectorAll('p,b,span,button,label,select,svg')){
+      const r=el.getBoundingClientRect();
+      if(r.width&&(r.right>box.right-50||r.bottom>box.bottom-70||r.left<box.left+50||r.top<box.top))bad.push(el.textContent.slice(0,35));
+    }
+    const row=host.querySelector('.mmq-packets');
+    check(name+'布局边界与队列溢出 '+bad.join('|'),!bad.length&&row.scrollWidth<=row.clientWidth+1);
+  }
+  check('入口暂停、无伪造样本',host.dataset.demoReady==='true'&&host.dataset.running==='false'&&output('wait')==='—');layout('初始');
+  action('step');check('逐事件显示第一个正在服务的分组',output('attempted')==='1'&&output('servers').includes('#1')&&host.dataset.running==='false');
+  action('fast');const firstWait=output('wait');check('快进产生独立实测样本',parseFloat(firstWait)>0&&firstWait!==output('theory-wait'));
+  preset('one');action('step');action('fast');check('UI固定实验可复现',output('wait')===firstWait);layout('单员');
+  preset('two');check('双员预设重置时间与统计',host.dataset.simulationTime==='0'&&output('wait')==='—'&&output('rho').includes('0.40'));action('fast');layout('双员');
+  preset('loss');action('fast');check('损失制拒绝与零等待',+output('rejected')>0&&output('wait')==='0.000 s'&&output('theory-probability')==='15.1%');layout('损失制');
+  action('drain');action('fast');
+  const eq=[...output('little').matchAll(/\d+\.\d+/g)].map(m=>+m[0]);
+  check('UI排空后以实际接纳率核对Little',host.dataset.drained==='true'&&eq.length===2&&near(eq[0],eq[1],.001));layout('排空');
+  field('mode','wait');field('arrivalRate',12);field('serviceRate',2);field('servers',1);action('fast');action('fast');
+  check('过载拒绝套稳态公式但保留实测',output('rho').includes('6.00')&&output('theory-wait')==='无稳态'&&parseFloat(output('wait'))>0);layout('过载');
+  for(let i=0;i<8;i++)action('fast');
+  check('300秒上限仍可排空',+host.dataset.simulationTime===300&&host.querySelector('[data-action="start"]').disabled&&!host.querySelector('[data-action="drain"]').disabled);layout('最大队列');
+  action('drain');action('fast');check('大队列全部排空',host.dataset.drained==='true'&&+output('admitted')===+output('completed'));layout('大样本排空');
+  preset('one');action('drain');check('UI空实验排空无NaN',host.dataset.drained==='true'&&!host.textContent.includes('NaN'));
+  preset('one');action('start');await delay(250);api.pause();const paused=host.dataset.simulationTime;
+  check('setInterval连续播放推进',+paused>0&&host.dataset.running==='false');await delay(150);check('暂停后时钟冻结',host.dataset.simulationTime===paused);
+  const scene=new URLSearchParams(location.search).get('scene');
+  if(scene==='initial')preset('one');else if(scene==='overload'){field('arrivalRate',12);field('serviceRate',2);action('fast');}else{preset('loss');action('fast');}
+  api.pause();layout('最终展示');
+}catch(error){check(error.stack,false);}
+document.querySelector('#result').textContent=(failures.length?'FAIL: '+failures.length:'PASS: '+results.length)+'\n'+results.join('\n');
+document.documentElement.dataset.testStatus=failures.length?'fail':'pass';
+</script></html>

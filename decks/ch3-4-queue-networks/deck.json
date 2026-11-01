@@ -31,7 +31,8 @@
     "ex1",
     "ex2",
     "summary",
-    "project"
+    "project",
+    "network-queue-demo"
   ],
   "sections": {
     "s0": {
@@ -53,6 +54,10 @@
     "s4": {
       "description": "第 3 章的统一视角、练习、回顾与选做。",
       "start": "chapter"
+    },
+    "s5": {
+      "description": "Live demo：CPU / I/O 反馈网络的访问流量、瓶颈与全网 Little 定理。",
+      "start": "network-queue-demo"
     }
   },
   "faces": {
@@ -96,7 +101,8 @@
         "ex1",
         "ex2",
         "summary",
-        "project"
+        "project",
+        "network-queue-demo"
       ]
     }
   }

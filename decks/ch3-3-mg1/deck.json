@@ -36,7 +36,8 @@
     "ex1",
     "ex2",
     "summary",
-    "project"
+    "project",
+    "mg1-demo"
   ],
   "sections": {
     "s0": {
@@ -66,6 +67,10 @@
     "s6": {
       "description": "练习、回顾与选做。",
       "start": "ex1"
+    },
+    "s7": {
+      "description": "Live demo：服务均值相同，比较波动与等待。",
+      "start": "mg1-demo"
     }
   },
   "faces": {
@@ -117,7 +122,8 @@
         "var",
         "ex1",
         "summary",
-        "project"
+        "project",
+        "mg1-demo"
       ]
     }
   }

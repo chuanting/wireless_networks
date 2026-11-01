@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><title>M/G/1 演示模型与交互测试</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>html,body{overflow:auto;background:#f6f1e7}#fixture{width:1920px;height:1080px;position:relative}#result{font:18px monospace;color:#111;white-space:pre-wrap;background:white;margin:24px}</style>
+<div id="fixture"></div><pre id="result">RUNNING</pre>
+<script type="module">
+import { serviceMoments, pkTheory, MG1Comparison } from '../assets/js/mg1-model.js';
+import { mountMG1Demo } from '../assets/js/mg1-demo.js';
+import { renderSlide } from '../assets/js/deck-runtime.js';
+const results=[],failures=[];
+const check=(name,value)=>{results.push((value?'PASS ':'FAIL ')+name);if(!value)failures.push(name);};
+const close=(a,b,tol=1e-8)=>Math.abs(a-b)<=tol*Math.max(1,Math.abs(a),Math.abs(b));
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+try {
+  const m=serviceMoments(.2,.1),t=pkTheory(4,.2,.1);
+  check('混合分布均值0.2、短服务0.02、长服务1.82',close(m[2].short,.02)&&close(m[2].long,1.82)&&close(.9*m[2].short+.1*m[2].long,.2));
+  check('三个二阶矩和变异系数有独立解析基线',m.every((x,i)=>close(x.second,[.04,.08,.3316][i])&&close(x.cv2,[0,1,7.29][i])));
+  check('P-K默认等待0.4/0.8/3.316秒，停留等于等待加服务',t.every((x,i)=>close(x.W,[.4,.8,3.316][i])&&close(x.T,x.W+.2)));
+  check('降低长服务概率保持均值且提高二阶矩',[.05,.1,.3,.5].every(p=>{const z=serviceMoments(.2,p)[2];return close((1-p)*z.short+p*z.long,.2);})&&serviceMoments(.2,.05)[2].second>m[2].second);
+  check('等于或超过容量都不提供稳态P-K结果',[5,6].every(rate=>pkTheory(rate,.2).every(x=>!x.stable&&x.W===null&&x.T===null)));
+  check('零到达率的理论等待为零',pkTheory(0,.2).every(x=>x.W===0&&x.T===.2));
+  let invalid=0;
+  for(const config of [{arrivalRate:-1},{meanService:0},{longProbability:0},{longProbability:1},{arrivalRate:Infinity}])try{new MG1Comparison(config);}catch(e){if(e instanceof RangeError)invalid++;}
+  check('拒绝负到达率、无效服务均值和端点概率',invalid===5);
+  const a=new MG1Comparison(),b=new MG1Comparison(),changed=new MG1Comparison({longProbability:.3,meanService:.3});
+  const sa=a.advance(100),sb=b.advance(100),sc=changed.advance(100);
+  check('相同种子与参数完整复现',JSON.stringify(sa)===JSON.stringify(sb));
+  check('服务分布变动不改变共用泊松到达流',sa.arrived===sc.arrived&&JSON.stringify(sa.arrivalSample)===JSON.stringify(sc.arrivalSample));
+  check('三组收到同样的分组，完成+等待+服务中=到达',sa.lanes.every(l=>l.arrived===sa.arrived&&l.completed+l.queueLength+!!l.serving===sa.arrived));
+  const first=new MG1Comparison().nextEvent();
+  check('每组第一个分组编号和到达时间相同',first.arrived===1&&first.lanes.every(l=>l.serving.id===1&&l.serving.arrival===first.time));
+  check('面积守恒：系统人数面积=排队人数面积+忙碌时间',sa.lanes.every(l=>close(l.areaN,l.areaQ+l.busyTime)));
+  check('等待和服务非负，每个完成分组满足T=W+X',sa.lanes.every(l=>l.meanW>=0&&l.utilization>=0&&l.utilization<=1&&l.recent.every(p=>p.wait>=0&&p.service>0&&close(p.sojourn,p.wait+p.service))));
+  const chunked=new MG1Comparison();for(let i=0;i<1000;i++)chunked.advance(.1);
+  const sChunk=chunked.snapshot();
+  check('帧长不改变离散事件结果',sa.arrived===sChunk.arrived&&sa.lanes.every((l,i)=>l.completed===sChunk.lanes[i].completed&&close(l.totalWait,sChunk.lanes[i].totalWait)));
+  const drained=a.drain();
+  check('排空三组处理完相同完整样本',drained.drained&&drained.lanes.every(l=>l.completed===drained.arrived&&!l.serving&&l.queueLength===0));
+  check('完整样本逐分组时延总和等于人数面积',drained.lanes.every(l=>close(l.areaQ,l.totalWait)&&close(l.areaN,l.totalSojourn)&&close(l.busyTime,l.totalService)));
+  check('完整样本满足有限区间Little守恒',drained.lanes.every(l=>close(l.avgQ,(drained.arrived/drained.time)*l.meanW)&&close(l.avgN,(drained.arrived/drained.time)*l.meanT)));
+  const empty=new MG1Comparison({arrivalRate:0});empty.advance(3);const zero=empty.drain();
+  check('无到达排空且无假样本或NaN',zero.drained&&zero.time===3&&zero.lanes.every(l=>l.meanW===null&&l.avgN===0));
+  const overload=new MG1Comparison({arrivalRate:6}),o1=overload.advance(100),o2=overload.advance(100);
+  check('过载产生积压且仍守恒',o2.lanes.every((l,i)=>l.queueLength>o1.lanes[i].queueLength&&l.completed+l.queueLength+!!l.serving===o2.arrived));
+  overload.drain();check('过载有限批次仍可排空',overload.snapshot().drained);
+  const longRun=new MG1Comparison();longRun.advance(50000);const long=longRun.drain();
+  check('长样本的平均服务时间接近共同均值',long.lanes.every(l=>Math.abs(l.meanService-.2)<.004));
+  check('长样本独立仿真接近P-K预测（等待相对误差<8%） '+long.lanes.map(l=>l.meanW.toFixed(4)).join('/'),long.lanes.every((l,i)=>Math.abs(l.meanW-t[i].W)/t[i].W<.08));
+
+  const html=await(await fetch('../decks/ch3-3-mg1/slides/mg1-demo.html')).text();
+  const slide=renderSlide(html).el;document.querySelector('#fixture').append(slide);
+  const host=slide.querySelector('[data-live-demo]'),api=mountMG1Demo(host);
+  const action=key=>host.querySelector('[data-action="'+key+'"]').click();
+  const preset=key=>host.querySelector('[data-preset="'+key+'"]').click();
+  const output=key=>host.querySelector('[data-out="'+key+'"]').textContent;
+  const laneOutput=(key,field)=>host.querySelector('[data-lane="'+key+'"] [data-lane-out="'+field+'"]').textContent;
+  const field=(key,value)=>{const el=host.querySelector('[data-field="'+key+'"]');el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));};
+  await delay(150);await document.fonts.ready;
+  function layout(name){
+    const box=slide.getBoundingClientRect(),bad=[];
+    for(const el of host.querySelectorAll('p,b,span,button,label,h3')){
+      const r=el.getBoundingClientRect();
+      if(r.width&&(r.right>box.right-60||r.bottom>box.bottom-65||r.left<box.left+60||r.top<box.top))bad.push(el.textContent.slice(0,35));
+    }
+    for(const el of host.querySelectorAll('.mg-lane,.mg-server-row p,.mg-packets,.mg-toolbar'))if(el.scrollWidth>el.clientWidth+1)bad.push('横向溢出:'+el.className);
+    check(name+'：内容和队列不溢出 '+bad.join('|'),bad.length===0);
+  }
+  check('进入暂停，无完成样本时显示破折号',host.dataset.demoReady==='true'&&host.dataset.running==='false'&&laneOutput('fixed','sample-w')==='—');layout('初始');
+  action('step');check('共同事件让三个分组同时进入服务',host.dataset.simulationTime>0&&['fixed','exponential','mixed'].every(k=>laneOutput(k,'server')==='#1'));
+  action('reset');action('fast');const baselineWait=laneOutput('mixed','sample-w');
+  check('快进60秒展示真实完成样本',+host.dataset.simulationTime===60&&parseFloat(baselineWait)>=0);layout('基准60秒');
+  action('reset');action('fast');check('UI重置可复现',laneOutput('mixed','sample-w')===baselineWait);
+  preset('variable');check('高波动预设保持均值200ms、负荷0.8',output('mean')==='200 ms'&&output('status').includes('0.80')&&output('probability')==='5%');action('fast');layout('高波动');
+  field('arrivalRate',6);field('meanService',400);
+  check('参数改变清空旧统计，过载不显示稳态等待',host.dataset.simulationTime==='0'&&laneOutput('fixed','sample-w')==='—'&&['fixed','exponential','mixed'].every(k=>laneOutput(k,'theory-w')==='无稳态'));
+  for(let i=0;i<4;i++)action('batch');
+  check('长跑上限20000秒后禁止继续到达，仍能排空',+host.dataset.simulationTime===20000&&host.querySelector('[data-action="start"]').disabled&&!host.querySelector('[data-action="drain"]').disabled);layout('最大积压');
+  action('drain');check('排空结束三组等待区清空且停止播放',host.dataset.drained==='true'&&host.dataset.running==='false'&&['fixed','exponential','mixed'].every(k=>laneOutput(k,'queue-count')==='0 个'));layout('最大批次排空');
+  preset('baseline');action('start');await delay(260);api.pause();const stopped=host.dataset.simulationTime;
+  check('连续播放在真实/虚拟计时器下均推进',+stopped>0&&host.dataset.running==='false');
+  await delay(150);check('pause停止时间',host.dataset.simulationTime===stopped);
+  const scene=new URLSearchParams(location.search).get('scene')||'baseline';preset(scene==='heavy'?'heavy':scene==='variable'?'variable':'baseline');
+  if(scene!=='initial')action('fast');layout('最终展示');
+  api.destroy();const destroyed=host.dataset.simulationTime;action('start');await delay(150);check('destroy清理计时器和事件',host.dataset.running==='false'&&host.dataset.simulationTime===destroyed);
+}catch(error){check(error.stack,false);}
+document.querySelector('#result').textContent=(failures.length?'FAIL: '+failures.length:'PASS: '+results.length)+'\n'+results.join('\n');
+document.documentElement.dataset.testStatus=failures.length?'fail':'pass';
+</script></html>

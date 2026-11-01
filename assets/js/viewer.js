@@ -9,6 +9,12 @@ const loader = $('#loader'), loaderMsg = $('#loader-msg');
 let deck = null, N = 0, idx = -1, step = 0, cur = null, channel = null;
 let route = null;
 let liveDemo = null, demoGeneration = 0;
+const LIVE_DEMOS = {
+  queue: () => import('./queue-demo.js').then(module => module.mountQueueDemo),
+  'mm-queue': () => import('./mm-queue-demo.js').then(module => module.mountMMQueueDemo),
+  mg1: () => import('./mg1-demo.js').then(module => module.mountMG1Demo),
+  'network-queue': () => import('./network-queue-demo.js').then(module => module.mountNetworkQueueDemo),
+};
 
 /* Only the main slide mounts live controls. Thumbnails, speaker previews and
    printed pages keep the useful static content stored in the slide source. */
@@ -20,15 +26,16 @@ function disposeDemo() {
   document.body.classList.remove('interactive-slide');
 }
 async function mountDemo(slide) {
-  const host = slide.querySelector('[data-live-demo="queue"]');
-  if (!host) return;
+  const host = slide.querySelector('[data-live-demo]');
+  const load = host && LIVE_DEMOS[host.dataset.liveDemo];
+  if (!load) return;
   document.body.classList.add('interactive-slide');
   const generation = demoGeneration, fallback = host.innerHTML;
   try {
-    const { mountQueueDemo } = await import('./queue-demo.js');
+    const mount = await load();
     // The user may have changed slides before the module finished loading.
     if (generation !== demoGeneration || cur?.el !== slide || !host.isConnected) return;
-    liveDemo = mountQueueDemo(host);
+    liveDemo = mount(host);
     if (document.hidden || !$('#overview').hidden || !$('#notes').hidden || !$('#help').hidden || !$('#blackout').hidden) pauseDemo();
   } catch (error) {
     if (generation !== demoGeneration || cur?.el !== slide) return;
@@ -38,7 +45,7 @@ async function mountDemo(slide) {
     message.style.cssText = 'font-size:28px;line-height:1.4;color:#B4381F;margin-top:20px';
     message.textContent = '互动演示暂时未能加载。可先按本页步骤讨论，刷新页面后重试。';
     host.appendChild(message);
-    console.error('Queue demo could not load:', error);
+    console.error('Live demo could not load:', error);
   }
 }
 function toggleBlackout() {

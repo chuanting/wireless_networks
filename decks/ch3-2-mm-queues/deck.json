@@ -36,7 +36,8 @@
     "ex1",
     "ex2",
     "summary",
-    "project"
+    "project",
+    "mm-queue-demo"
   ],
   "sections": {
     "s0": {
@@ -62,6 +63,10 @@
     "s5": {
       "description": "练习、回顾与选做。",
       "start": "ex1"
+    },
+    "s6": {
+      "description": "Live demo：增加服务员，排队还是拒绝？",
+      "start": "mm-queue-demo"
     }
   },
   "faces": {
@@ -110,7 +115,8 @@
         "ex1",
         "ex2",
         "summary",
-        "project"
+        "project",
+        "mm-queue-demo"
       ]
     }
   }

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8">
+<title>开发测试：CPU / I/O 反馈网络</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/viewer.css">
+<style>body{overflow:auto;background:#F6F1E7}#result{position:absolute;top:1100px;left:30px;font:18px/1.5 monospace;white-space:pre-wrap;color:#1e1a16}</style>
+<div id="fixture"></div><pre id="result">RUNNING</pre>
+<script type="module">
+import { NetworkQueueModel, networkTheory } from '../assets/js/network-queue-model.js';
+import { mountNetworkQueueDemo } from '../assets/js/network-queue-demo.js';
+const lines = [], failures = [];
+const close = (a,b,t=1e-9) => Math.abs(a-b) <= t*Math.max(1,Math.abs(a),Math.abs(b));
+const wait = ms => new Promise(resolve => setTimeout(resolve,ms));
+function check(name, pass) { lines.push((pass?'PASS ':'FAIL ')+name); if(!pass) failures.push(name); }
+function conservation(s) {
+  return s.arrived === s.completed+s.count && s.nodes[0].visits === s.arrived+s.nodes[1].completions
+    && s.nodes[1].visits === s.feedbackCount && s.nodes[0].completions === s.completed+s.feedbackCount
+    && s.nodes.every(n => n.visits === n.completions+n.count && close(n.areaN,n.areaQ+n.busyTime));
+}
+function drained(name,s) {
+  check(name+'：全部任务离网且路由守恒', s.drained && s.arrived===s.completed && s.count===0 && conservation(s));
+  check(name+'：精确积分等于全部任务停留时间',close(s.nodes.reduce((a,n)=>a+n.areaN,0),s.totalSojourn));
+  check(name+'：每个节点的访问停留时间积分守恒',s.nodes.every(n=>close(n.areaN,n.totalSojourn)));
+  check(name+'：全网 Little 使用外部任务率',close(s.avgN,s.littleProduct));
+  check(name+'：完整任务 T = 累计等待 + 累计服务',s.recentCompleted.every(p=>close(p.sojourn,p.waitTotal+p.serviceTotal) && p.visits[0]===p.visits[1]+1));
+}
+try {
+  const th=networkTheory();
+  check('教材例子：访问率4/3、负荷0.5/0.6、人数1/1.5、网络T=2.5', th.lambda[0]===4 && th.lambda[1]===3 && close(th.rho[0],.5) && close(th.rho[1],.6) && th.meanN[0]===1 && th.meanN[1]===1.5 && th.meanT===2.5);
+  const overload=networkTheory({feedback:.85}), upgrade=networkTheory({feedback:.85,muIO:10});
+  check('增加反馈只使I/O过载；不输出负数稳态时延',overload.rho[0]<1 && overload.rho[1]>1 && !overload.stable && overload.meanT===null && overload.totalN===null);
+  check('升级I/O恢复稳定，T=6.307692仍高于原教材基线',upgrade.stable && close(upgrade.meanT,6.3076923076923) && upgrade.meanT>th.meanT);
+  check('临界负荷也无稳态',!networkTheory({muIO:3}).stable);
+  check('反馈为零退化为单节点M/M/1',close(networkTheory({feedback:0}).meanT,1/7));
+  const empty=new NetworkQueueModel({gamma:0}); let s=empty.advance(10);
+  check('零到达：空系统、无后续事件、均值有限',s.arrived===0 && s.time===10 && s.nextEventTime===null && [s.meanT,s.avgN,s.observedGamma].every(Number.isFinite));
+  check('无事件时单步安全返回',empty.nextEvent().time===10);
+  drained('空系统排空',empty.drain());
+  check('排空后观察窗口冻结',empty.advance(100).time===10);
+  const a=new NetworkQueueModel(), b=new NetworkQueueModel(), same=new NetworkQueueModel();
+  a.advance(100); same.advance(100); for(let i=0;i<1000;i++)b.advance(.1);
+  s=a.snapshot(); const sb=b.snapshot();
+  check('固定种子重现所有随机轨迹',JSON.stringify(s)===JSON.stringify(same.snapshot()));
+  check('模型结果不依赖动画帧长',s.arrived===sb.arrived && s.completed===sb.completed && close(s.avgN,sb.avgN) && close(s.meanT,sb.meanT));
+  check('运行中任务与每次访问均守恒',conservation(s));
+  check('尚未排空不混用两种样本核对Little',s.littleProduct===null);
+  check('完成任务保留ID与反复访问次数',s.recentCompleted.some(p=>p.visits[0]>1) && s.recentCompleted.every(p=>p.id>0 && p.visits[0]===p.visits[1]+1));
+  const other=new NetworkQueueModel({seed:2027});
+  check('不同种子改变样本轨迹',other.advance(100).nextEventTime!==s.nextEventTime);
+  drained('稳定网络排空',a.drain());
+  const over=new NetworkQueueModel({feedback:.85}); over.advance(300);s=over.snapshot();
+  check('I/O过载产生积压，实际忙碌比例不超过1',s.nodes[1].count>10 && s.nodes.every(n=>n.utilization<=1) && conservation(s));
+  const copied=over.snapshot(); copied.nodes[1].queue[0].id=-1;copied.nodes[1].queue[0].visits[0]=-1;
+  check('快照不可修改模型内部任务',over.snapshot().nodes[1].queue[0].id>0 && over.snapshot().nodes[1].queue[0].visits[0]>0);
+  drained('过载后停止到达',over.drain());
+  const long=new NetworkQueueModel();s=long.advance(20000);
+  check('长样本访问率接近理论4与3',close(s.nodes[0].observedRate,4,.04)&&close(s.nodes[1].observedRate,3,.04));
+  check('长样本网络时延接近2.5秒',close(s.meanT,2.5,.08));
+  check('长样本平均人数接近1与1.5',close(s.nodes[0].avgN,1,.08)&&close(s.nodes[1].avgN,1.5,.08));
+  for(const [name,action] of [['负到达率',()=>new NetworkQueueModel({gamma:-1})],['反馈概率1',()=>new NetworkQueueModel({feedback:1})],['服务率0',()=>new NetworkQueueModel({muIO:0})],['负步长',()=>new NetworkQueueModel().advance(-1)],['无限步长',()=>new NetworkQueueModel().advance(Infinity)]]) {
+    let rejected=false;try{action();}catch(e){rejected=e instanceof RangeError;}check('拒绝'+name,rejected);
+  }
+  const fixture=document.querySelector('#fixture');
+  fixture.innerHTML=await (await fetch('../decks/ch3-4-queue-networks/slides/network-queue-demo.html')).text();
+  const slide=fixture.querySelector('section');slide.classList.add('slide');slide.querySelector('aside').remove();
+  const host=slide.querySelector('[data-live-demo]');let controller=mountNetworkQueueDemo(host);
+  await document.fonts.ready;await wait(150);
+  const click=action=>host.querySelector('[data-action="'+action+'"]').click();
+  const preset=name=>host.querySelector('[data-preset="'+name+'"]').click();
+  function layout(name){
+    const bounds=host.getBoundingClientRect();const bad=[...host.querySelectorAll('*')].filter(el=>{
+      const r=el.getBoundingClientRect();return r.width>0 && (r.left<bounds.left-1 || r.right>bounds.right+1 || r.top<bounds.top-1 || r.bottom>bounds.bottom+1 || (el.tagName!=='INPUT' && el.scrollWidth>el.clientWidth+1));
+    });
+    check(name+'：所有内容在1728×808容器内且没有文本溢出',bad.length===0);
+    if(bad.length)lines.push('LAYOUT '+bad.map(el=>el.className+':'+el.textContent.slice(0,40)).join(' | '));
+  }
+  check('首次挂载已就绪且暂停',host.dataset.demoReady==='true' && host.dataset.running==='false' && +host.dataset.simulationTime===0);
+  layout('初始');click('step');check('下一事件推进并保持暂停',+host.dataset.simulationTime>0 && host.dataset.running==='false');
+  click('reset');click('start');await wait(300);controller.pause();
+  check('自动播放确实推进且pause可停止',+host.dataset.simulationTime>0 && host.dataset.running==='false');
+  const paused=host.dataset.simulationTime;await wait(100);check('暂停后时钟不变',host.dataset.simulationTime===paused);
+  preset('feedback');check('反馈预设准确显示无稳态和需求率',host.querySelector('[data-out="theory-t"]').textContent==='无稳态平均时延' && host.querySelector('[data-out="flow-values"]').textContent.includes('6.67'));
+  for(let i=0;i<10;i++)click('fast');layout('过载300秒');
+  check('观察时长上限可控且能继续排空',+host.dataset.simulationTime===300 && host.querySelector('[data-action="fast"]').disabled && !host.querySelector('[data-action="drain"]').disabled);
+  click('drain');click('fast');check('停止到达后可立即排空并显示完整样本关系',host.dataset.drained==='true' && host.querySelector('[data-out="little-equation"]').classList.contains('verified'));layout('过载后排空');
+  preset('upgrade');check('升级预设恢复稳定并显示6.31秒',host.querySelector('[data-out="theory-t"]').textContent==='T = 6.31 s');
+  const field=host.querySelector('[data-field="gamma"]');click('fast');field.value='1.2';field.dispatchEvent(new Event('input',{bubbles:true}));
+  check('修改参数重新开始并暂停',+host.dataset.simulationTime===0 && host.dataset.running==='false');
+  for(const [key,value] of Object.entries({gamma:2,feedback:.9,muCPU:4,muIO:2})){
+    const input=host.querySelector('[data-field="'+key+'"]');input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));
+  }
+  for(let i=0;i<10;i++)click('fast');layout('最高输入与最低服务率');click('drain');click('fast');layout('极端过载排空');
+  check('极端参数亦可完整排空',host.dataset.drained==='true');preset('baseline');
+  click('start');controller.destroy();const destroyed=host.dataset.simulationTime;await wait(100);check('destroy取消计时器并移除交互',host.dataset.simulationTime===destroyed && host.dataset.running==='false');
+  controller=mountNetworkQueueDemo(host);preset('baseline');
+  const scene=new URLSearchParams(location.search).get('scene');
+  if(scene==='feedback'||scene==='drained'){preset('feedback');for(let i=0;i<10;i++)click('fast');if(scene==='drained'){click('drain');click('fast');}}
+  else if(scene==='upgrade'){preset('upgrade');for(let i=0;i<4;i++)click('fast');}
+  layout('最终画面');
+  if(scene==='static'){
+    controller.destroy();fixture.innerHTML=await(await fetch('../decks/ch3-4-queue-networks/slides/network-queue-demo.html')).text();
+    fixture.querySelector('section').classList.add('slide');fixture.querySelector('aside').remove();
+  }
+  window.scrollTo(0,0);
+  if(scene==='static'){
+    await wait(100);window.scrollTo(0,0);
+    check('静态页标题完整保留',fixture.querySelector('h2').getBoundingClientRect().top===64);
+  }
+}catch(error){check(error.stack||error.message,false);}
+document.querySelector('#result').textContent=(failures.length?'FAIL: '+failures.length:'PASS: '+lines.filter(l=>l.startsWith('PASS')).length)+'\n'+lines.join('\n');
+document.documentElement.dataset.testStatus=failures.length?'fail':'pass';
+document.title=(failures.length?'FAIL':'PASS')+' · CPU / I/O 反馈网络测试';
+</script></html>
