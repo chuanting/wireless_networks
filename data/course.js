@@ -81,7 +81,7 @@ window.COURSE = {
         {
           no: "3.3", title: "M/G/1 排队系统与 P-K 公式", status: "ready",
           desc: "P-K 公式的推导 · 方差的代价与重传 · 休假与 FDM/TDM/统计复用 · 轮询 · 优先级排队",
-          deck: "ch3-3-mg1", slides: 31, minutes: 110
+          deck: "ch3-3-mg1", slides: 33, minutes: 110
         },
         {
           no: "3.4", title: "排队网络", status: "ready",
