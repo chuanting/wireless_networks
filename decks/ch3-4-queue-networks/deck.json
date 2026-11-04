@@ -9,24 +9,33 @@
   "order": [
     "cover",
     "study-route",
+    "hook",
     "why",
-    "carry",
+    "relay",
     "outflow",
     "burke",
+    "burke-bio",
+    "burke-why",
     "reverse",
     "tandem",
+    "split-merge",
+    "jackson-bio",
     "jmodel",
     "traffic",
     "jthm",
+    "jeg",
     "jfeed",
     "closed",
     "closed-eg",
+    "carry",
+    "kleinrock-bio",
     "kl-why",
     "kl-formula",
     "kl-eg",
     "kl-upgrade",
-    "kl-split",
     "kl-accuracy",
+    "kl-split",
+    "family",
     "chapter",
     "ex1",
     "ex2",
@@ -36,24 +45,24 @@
   ],
   "sections": {
     "s0": {
-      "description": "开场：一个分组要排很多次队，平均时延可以相加，难在每一项怎么算。",
+      "description": "开场：一个具体的问题；平均时延可以相加，难在每一项怎么算；三个问题，三位学者。",
       "start": "cover"
     },
     "s1": {
-      "description": "困难与 Burke 定理：分组长度带着走、输出不一定是泊松；M/M/1 的离开是泊松，串联是乘积形式。",
-      "start": "carry"
+      "description": "第一个问题与 Burke（1956）：队列的输出长什么样；M/M/1 的离开是泊松，串联是乘积形式。",
+      "start": "outflow"
     },
     "s2": {
-      "description": "Jackson 网络：流量方程、乘积形式、反馈的“神奇”、封闭网络。",
-      "start": "jmodel"
+      "description": "第二个问题与 Jackson（1957）：分叉、汇合和回路；流量方程、乘积形式、封闭网络。",
+      "start": "split-merge"
     },
     "s3": {
-      "description": "Kleinrock 近似：网络时延公式、升级与分流的比较、用模拟检验近似。",
-      "start": "kl-why"
+      "description": "第三个问题与 Kleinrock（1964）：分组长度带着走；独立性近似、网络时延公式、近似的检验。",
+      "start": "carry"
     },
     "s4": {
-      "description": "第 3 章的统一视角、练习、回顾与选做。",
-      "start": "chapter"
+      "description": "后来的发展、第 3 章的统一视角、练习、回顾与选做。",
+      "start": "family"
     },
     "s5": {
       "description": "Live demo：CPU / I/O 反馈网络的访问流量、瓶颈与全网 Little 定理。",
@@ -69,33 +78,44 @@
   "designSystems": [],
   "teaching": {
     "objectives": [
-      "说明 Burke 与 Jackson 模型的条件，区分独立服务与固定包长。",
-      "由路由概率解流量方程，再用访问次数和 Little 定理求网络时延。",
-      "用 Kleinrock 近似比较升级或分流方案，并用模拟检验相关性误差。"
+      "说明 Burke、Jackson 定理各自回答什么问题、需要哪些条件，以及 Kleinrock 近似为什么只是近似。",
+      "由路由概率解流量方程，再用访问次数和 Little 定理求开放网络的时延。",
+      "用 Kleinrock 公式算一张小网的时延、比较升级方案，并用模拟检验误差。"
     ],
-    "extensions": [],
+    "extensions": [
+      "reverse",
+      "closed",
+      "closed-eg",
+      "kl-split",
+      "family"
+    ],
     "route": {
-      "core": "先看队列如何相连，再解流量，最后检验独立性近似。",
+      "core": "先抛一个具体问题，再按 Burke、Jackson、Kleinrock 的接力看三个难题怎样被解决，最后回到开头的小网算出答案。",
+      "extension": "倒放录像的证明、封闭网络、随机分流与共用队列、乘积形式的后续发展，按需选讲。",
       "coreSlides": [
         "cover",
         "study-route",
+        "hook",
         "why",
-        "carry",
+        "relay",
         "outflow",
         "burke",
-        "reverse",
+        "burke-bio",
+        "burke-why",
         "tandem",
+        "split-merge",
+        "jackson-bio",
         "jmodel",
         "traffic",
         "jthm",
+        "jeg",
         "jfeed",
-        "closed",
-        "closed-eg",
+        "carry",
+        "kleinrock-bio",
         "kl-why",
         "kl-formula",
         "kl-eg",
         "kl-upgrade",
-        "kl-split",
         "kl-accuracy",
         "chapter",
         "ex1",

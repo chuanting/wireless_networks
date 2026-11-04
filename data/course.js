@@ -85,8 +85,8 @@ window.COURSE = {
         },
         {
           no: "3.4", title: "排队网络", status: "ready",
-          desc: "分组长度带着走 · Burke 定理 · Jackson 开放/封闭网络 · Kleinrock 近似、分流与检验",
-          deck: "ch3-4-queue-networks", slides: 26, minutes: 100
+          desc: "一个具体问题 · Burke、Jackson、Kleinrock 三个定理的来历与人物 · 开放/封闭网络 · 网络时延公式、升级方案与近似检验",
+          deck: "ch3-4-queue-networks", slides: 35, minutes: 100
         }
       ]
     },
