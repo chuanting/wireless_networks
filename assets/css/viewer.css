@@ -136,7 +136,7 @@ body.print #pages { display: block; }
   color: var(--cyan); border-color: var(--cyan); background: rgba(53, 224, 255, .1);
 }
 #ov-route-count { color: var(--muted); font-size: .85rem; }
-#counter { white-space: nowrap; font-size: .85rem; }
+#viewer-page-counter { white-space: nowrap; font-size: .85rem; }
 .route-badge { position: absolute; right: 6px; bottom: 6px; z-index: 2;
   font-size: 12px; line-height: 1.4; padding: 2px 7px; border-radius: 6px;
   background: rgba(3, 6, 15, .86); color: var(--cyan); pointer-events: none; }

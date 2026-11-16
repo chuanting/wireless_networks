@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#03060f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060b18'/%3E%3Cpath d='M9 10l14 4M9 10l5 12M23 14l-9 8' stroke='%2335e0ff' stroke-width='2' fill='none'/%3E%3Ccircle cx='9' cy='10' r='3.2' fill='%2335e0ff'/%3E%3Ccircle cx='23' cy='14' r='3.2' fill='%238b7bff'/%3E%3Ccircle cx='14' cy='22' r='3.2' fill='%2338e8a0'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../assets/css/viewer.css">
+<link rel="stylesheet" href="../assets/css/viewer.css?v=counter-fix">
 </head>
 <body>
 <div id="loader"><div class="spin"></div><p id="loader-msg">正在加载课件…</p></div>
@@ -35,7 +35,7 @@
 </div>
 <div class="bar bottom">
   <button id="btn-prev" type="button" aria-label="上一步">‹</button>
-  <span id="counter" class="mono">1 / 1</span>
+  <span id="viewer-page-counter" class="mono">1 / 1</span>
   <button id="btn-next" type="button" aria-label="下一步">›</button>
   <span id="section" class="section"></span>
   <span class="spacer"></span>
@@ -74,6 +74,6 @@
 </div>
 
 <script src="../data/course.js"></script>
-<script type="module" src="../assets/js/viewer.js"></script>
+<script type="module" src="../assets/js/viewer.js?v=counter-fix"></script>
 </body>
 </html>

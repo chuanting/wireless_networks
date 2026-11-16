@@ -5,6 +5,7 @@ const $ = (s) => document.querySelector(s);
 const q = new URLSearchParams(location.search);
 const deckId = q.get('deck') || '';
 const loader = $('#loader'), loaderMsg = $('#loader-msg');
+const pageCounter = $('#viewer-page-counter');
 
 let deck = null, N = 0, idx = -1, step = 0, cur = null, channel = null;
 let route = null;
@@ -150,7 +151,7 @@ function toggleCore() {
 
 function updateUI() {
   const position = routePosition(route, idx), total = route.indices.length;
-  $('#counter').textContent = (idx + 1) + ' / ' + N + (route.coreOnly ? ' · 核心 ' + position + '/' + total : '');
+  pageCounter.textContent = (idx + 1) + ' / ' + N + (route.coreOnly ? ' · 核心 ' + position + '/' + total : '');
   $('#progress i').style.width = (total > 1 ? (position - 1) / (total - 1) * 100 : 100) + '%';
   const sec = sectionAt(deck, idx);
   $('#section').textContent = sec ? sec.description : '';
