@@ -125,8 +125,8 @@ window.COURSE = {
         },
         {
           no: "5.2", title: "集中式最短路由算法", status: "ready",
-          desc: "宿舍到图书馆的四节点校园网 · 沿图比较路径代价 · 用 Bellman–Ford 逐轮延长路径 · 用 Dijkstra 逐个确定距离 · 改一段链路，重新判断下一跳",
-          deck: "ch5-2-shortest-path", slides: 13, minutes: 39
+          desc: "最短路径问题 · Bellman–Ford（递推、Bellman 方程、证明、负环、运算量）· Dijkstra（三步、例子、证明、不能有负长度）· Floyd–Warshall（矩阵、下一跳）· 三种算法的比较与用途",
+          deck: "ch5-2-shortest-path", slides: 24, minutes: 58
         },
         {
           no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "ready",
