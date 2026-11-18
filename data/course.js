@@ -125,8 +125,8 @@ window.COURSE = {
         },
         {
           no: "5.2", title: "集中式最短路由算法", status: "ready",
-          desc: "最短路径问题 · Bellman–Ford（递推、Bellman 方程、证明、负环、运算量）· Dijkstra（三步、例子、证明、不能有负长度）· Floyd–Warshall（矩阵、下一跳）· 三种算法的比较与用途",
-          deck: "ch5-2-shortest-path", slides: 24, minutes: 58
+          desc: "宿舍到图书馆：在同一张图上手算 Bellman–Ford 和 Dijkstra · 六路由器的下一跳、正确性与负环 · 校园班车的 Floyd–Warshall 全点对距离与下一跳 · 路由协议和链路改价练习",
+          deck: "ch5-2-shortest-path", slides: 32, minutes: 89
         },
         {
           no: "5.3", title: "分布式路由：距离矢量与链路状态", status: "ready",
