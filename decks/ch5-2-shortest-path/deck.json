@@ -5,56 +5,41 @@
     "at": "2026-11-02T00:30:00Z"
   },
   "lists": "css",
-  "title": "集中式最短路径算法：Bellman–Ford、Dijkstra、Floyd–Warshall",
+  "title": "最短路径：从校园网算出下一跳",
   "order": [
     "cover",
     "study-route",
-    "why",
     "problem",
     "bf-idea",
     "bf-example",
     "bf-tree",
     "bf-proof",
-    "bf-neg",
-    "bf-cost",
     "dj-idea",
     "dj-steps",
     "dj-example",
-    "dj-proof",
-    "dj-neg",
-    "fw-idea",
-    "fw-example",
-    "fw-path",
     "compare",
-    "where",
     "ex1",
-    "ex2",
-    "summary",
     "project"
   ],
   "sections": {
     "s0": {
-      "description": "开场：路由表里的下一跳是怎么算出来的。",
+      "description": "从宿舍到图书馆，读懂校园网的四个节点和五条链路。",
       "start": "cover"
     },
     "s1": {
-      "description": "Bellman–Ford：一次多走一条链路，Bellman 方程，证明，负环，运算量。",
+      "description": "把上一轮找到的路再接一段，逐轮改短到图书馆的路线。",
       "start": "bf-idea"
     },
     "s2": {
-      "description": "Dijkstra：由近到远确定节点，三步、例子、证明、不能有负长度。",
+      "description": "从宿舍出发，每次确定一个最近的节点，再试走它的邻边。",
       "start": "dj-idea"
     },
     "s3": {
-      "description": "Floyd–Warshall：一次多允许一个中间节点，例子，下一跳矩阵。",
-      "start": "fw-idea"
-    },
-    "s4": {
-      "description": "三种算法的比较与用途。",
+      "description": "比较两种算法到达同一答案的过程。",
       "start": "compare"
     },
-    "s5": {
-      "description": "练习、回顾与选做。",
+    "s4": {
+      "description": "改变一段链路的代价，独立重算下一跳。",
       "start": "ex1"
     }
   },
@@ -67,37 +52,26 @@
   "designSystems": [],
   "teaching": {
     "objectives": [
-      "在给定加权图上逐步执行 Bellman–Ford、Dijkstra 或 Floyd。",
-      "从距离结果构造下一跳，核对路径长度与是否可达。",
-      "按边权条件、负环和所需路径范围选择算法，并解释原因。"
+      "读懂四个校园路由器之间的连线和代价，把一条路径的各段代价相加。",
+      "用上一轮找到的路再接一段；在非负代价图上，也能用另一种方法逐个确定最近的节点。",
+      "沿记录还原路线，写出第一跳和总代价，并在链路改价后重新判断。"
     ],
     "extensions": [],
     "route": {
-      "core": "每种算法都跟踪中间状态，再比较条件、结果和计算代价。",
+      "core": "先认校园地图，再手算两种方法，最后只改一段链路检验下一跳。",
       "coreSlides": [
         "cover",
         "study-route",
-        "why",
         "problem",
         "bf-idea",
         "bf-example",
         "bf-tree",
         "bf-proof",
-        "bf-neg",
-        "bf-cost",
         "dj-idea",
         "dj-steps",
         "dj-example",
-        "dj-proof",
-        "dj-neg",
-        "fw-idea",
-        "fw-example",
-        "fw-path",
         "compare",
-        "where",
         "ex1",
-        "ex2",
-        "summary",
         "project"
       ]
     }
