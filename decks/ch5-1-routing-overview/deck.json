@@ -17,6 +17,8 @@
     "flowctl",
     "class",
     "where",
+    "ospf-example",
+    "rip-example",
     "adapt",
     "req",
     "table",
@@ -36,6 +38,7 @@
     "adhoc-class",
     "ex1",
     "ex2",
+    "route-check",
     "summary",
     "project"
   ],
@@ -49,11 +52,11 @@
       "start": "task"
     },
     "s2": {
-      "description": "分类与要求：五种分类、集中与分布、静态与自适应、六项要求。",
+      "description": "从信息到选路：本地队列、带权最短路与邻居通告，静态与自适应。",
       "start": "class"
     },
     "s3": {
-      "description": "路由表：下一跳、逐跳转发、环路与 TTL、附加信息、最长前缀匹配。",
+      "description": "路由表：下一跳、逐跳转发、环路与生存时间、附加信息、最长前缀匹配。",
       "start": "table"
     },
     "s4": {
@@ -74,13 +77,13 @@
   "designSystems": [],
   "teaching": {
     "objectives": [
-      "区分路由决策与逐跳转发，按路由表和最长前缀匹配追踪分组。",
-      "比较不同路由目标，说明最短路径与最小时延何时会不同。",
-      "辨认环路、洪泛和分级路由的代价，并选择相应控制办法。"
+      "给定带权拓扑，逐步执行 Dijkstra 算法，写出到目的网的下一跳和总代价。",
+      "给定邻居通告，按距离向量更新规则计算候选距离，写出跳数和下一跳。",
+      "按出口队列为分组选下一跳，并在链路改价后，解释三种方法的选择。"
     ],
     "extensions": [],
     "route": {
-      "core": "选路目标、下一跳转发、信息开销与分级组织。",
+      "core": "在同一张图上手算两种路由协议，比较本地队列规则，按表转发，再用链路改价检验判断。",
       "coreSlides": [
         "cover",
         "study-route",
@@ -92,6 +95,8 @@
         "flowctl",
         "class",
         "where",
+        "ospf-example",
+        "rip-example",
         "adapt",
         "req",
         "table",
@@ -111,6 +116,7 @@
         "adhoc-class",
         "ex1",
         "ex2",
+        "route-check",
         "summary",
         "project"
       ]

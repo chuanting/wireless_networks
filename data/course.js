@@ -120,8 +120,8 @@ window.COURSE = {
       sections: [
         {
           no: "5.1", title: "路由算法概述", status: "ready",
-          desc: "路由要解决什么 · 数据报与虚电路 · 路由的好坏：时延与通过量 · 五种分类与六项要求 · 路由表、逐跳转发、环路与最长前缀匹配 · 洪泛与三种广播 · 分级路由与自治系统 · 自组织网络",
-          deck: "ch5-1-routing-overview", slides: 31, minutes: 70
+          desc: "同图手算带权最短路与距离向量 · 按本地队列选出口 · 路由表、逐跳转发与最长前缀匹配 · 洪泛与广播 · 分级路由与自治系统 · 链路改价后的下一跳",
+          deck: "ch5-1-routing-overview", slides: 34, minutes: 80
         },
         {
           no: "5.2", title: "集中式最短路由算法", status: "ready",
